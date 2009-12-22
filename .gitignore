@@ -1,0 +1,15 @@
+.empty
+.DS_Store
+.idea
+assets/*
+coverage/*
+db/*.sqlite3
+log/*.log
+tmp/*
+public/avatars/*
+public/stylesheets/*.css
+public/stylesheets/pages/*.css
+public/stylesheets/tasks/*.css
+uploads/*
+webrat-*
+capybara-*

@@ -1,0 +1,117 @@
+!primary_color = #313030
+@import fonts.sass
+@import forms.sass
+@import layout.sass
+
+
+body
+  :margin 0
+  :padding 0
+  :background-color = !primary_color
+  :color #636163
+  :font
+    :family arial,helvetica,sans-serif
+    :size 14px
+
+a
+  :color #0000FF
+  img
+    :border none
+
+.clear
+  :clear both
+  :height 0
+  :overflow hidden
+
+
+#flash_notice,
+#flash_error
+  :padding 5px 8px
+  :margin 10px 0
+
+#flash_notice
+  :background-color #CFC
+  :border solid 1px #6C6
+
+#flash_error
+  :background-color #FCC
+  :border solid 1px #C66
+
+.fieldWithErrors
+  :display inline
+
+#errorExplanation
+  :width 400px
+  :border 2px solid #CF0000
+  :padding 0
+  :padding-bottom 12px
+  :margin-bottom 20px
+  :background-color #f0f0f0
+  h2
+    :text-align left
+    :padding 5px 5px 5px 15px
+    :margin 0
+    :font
+      :weight bold
+      :size 12px
+    :background-color #c00
+    :color #fff
+  p
+    :color #333
+    :margin-bottom 0
+    :padding 8px
+  ul
+    :margin 2px 24px
+    li
+      :font-size 12px
+      :list-style disc
+
+#container
+  :position relative
+  :width 100%
+#header
+  :width 100%
+  :height 107px
+  :background-color !primary_color
+  :text-align right
+  img
+    :position absolute
+    :right 46px
+    :top 24px
+#content
+  :width 100%
+  :background-color #fff
+  .middle_background
+    :background-color #d0d0d0
+    :width 100%
+    :height 100%
+    .middle
+      :height 100%
+      :margin 0 auto
+      :background-color #fff
+      :width 880px
+
+.body
+  :padding 50px 30px 30px 30px
+
+#footer
+  :width 100%
+  :position absolute
+  :background-color !primary_color
+  :bottom 30
+  :color #5c5c5c
+  :text-align center
+  :padding-top 30px
+
+
+// Homepage
+.introbox
+  :position absolute
+  :width 404px
+  :height 198px
+.start_sharing
+  :position relative
+  :left 495px
+  :top 26px
+
+// Sign Up

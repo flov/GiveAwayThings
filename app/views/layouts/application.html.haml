@@ -1,0 +1,26 @@
+!!! Strict
+%html{html_attrs}
+  %head
+    %title
+      = h("GiveAwayThings #{yield :title}")
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag 'application'
+    = yield(:head)
+  
+  %body
+
+    #container
+      #header
+        = link_to image_tag('logo.png'),'/'
+      #content
+        .middle_background
+          .middle
+            .body
+              - flash.each do |name, msg|
+                = content_tag :div, msg, :id => "flash_#{name}"
+              - if show_title?
+                %h1=h yield(:title)
+
+              = yield
+      #footer
+        &copy GiveAwayThings
