@@ -13,10 +13,8 @@ body
     :family arial,helvetica,sans-serif
     :size 14px
 
-a
-  :color #0000FF
-  img
-    :border none
+img
+  :border none
 
 .clear
   :clear both
@@ -45,7 +43,7 @@ a
   :border 2px solid #CF0000
   :padding 0
   :padding-bottom 12px
-  :margin-bottom 20px
+  :margin 20px
   :background-color #f0f0f0
   h2
     :text-align left
@@ -70,14 +68,40 @@ a
   :position relative
   :width 100%
 #header
-  :width 100%
+  :width 1000px
   :height 107px
   :background-color !primary_color
-  :text-align right
-  img
-    :position absolute
-    :right 46px
-    :top 24px
+  :margin 0 auto
+  #nav_user
+    :font
+      :family Verdana,arial,helvetica,sans-serif
+    :position relative
+    :top 20px
+    :width 121px
+    :height 42px
+    #nav_user_avatar
+      :float left
+      img
+        :border 2px solid #b3b1b1
+        -webkit-border-radius: 2px
+        -moz-border-radius: 2px
+
+        
+    #nav_user_messages
+      position: absolute
+      :left 56px
+      :top 3px
+      :background url("/images/bubble.png") no-repeat right center
+      :width 65px
+    #nav_user_logout
+      color: #EFB108
+      left: 56px
+      position: absolute
+      top: 20px
+  #logo
+    :position relative
+    :float right
+    :top 20px
 #content
   :width 100%
   :background-color #fff
@@ -106,12 +130,15 @@ a
 
 // Homepage
 .introbox
-  :position absolute
+  :position relative
+  :float left
   :width 404px
-  :height 198px
+  :height 166px
+  :padding-right 30px
 .start_sharing
   :position relative
-  :left 495px
-  :top 26px
+  :padding
+    :bottom 26px
+    :top 26px
 
 // Sign Up

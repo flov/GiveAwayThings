@@ -11,7 +11,15 @@
 
     #container
       #header
-        = link_to image_tag('logo.png'),'/'
+        #logo= link_to image_tag('logo.png'),'/'
+        #nav_user
+          %a#nav_user_messages{:href=>"/inbox"}
+            %span 0 new
+          %a#nav_user_logout=link_to
+          %a#nav_user_avatar{:href=>""}
+            = image_tag "avatar_kirk.png", :width=>36, :height => 36
+
+
       #content
         .middle_background
           .middle
