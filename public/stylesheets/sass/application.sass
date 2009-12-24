@@ -73,6 +73,8 @@ img
   :background-color !primary_color
   :margin 0 auto
   #nav_user
+    a
+      :color #C3C3C3      
     :font
       :family Verdana,arial,helvetica,sans-serif
     :position relative
@@ -115,9 +117,6 @@ img
       :background-color #fff
       :width 880px
 
-.body
-  :padding 50px 30px 30px 30px
-
 #footer
   :width 100%
   :position absolute
@@ -126,6 +125,8 @@ img
   :color #5c5c5c
   :text-align center
   :padding-top 30px
+.body
+  :padding 50px 30px 30px 30px
 
 
 // Homepage
@@ -142,3 +143,31 @@ img
     :top 26px
 
 // Sign Up
+
+// People_Index
+!people_index_width = 580px
+.people_index
+  width = !people_index_width
+  :text-align center
+.people_nav
+  :text-align center
+  :float right
+  :font-weight bold
+  :border-left 1px solid #bdbebd
+  width = 820px - !people_index_width
+  a
+    :font-size 20px
+.people_nav_box
+  :padding
+    :top 10px
+    :bottom 30px
+.people_nav_give
+  h2
+    :color #60c14f
+    :margin 4px 0 0 
+  a
+    :color #46a038
+
+.deco
+  :background url("/images/line_deco.png") no-repeat bottom center
+
