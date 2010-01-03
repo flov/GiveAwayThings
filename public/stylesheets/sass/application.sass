@@ -115,10 +115,11 @@ img
       :height 100%
       :margin 0 auto
       :background-color #fff
-      :width 880px
+      :width 881px
 
 #footer
   :width 100%
+  :clear both
   :position absolute
   :background-color !primary_color
   :bottom 30
@@ -126,7 +127,7 @@ img
   :text-align center
   :padding-top 30px
 .body
-  :padding 50px 30px 30px 30px
+  :padding 50px 30px
 
 
 // Homepage
@@ -144,30 +145,37 @@ img
 
 // Sign Up
 
+
 // People_Index
+.clear
+  :clear both
+  :margin 0
+  :padding 0
+
 !people_index_width = 580px
 .people_index
   width = !people_index_width
   :text-align center
-.people_nav
+  :float left
+.people_sidebar
   :text-align center
   :float right
   :font-weight bold
   :border-left 1px solid #bdbebd
-  width = 820px - !people_index_width
+  :width 160px
   a
-    :font-size 20px
+    :font-size 18px
 .people_nav_box
-  :padding
-    :top 10px
-    :bottom 30px
+  :padding 10px 0 10px 30px
+  :text-align left
 .people_nav_give
+  :padding 5px 0
   h2
     :color #60c14f
     :margin 4px 0 0 
   a
     :color #46a038
 
-.deco
-  :background url("/images/line_deco.png") no-repeat bottom center
+.delimiter
+  :border-bottom 1px solid #cdcdcd
 

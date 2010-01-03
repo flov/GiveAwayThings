@@ -5,6 +5,14 @@
       = h("GiveAwayThings #{yield :title}")
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     = stylesheet_link_tag 'application'
+    = javascript_include_tag 'jquery-1.3.2.min', 'jquery.infieldlabel.min'
+    = javascript_include_tag 'application'
+    /[if IE]
+      %style{:type=>"text/css", :media=>"screen"}
+        form label {
+        background: #fff;
+        }
+
     = yield(:head)
   
   %body
