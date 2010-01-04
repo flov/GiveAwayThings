@@ -29,6 +29,11 @@
           Confirm it
           %p.details Type your password again
         %td= f.password_field :password_confirmation
+      %tr
+        %th
+          Gender
+          %p.details
+        %td= select_tag(:gender, options_for_select([['male', '0'], ['female','1']]))
   %p
     .submit= f.submit "Sign up"
 
