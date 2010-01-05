@@ -31,8 +31,23 @@
         %td= f.password_field :password_confirmation
       %tr
         %th
+          Country
+          %p.details Where do you come from?
+        %td= localized_country_select(:user, :country, [], :include_blank => 'Please choose...')
+      %tr
+        %th
+          City
+          %p.details This is important for sharing
+        %td= f.text_field :city
+      %tr
+        %th
+          Street
+          %p.details This is important for sharing
+        %td= f.text_field :street
+      %tr
+        %th
           Gender
-          %p.details
+          %p.details Gives you a default avatar depending on your gender
         %td= select_tag(:gender, options_for_select([['male', '0'], ['female','1']]))
   %p
     .submit= f.submit "Sign up"
