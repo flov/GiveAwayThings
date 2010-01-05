@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     @item = Item.new(params[:item])
     if @item.save
       flash[:notice] = "Thank you for giving things away! '#{@item.title}' can now be found by others."
-      redirect_to root_url
+      redirect_to welcome_path
     else
       redirect_to welcome_path 
     end
