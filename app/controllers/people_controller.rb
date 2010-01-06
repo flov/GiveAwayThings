@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   def index
-    redirect_to root_path unless logged_in?
+
     @item = Item.new
   end
 
@@ -9,8 +9,6 @@ class PeopleController < ApplicationController
   end
   
   def create
-
-    raise 'error'
     @person = Person.new(params[:person])
     if @person.save
       session[:person_id] = @person.id
