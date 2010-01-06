@@ -15,11 +15,8 @@
     #container
       #header
         #logo= link_to image_tag('logo.png'),'/'
-        #nav_user
-          %a#nav_user_messages{:href=>"/inbox"} 0 new
-          = link_to 'logout', logout_path, :id => "nav_user_logout"
-          = link_to image_tag("avatar_kirk.png", :width=>36, :height => 36),welcome_path,:id => 'nav_user_avatar'
-
+        =render :partial => 'shared/avatar_header' if logged_in?
+        =render :partial => 'shared/login_box' unless logged_in?
 
       #content
         .middle_background

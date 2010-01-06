@@ -7,8 +7,7 @@ class ItemsController < ApplicationController
       flash[:notice] = "Thank you for giving things away! '#{@item.title}' can now be found by others."
       redirect_to welcome_path
     else
-      flash[:error] = "We are sorry, but the item could not be created."
-      redirect_to welcome_path 
+      render :action => '../people/index' 
     end
   end
 

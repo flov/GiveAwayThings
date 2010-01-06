@@ -1,0 +1,4 @@
+#nav_user
+  %a#nav_user_messages{:href=>"/inbox"} 0 new
+  = link_to 'logout', logout_path, :id => "nav_user_logout"
+  = link_to image_tag("avatar_kirk.png", :width=>36, :height => 36),welcome_path,:id => 'nav_user_avatar'

@@ -1,9 +1,12 @@
+- title "- for a sustainable society"
+
 #wrapper
   .people_index
     %h1 Welcome Florian
     #be_generous
-      %h2 be generous and give a thing away
       -form_for @item do |f|
+        = f.error_messages
+        %h2 be generous and give a thing away
         %table.welcome_form
           %tr
             %td
