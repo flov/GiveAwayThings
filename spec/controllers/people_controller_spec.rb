@@ -4,8 +4,21 @@ describe PeopleController do
   fixtures :all
   integrate_views
   
-  it "index action should render index template" do
-    get :index
-    response.should render_template(:index)
+  it "new action should render new template" do
+    get :new
+    response.should render_template(:new)
+  end
+  
+  it "create action should render new template when model is invalid" do
+    Person.any_instance.stubs(:valid?).returns(false)
+    post :create
+    response.should render_template(:new)
+  end
+  
+  it "create action should redirect when model is valid" do
+    Person.any_instance.stubs(:valid?).returns(true)
+    post :create
+    response.should redirect_to(root_url)
+    session['person_id'].should == assigns['person'].id
   end
 end

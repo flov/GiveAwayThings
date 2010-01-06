@@ -1,53 +1,24 @@
 - title "Sign up"
-.new_signup
-  %h1 Signing up is easy
 
+%p== Already have an account? #{link_to "Log in", login_path}.
 
 - form_for @person do |f|
   = f.error_messages
-  #gateway
-    %table.form
-      %tr
-        %th
-          Username
-          %p.details 4-15 letters and numbers
-        %td
-          = f.text_field :username
-      %tr
-        %th
-          Email
-          %p.details We won't share, sell, or spam
-        %td
-          = f.text_field :email
-      %tr
-        %th
-          Password
-          %p.details At least 5 characters
-        %td= f.password_field :password
-      %tr
-        %th
-          Confirm it
-          %p.details Type your password again
-        %td= f.password_field :password_confirmation
-      %tr
-        %th
-          Country
-          %p.details Where do you come from?
-        %td=# f.localized_country_select :country, [], :include_blank => 'Please choose...'
-      %tr
-        %th
-          City
-          %p.details This is important for sharing
-        %td=# f.text_field :city
-      %tr
-        %th
-          Street
-          %p.details This is important for sharing
-        %td=# f.text_field :street
-      %tr
-        %th
-          Gender
-          %p.details Gives you a default avatar depending on your gender
-        %td=# select_tag(:gender, options_for_select([['male', '0'], ['female','1']]))
   %p
-    .submit= f.submit "Sign up"
+    = f.label :username
+    %br
+    = f.text_field :username
+  %p
+    = f.label :email, "Email Address"
+    %br
+    = f.text_field :email
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation, "Confirm Password"
+    %br
+    = f.password_field :password_confirmation
+  %p
+    = f.submit "Sign up"
