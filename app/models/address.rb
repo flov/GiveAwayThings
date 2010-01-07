@@ -1,7 +1,7 @@
 class Address < ActiveRecord::Base
 
   belongs_to :person
-  belongs_to :item
+  has_many :items
 
   concerned_with :validation
   

@@ -2,14 +2,16 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.new
+
   end  
 
   def create
     @item = Item.new(params[:item])
-    @item.person=current_person
+    @item.person_id=current_person.id
+    @item.address=current_person.addresses.first
     if @item.save
       flash[:notice] = "Thank you for giving things away! '#{@item.title}' can now be found by others."
-      redirect_to items_path
+      redirect_to signup_path
     else
       render :index
     end
