@@ -1,0 +1,19 @@
+- form_tag '/city/', :method => 'get' do
+  %table.welcome_form
+    %tr
+      %td
+        .in_field_label
+          %label{:for=>'search_city'} search city
+          = text_field_tag :search, nil, :size => 36, :id=>'search_city'
+      %td
+        = image_submit_tag "searchbutton.png", :class => 'giveaway_submit'
+
+- form_tag '/item/', :method => 'get' do
+  %table.welcome_form
+    %tr
+      %td
+        .in_field_label
+          %label{:for=>'search_item'} search item
+          = text_field_tag :search, nil, :size => 36, :id=>'search_item'
+      %td
+        = image_submit_tag "searchbutton.png", :class => 'giveaway_submit'

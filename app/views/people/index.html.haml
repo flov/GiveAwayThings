@@ -4,26 +4,13 @@
   .people_index
     %h1 Welcome Florian
     #be_generous
-      -form_for @item do |f|
-        = f.error_messages
-        %h2 be generous and give a thing away
-        %table.welcome_form
-          %tr
-            %td
-              .in_field_label
-                %label{:for=>'item_title'} type in item
-                = f.text_field :title, :size => 36
-            %td
-              = image_submit_tag "giveawaybutton.png", :class => 'giveaway_submit'
-          %tr.hide_me#item_description_fields
-            %td{:colspan=>2}
-              .in_field_label
-                %label{:for=>'item_description'} describe item
-                = f.text_area :description, :rows => 15, :cols=>48
+      %h2 be generous and give a thing away
+      =render :partial => 'item', :locals => {:item => @item} 
     %h3 OR
     #be_thankful
       %h2 be thankful and pick a thing up
-      -# Forms...
+      =render :partial => 'searchcity'
+
   
   .people_sidebar
     .people_nav_box.delimiter

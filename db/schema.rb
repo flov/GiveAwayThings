@@ -9,14 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100105204433) do
+ActiveRecord::Schema.define(:version => 20100106234948) do
 
   create_table "addresses", :force => true do |t|
     t.string "street"
     t.string "city"
-    t.string "zip"
     t.string "country"
     t.string "state"
+    t.integer "person_id"
   end
 
   create_table "items", :force => true do |t|
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100105204433) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
+    t.integer  "address_id"
   end
 
   create_table "people", :force => true do |t|

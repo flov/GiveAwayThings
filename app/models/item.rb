@@ -3,5 +3,6 @@ class Item < ActiveRecord::Base
 
   belongs_to :person
   belongs_to :address
+  validates_associated :address
   
 end

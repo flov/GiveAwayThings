@@ -6,7 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.welcome 'welcome', :controller => 'people', :action => 'index'
   map.resources :sessions
   map.resources :items
-  
+  map.resources :cities
+
   map.resources :people, :has_many => :items
 
   map.root :controller => "people"
