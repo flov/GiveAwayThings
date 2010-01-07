@@ -1,0 +1,27 @@
+- title "- for a sustainable society"
+
+#wrapper
+  .people_index
+    %h1 Welcome Florian
+    #be_generous
+      %h2 be generous and give a thing away
+      =render :partial => 'item', :locals => {:item => @item}
+    %h3 OR
+    #be_thankful
+      %h2 be thankful and pick a thing up
+      =render :partial => 'searchcity'
+
+
+  .people_sidebar
+    .people_nav_box.delimiter
+      %a{:href => ""}Your Items
+      %br/
+      %a{:href => ""}Your Profile
+      %br/
+      %a{:href => ""}Settings
+    .people_nav_give
+      %h2 You Gave
+      %a{:href=>""}1 Thing
+      %h2 You Took
+      %a{:href=>""} 3 Things
+  .clear    
