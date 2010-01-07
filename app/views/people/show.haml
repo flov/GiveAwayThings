@@ -1,0 +1,25 @@
+- title "Sign up"
+
+= error_messages_for 'person'
+- form_for @person do |f|
+  Username
+  = f.text_field :username
+  %br
+  Email
+  = f.text_field :email
+  %br
+  Password
+  = f.password_field :password
+  %br
+  Confirm it
+  = f.password_field :password_confirmation
+  - @person.addresses.each do |address|
+    - fields_for "person[address_attributes][]",address  do |address_form|
+      %br
+      City
+      = address_form.text_field :city
+      %br
+      Street
+      = address_form.text_field :street
+  %p
+    .submit= f.submit "Sign up"

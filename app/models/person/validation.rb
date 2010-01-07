@@ -1,4 +1,6 @@
 class Person
+
+  validates_associated      :addresses, :items  
   
   validates_presence_of     :username
   validates_uniqueness_of   :username, :email, :allow_blank => true
