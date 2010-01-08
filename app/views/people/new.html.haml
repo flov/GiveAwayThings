@@ -1,5 +1,6 @@
 - title "Sign up"
 
+%h1 Sign Up
 %p== Already have an account? #{link_to "Log in", login_path}.
 
 - form_for @person do |f|
@@ -46,4 +47,4 @@
           %td= address_form.text_field :street
 
   %p
-    = f.submit "Sign up"
+    .submit.center= f.submit "Sign up"

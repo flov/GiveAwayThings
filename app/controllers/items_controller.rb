@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
-
   def index
-    @item = Item.new
+    @items = Item.search(params[:search])
   end
 
   def create
@@ -10,10 +9,18 @@ class ItemsController < ApplicationController
     @item.address_id = current_person.addresses.first.id
     if @item.save
       flash[:notice] = "Thank you for giving things away! '#{@item.title}' can now be found by others."
-      redirect_to signup_path
+      redirect_to welcome_path
     else
-      render :index
+      render :text => 'failed'
     end
+  end
+
+  def search_city
+    
+  end
+
+  def new
+    
   end
 
   def show

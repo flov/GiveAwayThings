@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  def index
+  def welcome
     @item = Item.new
   end
   

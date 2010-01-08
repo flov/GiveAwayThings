@@ -1,9 +1,4 @@
-%h1
-  -unless params[:search].empty?
-    ="Results for: <span class='search_result_title'>#{params[:search]}</span>"
-  -else
-    ="All Items"
-
+%h1="Results for: <span class='search_result_title'>#{params[:search]}</span>"
 %table
   %tr
     %th Title
@@ -16,8 +11,8 @@
       %td=item.title
       %td=item.address.country
       %td=item.address.city
+      %td=item.person
       %td=time_ago_in_words item.created_at
-      %td=item.person.username
 
 -#-@items.each do |item|
 -#  =item.title
