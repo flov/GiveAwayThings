@@ -12,15 +12,16 @@ table.welcome_form
 
 .giveaway_submit
   :background none
+  
 input
-  font-size: 28px
+  font-size: 22px
   padding: 7px
   background: #FFFFFF url("/images/input_bg.gif") no-repeat scroll left top
   border-color: #F7F7F7
   border-style: solid
   border-width: 0 1px 1px 0
 select, textarea
-  font-size: 20px
+  font-size: 15px
   padding: 7px
   border: 1px solid #bbb
   
@@ -43,18 +44,30 @@ form.dashboard
     size
 #gateway
   :margin-top 22px
-form .in_field_label
-  :position relative
-.in_field_label label
-  :position absolute
-  :top 0
-  :left 0
-  :color #CDCDCD
-  :font-size 32px
-  :font-weight bold
-  :margin-left 8px
-  :margin-top 2px
-  :padding 1px
+
+form
+  .item_field
+    :width 535px
+  .in_field_label
+    :position relative
+    :margin 0 auto
+    label
+      :position absolute
+      :top 0
+      :left 0
+      :color #CDCDCD
+      :font-size 27px
+      :font-weight bold
+      :margin-left 8px
+      :margin-top 2px
+      :padding 1px
+
+.search_form
+  :width 535px
+.search_text_field
+  :float left
+.search_submit_tag
+  :float right
 
 .hide_me
   :display none

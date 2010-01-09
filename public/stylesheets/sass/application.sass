@@ -5,56 +5,11 @@
 @import default.sass
 
 
-body
-  :margin 0
-  :padding 0
-  :background-color = !primary_color
-  :color #636163
-  :font
-    :family arial,helvetica,sans-serif
-    :size 14px
-
-img
-  :border none
-
-.clear
-  :clear both
-  :height 0
-  :overflow hidden
-
-
-#flash_notice,
-#flash_error
-  :padding 5px 8px
-  :margin 10px 0
-
-#flash_notice
-  :background-color #CFC
-  :border solid 1px #6C6
-
-#flash_error
-  :background-color #FCC
-  :border solid 1px #C66
-
-.fieldWithErrors
-  :display inline
-
-#errorExplanation
-  :width 400px
-  :text-align left
-  :margin 20px
-  h2
-    :font
-      :weight bold
-      :size 12px
-  ul
-    li
-      :font-size 12px
-      :list-style disc
-
 #container
   :position relative
   :width 100%
+.body
+  :padding 20px
 #header
   :width 1000px
   :height 107px
@@ -115,9 +70,6 @@ img
   :color #5c5c5c
   :text-align center
   :padding-top 30px
-.body
-  :padding 25px 30px
-
 
 // Homepage
 .introbox
@@ -134,17 +86,13 @@ img
 
 
 // People_Index
-.clear
-  :clear both
-  :margin 0
-  :padding 0
-
 .people_index
-  :width 660px
+  :width 680px
   :text-align center
-  :border-right 1px solid #BDBEBD
   :float left
+  :border-right 1px solid #BDBEBD
 .people_sidebar
+  :padding-top 20px 10px
   :text-align center
   :float right
   :font-weight bold
@@ -155,10 +103,10 @@ img
   :padding 10px 0 10px 30px
   :text-align left
 .people_nav_give
-  :padding 5px 0
+  :padding 20px 0
   h2
     :color #60c14f
-    :margin 4px 0 0 
+    :margin 4px 0 0
   a
     :color #46a038
 

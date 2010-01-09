@@ -3,18 +3,16 @@
 #wrapper
   .people_index
     %h1 Welcome Florian
-    #be_generous
-      %h2 be generous and give a thing away
-      =render :partial => 'items/item', :locals => {:item => @item}
+    %h2 be generous and give a thing away
+    =render :partial => 'items/item', :locals => {:item => @item}
     %h3 OR
-    #be_thankful
-      %h2 be thankful and pick a thing up
-      =render :partial => 'items/search', :object => "items"
-      =render :partial => 'items/search', :object => "cities"
+    %h2 be thankful and pick a thing up
+    =#render :partial => 'items/search', :object => "items"
+    =#render :partial => 'items/search', :object => "cities"
 
 
   .people_sidebar
-    .people_nav_box.delimiter
+    -#.people_nav_box.delimiter
       %a{:href => ""}Your Items
       %br/
       %a{:href => ""}Your Profile
