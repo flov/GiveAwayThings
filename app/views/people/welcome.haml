@@ -22,7 +22,9 @@
       %a{:href => ""}Settings
     .welcome_nav_give
       %h2 You Gave
-      %a{:href=>""}1 Thing
+      %a{:href=>""}=pluralize(1,'Thing')
       %h2 You Took
       %a{:href=>""} 3 Things
+      %h2 You Offer
+      %a{:href=>""} 9 Things
   .clear

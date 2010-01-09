@@ -7,6 +7,7 @@ class Person < ActiveRecord::Base
 
   has_many :addresses
   has_many :items
+  has_many :requests
   accepts_nested_attributes_for :addresses, :items
 
   attr_accessor :password
