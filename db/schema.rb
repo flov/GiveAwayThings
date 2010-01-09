@@ -9,14 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100108001652) do
+ActiveRecord::Schema.define(:version => 20100109155603) do
 
-  create_table "addresses", :force => true do |t|
+  create_table :addresses, :force => true do |t|
     t.string "street"
     t.string "city"
     t.string "country"
     t.string "state"
     t.integer "person_id"
+  end
+
+  create_table :categories, :force => true do |t|
+    t.string   :name
   end
 
   create_table "items", :force => true do |t|
