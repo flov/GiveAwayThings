@@ -2,7 +2,9 @@
 
 #wrapper
   .welcome_content
-    %h1 Welcome Florian
+    %h1
+      Welcome
+      =current_person.username if logged_in?
     %h2 be generous and give a thing away
     =render :partial => 'items/item', :locals => {:item => @item}
     %h3 OR
