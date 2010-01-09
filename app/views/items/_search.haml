@@ -6,3 +6,4 @@
     .float_right
       = image_submit_tag "searchbutton.png", :class => 'image_submit'
     .clear
+    =#select("post", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'})
