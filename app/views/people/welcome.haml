@@ -14,17 +14,19 @@
 
 
   .welcome_sidebar
-    -#.welcome_nav_box.delimiter
-      %a{:href => ""}Your Items
-      %br/
-      %a{:href => ""}Your Profile
-      %br/
-      %a{:href => ""}Settings
     .welcome_nav_give
       %h2 You Gave
-      %a{:href=>""}=pluralize(1,'Thing')
+      %a{:href=>""}
+      -if logged_in?
+        =pluralize(current_person.items.taken_by_not_null.size,'Thing')
+      -else
+        =link_to '0 Things', signup_path
       %h2 You Took
-      %a{:href=>""} 3 Things
+      %a{:href=>""} 0 Things
       %h2 You Offer
-      %a{:href=>""} 9 Things
+      -if logged_in?
+        =pluralize(current_person.items.taken_by_null.size,'Thing')
+      -else
+        =link_to '0 Things', signup_path
+
   .clear
