@@ -1,10 +1,11 @@
--form_for item do |f|
-  = f.error_messages
-  .in_field_label
-    %label{:for=>'item_title'} type in item
-    = f.text_field :title, :size => 36
-    = image_submit_tag "giveawaybutton.png", :class => 'giveaway_submit'
+.item_form
+  -form_for item do |f|
+    = f.error_messages
+    .in_field_label
+      %label{:for=>'item_title'} type in item
+      = f.text_field :title, :size => 47
     .hide_me#item_description_fields
       .in_field_label
         %label{:for=>'item_description'} describe item
-      = f.text_area :description, :rows => 15, :cols=>48
+        = f.text_area :description, :rows => 15, :cols=>55
+    .center= image_submit_tag "giveawaybutton.png", :class => 'image_submit'

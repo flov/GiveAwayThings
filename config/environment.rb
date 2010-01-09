@@ -12,7 +12,7 @@ Rails::Initializer.run do |config|
   # -- all .rb files in that directory are automatically loaded.
 
   # Add additional load paths for your own custom dirs
-  # config.load_paths += %W( #{RAILS_ROOT}/extras )
+  # config.load_paths += %W( #{RAILS_ROOT}/extras )     wa
 
   config.gem "haml"
   config.gem "searchlogic"

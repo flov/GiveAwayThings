@@ -5,46 +5,45 @@
 
 - form_for @person do |f|
   = f.error_messages
-  #gateway
-    %table.form
+  %table.form
+    %tr
+      %th
+        Username
+        %p.details 4-15 letters and numbers
+      %td
+        = f.text_field :username
+    %tr
+      %th
+        Email
+        %p.details We won't share, sell, or spam
+      %td
+        = f.text_field :email
+    %tr
+      %th
+        Password
+        %p.details At least 5 characters
+      %td= f.password_field :password
+    %tr
+      %th
+        Confirm it
+        %p.details Type your password again
+      %td= f.password_field :password_confirmation
+    - fields_for "person[address_attributes][]", @person.addresses.first do |address_form|
       %tr
         %th
-          Username
-          %p.details 4-15 letters and numbers
-        %td
-          = f.text_field :username
+          Country
+          %p.details Where do you come from?
+        %td= address_form.localized_country_select :country, [], :include_blank => 'Please choose...'
       %tr
         %th
-          Email
-          %p.details We won't share, sell, or spam
-        %td
-          = f.text_field :email
+          City
+          %p.details This is important for sharing
+        %td= address_form.text_field :city
       %tr
         %th
-          Password
-          %p.details At least 5 characters
-        %td= f.password_field :password
-      %tr
-        %th
-          Confirm it
-          %p.details Type your password again
-        %td= f.password_field :password_confirmation
-      - fields_for "person[address_attributes][]", @person.addresses.first do |address_form|
-        %tr
-          %th
-            Country
-            %p.details Where do you come from?
-          %td= address_form.localized_country_select :country, [], :include_blank => 'Please choose...'
-        %tr
-          %th
-            City
-            %p.details This is important for sharing
-          %td= address_form.text_field :city
-        %tr
-          %th
-            Street
-            %p.details Will not be displayed publicly
-          %td= address_form.text_field :street
+          Street
+          %p.details Will not be displayed publicly
+        %td= address_form.text_field :street
 
   %p
     .submit.center= f.submit "Sign up"

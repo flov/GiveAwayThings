@@ -2,14 +2,12 @@
 $(document).ready(function(){
   //required for in field label
   $(".in_field_label label").inFieldLabels();
-
-
-  $("textarea#item_description").blur(function(){
-    $("tr#item_description_fields").hide();
+  
+  $("input#item_title").click(function(){
+    $("#item_description_fields").slideDown()
   })
 
-  //dashboard form
-  $("input#item_title").click(function(){
-    $("#item_description_fields").show()
+  $("textarea#item_description").blur(function(){
+    $("#item_description_fields").slideUp();
   })
 });
