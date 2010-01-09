@@ -18,14 +18,14 @@
       %h2 You Gave
       %a{:href=>""}
       -if logged_in?
-        =pluralize(current_person.items.taken_by_not_null.size,'Thing')
+        =link_to pluralize(current_person.items.taken_by_not_null.size,'Thing')
       -else
         =link_to '0 Things', signup_path
       %h2 You Took
       %a{:href=>""} 0 Things
       %h2 You Offer
       -if logged_in?
-        =pluralize(current_person.items.taken_by_null.size,'Thing')
+        =link_to pluralize(current_person.items.taken_by_null.size,'Thing')
       -else
         =link_to '0 Things', signup_path
 
