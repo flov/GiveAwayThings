@@ -7,5 +7,5 @@
       = image_submit_tag "searchbutton.png", :class => 'image_submit'
     .clear
     %div{:class=>'select_boxes hide_me', :id=>"search_select_#{search}"}
-      =select(:address, :country, Address.all.collect{|p| [p.country]}.uniq!, {:include_blank => "Country"})
+      =select(:address, :country, @countries, {:include_blank => "Country"}) if @countries
     

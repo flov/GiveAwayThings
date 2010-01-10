@@ -6,6 +6,7 @@ class PeopleController < ApplicationController
   def new
     @person = Person.new
     @person.addresses.build
+    @countries ||= Address.all.collect{|p| [p.country]}.uniq!
   end
 
   def create
