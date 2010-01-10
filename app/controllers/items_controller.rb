@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @item.person_id = current_person.id
     @item.address_id = current_person.addresses.first.id
     if @item.save
-      flash[:notice] = "Thank you for giving things away! '#{@item.title}' can now be found by others."
+      flash[:notice] = "Thank you for giving things away!<br>'#{@item.title}' can now be found by others in #{current_person.addresses.last.city}."
       redirect_to welcome_path
     else
       render :text => 'failed'

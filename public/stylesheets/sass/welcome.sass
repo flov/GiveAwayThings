@@ -7,6 +7,7 @@
   h2
     :font-size 28px
     :color #313030
+    :padding 0 0 5px
     :margin 0
   h3
     :font-size 32px
@@ -30,19 +31,21 @@
   a
     :color #46a038
 
-.item_form, .search_form 
-  .in_field_label
-    input
-      :width 95%
-
 .item_form
   :margin 0 auto
   :width 561px
   :text-align left
   .image_submit
     :text-align center
-
+  #new_item
+    input#item_title
+      :width 533px
+    textarea
+      :width 533px
+      
 .search_form
-  :width 525px
+  :width 570px
   :margin 0 auto
-  
+  input#items, input#cities
+    :width 440px
+    
