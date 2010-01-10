@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    redirect_to signup_path unless logged_in
     @item = Item.new(params[:item])
     @item.person_id = current_person.id
     @item.address_id = current_person.addresses.first.id
