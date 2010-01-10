@@ -1,10 +1,13 @@
 class ItemsController < ApplicationController
+
+  before_filter :redirect_if_not_logged_in, :only => [:create]
+
   def index
     @items = Item.search(params[:search])
   end
 
   def create
-    redirect_to signup_path unless logged_in
+
     @item = Item.new(params[:item])
     @item.person_id = current_person.id
     @item.address_id = current_person.addresses.first.id
@@ -26,5 +29,10 @@ class ItemsController < ApplicationController
 
   def show
     
+  end
+  
+  private
+  def redirect_if_not_logged_in
+    redirect_to signup_path unless logged_in?
   end
 end
