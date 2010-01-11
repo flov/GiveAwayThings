@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_filter :redirect_if_not_logged_in, :only => [:create]
 
   def index
-    @items = Item.search(params[:search])
+    @items = Item.search(params[:search].to_s.split)    
   end
 
   def create
@@ -17,10 +17,6 @@ class ItemsController < ApplicationController
     else
       render :text => 'failed'
     end
-  end
-
-  def search_city
-    
   end
 
   def new

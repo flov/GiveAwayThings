@@ -1,7 +1,7 @@
 - form_tag "/#{search}/", :method => 'get' do
   .search_form.hide
     .in_field_label.float_left
-      %label{:for=>"#{search}"}==search #{search}
+      %label{:for=>"search_#{search}"}==search #{search}
       = text_field_tag :search, nil, :size => 36, :id=>"search_#{search}"
     .float_right
       = image_submit_tag "searchbutton.png", :class => 'image_submit'

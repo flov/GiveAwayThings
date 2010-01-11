@@ -1,12 +1,12 @@
 class PeopleController < ApplicationController
   def welcome
     @item = Item.new
+    @countries = Address.all.collect{|p| [p.country]}.uniq!
   end
-  
+
   def new
     @person = Person.new
     @person.addresses.build
-    @countries ||= Address.all.collect{|p| [p.country]}.uniq!
   end
 
   def create
