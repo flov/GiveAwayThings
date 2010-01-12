@@ -5,20 +5,14 @@ class Person < ActiveRecord::Base
 
   concerned_with  :validation
 
-  has_many :addresses
-  has_many :items
-  has_many :requests
-  accepts_nested_attributes_for :addresses, :items
+  has_one :address, :dependent => :destroy
+  has_many :items, :dependent => :destroy
+  has_many :requests, :dependent => :destroy
+  accepts_nested_attributes_for :address, :items
 
   attr_accessor :password
   before_save :prepare_password
   
-  def address_attributes=(address_attributes)
-    address_attributes.each do |address_attribute|
-       addresses.build(address_attribute)
-    end
-  end
-
 
   # login can be either username or email address
   def self.authenticate(login, pass)

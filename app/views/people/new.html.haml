@@ -28,7 +28,7 @@
         Confirm it
         %p.details Type your password again
       %td= f.password_field :password_confirmation
-    - fields_for "person[address_attributes][]", @person.addresses.first do |address_form|
+    - f.fields_for :address do |address_form|
       %tr
         %th
           Country
