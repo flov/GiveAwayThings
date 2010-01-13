@@ -5,7 +5,7 @@ development:
   password:
   host: localhost
 
-test:
+test: &TEST
   adapter: mysql
   database: gat_test
   username: root
@@ -21,3 +21,6 @@ production:
 
 
 
+
+cucumber:
+  <<: *TEST
