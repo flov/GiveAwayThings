@@ -1,3 +1,5 @@
+Capfile
+config/deploy.rb
 .empty
 .DS_Store
 .idea
