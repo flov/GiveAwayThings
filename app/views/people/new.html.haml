@@ -29,16 +29,18 @@
         %p.details Type your password again
       %td= f.password_field :password_confirmation
     - f.fields_for :address do |address_form|
-      %tr
-        %th
-          Country
-          %p.details Where do you come from?
-        %td= address_form.localized_country_select :country, [], :include_blank => 'Please choose...'
-      %tr
-        %th
-          City
-          %p.details This is important for sharing
-        %td= address_form.text_field :city
+      -address_form.fields_for :city do |city_form|
+        -city_form.fields_for :country do |country_form|
+          %tr
+            %th
+              Country
+              %p.details Where do you come from?
+            %td= country_form.localized_country_select :iso_name, [], :include_blank => 'Please choose...'
+        %tr
+          %th
+            City
+            %p.details This is important for sharing
+          %td= city_form.text_field :name
       %tr
         %th
           Street

@@ -12,11 +12,19 @@
 ActiveRecord::Schema.define(:version => 20100111231433) do
 
   create_table :addresses, :force => true do |t|
-    t.string "street"
-    t.string "city"
-    t.string "country"
-    t.string "state"
-    t.integer "person_id"
+    t.string :street
+    t.string :state
+    t.integer :city_id
+  end
+
+  create_table :cities, :force => true do |t|
+    t.string :name
+    t.integer :country_id
+  end
+
+  create_table :countries, :force => true do |t|
+    t.string :name
+    t.string :iso_name
   end
 
   create_table :categories, :force => true do |t|
@@ -29,8 +37,6 @@ ActiveRecord::Schema.define(:version => 20100111231433) do
     t.text      :text
     t.boolean   :accepted
     t.datetime  :created_at
-
-
   end
 
   create_table "items", :force => true do |t|
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20100111231433) do
   create_table "people", :force => true do |t|
     t.string   "username"
     t.string   "email",          :limit => 100
+    t.integer  :address_id
     t.string   "password_hash"
     t.string   "password_salt"
     t.datetime "created_at"

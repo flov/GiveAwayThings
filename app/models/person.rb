@@ -5,7 +5,7 @@ class Person < ActiveRecord::Base
 
   concerned_with  :validation
 
-  has_one :address, :dependent => :destroy
+  belongs_to :address, :dependent => :destroy
   has_many :items, :dependent => :destroy
   has_many :requests, :dependent => :destroy
   accepts_nested_attributes_for :address, :items
