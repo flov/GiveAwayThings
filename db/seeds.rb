@@ -8,6 +8,6 @@ data = YAML.load_file("#{RAILS_ROOT}/db/default/countries.yml")
 data.each do |key, value|
   c=Country.new(value)
   c.id = value["id"]
-  puts "Name: #{c.name} Iso: #{c.iso}"
+  puts "Inserting Country: [Name: #{c.name}, Iso: #{c.iso}]"
   c.save!
 end

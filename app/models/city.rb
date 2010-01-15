@@ -4,12 +4,11 @@ class City < ActiveRecord::Base
   
   named_scope :order_by_name, :order => :name
 
-  validates_presence_of :name
+  validates_presence_of :name, :country
 
-  def country_atributes=(country_attributes)
-    country_split=country_attributes.split("_")
-    self.country = Country.find(:first, :conditions=>{:iso=>country_attribu[0]})
-    build_country(country_attributes) ÷if country.nil?
+  def country_atributes=(country_atributes)
+    country = Country.find(:first, :conditions=>{:iso=>country_atributes["iso"]})
+    puts country.id unless country.nil?
   end
   
   def <=>(other)
