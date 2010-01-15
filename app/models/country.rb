@@ -2,8 +2,8 @@ class Country < ActiveRecord::Base
   has_many :cities
   
   named_scope :order_by_name, :order => :name  
-  validates_presence_of :iso_name, :with => /../i
-  validates_uniqueness_of :iso_name, :name
+  validates_presence_of :iso, :with => /../i
+  #validates_uniqueness_of :iso, :name
   def <=>(other)
     name <=> other.name
   end

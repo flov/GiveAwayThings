@@ -8,7 +8,7 @@ class City < ActiveRecord::Base
 
   def country_atributes=(country_attributes)
     country_split=country_attributes.split("_")
-    self.country = Country.find(:first, :conditions=>{:iso_name=>country_attribu[0]})
+    self.country = Country.find(:first, :conditions=>{:iso=>country_attribu[0]})
     build_country(country_attributes) ÷if country.nil?
   end
   

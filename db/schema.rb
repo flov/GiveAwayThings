@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100114190107) do
+ActiveRecord::Schema.define(:version => 20100115130441) do
 
   create_table :addresses, :force => true do |t|
     t.string :street
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20100114190107) do
 
   create_table :countries, :force => true do |t|
     t.string :name
-    t.string :iso_name
+    t.string :iso
   end
 
   create_table :categories, :force => true do |t|
