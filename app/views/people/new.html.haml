@@ -30,7 +30,7 @@
       %td= f.password_field :password_confirmation
     - f.fields_for :address do |address_form|
       -address_form.fields_for :city do |city_form|
-        -city_form.fields_for :country do |country_form|
+        -city_form.fields_for :country_atributes do |country_form|
           %tr
             %th
               Country

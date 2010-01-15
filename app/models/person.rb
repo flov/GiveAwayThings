@@ -12,7 +12,6 @@ class Person < ActiveRecord::Base
 
   attr_accessor :password
   before_save :prepare_password
-  
 
   # login can be either username or email address
   def self.authenticate(login, pass)
