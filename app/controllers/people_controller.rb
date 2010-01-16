@@ -2,6 +2,7 @@ class PeopleController < ApplicationController
   def welcome
     @item = Item.new
     @countries = Item.all.collect{|p| p.address}.uniq.collect{|p| p.city}.uniq.collect{|p| p.country}.uniq.collect{|p| p.name}
+    @items = Item.new
   end
 
   def new

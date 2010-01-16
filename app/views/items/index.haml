@@ -4,20 +4,22 @@
   -else
     ="All Items"
 
-%table
-  %tr
-    %th Title
-    %th Country
-    %th City
-    %th Since
-    %th By
-  -@items.each do |item|
+%table#show_items.tablesorter
+  %thead
     %tr
-      %td=item.title
-      %td=item.address.city.country.to_s
-      %td=item.address.city.to_s
-      %td=time_ago_in_words item.created_at
-      %td=item.person.username
+      %th Title
+      %th Country
+      %th City
+      %th Since
+      %th By
+  %tbody
+    -@items.each do |item|
+      %tr
+        %td=item.title
+        %td=item.address.city.country.to_s
+        %td=item.address.city.to_s
+        %td=time_ago_in_words item.created_at
+        %td=item.person.username
 
 -#-@items.each do |item|
 -#  =item.title

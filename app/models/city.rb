@@ -6,6 +6,10 @@ class City < ActiveRecord::Base
 
   validates_presence_of :name, :country
 
+  def before_create
+    name.capitalize
+  end
+
   def country_atributes=(country_atributes)
     country = Country.find(:first, :conditions=>{:iso=>country_atributes["iso"]})
     puts country.id unless country.nil?

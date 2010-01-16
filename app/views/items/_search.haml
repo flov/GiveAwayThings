@@ -8,4 +8,3 @@
     .clear
     %div{:class=>'select_boxes hide_me', :id=>"search_select_#{search}"}
       =select(:address, :country, @countries, {:include_blank => "Country"}) if @countries
-    
