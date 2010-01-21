@@ -6,7 +6,10 @@ class PersonTest < ActiveSupport::TestCase
     attributes[:email] ||= 'foo@example.com'
     attributes[:password] ||= 'abc123'
     attributes[:password_confirmation] ||= attributes[:password]
+    attributes[:address_attributes] ||= {:street=>'Darwinstr', :country_id=>74}
+    attributes[:address_attributes][:city_attributes] ||= {:name => "Duisburg", :country_id=>74}
     person = Person.new(attributes)
+    
     person.valid? # run validations
     person
   end
@@ -19,8 +22,20 @@ class PersonTest < ActiveSupport::TestCase
     assert new_person.valid?
   end
   
+  def test_should_not_save_person_without_address
+    person=Factory.build(:person)
+    # person.address=nil
+    #assert person.valid?, "Saved a person without an address"
+  end
+
+  # def test_should_not_save_person_without_address
+  #   person=Factory.build(:person)
+  #   person.address=nil
+  #   assert !person.valid?, "Saved a person without an address"
+  # end
+  
   def test_require_username
-    assert new_person(:username => '').errors.on(:username)
+    assert Factory.build(:person, :username => '').errors.on(:username)
   end
   
   def test_require_password
