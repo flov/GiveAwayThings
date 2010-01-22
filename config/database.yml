@@ -19,8 +19,5 @@ production:
   password: 
   host: localhost
 
-
-
-
 cucumber:
   <<: *TEST

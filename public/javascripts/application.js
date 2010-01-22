@@ -21,7 +21,7 @@ $(document).ready(function(){
   $("textarea#item_description").blur(function(){
     $("#item_description_fields").slideUp();
   })
-  $("input#search_items").click(function(){
+  $("input#search_title_like").click(function(){
     $("#search_select_items").slideDown()
   })
 	//

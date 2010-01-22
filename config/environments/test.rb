@@ -26,3 +26,4 @@ config.gem 'rspec-rails', :lib => false
 config.gem 'rspec', :lib => false
 config.gem 'cucumber'
 config.gem 'webrat'
+config.gem "factory_girl", :source => "http://gemcutter.org"

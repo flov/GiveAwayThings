@@ -21,4 +21,9 @@ class AddressTest < ActiveSupport::TestCase
     address.city_id = nil
     assert !address.valid?
   end
+  
+  def test_should_save_city_with_same_name
+    address=Factory.build(:address)
+    #address.city_
+  end
 end

@@ -1,13 +1,14 @@
 class PeopleController < ApplicationController
   def welcome
-    @item = Item.new
+    @item=Item.new
+    @search=Item.search(params[:search])
+    @items=@search.all
     @countries = Item.all.collect{|p| p.address}.uniq.collect{|p| p.city}.uniq.collect{|p| p.country}.uniq.collect{|p| p.name}
-    @items = Item.new
   end
 
   def new
     @person = Person.new
-    @person.build_address.build_city
+    @person.build_address.build_city.build_country
   end
 
   def create

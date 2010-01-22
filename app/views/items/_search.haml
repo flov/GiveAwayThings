@@ -1,10 +1,17 @@
-- form_tag "/#{search}/", :method => 'get' do
-  .search_form.hide
+- form_for @search do |f|
+  .search_form
     .in_field_label.float_left
-      %label{:for=>"search_#{search}"}==search #{search}
-      = text_field_tag :search, nil, :size => 36, :id=>"search_#{search}"
+      %label{:for=>"search_title_like"}==search things
+      =#text_field_tag :search, nil, :size => 36, :id=>"search_#{search}"
+      = f.text_field :title_like
     .float_right
       = image_submit_tag "searchbutton.png", :class => 'image_submit'
     .clear
     %div{:class=>'select_boxes hide_me', :id=>"search_select_#{search}"}
-      =select(:address, :country, @countries, {:include_blank => "Country"}) if @countries
+      %ol.formList
+        %li 
+          =# f.collection_select :address_, @countries, :iso, :name, {:include_blank => "Country"} if @countries
+          =# f.collection_select :category_id_equals, Category.all, :id, :name, :include_blank => true
+        -# %li
+          =# f.label :category_id_equals, "Category"
+          =# f.collection_select :category_id_equals, Category.all, :id, :name, :include_blank => true

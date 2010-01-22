@@ -13,6 +13,10 @@ class Person < ActiveRecord::Base
   attr_accessor :password
   before_save :prepare_password
 
+  # def country
+  #   self.address.city.country.name
+  # end
+
   # login can be either username or email address
   def self.authenticate(login, pass)
     person = find_by_username(login) || find_by_email(login)
