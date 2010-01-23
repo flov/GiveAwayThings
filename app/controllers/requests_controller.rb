@@ -10,10 +10,6 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
   end
   
-  def new
-    @request = Request.new
-  end
-  
   def create
     @request = Request.new(params[:request])
     @request.person_id = current_person.id

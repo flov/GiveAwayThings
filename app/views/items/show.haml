@@ -1,5 +1,5 @@
 - title " - #{@item.title}"
-
+%h1=@item.title
 %p
   %strong Owner:
   =h @item.person.username
@@ -12,14 +12,14 @@
   %strong Description:
   =h @item.description
 
-
+%h2 Send a request to take this item
 #send_request
   -form_for @request do |f|
     =f.error_messages
     =f.text_area :text, :size => "40x4"
     =hidden_field_tag 'request[item_id]', params[:id].to_i
     %br
-    =f.submit "Request This Item"
+    =f.submit "send request"
 
 %p
   = link_to "View All", items_path

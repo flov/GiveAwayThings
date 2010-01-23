@@ -27,6 +27,10 @@ class Person < ActiveRecord::Base
     self.password_hash == encrypt_password(pass)
   end
   
+  def to_s
+    self.username
+  end
+  
   private
   
   def prepare_password
@@ -39,4 +43,5 @@ class Person < ActiveRecord::Base
   def encrypt_password(pass)
     Digest::SHA1.hexdigest([pass, password_salt].join)
   end
+  
 end

@@ -6,6 +6,10 @@ class PeopleController < ApplicationController
     @items=@search.all
     @countries = Item.all.collect{|p| p.address}.uniq.collect{|p| p.city}.uniq.collect{|p| p.country}.uniq
   end
+  
+  def show
+    @person = Person.find_by_username(params[:id])
+  end
 
   def new
     @person = Person.new

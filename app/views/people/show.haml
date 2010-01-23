@@ -1,1 +1,7 @@
-- title " - Profile"
+- title " - #{@person.to_s.capitalize}'s Profile"
+
+%h1==#{@person.to_s.capitalize}'s Profile
+%p
+  ==#{@person.address.city.country.to_s}
+  %br/
+  ==#{@person.address.city.to_s}
