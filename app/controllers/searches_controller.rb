@@ -1,9 +1,5 @@
 class SearchesController < ApplicationController
-
-  def city
-
-  end
-
-  def item
+  def index
+    @items = Item.search(params[:search].to_s.split)
   end
 end

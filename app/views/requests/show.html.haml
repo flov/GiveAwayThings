@@ -1,0 +1,19 @@
+- title "Request"
+
+%p
+  %strong Person:
+  =h @request.person_id
+%p
+  %strong Item:
+  =h @request.item_id
+%p
+  %strong Text:
+  =h @request.text
+%p
+  %strong Accepted:
+  =h @request.accepted
+
+%p
+  = link_to "Destroy", @request, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", requests_path

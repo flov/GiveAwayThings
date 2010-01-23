@@ -1,0 +1,26 @@
+- title "New Request"
+
+= error_messages_for :request
+
+- form_for @request do |f|
+  %p
+    =f.label :person_id
+    %br
+    = f.text_field :person_id
+  %p
+    =f.label :item_id
+    %br
+    = f.text_field :item_id
+  %p
+    =f.label :text
+    %br
+    = f.text_area :text
+  %p
+    =f.label :accepted
+    %br
+    = f.check_box :accepted
+  %p
+    = f.submit "Submit"
+
+
+%p= link_to "Back to List", requests_path

@@ -1,0 +1,18 @@
+- title "Requests"
+
+%table
+  %tr
+    %th Person
+    %th Item
+    %th Text
+    %th Accepted
+  - for request in @requests
+    %tr
+      %td= h request.person_id
+      %td= h request.item_id
+      %td= h request.text
+      %td= h request.accepted
+      %td= link_to 'Show', request
+      %td= link_to 'Destroy', request, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Request", new_request_path

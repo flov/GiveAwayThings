@@ -18,9 +18,6 @@ $(document).ready(function(){
   $("input#item_title").click(function(){
     $("#item_description_fields").slideDown()
   })
-  $("textarea#item_description").blur(function(){
-    $("#item_description_fields").slideUp();
-  })
   $("input#search_title_like").click(function(){
     $("#search_select_items").slideDown()
   })

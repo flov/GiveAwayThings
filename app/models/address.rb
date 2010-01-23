@@ -12,5 +12,5 @@ class Address < ActiveRecord::Base
 
   def city_attributes=(city_attributes)
     self.city = City.find_or_create_by_name_and_country_id(city_attributes)
-  end  
+  end
 end

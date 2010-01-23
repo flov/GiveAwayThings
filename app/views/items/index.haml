@@ -1,13 +1,10 @@
-%h1
-  -unless params[:search].empty?
-    ="Results for: <span class='search_result_title'>#{params[:search]}</span>"
-  -else
-    ="All Items"
+%h1="Results:"
 
 %table#show_items.tablesorter
   %thead
     %tr
       %th Title
+      %th Category
       %th Country
       %th City
       %th Since
@@ -15,7 +12,8 @@
   %tbody
     -@items.each do |item|
       %tr
-        %td=item.title
+        %td=link_to(item.title, "items/#{item.id}-#{item.title.underscore}")
+        %td=item.category.to_s
         %td=item.address.city.country.to_s
         %td=item.address.city.to_s
         %td=time_ago_in_words item.created_at

@@ -11,3 +11,11 @@ data.each do |key, value|
   puts "Inserting Country: [Name: #{c.name}, Iso: #{c.iso}]"
   c.save!
 end
+
+puts 'seeding categories'
+data = YAML.load_file("#{RAILS_ROOT}/db/default/categories.yml")
+data.each do |key, value|
+  c=Category.create(value)
+  puts "Inserting Category: [Name: #{c.name}]"
+  c.save!
+end

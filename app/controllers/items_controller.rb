@@ -3,11 +3,11 @@ class ItemsController < ApplicationController
   before_filter :redirect_if_not_logged_in, :only => [:create]
 
   def index
-    @items = Item.search(params[:search].to_s.split)    
+    @search = Item.search(params[:search])    
+    @items = @search.all
   end
 
   def create
-    
     @item = Item.new(params[:item])
     @item.person_id = current_person.id
     @item.address_id = current_person.address.id
@@ -19,12 +19,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def new
-    
-  end
-
   def show
-    
+    @item = Item.find(params[:id])
   end
   
   private

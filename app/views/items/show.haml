@@ -1,0 +1,19 @@
+- title " - #{@item.title}"
+
+%p
+  %strong Name:
+  =h @item.title
+
+%p
+  %strong Description:
+  =h @item.description
+
+%p
+  %strong Owner:
+  =h @item.person.username
+
+#send_request
+  form_for
+
+%p
+  = link_to "View All", items_path
