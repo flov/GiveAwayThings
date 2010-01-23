@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   
-  before_filter :is_no_admin
+  before_filter :is_no_admin, :except => [:create]
   
   def index
     @requests = Request.find(:all)
@@ -16,11 +16,14 @@ class RequestsController < ApplicationController
   
   def create
     @request = Request.new(params[:request])
+    @request.person_id = current_person.id
+    
     if @request.save
-      flash[:notice] = "Successfully created request."
-      redirect_to @request
+      flash[:notice] = "Request has been sent. #{@request.item.person.username} will be notified"
+      redirect_to @request.item
     else
-      render :action => 'new'
+      flash[:error] = "You already requested to take this thing. If you want to remind the owner of your request, you should send him a message."
+      redirect_to @request.item
     end
   end
   

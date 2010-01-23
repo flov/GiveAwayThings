@@ -1,5 +1,5 @@
 
-ActiveRecord::Schema.define(:version => 20100123194235) do
+ActiveRecord::Schema.define(:version => 20100123204904) do
 
   create_table :addresses, :force => true do |t|
     t.string :street
@@ -28,11 +28,12 @@ ActiveRecord::Schema.define(:version => 20100123194235) do
   create_table :requests, :force => true do |t|
     t.integer   :person_id
     t.integer   :item_id
+    t.string    :title
     t.text      :text
     t.boolean   :accepted
     t.datetime  :created_at
   end
-
+  
   create_table :items, :force => true do |t|
     t.string   :title
     t.text     :description
