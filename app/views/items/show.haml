@@ -9,8 +9,9 @@
   =h @item.title
 
 %p
-  %strong Description:
-  =h @item.description
+  %strong= "Description: #{h @item.description}" unless @item.description.empty?
+  
+= image_tag @item.photo.url unless @item.photo.url == "/photos/original/missing.png"
 
 %h2 Send a request to take this item
 #send_request
