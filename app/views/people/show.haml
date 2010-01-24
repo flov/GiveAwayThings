@@ -1,7 +1,19 @@
-- title " - #{@person.to_s.capitalize}'s Profile"
+- title " - #{@person.to_s.capitalize}"
 
 %h1==#{@person.to_s.capitalize}'s Profile
+=link_to_gravatar(@person)
 %p
-  ==#{@person.address.city.country.to_s}
+  =link_to @person.address.city.country.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s}"
   %br/
-  ==#{@person.address.city.to_s}
+  =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
+
+#statistics
+  =image_tag 'stats.png'
+  STATISTICS
+  %br/
+  You Gave:
+  #you_gave
+    -@items_given.each do |item|
+      ="#{item.title} to #{item.taken_by.username}"
+      =link_to_gravatar(item.taken_by)
+      

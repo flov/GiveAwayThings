@@ -16,4 +16,13 @@ module ApplicationHelper
   def ie_sensitivity
     render :partial => 'shared/ie_sensitivity'
   end
+  
+  def gravatar_url_for(email)
+    url_for("http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}")
+  end
+  
+  def link_to_gravatar(person, options = {})
+    link_to(image_tag(gravatar_url_for(person.email)),person_path(person.username),{}.merge(options))
+  end
+  
 end

@@ -7,15 +7,20 @@ class Person < ActiveRecord::Base
 
   belongs_to :address, :dependent => :destroy
   has_many :items, :dependent => :destroy
+  has_many :items_taken, :class_name => "Item", :foreign_key => "taken_by"
   has_many :requests, :dependent => :destroy
   accepts_nested_attributes_for :address, :items
 
   attr_accessor :password
   before_save :prepare_password
 
-  # def country
-  #   self.address.city.country.name
-  # end
+  def country
+    self.address.city.country
+  end
+  
+  def name
+    "#{first_name} #{last_name}"
+  end
 
   # login can be either username or email address
   def self.authenticate(login, pass)

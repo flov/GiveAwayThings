@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100123235016) do
+ActiveRecord::Schema.define(:version => 20100124193603) do
 
   create_table "addresses", :force => true do |t|
     t.string  "street"
@@ -39,7 +39,8 @@ ActiveRecord::Schema.define(:version => 20100123235016) do
     t.string   "title"
     t.text     "description"
     t.string   "picture_url"
-    t.integer  "taken_by",           :default => 0
+    t.integer  "taken_by",    :default => 0
+    t.integer  "accepted",    :default => 0
     t.integer  "person_id"
     t.integer  "address_id"
     t.integer  "category_id"
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20100123235016) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
   end
+
 
   create_table "people", :force => true do |t|
     t.string   "username"
@@ -69,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20100123235016) do
     t.integer  "person_id"
     t.integer  "item_id"
     t.text     "text"
-    t.boolean  "accepted"
     t.datetime "created_at"
     t.string   "title"
   end
