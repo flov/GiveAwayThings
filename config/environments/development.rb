@@ -21,10 +21,10 @@ config.action_mailer.delivery_method = :smtp
 
 # these options are only needed if you choose smtp delivery
 config.action_mailer.smtp_settings = {
-  :address        => 'smtp.giveawaythings.org',
+  :address        => 'smtp.sendgrid.net',
   :port           => 25,
   :domain         => 'www.giveawaythings.org',
   :authentication => :login,
-  :user_name      => 'www',
-  :password       => 'secret'
+  :user_name      => 'florian.vallen@gmail.com',
+  :password       => 'smtp55'
 }

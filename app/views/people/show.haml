@@ -8,12 +8,10 @@
   =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
 
 #statistics
-  =image_tag 'stats.png'
-  STATISTICS
-  %br/
-  You Gave:
-  #you_gave
-    -@items_given.each do |item|
-      ="#{item.title} to #{item.taken_by.username}"
-      =link_to_gravatar(item.taken_by)
-      
+  %h1
+    =image_tag 'stats.png'
+    STATISTICS
+  = render :partial => 'you_gave' 
+  = render :partial => 'you_took' 
+  = render :partial => 'you_offer'
+  = render :partial => 'you_requested'

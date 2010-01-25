@@ -1,0 +1,5 @@
+#you_took
+  %h2="You Took:" unless @items_taken.empty?
+  -@items_taken.each do |item|
+    ="#{item.title} from #{item.person.username}"
+    =#link_to_gravatar(item.person)

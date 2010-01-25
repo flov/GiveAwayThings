@@ -1,0 +1,5 @@
+#you_offer
+  %h2 You Offer:
+  ="accepted, but not yet picked up: <br/>" unless @items_offered.empty? 
+  =@items_offered.each do |item|
+    ="#{item.title} from #{item.person.username}"

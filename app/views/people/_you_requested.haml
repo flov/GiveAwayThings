@@ -1,0 +1,6 @@
+#you_requested
+  %h2= "You Requested:" unless @requests_accepted.empty? and @requests_not_accepted.empty?
+  =@requests_accepted.each do |request|
+    ="#{request.item.title} from #{request.item.person.username} Status: accepted, please pick it up"
+  =@requests_not_accepted.each do |request|
+    ="#{request.item.title} from #{request.item.person.username} Status: pending, waiting for decision from owner."

@@ -11,8 +11,8 @@ class PeopleController < ApplicationController
     @person = Person.find_by_username(params[:id])
     @items_given                   = @person.items.taken_by_does_not_equal 0
     @items_taken                   = @person.items_taken
-    @items_requested_and_not_accepted = @person.requests.item_accepted_equals 0
-    @items_requested_and_accepted  = @person.requests.item_accepted_does_not_equal 0
+    @requests_not_accepted         = @person.requests.item_accepted_equals 0
+    @requests_accepted             = @person.requests.item_accepted_does_not_equal 0
     @items_offered                 = @person.items.accepted_equals 0
     @items_offered_and_accepted    = @person.items.accepted_does_not_equal 0
   end

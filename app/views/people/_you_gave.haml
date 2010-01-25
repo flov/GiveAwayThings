@@ -1,0 +1,5 @@
+#you_gave
+  %h2= "You Gave:" unless @items_given.empty?
+  -@items_given.each do |item|
+    ="#{item.title} to #{item.taken_by.username}"
+    =# link_to_gravatar(item.taken_by)

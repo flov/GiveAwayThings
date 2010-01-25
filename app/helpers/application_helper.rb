@@ -25,4 +25,8 @@ module ApplicationHelper
     link_to(image_tag(gravatar_url_for(person.email)),person_path(person.username),{}.merge(options))
   end
   
+  def link_to_person(person)
+    link_to(person.username, person_path(person))
+  end
+  
 end
