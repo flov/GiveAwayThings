@@ -5,7 +5,7 @@
     %h1
       Welcome
       =current_person.username if logged_in?
-    %h2 be generous and give a thing away
+    %h2= t('.be_generous')
     =render :partial => 'items/item', :locals => {:item => @item}
     %h3 OR
     %h2 be thankful and pick a thing up

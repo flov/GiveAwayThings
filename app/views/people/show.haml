@@ -1,7 +1,7 @@
 - title " - #{@person.to_s.capitalize}"
 
 %h1==#{@person.to_s.capitalize}'s Profile
-=link_to_gravatar(@person)
+=gravatar_for(@person)
 %p
   =link_to @person.address.city.country.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s}"
   %br/
@@ -11,7 +11,7 @@
   %h1
     =image_tag 'stats.png'
     STATISTICS
-  = render :partial => 'you_gave' 
-  = render :partial => 'you_took' 
-  = render :partial => 'you_offer'
-  = render :partial => 'you_requested'
+  = render :partial => 'you_gave' unless @items_given.empty?
+  = render :partial => 'you_took' unless @items_taken.empty?
+  = render :partial => 'you_offer' unless @items_offered.empty? and @items_offered_and_accepted.empty?
+  = render :partial => 'you_requested' unless @requests_accepted.empty? and @requests_not_accepted.empty?
