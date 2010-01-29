@@ -13,17 +13,23 @@
 
     #container
       #header
-        #logo= link_to image_tag('logo.png'),'/'
-        =render :partial => 'shared/avatar_header' if logged_in?
-        =render :partial => 'shared/login_box' unless logged_in?
-
-
+        .header_content
+          #logo= link_to image_tag('logo.png'),'/'
+          =render :partial => 'shared/avatar_header' if logged_in?
+          =render :partial => 'shared/login_box' unless logged_in?
       #content
-        .middle_background
-          .middle
-            .body
-              - flash.each do |name, msg|
-                = content_tag :div, msg, :id => "flash_#{name}"
-              = yield
-      = footer
+        #nav.rounded_corners
+          FAQ | Your Items | Settings | Browse City | Browse People | About |  Press | Blog
+        #content_wrapper
+          = yield :sidebar
+          .rounded_corners.float_left
+            - flash.each do |name, msg|
+              = content_tag :div, msg, :id => "flash_#{name}"
+            = yield
+          
+
+
+
+          .clear
+      = render :partial => 'shared/footer'
     = javascripts

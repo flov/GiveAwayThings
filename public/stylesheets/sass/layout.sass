@@ -1,65 +1,79 @@
 #container
   :position relative
   :width 100%
-.body
-  :padding 20px
+  :height 100%
+.rounded_corners
+  :-moz-border-radius 13px
+  :-webkit-border-top-left-radius 13px
+  :padding 5px
+  :background-color #fff
+  
+  
 #header
-  :width 1000px
-  :height 107px
   :background-color !primary_color
+  :background-image url(/images/header_fader.png)
+  :background-repeat repeat-x
+  :background-position bottom
+  :background-color = !header_bg_color
   :margin 0 auto
-  #nav_user, #nav_login_signup
-    a
-      :color #C3C3C3
-    :font-family Verdana,arial,helvetica,sans-serif
-    :position relative
-    :top 20px
-    :width 121px
-    :height 42px
-    #nav_user_avatar
-      :float left
-      img
-        :border 2px solid #b3b1b1
-        -webkit-border-radius: 2px
-        -moz-border-radius: 2px
-    #nav_user_messages
-      position: absolute
-      :left 56px
-      :top 3px
-      :background url("/images/bubble.png") no-repeat right center
-      :width 65px
-    #nav_user_logout
-      color: #EFB108
-      left: 56px
-      position: absolute
-      top: 20px
-    #nav_login_signup
-      :top 43px
-      :left 100px
+  .header_content
+    :width 940px
+    :height 85px
+    :margin 0 auto
+    #nav_user, #nav_login_signup
+      a
+        :color #C3C3C3
+      :font-family Verdana,arial,helvetica,sans-serif
+      :position relative
+      :top 20px
+      :width 121px
+      :height 42px
+      #nav_user_avatar
+        :float left
+        img
+          :border 2px solid #b3b1b1
+          -webkit-border-radius: 2px
+          -moz-border-radius: 2px
+      #nav_user_messages
+        position: absolute
+        :left 56px
+        :top 3px
+        :background url("/images/bubble.png") no-repeat right center
+        :width 65px
+      #nav_user_logout
+        color: #EFB108
+        left: 56px
+        position: absolute
+        top: 20px
+      #nav_login_signup
+        :top 43px
+        :left 100px
 
-  #logo
-    :position relative
-    :float right
-    :top 20px
+    #logo
+      :position relative
+      :float right
+      :top 5px
 #content
   :width 100%
-  :background-color #fff
-  .middle_background
-    :background-color #d0d0d0
-    :width 100%
-
-    .middle
-
-      :margin 0 auto
-      :background-color #fff
-      :width 881px
+  :background-color #d1d4c2
+  :width 100%
+  #nav
+    :color = !font_header_color
+    :margin 10px auto 
+    :text-align center
+    :width 570px
+  #content_wrapper
+    :width 881px
+    :margin 0 auto
 
 #footer
   :width 100%
   :clear both
-  :position absolute
-  :background-color !primary_color
-  :bottom 30
+  :background-color = !header_bg_color
+  :bottom 0
   :color #5c5c5c
   :text-align center
   :padding-top 30px
+  :background-image url(/images/footer_fader.png)
+  :background-repeat repeat-x
+  :background-position top
