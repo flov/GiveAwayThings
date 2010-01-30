@@ -7,4 +7,5 @@
   =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
 
 -content_for :sidebar do
+  = render :partial => 'items/avatar', :locals => {:person => @person}
   = render :partial => 'items/statistics', :locals => {:person => @person}

@@ -11,5 +11,11 @@
   = render :partial => 'items/search'
 
   -content_for :sidebar do
-    = render :partial => 'items/statistics', :locals => {:person => @person}
-    
+    .announcements
+      ANNOUNCEMENTS
+    .text
+      %h3 We Are Getting Started!
+      %p We are finally online. Help us bootstraping: We love feedback. if you have any ideas or you want to contribute to G.A.T, please Mail us at feedback@giveawaythings.org or use the feedback button on the left side.
+     
+    = render :partial => 'items/statistics', :locals => {:person => @person} if logged_in?
+    = render :partial => 'people/unknown_stats' unless logged_in?

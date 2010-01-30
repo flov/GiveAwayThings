@@ -22,4 +22,5 @@
   = link_to "View All", items_path
   
 -content_for :sidebar do
+  = render :partial => 'items/avatar', :locals => {:person => @person}
   = render :partial => 'items/statistics', :locals => {:person => @item.person}
