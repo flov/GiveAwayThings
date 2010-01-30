@@ -38,7 +38,7 @@ $(document).ready(function(){
   $("input#search_title_like").focus(function(){
     $("#hidden_search_options").slideDown()
     
-    var search_text = "search item."
+    var search_text = "Search item."
     if(this.value == search_text)$(this).val("")
   })	
 });
