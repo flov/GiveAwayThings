@@ -16,7 +16,7 @@ $(document).ready(function(){
 	
 	//Drop Down in Welcome Menu
   $("input#item_title").click(function(){
-    $("#description_fields").slideDown()
+    $("#slide_down_fields").slideDown()
   })
   $("input#search_title_like").click(function(){
     $("#search_select_items").slideDown()

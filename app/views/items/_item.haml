@@ -1,10 +1,13 @@
 -form_for item, :html => { :multipart => true } do |f|
   = f.error_messages
   = f.text_field :title
-  #description_fields.hide_me
-    = f.text_area :description, :rows => 18, :cols=>40
-    =collection_select :item, :category_id, Category.all, :id, :name, {:include_blank => "Category"}
-    =f.file_field :photo
+  %br
+  -#slidedown_fields
+  = f.text_area :description, :rows => 18, :cols=>40
+  %br
+  =collection_select :item, :category_id, Category.all, :id, :name, {:include_blank => "Category"}
+  %br
+  =f.file_field :photo
   .center= image_submit_tag "giveawaybutton.png", :class => 'image_submit'
   
 -#.in_field_label
