@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
     @search = Item.search(params[:search])    
     @items = @search.all
   end
+  
+  def new
+    @item = Item.new
+  end
 
   def create
     @item = Item.new(params[:item])
@@ -15,13 +19,20 @@ class ItemsController < ApplicationController
       flash[:notice] = "Thank you for giving things away!<br>'#{@item.title}' can now be found by others in #{current_person.address.city}."
       redirect_to welcome_path
     else
-      render :text => 'failed'
-    end
+      render :new
+    end    
   end
 
   def show
     @item = Item.find(params[:id])
     @request = Request.new
+
+    @person = @item.person
+    @username = @item.person.username
+    @items_given = @person.items.taken_by_does_not_equal 0
+    @items_taken = @person.items_taken
+    @items_offered = @person.items.accepted_equals 0
+    
   end
   
   private

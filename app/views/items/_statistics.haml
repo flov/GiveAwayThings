@@ -1,0 +1,12 @@
+.avatar
+  = link_to gravatar_for(person),person_path(person.username)
+
+.statistics
+  .stat_image
+    ="#{person.username.upcase}'s Statistics"
+  %h2 Gave
+  =link_to pluralize(@items_given.size,'Thing'), person_path(person.username)
+  %h2 Took
+  =link_to pluralize(@items_taken.size,'Thing'), person_path(person.username)
+  %h2 Offers
+  =link_to pluralize(@items_offered.size,'Thing'), person_path(person.username)

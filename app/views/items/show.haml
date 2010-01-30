@@ -5,15 +5,11 @@
   =h @item.person.username
 
 %p
-  %strong Name:
-  =h @item.title
-
-%p
   %strong= "Description: #{h @item.description}" unless @item.description.empty?
   
 = image_tag @item.photo.url unless @item.photo.url == "/photos/original/missing.png"
 
-%h2 Send a request to take this item
+%h2="Send a take request to #{@item.person.username}"
 #send_request
   -form_for @request do |f|
     =f.error_messages
@@ -24,3 +20,6 @@
 
 %p
   = link_to "View All", items_path
+  
+-content_for :sidebar do
+  = render :partial => 'items/statistics', :locals => {:person => @item.person}

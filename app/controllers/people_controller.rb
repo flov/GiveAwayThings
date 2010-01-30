@@ -1,10 +1,19 @@
 class PeopleController < ApplicationController
   def welcome
-    @item=Item.new
+    @item=Item.new(:title => 'Type in item.', :description => 'Description (optional)')
     @item.build_category
     @search=Item.search(params[:search])
     @items=@search.all
     @countries = Item.all.collect{|p| p.address}.uniq.collect{|p| p.city}.uniq.collect{|p| p.country}.uniq
+    if logged_in?
+      @person = current_person
+      @items_given                   = @person.items.taken_by_does_not_equal 0
+      @items_taken                   = @person.items_taken
+      @items_offered                 = @person.items.accepted_equals 0
+    else
+      @items_offered = @items_taken = @items_given = 0
+      @person= Person.new
+    end
   end
   
   def show
@@ -23,7 +32,7 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person               = Person.new(params[:person])
+    @person = Person.new(params[:person])
     if @person.save
       #UserMailer.registration_confirmation(@person)
       session[:person_id] = @person.id
@@ -35,7 +44,7 @@ class PeopleController < ApplicationController
   end
   
   def index
-    
+    @people = Person.all
   end
 end
 

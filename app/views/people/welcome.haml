@@ -8,6 +8,8 @@
   =render :partial => 'items/item', :locals => {:item => @item}
   %h3 OR
   %h2 be thankful and pick a thing up
-  =render :partial => 'items/search', :object => "items"
-  
-  = render :partial => 'sidebar'
+  = render :partial => 'items/search'
+
+  -content_for :sidebar do
+    = render :partial => 'items/statistics', :locals => {:person => @person}
+    

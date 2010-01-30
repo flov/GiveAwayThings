@@ -8,7 +8,12 @@
   :padding 5px
   :background-color #fff
   :border 2px solid #b2b5a6
-  
+
+.avatar
+  img
+    :border 2px solid #5a595a
+    -webkit-border-radius: 2px
+    -moz-border-radius: 2px  
   
 #header
   :background-color !primary_color
@@ -26,15 +31,10 @@
         :color #C3C3C3
       :font-family Verdana,arial,helvetica,sans-serif
       :position relative
-      :top 20px
+      :top 15px
+      :left 80px
       :width 121px
       :height 42px
-      #nav_user_avatar
-        :float left
-        img
-          :border 2px solid #b3b1b1
-          -webkit-border-radius: 2px
-          -moz-border-radius: 2px
       #nav_user_messages
         position: absolute
         :left 56px
@@ -72,10 +72,8 @@
     .sidebar
       :margin-left 12px
       :text-align center
-      a
-        :font-size 18px
+      :padding 10px
       .statistics
-        :padding 10px 5px
         h2
           :color = !header_color
           :margin 4px 0 0

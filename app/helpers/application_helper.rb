@@ -5,7 +5,7 @@ module ApplicationHelper
     render :partial => 'shared/avatar_header' if logged_in?
     render :partial => 'shared/login_box' unless logged_in?
   end
-
+  
   def javascripts
     render :partial => 'shared/javascripts'
   end

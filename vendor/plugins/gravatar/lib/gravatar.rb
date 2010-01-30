@@ -51,6 +51,8 @@ module GravatarHelper
       [:class, :alt, :size].each { |opt| options[opt] = h(options[opt]) }
       "<img class=\"#{options[:class]}\" alt=\"#{options[:alt]}\" width=\"#{options[:size]}\" height=\"#{options[:size]}\" src=\"#{src}\" />"      
     end
+    #http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=monsterid
+
     
     # Returns the base Gravatar URL for the given email hash. If ssl evaluates to true,
     # a secure URL will be used instead. This is required when the gravatar is to be 
@@ -70,6 +72,7 @@ module GravatarHelper
       options[:default] = CGI::escape(options[:default]) unless options[:default].nil?
       returning gravatar_api_url(email_hash, options.delete(:ssl)) do |url|
         opts = []
+        opts << "d=monsterid"
         [:rating, :size, :default].each do |opt|
           unless options[opt].nil?
             value = h(options[opt])
