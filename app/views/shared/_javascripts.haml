@@ -22,14 +22,14 @@
   _loadSuper = window.onload;
   window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
   
-  
+-# Google Analytics:
   
 %script{:type=>"text/javascript"}
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 
 %script{:type=>"text/javascript"}
-  try{
-  var pageTracker = _gat._getTracker("UA-xxxxxx-x");
+  try {
+  var pageTracker = _gat._getTracker("UA-12749815-1");
   pageTracker._trackPageview();
   } catch(err) {}
