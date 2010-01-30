@@ -60,16 +60,31 @@
   :width 100%
   :padding-bottom 55px
   #nav
-    :color = !font_header_color
+    :color = !header_color
     :margin 10px auto 
     :text-align center
     :width 570px
   #content_wrapper
-    :width 900px
+    :display table
     :margin 0 auto
     .content_menu
       :padding 14px
-      :margin-right 12px
+    .sidebar
+      :margin-left 12px
+      :text-align center
+      a
+        :font-size 18px
+      .statistics
+        :padding 10px 5px
+        h2
+          :color = !header_color
+          :margin 4px 0 0
+        a
+          :font-weight bold
+          :color #46a038
+
+
+
 
 #footer
 
