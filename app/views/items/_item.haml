@@ -1,7 +1,7 @@
 -form_for item, :html => { :multipart => true } do |f|
   = f.error_messages
   = f.text_field :title
-  #item_description_fields.hide_me
+  #description_fields.hide_me
     = f.text_area :description, :rows => 18, :cols=>40
     =collection_select :item, :category_id, Category.all, :id, :name, {:include_blank => "Category"}
     =f.file_field :photo
