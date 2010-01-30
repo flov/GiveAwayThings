@@ -19,16 +19,16 @@
           =render :partial => 'shared/login_box' unless logged_in?
       #content
         #nav.rounded_corners
-          FAQ | Your Items | Settings | Browse City | Browse People | About |  Press | Blog
+          = render :partial => 'layouts/navigation' 
+
+        #flash_notice
+          Thank you for signing up! You are now logged in.
         #content_wrapper
-          = yield :sidebar
-          .rounded_corners.float_left
+          .rounded_corners.float_left.content_menu
             - flash.each do |name, msg|
               = content_tag :div, msg, :id => "flash_#{name}"
             = yield
-          
-
-
+          = yield :sidebar
 
           .clear
       = render :partial => 'shared/footer'

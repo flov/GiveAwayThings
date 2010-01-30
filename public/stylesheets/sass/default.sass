@@ -14,16 +14,15 @@
   :clear both
   :margin 0
   :padding 0
-body
+html, body
   :height 100%
   :margin 0
   :padding 0
   :background-color #d1d4c2
-  :color #636163
+  :color #313030
   :font
     :family arial,helvetica,sans-serif
-    :size 14px
-
+    :size 13px
 img
   :border none
 
@@ -34,11 +33,18 @@ img
 
 #flash_notice
   :background-color #CFC
-  :border solid 1px #6C6
+  :border solid 2px #6C6
 
 #flash_error
   :background-color #FCC
-  :border solid 1px #C66
+  :border solid 2px #C66
+
+#flash_notice, #flash_error
+  :-moz-border-radius 13px
+  :-webkit-border-radius 13px
+  :margin 10px auto
+  :text-align center
+  :width 400px
 
 
 #errorExplanation
