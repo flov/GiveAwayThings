@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
   before_filter :redirect_if_not_logged_in, :only => [:create]
 
   def index
-    @search = Item.search(params[:search])    
+    params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
+    @search = Item.search(params[:search])
     @items = @search.all
   end
   
