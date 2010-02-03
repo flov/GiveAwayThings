@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
     @item.build_category
     @search=Item.search(params[:search])
     @items=@search.all
-    @countries = Item.all.collect{|p| p.address}.uniq.collect{|p| p.city}.uniq.collect{|p| p.country}.uniq
+    @countries = Item.all.collect{|p| p.country}.uniq
     if logged_in?
       @person = current_person
       @items_given                   = @person.items.taken_by_does_not_equal 0

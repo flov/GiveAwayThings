@@ -1,0 +1,787 @@
+--- 
+countries_253: 
+  id: "253"
+  name: Vatican
+countries_227: 
+  id: "227"
+  name: Tajikistan
+countries_146: 
+  id: "146"
+  name: Luxembourg
+countries_172: 
+  id: "172"
+  name: Niger
+countries_56: 
+  id: "56"
+  name: Central African Republic
+countries_82: 
+  id: "82"
+  name: French Polynesia
+countries_173: 
+  id: "173"
+  name: Vanuatu
+countries_228: 
+  id: "228"
+  name: Turks and Caicos Islands
+countries_147: 
+  id: "147"
+  name: Libya
+countries_57: 
+  id: "57"
+  name: Cuba
+countries_83: 
+  id: "83"
+  name: Baker Island
+countries_254: 
+  id: "254"
+  name: Namibia
+countries_255: 
+  id: "255"
+  name: West Bank
+countries_229: 
+  id: "229"
+  name: Tokelau
+countries_148: 
+  id: "148"
+  name: Madagascar
+countries_174: 
+  id: "174"
+  name: Nigeria
+countries_58: 
+  id: "58"
+  name: Cape Verde
+countries_84: 
+  id: "84"
+  name: France
+countries_256: 
+  id: "256"
+  name: Wallis and Futuna
+countries_149: 
+  id: "149"
+  name: Martinique
+countries_175: 
+  id: "175"
+  name: Netherlands
+countries_59: 
+  id: "59"
+  name: Cook Islands
+countries_85: 
+  id: "85"
+  name: French Southern and ...
+countries_257: 
+  id: "257"
+  name: Western Sahara
+countries_86: 
+  id: "86"
+  name: The Gambia
+countries_176: 
+  id: "176"
+  name: Norway
+countries_258: 
+  id: "258"
+  name: Wake Island
+countries_177: 
+  id: "177"
+  name: Nepal
+countries_87: 
+  id: "87"
+  name: Gabon
+countries_178: 
+  id: "178"
+  name: Nauru
+countries_88: 
+  id: "88"
+  name: Georgia
+countries_259: 
+  id: "259"
+  name: Samoa
+countries_179: 
+  id: "179"
+  name: Suriname
+countries_89: 
+  id: "89"
+  name: Ghana
+countries_100: 
+  id: "100"
+  name: Guinea
+countries_10: 
+  id: "10"
+  name: Angola
+countries_101: 
+  id: "101"
+  name: Guyana
+countries_11: 
+  id: "11"
+  name: American Samoa
+countries_12: 
+  id: "12"
+  name: Argentina
+countries_102: 
+  id: "102"
+  name: Gaza Strip
+countries_13: 
+  id: "13"
+  name: Australia
+countries_210: 
+  id: "210"
+  name: Saint Helena
+countries_103: 
+  id: "103"
+  name: Haiti
+countries_14: 
+  id: "14"
+  name: Ashmore and Cartier    
+countries_40: 
+  id: "40"
+  name: Canada
+countries_1: 
+  id: "1"
+  name: Aruba
+countries_211: 
+  id: "211"
+  name: Slovenia
+countries_104: 
+  id: "104"
+  name: Hong Kong
+countries_130: 
+  id: "130"
+  name: North Korea
+countries_15: 
+  id: "15"
+  name: Austria
+countries_41: 
+  id: "41"
+  name: Cambodia
+countries_2: 
+  id: "2"
+  name: Antigua and Barbuda
+countries_212: 
+  id: "212"
+  name: Sierra Leone
+countries_105: 
+  id: "105"
+  name: Heard Island and McD...
+countries_131: 
+  id: "131"
+  name: Kingman Reef
+countries_3: 
+  id: "3"
+  name: United Arab Emirates
+countries_16: 
+  id: "16"
+  name: Anguilla
+countries_42: 
+  id: "42"
+  name: Chad
+countries_213: 
+  id: "213"
+  name: San Marino
+countries_106: 
+  id: "106"
+  name: Honduras
+countries_132: 
+  id: "132"
+  name: Kiribati
+countries_240: 
+  id: "240"
+  name: Undersea features
+countries_4: 
+  id: "4"
+  name: Afghanistan
+countries_214: 
+  id: "214"
+  name: Singapore
+countries_43: 
+  id: "43"
+  name: Sri Lanka
+countries_107: 
+  id: "107"
+  name: Howland Island
+countries_133: 
+  id: "133"
+  name: South Korea
+countries_17: 
+  id: "17"
+  name: Antarctica
+countries_241: 
+  id: "241"
+  name: Uganda
+countries_44: 
+  id: "44"
+  name: "Congo "
+countries_5: 
+  id: "5"
+  name: Algeria
+countries_215: 
+  id: "215"
+  name: Somalia
+countries_70: 
+  id: "70"
+  name: Estonia
+countries_108: 
+  id: "108"
+  name: Croatia
+countries_134: 
+  id: "134"
+  name: Christmas Island
+countries_160: 
+  id: "160"
+  name: Mauritius
+countries_18: 
+  id: "18"
+  name: Bahrain
+countries_242: 
+  id: "242"
+  name: United Kingdom
+countries_71: 
+  id: "71"
+  name: Eritrea
+countries_109: 
+  id: "109"
+  name: Hungary
+countries_135: 
+  id: "135"
+  name: Kuwait
+countries_161: 
+  id: "161"
+  name: Midway Islands
+countries_19: 
+  id: "19"
+  name: Barbados
+countries_45: 
+  id: "45"
+  name: "DR Congo "
+countries_6: 
+  id: "6"
+  name: Azerbaijan
+countries_216: 
+  id: "216"
+  name: Spain
+countries_243: 
+  id: "243"
+  name: Ukraine
+countries_72: 
+  id: "72"
+  name: El Salvador
+countries_136: 
+  id: "136"
+  name: Kazakhstan
+countries_162: 
+  id: "162"
+  name: Mauritania
+countries_46: 
+  id: "46"
+  name: China
+countries_7: 
+  id: "7"
+  name: Albania
+countries_217: 
+  id: "217"
+  name: Saint Lucia
+countries_244: 
+  id: "244"
+  name: United States
+countries_137: 
+  id: "137"
+  name: Laos
+countries_163: 
+  id: "163"
+  name: Malta
+countries_190: 
+  id: "190"
+  name: Poland
+countries_8: 
+  id: "8"
+  name: Armenia
+countries_47: 
+  id: "47"
+  name: Chile
+countries_218: 
+  id: "218"
+  name: Sudan
+countries_73: 
+  id: "73"
+  name: Ethiopia
+countries_138: 
+  id: "138"
+  name: Lebanon
+countries_164: 
+  id: "164"
+  name: Oman
+countries_191: 
+  id: "191"
+  name: Panama
+countries_9: 
+  id: "9"
+  name: Andorra
+countries_48: 
+  id: "48"
+  name: Cayman Islands
+countries_245: 
+  id: "245"
+  name: Burkina Faso
+countries_74: 
+  id: "74"
+  name: Europa Island
+countries_246: 
+  id: "246"
+  name: Uruguay
+countries_139: 
+  id: "139"
+  name: Latvia
+countries_165: 
+  id: "165"
+  name: Maldives
+countries_192: 
+  id: "192"
+  name: Portugal
+countries_49: 
+  id: "49"
+  name: Cocos  Islands
+countries_75: 
+  id: "75"
+  name: Czech Republic
+countries_247: 
+  id: "247"
+  name: Uzbekistan
+countries_166: 
+  id: "166"
+  name: Mexico
+countries_76: 
+  id: "76"
+  name: French Guiana
+countries_167: 
+  id: "167"
+  name: Malaysia
+countries_193: 
+  id: "193"
+  name: Papua New Guinea
+countries_77: 
+  id: "77"
+  name: Finland
+countries_248: 
+  id: "248"
+  name: Saint Vincent and th...
+countries_249: 
+  id: "249"
+  name: Venezuela
+countries_168: 
+  id: "168"
+  name: Mozambique
+countries_194: 
+  id: "194"
+  name: Palau
+countries_78: 
+  id: "78"
+  name: Fiji
+countries_169: 
+  id: "169"
+  name: New Caledonia
+countries_195: 
+  id: "195"
+  name: Guinea-Bissau
+countries_79: 
+  id: "79"
+  name: "Falkland Islands "
+countries_196: 
+  id: "196"
+  name: Qatar
+countries_197: 
+  id: "197"
+  name: Reunion
+countries_198: 
+  id: "198"
+  name: Marshall Islands
+countries_199: 
+  id: "199"
+  name: Romania
+countries_200: 
+  id: "200"
+  name: Philippines
+countries_120: 
+  id: "120"
+  name: Iraq
+countries_30: 
+  id: "30"
+  name: Belarus
+countries_201: 
+  id: "201"
+  name: Puerto Rico
+countries_121: 
+  id: "121"
+  name: Japan
+countries_202: 
+  id: "202"
+  name: Russia
+countries_31: 
+  id: "31"
+  name: Solomon Islands
+countries_32: 
+  id: "32"
+  name: Navassa Island
+countries_203: 
+  id: "203"
+  name: Rwanda
+countries_230: 
+  id: "230"
+  name: Tonga
+countries_123: 
+  id: "123"
+  name: Jamaica
+countries_33: 
+  id: "33"
+  name: Brazil
+countries_204: 
+  id: "204"
+  name: Saudi Arabia
+countries_231: 
+  id: "231"
+  name: Togo
+countries_34: 
+  id: "34"
+  name: Bassas da India
+countries_205: 
+  id: "205"
+  name: Saint Pierre and Miq...
+countries_60: 
+  id: "60"
+  name: Cyprus
+countries_125: 
+  id: "125"
+  name: Jordan
+countries_151: 
+  id: "151"
+  name: Moldova
+countries_35: 
+  id: "35"
+  name: Bhutan
+countries_206: 
+  id: "206"
+  name: Saint Kitts and Nevi...
+countries_61: 
+  id: "61"
+  name: Denmark
+countries_232: 
+  id: "232"
+  name: Sao Tome and Princip...
+countries_233: 
+  id: "233"
+  name: Tunisia
+countries_126: 
+  id: "126"
+  name: Johnston Atoll
+countries_152: 
+  id: "152"
+  name: Mayotte
+countries_36: 
+  id: "36"
+  name: Bulgaria
+countries_207: 
+  id: "207"
+  name: Seychelles
+countries_62: 
+  id: "62"
+  name: Djibouti
+countries_260: 
+  id: "260"
+  name: Swaziland
+countries_127: 
+  id: "127"
+  name: Juan de Nova Island
+countries_153: 
+  id: "153"
+  name: Mongolia
+countries_180: 
+  id: "180"
+  name: Netherlands Antilles
+countries_37: 
+  id: "37"
+  name: Bouvet Island
+countries_208: 
+  id: "208"
+  name: South Africa
+countries_63: 
+  id: "63"
+  name: Dominica
+countries_234: 
+  id: "234"
+  name: East Timor
+countries_235: 
+  id: "235"
+  name: Turkey
+countries_128: 
+  id: "128"
+  name: Kenya
+countries_154: 
+  id: "154"
+  name: Montserrat
+countries_181: 
+  id: "181"
+  name: Nicaragua
+countries_38: 
+  id: "38"
+  name: Brunei
+countries_209: 
+  id: "209"
+  name: Senegal
+countries_64: 
+  id: "64"
+  name: Jarvis Island
+countries_90: 
+  id: "90"
+  name: Gibraltar
+countries_261: 
+  id: "261"
+  name: Serbia
+countries_262: 
+  id: "262"
+  name: Yemen
+countries_236: 
+  id: "236"
+  name: Tuvalu
+countries_129: 
+  id: "129"
+  name: Kyrgyzstan
+countries_155: 
+  id: "155"
+  name: Malawi
+countries_39: 
+  id: "39"
+  name: Burundi
+countries_65: 
+  id: "65"
+  name: Dominican Republic
+countries_91: 
+  id: "91"
+  name: Grenada
+countries_263: 
+  id: "263"
+  name: Zambia
+countries_237: 
+  id: "237"
+  name: Taiwan
+countries_156: 
+  id: "156"
+  name: Macedonia-FYROM
+countries_182: 
+  id: "182"
+  name: New Zealand
+countries_66: 
+  id: "66"
+  name: Ecuador
+countries_92: 
+  id: "92"
+  name: Kosovo
+countries_264: 
+  id: "264"
+  name: Zimbabwe
+countries_238: 
+  id: "238"
+  name: Turkmenistan
+countries_157: 
+  id: "157"
+  name: Mali
+countries_183: 
+  id: "183"
+  name: Bodies of water
+countries_67: 
+  id: "67"
+  name: Egypt
+countries_93: 
+  id: "93"
+  name: Greenland
+countries_239: 
+  id: "239"
+  name: Tanzania
+countries_158: 
+  id: "158"
+  name: Monaco
+countries_184: 
+  id: "184"
+  name: Paraguay
+countries_68: 
+  id: "68"
+  name: "Ireland "
+countries_94: 
+  id: "94"
+  name: Germany
+countries_265: 
+  id: "265"
+  name: Montenegro
+countries_159: 
+  id: "159"
+  name: Morocco
+countries_185: 
+  id: "185"
+  name: Pitcairn Islands
+countries_69: 
+  id: "69"
+  name: Equatorial Guinea
+countries_95: 
+  id: "95"
+  name: Glorioso Islands
+countries_266: 
+  id: "266"
+  name: Saint Barthelemy
+countries_186: 
+  id: "186"
+  name: Peru
+countries_96: 
+  id: "96"
+  name: Guadeloupe
+countries_267: 
+  id: "267"
+  name: Saint Martin
+countries_187: 
+  id: "187"
+  name: Paracel Islands
+countries_97: 
+  id: "97"
+  name: Guam
+countries_188: 
+  id: "188"
+  name: Spratly Islands
+countries_98: 
+  id: "98"
+  name: Greece
+countries_99: 
+  id: "99"
+  name: Guatemala
+countries_189: 
+  id: "189"
+  name: Pakistan
+countries_110: 
+  id: "110"
+  name: Iceland
+countries_20: 
+  id: "20"
+  name: Botswana
+countries_111: 
+  id: "111"
+  name: Indonesia
+countries_21: 
+  id: "21"
+  name: Bermuda
+countries_22: 
+  id: "22"
+  name: Belgium
+countries_23: 
+  id: "23"
+  name: The Bahamas
+countries_220: 
+  id: "220"
+  name: Sweden
+countries_113: 
+  id: "113"
+  name: India
+countries_114: 
+  id: "114"
+  name: British Indian Ocean...
+countries_140: 
+  id: "140"
+  name: Lithuania
+countries_24: 
+  id: "24"
+  name: Bangladesh
+countries_50: 
+  id: "50"
+  name: Cameroon
+countries_221: 
+  id: "221"
+  name: South Georgia and th...
+countries_222: 
+  id: "222"
+  name: Syria
+countries_115: 
+  id: "115"
+  name: Clipperton Island
+countries_141: 
+  id: "141"
+  name: Liberia
+countries_25: 
+  id: "25"
+  name: Belize
+countries_51: 
+  id: "51"
+  name: Comoros
+countries_223: 
+  id: "223"
+  name: Switzerland
+countries_116: 
+  id: "116"
+  name: Iran
+countries_142: 
+  id: "142"
+  name: Slovakia
+countries_26: 
+  id: "26"
+  name: Bosnia and Herzegovi...
+countries_52: 
+  id: "52"
+  name: Colombia
+countries_224: 
+  id: "224"
+  name: Trinidad and Tobago
+countries_117: 
+  id: "117"
+  name: Israel
+countries_143: 
+  id: "143"
+  name: Palmyra Atoll
+countries_170: 
+  id: "170"
+  name: Niue
+countries_27: 
+  id: "27"
+  name: Bolivia
+countries_53: 
+  id: "53"
+  name: Northern Mariana Isl...
+countries_250: 
+  id: "250"
+  name: British Virgin Islan...
+countries_251: 
+  id: "251"
+  name: Vietnam
+countries_225: 
+  id: "225"
+  name: Tromelin Island
+countries_118: 
+  id: "118"
+  name: Italy
+countries_144: 
+  id: "144"
+  name: Liechtenstein
+countries_28: 
+  id: "28"
+  name: "Myanmar "
+countries_54: 
+  id: "54"
+  name: Coral Sea Islands
+countries_80: 
+  id: "80"
+  name: Micronesia
+countries_252: 
+  id: "252"
+  name: US Virgin Islands
+countries_226: 
+  id: "226"
+  name: Thailand
+countries_119: 
+  id: "119"
+  name: Cote D'Ivoire
+countries_145: 
+  id: "145"
+  name: Lesotho
+countries_171: 
+  id: "171"
+  name: Norfolk Island
+countries_29: 
+  id: "29"
+  name: Benin
+countries_55: 
+  id: "55"
+  name: Costa Rica
+countries_81: 
+  id: "81"
+  name: Faroe Islands

@@ -11,6 +11,10 @@ class Item < ActiveRecord::Base
   
   concerned_with :validation
 
+  def country
+    self.address.city.country
+  end
+
   def after_initialize
     if self.title == 'Type in item.' or self.title == "Come on. Think of something to give away..."
       self.title = ""

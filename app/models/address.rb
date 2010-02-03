@@ -9,6 +9,9 @@ class Address < ActiveRecord::Base
   accepts_nested_attributes_for :city
 
   validates_presence_of :street
+  def country
+    self.city.country
+  end
 
   def city_attributes=(city_attributes)
     self.city = City.find_or_create_by_name_and_country_id(city_attributes)

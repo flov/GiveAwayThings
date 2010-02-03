@@ -1,0 +1,25 @@
+--- 
+categories_01: 
+  id: 1
+  name: Books
+categories_02: 
+  id: 2 
+  name: Electronics
+categories_03: 
+  id: 3
+  name: Furniture
+categories_04: 
+  id: 4 
+  name: Music
+categories_05: 
+  id: 5
+  name: Clothes
+categories_06: 
+  id: 6
+  name: Food
+categories_07: 
+  id: 7
+  name: Toys
+categories_08: 
+  id: 8
+  name: not listed

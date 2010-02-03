@@ -3,7 +3,7 @@
   = text_field_tag 'item[title]', 'Type in item.' 
   %br
   #slidedown_fields.hide_me
-    = f.text_area :description, :rows => 18, :cols=>40
+    = f.text_area :description, :rows => 6, :cols=>40
     %br
     .center
       =collection_select :item, :category_id, Category.all, :id, :name, {:include_blank => "Category"}

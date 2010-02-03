@@ -1,11 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
-require 'yaml'
-
-load_fixtures "seed/once"
-
-private
+require 'active_record/fixtures'
 
 def load_fixtures(dir, always = false)
   Dir.glob(File.join(RAILS_ROOT, 'db', dir, '*.yml')).each do |fixture_file|
@@ -32,3 +28,5 @@ end
 def connection
   ActiveRecord::Base.connection
 end
+
+load_fixtures "seed"
