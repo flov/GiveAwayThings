@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100124193603) do
+ActiveRecord::Schema.define(:version => 20100203115826) do
 
   create_table "addresses", :force => true do |t|
     t.string  "street"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(:version => 20100124193603) do
     t.datetime "created_at"
   end
 
+  create_table "countries", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "cities", :force => true do |t|
     t.string   "name"
     t.integer  "country_id"
@@ -30,11 +34,10 @@ ActiveRecord::Schema.define(:version => 20100124193603) do
 
   add_index "cities", ["name", "country_id"], :name => "index_cities_on_name_and_country_id", :unique => true
 
-  create_table "countries", :force => true do |t|
-    t.string "name"
-    t.string "iso"
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.integer  "country_id"
   end
-
   create_table "items", :force => true do |t|
     t.string   "title"
     t.text     "description"

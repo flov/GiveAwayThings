@@ -3,19 +3,32 @@
 #
 require 'yaml'
 
-puts "seeding countries"
-data = YAML.load_file("#{RAILS_ROOT}/db/default/countries.yml")
-data.each do |key, value|
-  c=Country.new(value)
-  c.id = value["id"]
-  puts "Inserting Country: [Name: #{c.name}, Iso: #{c.iso}]"
-  c.save!
+load_fixtures "seed/once"
+
+private
+
+def load_fixtures(dir, always = false)
+  Dir.glob(File.join(RAILS_ROOT, 'db', dir, '*.yml')).each do |fixture_file|
+    table_name = File.basename(fixture_file, '.yml')
+
+    if table_empty?(table_name) || always
+      truncate_table(table_name)
+      puts "seeding #{table_name}"
+      Fixtures.create_fixtures(File.join('db/', dir), table_name)
+    end
+  end
+end  
+
+def table_empty?(table_name)
+  quoted = connection.quote_table_name(table_name)
+  connection.select_value("SELECT COUNT(*) FROM #{quoted}").to_i.zero?
 end
 
-puts 'seeding categories'
-data = YAML.load_file("#{RAILS_ROOT}/db/default/categories.yml")
-data.each do |key, value|
-  c=Category.create(value)
-  puts "Inserting Category: [Name: #{c.name}]"
-  c.save!
+def truncate_table(table_name)
+  quoted = connection.quote_table_name(table_name)
+  connection.execute("DELETE FROM #{quoted}")
+end
+
+def connection
+  ActiveRecord::Base.connection
 end
