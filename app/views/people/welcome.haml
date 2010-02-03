@@ -1,14 +1,13 @@
 - title "- for a sustainable society"
 
 .welcome_content
-  %h1
-    Welcome
-    =current_person.username if logged_in?
-  %h2= t('.be_generous')
-  =render :partial => 'items/item', :locals => {:item => @item}
-  %h3 OR
-  %h2 be thankful and pick a thing up
-  = render :partial => 'items/search'
+  = render :partial => 'not_ready'
+
+  -# %h2= t('.be_generous')
+  =# render :partial => 'items/item', :locals => {:item => @item}
+  -#%h3 OR
+  -#%h2 be thankful and pick a thing up
+  =# render :partial => 'items/search'
 
   -content_for :sidebar do
     .announcements

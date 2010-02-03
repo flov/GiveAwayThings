@@ -5,6 +5,7 @@ class PeopleController < ApplicationController
     @search=Item.search(params[:search])
     @items=@search.all
     @countries = Item.all.collect{|p| p.country}.uniq
+    @newsletter = Newsletter.new
     if logged_in?
       @person = current_person
       @items_given                   = @person.items.taken_by_does_not_equal 0

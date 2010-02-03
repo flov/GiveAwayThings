@@ -1,0 +1,11 @@
+- title "Newsletters"
+
+%table
+  %tr
+    %th Mail
+  - for newsletter in @newsletters
+    %tr
+      %td= h newsletter.mail
+      %td= link_to 'Show', newsletter
+
+%p= link_to "New Newsletter", new_newsletter_path

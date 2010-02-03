@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :newsletters
+
+  map.resources :newsletters
+
 
   map.signup 'signup',   :controller => 'people',     :action => 'new'
   map.logout 'logout',   :controller => 'sessions',   :action => 'destroy'
