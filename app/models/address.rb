@@ -7,6 +7,7 @@ class Address < ActiveRecord::Base
   has_many :items
   
   accepts_nested_attributes_for :city
+  
 
   validates_presence_of :street
   def country
