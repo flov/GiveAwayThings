@@ -1,0 +1,17 @@
+= error_messages_for :articles
+
+- form_for @articles do |f|
+  %p
+    =f.label :section_id
+    %br
+    = f.text_field :section_id
+  %p
+    =f.label :title
+    %br
+    = f.text_field :title
+  %p
+    =f.label :body
+    %br
+    = f.text_area :body
+  %p
+    = f.submit "Submit"

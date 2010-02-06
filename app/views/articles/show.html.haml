@@ -1,0 +1,18 @@
+- title "Articles"
+
+%p
+  %strong Section:
+  =h @articles.section_id
+%p
+  %strong Title:
+  =h @articles.title
+%p
+  %strong Body:
+  =h @articles.body
+
+%p
+  = link_to "Edit", edit_articles_path(@articles)
+  |
+  = link_to "Destroy", @articles, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", articles_path

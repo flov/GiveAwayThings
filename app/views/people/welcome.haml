@@ -1,20 +1,18 @@
 - title "- for a sustainable society"
 
-.welcome_content
-  = render :partial => 'not_ready'
-
-  -# %h2= t('.be_generous')
-  =# render :partial => 'items/item', :locals => {:item => @item}
-  -#%h3 OR
-  -#%h2 be thankful and pick a thing up
-  =# render :partial => 'items/search'
+.welcome_content.center
+  =# render :partial => 'not_ready'
+  %h1 
+    Welcome
+    =current_person.username if logged_in?
+  
+  %h3= t('.be_generous')
+  = render :partial => 'items/item', :locals => {:item => @item}
+  %h2 OR
+  %h3 be thankful and pick a thing up
+  = render :partial => 'items/search'
 
   -content_for :sidebar do
-    .announcements
-      ANNOUNCEMENTS
-    .text
-      %h3 Getting Started (beta)!
-      %p We are still in development mode! Help us getting started: We love feedback. if you have any ideas or you want to contribute to G.A.T, please Mail us at feedback@giveawaythings.org or use the feedback button on the left side.
-     
+    = render :partial => 'announcements' 
     = render :partial => 'items/statistics', :locals => {:person => @person} if logged_in?
     = render :partial => 'people/unknown_stats' unless logged_in?

@@ -37,10 +37,12 @@ class PeopleController < ApplicationController
     if @person.save
       #UserMailer.registration_confirmation(@person)
       session[:person_id] = @person.id
-      flash[:notice]      = "Thank you for signing up! You are now logged in."
+      flash[:notice]      = 'Thank you for signing up! You are now logged in.'
       redirect_to root_url
     else
+      flash[:error] = 'Please fill in the neccessary fields.'
       render :new
+      flash.discard
     end
   end
   

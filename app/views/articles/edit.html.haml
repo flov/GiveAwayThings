@@ -1,0 +1,8 @@
+- title "Edit Articles"
+
+= render :partial => 'form'
+
+%p
+  = link_to "Edit", edit_articles_path(@articles)
+  |
+  = link_to "View All", articles_path

@@ -1,7 +1,5 @@
 class ItemsController < ApplicationController
-
-  before_filter :redirect_if_not_logged_in, :only => [:create]
-
+  
   def index
     params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
     @search = Item.search(params[:search])
@@ -12,15 +10,24 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def create
+  def create    
     @item = Item.new(params[:item])
-    @item.person_id = current_person.id
-    @item.address_id = current_person.address.id
+    @item.person_id = current_person.id if logged_in?
+    @item.address_id = current_person.address.id if logged_in?
     if @item.save
       flash[:notice] = "Thank you for giving things away!<br>'#{@item.title}' can now be found by others in #{current_person.address.city}."
       redirect_to welcome_path
     else
-      render :new
+      if @item.errors.on(:title)
+        flash[:error] = "Please enter a title for the item"
+        render :new
+      elsif @item.errors.on(:person)
+        flash[:error] = "#{params["item"]["title"]} has not yet been saved, log in or sign up to save it."
+        @person = Person.new
+        @person.build_address.build_city.build_country
+        render 'people/new'
+      end
+      flash.discard
     end    
   end
 
@@ -37,7 +44,10 @@ class ItemsController < ApplicationController
   end
   
   private
-  def redirect_if_not_logged_in
-    redirect_to signup_path unless logged_in?
+  def redirect_if_not_logged_in(flash_msg)
+    unless logged_in?
+      flash[:error] = flash_msg
+      redirect_to signup_path 
+    end
   end
 end

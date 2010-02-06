@@ -1,6 +1,9 @@
 // inFieldLabel requirement
 $(document).ready(function(){
-  //tablesorter
+  //Elastic
+  $('textarea').elastic();
+  
+  //Tablesorter
 	$("#show_items").tablesorter();
 	$("#show_items tbody tr:odd").addClass("odd")
 	$("#show_items tbody tr").hover(function(){
@@ -8,7 +11,11 @@ $(document).ready(function(){
 	},function(){
 		$(this).removeClass("hover");
 	});
-	//
+
+	//Tipsy
+	$(function() {
+  	$('a[rel=tipsy]').tipsy({fade: true, gravity: 'e'});
+  });
 	
 	//Drop Down in Welcome Menu
 	//Label of item

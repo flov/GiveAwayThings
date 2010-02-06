@@ -9,12 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100203192756) do
+ActiveRecord::Schema.define(:version => 20100204190036) do
 
   create_table "addresses", :force => true do |t|
     t.string  "street"
     t.string  "state"
     t.integer "city_id"
+  end
+
+  create_table "articles", :force => true do |t|
+    t.integer  "section_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories", :force => true do |t|
@@ -53,8 +61,8 @@ ActiveRecord::Schema.define(:version => 20100203192756) do
 
   create_table "newsletters", :force => true do |t|
     t.string   "mail"
-    t.string   "name"
     t.datetime "created_at"
+    t.string   "name"
   end
 
   create_table "people", :force => true do |t|
@@ -77,6 +85,12 @@ ActiveRecord::Schema.define(:version => 20100203192756) do
     t.text     "text"
     t.datetime "created_at"
     t.string   "title"
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "header"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "states", :force => true do |t|

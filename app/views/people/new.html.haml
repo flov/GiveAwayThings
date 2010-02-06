@@ -1,10 +1,9 @@
 - title "Sign up"
 
 %h1 Sign Up
-%p== Already have an account? #{link_to "Log in", login_path}.
+%p== Already have an account? Then log in on the right side.
 
 - form_for @person do |f|
-  = f.error_messages
   %table.form
     %tr
       %th
@@ -29,13 +28,21 @@
         %p.details Type your password again
       %td= f.password_field :password_confirmation
     - f.fields_for :address do |address_form|
-      = render :partial => 'city_form', :locals => {:address_form => address_form}
+      = render :partial => 'people/city_form', :locals => {:address_form => address_form}
       %tr
         %th
           Street
           %p.details Will not be displayed publicly
         %td= address_form.text_field :street
+  -if @item
+    =hidden_field_tag 'person[item_attributes][title]',       @item.title 
+    =hidden_field_tag 'person[item_attributes][description]', @item.description
+    =hidden_field_tag 'person[item_attributes][category_id]', @item.category_id
+    
   %p
     .submit.center= f.submit "Sign up"
+
+-content_for :sidebar do
+  =render :partial => "sessions/login"
 
 =# render :partial => 'country', :locals => {:address_form => address_form}

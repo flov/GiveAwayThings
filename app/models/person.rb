@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
 
-  attr_accessible :username, :email, :password, :password_confirmation, :items, :address_attributes
+  attr_accessible :username, :email, :password, :password_confirmation, :items_attributes, :address_attributes
 
   concerned_with  :validation
 
@@ -9,7 +9,9 @@ class Person < ActiveRecord::Base
   has_many :items, :dependent => :destroy
   has_many :items_taken, :class_name => "Item", :foreign_key => "taken_by"
   has_many :requests, :dependent => :destroy
-  accepts_nested_attributes_for :address, :items
+  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :items
+  
 
   attr_accessor :password
   before_save :prepare_password
