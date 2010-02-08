@@ -5,6 +5,9 @@
 # since you don't have to restart the webserver when you make code changes.
 config.cache_classes = false
 
+# Accept HAML as template language
+# ActionMailer::Base.register_template_extension('haml') 
+
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true
 
@@ -21,10 +24,11 @@ config.action_mailer.delivery_method = :smtp
 
 # these options are only needed if you choose smtp delivery
 config.action_mailer.smtp_settings = {
-  :address        => 'smtp.sendgrid.net',
-  :port           => 25,
-  :domain         => 'www.giveawaythings.org',
-  :authentication => :login,
-  :user_name      => 'florian.vallen@gmail.com',
-  :password       => 'smtp55'
+  :enable_starttls_auto => true,
+  :address        => 'smtp.gmail.com',
+  :port           => 587,
+  :domain         => 'giveawaythings.org',
+  :authentication => :plain,
+  :user_name      => 'no-reply@giveawaythings.org',
+  :password       => 'smtp55!@'
 }

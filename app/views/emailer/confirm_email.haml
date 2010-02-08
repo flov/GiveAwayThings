@@ -1,0 +1,15 @@
+=="Hello #{@person.username},"
+
+%p In order to <b>complete your signup</b> for Teambox, we need you to log in by clicking here:
+
+= link_to 'Log in to GiveAwayThings now', @login_link
+%br
+If this doesn't work, copy and paste the following link in your browser's bar:
+%br
+= link_to @login_link, @login_link
+
+.footer
+  %p= "You receive this message because you signed up for a Teambox account with #{@person.email}"
+  %p= "If you have any problems, please contact us at support@giveawaythings.org"
+    
+

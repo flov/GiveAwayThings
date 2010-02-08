@@ -3,7 +3,8 @@ class Person < ActiveRecord::Base
 
   attr_accessible :username, :email, :password, :password_confirmation, :items_attributes, :address_attributes
 
-  concerned_with  :validation
+  concerned_with  :validation,
+                  :activation
 
   belongs_to :address, :dependent => :destroy
   has_many :items, :dependent => :destroy
@@ -38,6 +39,10 @@ class Person < ActiveRecord::Base
     self.username
   end
   
+  def after_create
+    send_activation_email unless self.confirmed_user
+  end
+  
   private
   
   def prepare_password
@@ -51,4 +56,6 @@ class Person < ActiveRecord::Base
     Digest::SHA1.hexdigest([pass, password_salt].join)
   end
   
+
+
 end
