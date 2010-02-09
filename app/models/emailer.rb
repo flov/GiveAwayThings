@@ -1,18 +1,21 @@
 class Emailer < ActionMailer::Base
 
-  def gmail_message
-    subject    'Message via gmail'
-    recipients 'florian.vallen@gmail.com'
-    from       'florian@giveawaythings.org'
-    sent_on    Time.now
-    body       :greeting => 'Hello!'
+include ActionController::UrlWriter # Allows us to generate URLs
+include ActionView::Helpers::TextHelper
+  
+  def confirm_email(person)
+    defaults
+    recipients    person.email
+    subject       'Get started with GiveAwayThings!'
+    body          :person => person, :login_link => confirm_email_person_url(person.username, :token => person.login_token)
   end
   
-  def confirm_email(user)
-    defaults
-    recipients    user.email
-    subject       'Get started with GiveAwayThings!'
-    body          :user => user, :login_link => confirm_email_user_url(user, :token => user.login_token)
+  private
+  
+  def defaults
+    content_type  'text/html'
+    sent_on       Time.now
+    from          'no-reply@giveawaythings.org'
   end
 
 end

@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  def confirmed_user?
+    if current_person and not current_person.is_active?
+      flash[:error] = "You need to activate your account first"
+      redirect_to unconfirmed_email_person_path(current_person)
+    end
+  end
 end

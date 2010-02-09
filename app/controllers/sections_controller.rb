@@ -1,6 +1,8 @@
 class SectionsController < ApplicationController
   def index
-    @sections = Sections.find(:all)
+    
+    @person = Person.last
+    
   end
   
   def show

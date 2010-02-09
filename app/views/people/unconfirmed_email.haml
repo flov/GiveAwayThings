@@ -1,0 +1,10 @@
+%h2 Confirm your email
+%p An email invitation was sent to your email address.
+%p Please open this email and follow the link inside it to activate your account.
+%h3 Problems?
+%ul
+  %li="Can't find the email? Press #{link_to 'here', :resend => true} to re-send the activation email."
+  %li Make sure the email wasn't classified as spam by your email client.
+  %li="Wrong address? If you mistyped your email address, just #{link_to 're-create your account', signup_path} with a valid address."
+
+%p If you're still having problems, please contact us at support@giveawaythings.org

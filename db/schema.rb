@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100206125514) do
+ActiveRecord::Schema.define(:version => 20100208145642) do
 
   create_table "addresses", :force => true do |t|
     t.string  "street"
@@ -65,8 +65,9 @@ ActiveRecord::Schema.define(:version => 20100206125514) do
   end
 
   create_table "people", :force => true do |t|
-    t.string   "username"
+    t.string   "username",       :limit => 40
     t.string   "email",          :limit => 100
+    t.text     "biography"
     t.integer  "address_id"
     t.string   "password_hash"
     t.string   "password_salt"
@@ -75,7 +76,9 @@ ActiveRecord::Schema.define(:version => 20100206125514) do
     t.boolean  "confirmed_user",                :default => false
     t.string   "first_name",     :limit => 20,  :default => ""
     t.string   "last_name",      :limit => 20,  :default => ""
-    t.boolean  "is_admin"
+    t.boolean  "admin"
+    t.string   "login_token",                 :limit => 40
+    t.datetime "login_token_expires_at"
   end
 
   create_table "requests", :force => true do |t|

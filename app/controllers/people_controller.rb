@@ -1,4 +1,8 @@
 class PeopleController < ApplicationController
+  
+  before_filter :find_person, :only => [ :show, :confirm_email ]
+  before_filter :login_required, :confirmed_user?, :only => [ :show ]
+
   def welcome
     @item=Item.new(:title => 'Type in item.', :description => 'Description (optional)')
     @item.build_category
@@ -18,7 +22,6 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @person = Person.find_by_username(params[:id])
     @items_given                   = @person.items.taken_by_does_not_equal 0
     @items_taken                   = @person.items_taken
     @requests_not_accepted         = @person.requests.item_accepted_equals 0
@@ -35,7 +38,6 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(params[:person])
     if @person.save
-      #Emailer.registration_confirmation(@person)
       session[:person_id] = @person.id
       flash[:notice]      = 'Thank you for signing up! You are now logged in.'
       redirect_to root_url
@@ -49,5 +51,34 @@ class PeopleController < ApplicationController
   def index
     @people = Person.all
   end
+  
+  def confirm_email
+    if @person.is_login_token_valid? params[:token]
+      if @person.is_active?
+        flash[:notice] = "You had already confirmed your email! You can now use Teambox."
+      else
+        @person.activate!
+        @person.expire_login_code!
+        current_person = @person
+        flash[:notice] = "Your account has been activated! Welcome to Teambox :)"
+      end
+    else
+      flash[:error] = t('people.activation.invalid')
+    end
+    redirect_to '/'    
+  end
+  
+  def unconfirmed_email
+    
+  end
+  
+  private
+    def find_person
+      unless @person = Person.find_by_username(params[:id])
+        flash[:error] = "This person does not exist"
+        redirect_to '/'
+      end
+    end
+  
 end
 

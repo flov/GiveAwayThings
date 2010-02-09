@@ -16,9 +16,8 @@ class City < ActiveRecord::Base
     name
   end
   
-  # protected
-  # def before_save
-  #   name = name.capitalize
-  # end
+  def before_save
+    self.name = self.name.capitalize
+  end
     
 end

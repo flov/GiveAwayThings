@@ -21,13 +21,14 @@ config.action_mailer.raise_delivery_errors = true
 
 # set delivery method to :smtp, :sendmail or :test
 config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_url_options = { :host => 'www.giveawaythings.org' }
 
 # these options are only needed if you choose smtp delivery
 config.action_mailer.smtp_settings = {
   :enable_starttls_auto => true,
   :address        => 'smtp.gmail.com',
   :port           => 587,
-  :domain         => 'giveawaythings.org',
+  :domain         => 'www.giveawaythings.org',
   :authentication => :plain,
   :user_name      => 'no-reply@giveawaythings.org',
   :password       => 'smtp55!@'

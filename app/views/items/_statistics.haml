@@ -1,6 +1,6 @@
 .statistics
   .stat_image
-    ="#{person.username.upcase}'s Statistics"
+    ="#{person.username.capitalize}'s Statistics"
   %h2 Gave
   =link_to pluralize(@items_given.size,'Thing'), person_path(person.username)
   %h2 Took

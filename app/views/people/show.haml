@@ -1,10 +1,14 @@
 - title " - #{@person.to_s.capitalize}"
 
-%h1==#{@person.to_s.capitalize}'s Profile
+%h1==#{@person.to_s.capitalize}
 %p
   =link_to @person.address.city.country.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s}"
   %br/
   =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
+  
+%h1 Gave:
+  
+
 
 -content_for :sidebar do
   = render :partial => 'items/avatar', :locals => {:person => @person}

@@ -1,0 +1,55 @@
+#
+# This file takes care of some key strings for the interface and app.
+# You will also need to edit environment.rb with your own email settings.
+# 
+
+# This block defines defaults, shared for all environments.
+# You can override them individually under development, test or production.
+defaults: &DEFAULTS
+  support: support@giveawathings.org
+  
+  # The domain from where your app is served from. 
+  app_domain: app.teambox.com
+
+  # Configuration for outgoing mail
+  # By default, will send emails in production mode but not in development.
+  outgoing:
+    from: teambox.com           # the domain your emails will come from, as in no_reply@app.teambox.com
+    host: localhost             # the actual SMTP server used to deliver emails. can be a local or remote server
+    user: username
+    pass: password
+    auth: plain                 # choose: plain, login, cram_md5    
+    port: 25
+
+  # [NOT IMPLEMENTED]
+  # Set allow to true to allow the "reply to" feature for notifications.
+  # This will allow users to post answers and comments by email.
+  # When set to true, "reply above this line" notice will be displayed where relevant and accept emails.
+  # You will need to:
+  # * Setup catch-all address for email received for any username of the incoming mail server.
+  # * Run './script/inbox' periodically from cron to process incoming emails.
+  allow_incoming_email: false
+  incoming:
+    type: pop
+    server: 
+    username: 
+    password: 
+  
+  time_zone: UTC
+
+development:
+  <<: *DEFAULTS
+  app_domain: localhost:3000
+  allow_outgoing_email: false
+
+production:
+  <<: *DEFAULTS
+  app_domain: app.teambox.com
+
+test: &TEST
+  <<: *DEFAULTS
+  app_domain: 127.0.0.1
+  allow_outgoing_email: false
+  asset_max_file_size: 1
+cucumber:
+  <<: *TEST  

@@ -28,7 +28,9 @@ class Person < ActiveRecord::Base
   # login can be either username or email address
   def self.authenticate(login, pass)
     person = find_by_username(login) || find_by_email(login)
-    return person if person && person.matching_password?(pass)
+    if person && person.matching_password?(pass)
+      return person 
+    end
   end
   
   def matching_password?(pass)
