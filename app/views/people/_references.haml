@@ -1,0 +1,25 @@
+.references
+  %h2 References:
+  .reference
+    = link_to gravatar_for(@person, :size => 30, :class => 'picture'),person_path(@person.username) 
+    %h4="From: #{link_to 'Andrew Brown',''}"
+    %h4="For: #{link_to 'Good Table made in H...',''}"
+    %h5 Barcelona, Spain
+    %h5 October 24, 2009
+    .positive 
+      %h3 Positive
+    She is a really nice girl.
+    Thank you so much for the table!
+    It now stands in my room and
+    we are eating every day at it.
+  .reference
+    = link_to gravatar_for(@person, :size => 30, :class => 'picture'),person_path(@person.username) 
+    %h4="From: #{link_to 'Andrew Brown',''}"
+    %h4="For: #{link_to 'iPhone 3G',''}"
+    %h5 Barcelona, Spain
+    %h5 October 24, 2009
+    .negative 
+      %h3 Negative
+    After I came to pick the new iphone up, he wrapped me up, bond me tight and raped me
+    all night through. After 5 months he surprisingly released me and told me i shouldnt
+    tell anybody. Well here i am and im saying: 'NEVER MEET THIS FREAK!'

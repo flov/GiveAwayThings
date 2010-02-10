@@ -13,7 +13,7 @@ en:
       follow_the_link: "In order to <b>complete your signup</b> for GiveAwayThings, we need you to log in by clicking here:"
       log_in: "Log into GiveAwayThings now!"
       plaintext_link: "If this doesn't work, copy and paste the following link in your browser's bar:"
-      report_abuse: "You receive this message because you signed up for a Teambox account with {{email}}"
+      report_abuse: "You receive this message because you signed up for a GiveAwayThings account with {{email}}"
       problems: "If you have any problems, please contact us at {{support}}"
     common:
       do_not_answer: "Do not answer to this email."

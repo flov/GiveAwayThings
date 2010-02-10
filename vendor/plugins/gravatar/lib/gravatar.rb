@@ -28,7 +28,7 @@ module GravatarHelper
     :alt => '',
     
     # The class to assign to the img tag for the gravatar.
-    :class => 'gravatar',
+    # :class => 'gravatar',
     
     # Whether or not to display the gravatars using HTTPS instead of HTTP
     :ssl => false,

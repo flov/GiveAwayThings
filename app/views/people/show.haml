@@ -1,40 +1,28 @@
 - title " - #{@person.to_s.capitalize}"
 
-%h1==#{@person.to_s.capitalize}
-%p
-  =link_to @person.address.city.country.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s}"
-  %br/
-  =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
+.profile_page
 
-  %h2 Gave:
-  %table.show_items#show_items
-    %tbody
-      %tr
-        %td.first Table
-        %td.second to
-        %td.third Kirk
-        %td.fourth=image_tag 'http://www.gravatar.com/avatar/428144c165d57e2b53336fb385d7943c?d=monsterid&rating=PG&size=22', :class=>'gravatar'
-      %tr
-        %td.first a really horrible long written item name that actually knowbody cares about but why is it really just soooo long???
-        %td.second to
-        %td.third Kirk
-        %td.fourth=image_tag 'http://www.gravatar.com/avatar/428144c165d57e2b53336fb385d7943c?d=monsterid&rating=PG&size=22', :class=>'gravatar'
-  %h2 Took:
+  %h1==#{@person.to_s.capitalize}
+  %p
+    =link_to @person.address.city.country.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s}"
+    %br/
+    =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
+
+  -unless @items_given.empty?
+    %h2 Gave:
+    = render :partial => 'show_items', :locals => {:items => @items_given}
+  -unless @items_taken.empty?
+    %h2 Took:
+    = render :partial => 'show_items', :locals => {:items => @items_given}
+  = 3 unless @items_offered.empty?
+  %h2 Offers:
   %table.show_items#show_items
     %tr
-      %td.first Bread
-      %td to
-      %td Kirk
-      %td=image_tag 'http://www.gravatar.com/avatar/428144c165d17e2b53336fb385d7943c?d=monsterid&rating=PG&size=22', :class=>'gravatar'
-  %h2 Offers
-  %table.show_items#show_items
-    %tr
-      %td.first Laptop
-      %td to
-      %td Zoidberg
-      %td=image_tag 'http://www.gravatar.com/avatar/428144c165d57e2aa3336fb385d7943c?d=monsterid&rating=PG&size=22', :class=>'gravatar'
+      %td.first Knives
+      %td.second since
+      %td.fourth=#time_ago_in_words
 
-
--content_for :sidebar do
-  = render :partial => 'items/avatar', :locals => {:person => @person}
-  = render :partial => 'items/statistics', :locals => {:person => @person}
+  -content_for :sidebar_in_box do
+    = render :partial => 'people/avatar_profile', :locals => {:person => @person}
+    = render :partial => 'people/references'
+    = render :partial => 'items/statistics', :locals => {:person => @person}

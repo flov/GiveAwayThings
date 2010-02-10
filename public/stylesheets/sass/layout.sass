@@ -9,7 +9,7 @@
   :background-color #fff
   :border 2px solid #b2b5a6
 
-
+  
 img.gravatar
   :border 2px solid #5a595a
   -webkit-border-radius: 2px
@@ -67,37 +67,14 @@ img.gravatar
   #content_wrapper
     :display table
     :margin 0 auto
-    .content_menu
-      :padding 14px
-      :min-width 400px
     .sidebar
       :margin-left 12px
       :text-align center
       :padding 10px
-      .statistics
-        h2
-          :color = !header_color
-          :margin 4px 0 0
-        a
-          :font-weight bold
-          :color #46a038
-      .stat_image
-        :background-image url(/images/stats.png)
-        :background-repeat no-repeat
-        :background-position left center
-        :height 20px
-        :padding 11px 0 0 31px 
-        :font-weight bold
-        :text-align left
-      .announcements
-        :font-weight bold
-        :background-image url(/images/announcement.png)
-        :background-repeat no-repeat
-        :background-position left center
-        :height 22px
-        :padding 8px 0 0 31px
-        :width 117px
-        :margin 0 auto
+    .content_menu
+      :padding 22px 
+      :min-width 400px
+      :max-width 845px
       .text
         :width 235px
         :text-align left
@@ -106,6 +83,43 @@ img.gravatar
           :font-size 12px
         p
           :font-size 12px
+
+
+
+.statistics
+  :margin 20px
+  h2
+    :color = !header_color
+    :margin 4px 0 0
+  a
+    :font-weight bold
+    :color #46a038
+.stat_image
+  :background-image url(/images/stats.png)
+  :background-repeat no-repeat
+  :background-position left center
+  :height 20px
+  :padding 11px 0 0 31px 
+  :font-weight bold
+  :text-align left
+  :color = !header_color
+  :width 60px
+  :margin 0 auto
+.announcements
+  :font-weight bold
+  :background-image url(/images/announcement.png)
+  :background-repeat no-repeat
+  :background-position left center
+  :height 22px
+  :padding 8px 0 0 31px
+  :width 117px
+  :margin 0 auto
+
+
+.sidebar_in_box
+  :text-align center
+  
+
 #footer
   :width 100%
   :clear both

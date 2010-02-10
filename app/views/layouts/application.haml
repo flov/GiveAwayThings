@@ -23,7 +23,13 @@
           = content_tag :div, msg, :id => "flash_#{name}"
         #content_wrapper
           .rounded_corners.float_left.content_menu
-            = yield
+            .main.float_left
+              = yield
+            -if @content_for_sidebar_in_box
+              .float_right.sidebar_in_box
+                =yield :sidebar_in_box
+              .clear
+            
           -if @content_for_sidebar
             .float_left.rounded_corners.sidebar
               = yield :sidebar

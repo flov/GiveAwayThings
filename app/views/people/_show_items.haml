@@ -1,0 +1,8 @@
+%table.show_items#show_items
+  %tbody
+    -@items.each do |item|
+      %tr
+        %td.first item.title
+        %td.second to
+        %td.third=link_to item.person.username, person_path(item.person.username)
+        %td.fourth=gravatar_for(item.person, :size=>36),person_path(item.person.username), :class => 'gravatar'

@@ -54,12 +54,12 @@ class PeopleController < ApplicationController
   def confirm_email
     if @person.is_login_token_valid? params[:token]
       if @person.is_active?
-        flash[:notice] = "You had already confirmed your email! You can now use Teambox."
+        flash[:notice] = "You had already confirmed your email! You can now use GiveAwayThings."
       else
         @person.activate!
         @person.expire_login_code!
         current_person = @person
-        flash[:notice] = "Your account has been activated! Welcome to Teambox :)"
+        flash[:notice] = "Your account has been activated! Welcome to GiveAwayThings :)"
       end
     else
       flash[:error] = t('people.activation.invalid')

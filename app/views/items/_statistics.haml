@@ -1,9 +1,9 @@
 .statistics
   .stat_image
-    ="#{person.username.capitalize}'s Statistics"
-  %h2 Gave
+    ="Statistics"
+  %h2="#{person.username.capitalize} Gave"
   =link_to pluralize(@items_given.size,'Thing'), person_path(person.username)
-  %h2 Took
+  %h2="#{person.username.capitalize} Took"
   =link_to pluralize(@items_taken.size,'Thing'), person_path(person.username)
-  %h2 Offers
+  %h2="#{person.username.capitalize} Offers"
   =link_to pluralize(@items_offered.size,'Thing'), person_path(person.username)
