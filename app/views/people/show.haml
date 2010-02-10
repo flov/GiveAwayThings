@@ -7,8 +7,11 @@
   =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
   
 %h1 Gave:
-  
-
+%table
+  %tr
+    %td Table
+    %td to
+    %td="Kirk #{image_tag 'http://www.gravatar.com/avatar/428144c165d57e2b53336fb385d7943c?d=monsterid&rating=PG&size=36', :class=>'gravatar'}"
 
 -content_for :sidebar do
   = render :partial => 'items/avatar', :locals => {:person => @person}

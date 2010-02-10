@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def confirmed_user?
     if current_person and not current_person.is_active?
       flash[:error] = "You need to activate your account first"
-      redirect_to unconfirmed_email_person_path(current_person)
+      redirect_to unconfirmed_email_person_path(current_person.username)
     end
   end
 end
