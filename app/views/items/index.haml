@@ -20,10 +20,3 @@
         %td=item.address.city.to_s
         %td=time_ago_in_words item.created_at
         %td=link_to(item.person.username, "/people/#{item.person.username}")
-
--#-@items.each do |item|
--#  =item.title
--#  %br/
--#  =item.description
--#  %br
--#  %br

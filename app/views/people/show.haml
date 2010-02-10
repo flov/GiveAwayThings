@@ -5,13 +5,35 @@
   =link_to @person.address.city.country.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s}"
   %br/
   =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
-  
-%h1 Gave:
-%table
-  %tr
-    %td Table
-    %td to
-    %td="Kirk #{image_tag 'http://www.gravatar.com/avatar/428144c165d57e2b53336fb385d7943c?d=monsterid&rating=PG&size=36', :class=>'gravatar'}"
+
+  %h2 Gave:
+  %table.show_items#show_items
+    %tbody
+      %tr
+        %td.first Table
+        %td.second to
+        %td.third Kirk
+        %td.fourth=image_tag 'http://www.gravatar.com/avatar/428144c165d57e2b53336fb385d7943c?d=monsterid&rating=PG&size=22', :class=>'gravatar'
+      %tr
+        %td.first a really horrible long written item name that actually knowbody cares about but why is it really just soooo long???
+        %td.second to
+        %td.third Kirk
+        %td.fourth=image_tag 'http://www.gravatar.com/avatar/428144c165d57e2b53336fb385d7943c?d=monsterid&rating=PG&size=22', :class=>'gravatar'
+  %h2 Took:
+  %table.show_items#show_items
+    %tr
+      %td.first Bread
+      %td to
+      %td Kirk
+      %td=image_tag 'http://www.gravatar.com/avatar/428144c165d17e2b53336fb385d7943c?d=monsterid&rating=PG&size=22', :class=>'gravatar'
+  %h2 Offers
+  %table.show_items#show_items
+    %tr
+      %td.first Laptop
+      %td to
+      %td Zoidberg
+      %td=image_tag 'http://www.gravatar.com/avatar/428144c165d57e2aa3336fb385d7943c?d=monsterid&rating=PG&size=22', :class=>'gravatar'
+
 
 -content_for :sidebar do
   = render :partial => 'items/avatar', :locals => {:person => @person}

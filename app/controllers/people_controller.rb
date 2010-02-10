@@ -38,7 +38,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(params[:person])
     if @person.save
-      flash[:notice]      = 'Thank you for signing up! You are now logged in.'
+      flash[:notice]      = 'Thank you for signing up! Please check your emails,'
       redirect_to root_url
     else
       flash[:error] = 'Please fill in the neccessary fields.'
