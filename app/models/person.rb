@@ -10,6 +10,7 @@ class Person < ActiveRecord::Base
   has_many :items, :dependent => :destroy
   has_many :items_taken, :class_name => "Item", :foreign_key => "taken_by"
   has_many :requests, :dependent => :destroy
+  has_many :messages
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :items
   

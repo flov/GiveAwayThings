@@ -9,11 +9,15 @@
   
 = image_tag @item.photo.url unless @item.photo.url == "/photos/original/missing.png"
 
-%h2="Send a take request to #{@item.person.username}"
+%h2=t('.send_request', :username => @item.person.username)
 #send_request
   -form_for @request do |f|
     =f.error_messages
-    =f.text_area :text, :size => "40x4"
+    - f.fields_for :message do |message|
+      =message.hidden_field :title
+      =message.hidden_field :person_id
+      =message.text_area :text, :size => "40x4"
+      
     =hidden_field_tag 'request[item_id]', params[:id].to_i
     %br
     =f.submit "send request"

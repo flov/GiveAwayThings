@@ -15,10 +15,10 @@ class RequestsController < ApplicationController
     @request.person_id = current_person.id
     
     if @request.save
-      flash[:notice] = "Request has been sent. #{@request.item.person.username} will be notified"
+      flash[:notice] = "<h2>Request has been sent.</h2>#{@request.item.person.username} will be notified"
       redirect_to @request.item
     else
-      flash[:error] = "You already requested to take this thing. If you want to remind the owner of your request, you should send him a message."
+      flash[:error] = "<h2>You already sent a request for this thing.</h2>If you want to remind the owner of your request, you should send him a simple message."
       redirect_to @request.item
     end
   end

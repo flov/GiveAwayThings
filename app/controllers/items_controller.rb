@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   
+  #before_filter :redirect_if_not_logged_in, :only => :show
+  
   def index
     params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
     @search = Item.search(params[:search])
@@ -34,6 +36,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @request = Request.new
+    @request.build_message(:title => "New Request for #{@item.title} from #{current_person.username}", 
+                           :person_id => current_person.id)
 
     @person = @item.person
     @username = @item.person.username

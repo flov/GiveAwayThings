@@ -4,7 +4,7 @@
     %tbody
     =@items_offered.each do |item|
       %tr
-        %td=link_to item.title, item_path(item)
+        %td=link_to item.title, item_path("#{item.id}-#{item.title.underscore}")
         %td since
         %td=time_ago_in_words(item.created_at)
     .already_accepted

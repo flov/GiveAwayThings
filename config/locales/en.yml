@@ -17,3 +17,8 @@ en:
       problems: "If you have any problems, please contact us at {{support}}"
     common:
       do_not_answer: "Do not answer to this email."
+  
+  items:
+    show:
+      send_request: "Send {{username}} a request to take this item."
+      description: "Description: {{description}}"
