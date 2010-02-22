@@ -12,9 +12,9 @@ class PeopleController < ApplicationController
     @newsletter = Newsletter.new
     if logged_in?
       @person = current_person
-      @items_given                   = @person.items.taken_by_does_not_equal 0
+      @items_given                   = @person.items.taken_by_does_not_equal(0)
       @items_taken                   = @person.items_taken
-      @items_offered                 = @person.items.accepted_equals 0
+      @items_offered                 = @person.items.accepted_equals(0)
     else
       @items_offered = @items_taken = @items_given = 0
       @person= Person.new
@@ -22,12 +22,12 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @items_given                   = @person.items.taken_by_does_not_equal 0
+    @items_given                   = @person.items.taken_by_does_not_equal(0)
     @items_taken                   = @person.items_taken
-    @requests_not_accepted         = @person.requests.item_accepted_equals 0
-    @requests_accepted             = @person.requests.item_accepted_does_not_equal 0
-    @items_offered                 = @person.items.accepted_equals 0
-    @items_offered_and_accepted    = @person.items.accepted_does_not_equal 0
+    @requests_not_accepted         = @person.requests.item_accepted_equals(0)
+    @requests_accepted             = @person.requests.item_accepted_does_not_equal(0)
+    @items_offered                 = @person.items.accepted_equals(0)
+    @items_offered_and_accepted    = @person.items.accepted_does_not_equal(0)
   end
 
   def new
@@ -58,13 +58,13 @@ class PeopleController < ApplicationController
       else
         @person.activate!
         @person.expire_login_code!
-        current_person = @person
-        flash[:notice] = "Your account has been activated! Welcome to GiveAwayThings :)"
+        session[:person_id] = @person.id
+        flash[:notice] = "<h2>Your account has been activated!</h2>You are now loged in.<br/>Welcome to GiveAwayThings :)"
       end
     else
       flash[:error] = t('people.activation.invalid')
     end
-    redirect_to '/'    
+    redirect_to '/'
   end
   
   def unconfirmed_email

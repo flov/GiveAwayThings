@@ -1,28 +1,23 @@
 - title " - #{@person.to_s.capitalize}"
 
-.profile_page
-
+.profile_header.center
   %h1==#{@person.to_s.capitalize}
   %p
     =link_to @person.address.city.country.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s}"
     %br/
     =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
+    %br/
+    =link_to "lat: 51.21 lng: 6.76", "http://maps.google.com/maps?q=51.21+6.76"
 
-  -unless @items_given.empty?
-    %h2 Gave:
-    = render :partial => 'show_items', :locals => {:items => @items_given}
-  -unless @items_taken.empty?
-    %h2 Took:
-    = render :partial => 'show_items', :locals => {:items => @items_given}
-  = 3 unless @items_offered.empty?
-  %h2 Offers:
-  %table.show_items#show_items
-    %tr
-      %td.first Knives
-      %td.second since
-      %td.fourth=#time_ago_in_words
-
-  -content_for :sidebar_in_box do
-    = render :partial => 'people/avatar_profile', :locals => {:person => @person}
-    = render :partial => 'people/references'
-    =# render :partial => 'items/statistics', :locals => {:person => @person}
+-unless @items_given.empty?
+  %h2 Gave:
+  = render :partial => 'show_items', :locals => {:items => @items_given}
+-unless @items_taken.empty?
+  %h2 Took:
+  = render :partial => 'show_items', :locals => {:items => @items_given}
+- unless @items_offered.empty?
+  = render :partial => 'people/you_offer', :locals => {:items => @items_offered}
+-content_for :sidebar do
+  = render :partial => 'people/avatar_profile', :locals => {:person => @person}
+  = render :partial => 'items/statistics', :locals => {:person => @person}
+  = render :partial => 'people/references'

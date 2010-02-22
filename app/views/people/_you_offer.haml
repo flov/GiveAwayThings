@@ -1,5 +1,15 @@
+%h2 You Offer:
 #you_offer
-  %h2 You Offer:
-  ="accepted, but not yet picked up: <br/>" unless @items_offered.empty? 
-  =@items_offered.each do |item|
-    ="#{item.title} from #{item.person.username}"
+  %table.tablesorter
+    %tbody
+    =@items_offered.each do |item|
+      %tr
+        %td=link_to item.title, item_path(item)
+        %td since
+        %td=time_ago_in_words(item.created_at)
+    .already_accepted
+      =@items_offered_and_accepted.each do |item|
+        %tr
+          %td=link_to item.title, item_path(item)
+          %td since
+          %td=time_ago_in_words(item.created_at)
