@@ -1,4 +1,4 @@
-- title "Messages"
+- title "Inbox from #{current_person.username}"
 
 %table
   %tr
@@ -9,7 +9,7 @@
       %td= h messages.title
       %td= h messages.text
       %td= link_to 'Show', messages
-      %td= link_to 'Edit', edit_messages_path(messages)
+      %td= link_to 'Edit', edit_message_path(messages)
       %td= link_to 'Destroy', messages, :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "New Messages", new_messages_path
+%p= link_to "New Message", new_message_path

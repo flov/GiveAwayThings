@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @request = Request.new
     @request.build_message(:title => "New Request for #{@item.title} from #{current_person.username}", 
-                           :person_id => current_person.id)
+                           :author_id => current_person.id)
 
     @person = @item.person
     @username = @item.person.username
