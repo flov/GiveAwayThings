@@ -16,8 +16,7 @@
     - f.fields_for :message do |message|
       =message.hidden_field :title
       =message.hidden_field :author_id
-      =message.text_area :text, :size => "40x4"
-      
+      =message.text_area :text, :size => "40x2"
     =hidden_field_tag 'request[item_id]', params[:id].to_i
     %br
     =f.submit "send request"
@@ -28,3 +27,5 @@
 -content_for :sidebar do
   = render :partial => 'items/avatar', :locals => {:person => @person}
   = render :partial => 'items/statistics', :locals => {:person => @item.person}
+  = render :partial => 'people/references', :locals => {:person => @person}
+  

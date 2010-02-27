@@ -1,6 +1,9 @@
 =#"FAQ | "
 =#"Settings | Browse City | "
 =#" | About |  Press | Blog"
+- flash.each do |name, msg|
+  = content_tag :div, msg, :id => "flash_#{name}"
+
 
 =link_to "Your Profile | ", person_path(current_person.username) if logged_in?
 =link_to "Browse People", people_path                                         
