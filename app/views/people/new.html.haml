@@ -7,24 +7,24 @@
   %table.form
     %tr
       %th
-        Username
+        =f.label :username
         %p.details 4-15 letters and numbers
       %td
         = f.text_field :username
     %tr
       %th
-        Email
+        =f.label :email
         %p.details We won't share, sell, or spam
       %td
         = f.text_field :email
     %tr
       %th
-        Password
+        =f.label :password
         %p.details At least 5 characters
       %td= f.password_field :password
     %tr
       %th
-        Confirm it
+        =f.label :confirm_it
         %p.details Type your password again
       %td= f.password_field :password_confirmation
     - f.fields_for :address do |address_form|

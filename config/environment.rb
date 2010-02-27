@@ -12,6 +12,8 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )     wa
 
+  
+
   config.gem "haml"
   config.gem "searchlogic"
   config.time_zone = 'UTC'
