@@ -1,6 +1,6 @@
 Capfile
 config/deploy.rb
-public/system/photos
+photos/
 .empty
 .DS_Store
 .idea
