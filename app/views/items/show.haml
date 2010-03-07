@@ -13,12 +13,7 @@
 #send_request
   -form_for @request do |f|
     =f.error_messages
-    - f.fields_for :message do |message|
-      =message.hidden_field :title
-      =message.hidden_field :author_id
-      =message.text_area :text, :size => "40x2"
-    =hidden_field_tag 'request[item_id]', params[:id].to_i
-    %br
+    =request_fields(f)
     =f.submit "send request"
 
 %p
