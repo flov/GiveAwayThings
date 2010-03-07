@@ -1,9 +1,26 @@
 .statistics
-  -#.stat_image
-    =#"Statistics"
-  %h2="#{person.username.capitalize} Gave"
-  =link_to pluralize(@items_given.size,'Thing'), person_path(person.username)
-  %h2="#{person.username.capitalize} Took"
-  =link_to pluralize(@items_taken.size,'Thing'), person_path(person.username)
-  %h2="#{person.username.capitalize} Offers"
-  =link_to pluralize(@items_offered.size,'Thing'), person_path(person.username)
+  -if person.new_record?
+    .stat_image Your Statistics
+    %h2 You Gave
+    =link_to '0 Things', signup_path
+    %h2 You Took
+    =link_to '0 Things', signup_path
+    %h2 You Offer
+    =link_to '0 Things', signup_path
+  -elsif person == current_person
+    .stat_image Your Statistics
+    %h2 You Gave
+    =link_to pluralize(@items_given.size,'Thing'), person_path(person.username)
+    %h2 You Took
+    =link_to pluralize(@items_taken.size,'Thing'), person_path(person.username)
+    %h2 You Offer
+    =link_to pluralize(@items_offered.size,'Thing'), person_path(person.username)
+  -else
+    .stat_image="#{person.username.capitalize}'s Statistics"
+    %h2="#{person.username.capitalize} Gave"
+    =link_to pluralize(@items_given.size,'Thing'), person_path(person.username)
+    %h2="#{person.username.capitalize} Took"
+    =link_to pluralize(@items_taken.size,'Thing'), person_path(person.username)
+    %h2="#{person.username.capitalize} Offers"
+    =link_to pluralize(@items_offered.size,'Thing'), person_path(person.username)
+  

@@ -5,4 +5,10 @@ module PeopleHelper
   def select_categories
     collection_select :search, :category_id_equals, Category.all, :id, :name, {:include_blank => "Category"}
   end
+  def person_fields(f,person)
+    render :partial => 'people/fields', 
+      :locals => { 
+        :f => f,
+        :person => person }
+  end
 end

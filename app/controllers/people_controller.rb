@@ -17,7 +17,7 @@ class PeopleController < ApplicationController
       @items_offered                 = @person.items.accepted_equals(0)
     else
       @items_offered = @items_taken = @items_given = 0
-      @person= Person.new
+      @person ||= Person.new
     end
   end
   
