@@ -13,4 +13,4 @@
   = render :partial => 'items/search'
 
   -content_for :sidebar do
-    = render :partial => 'items/statistics', :locals => {:person => @person} if logged_in?
+    = render :partial => 'items/statistics', :locals => {:person => Person.new}

@@ -6,6 +6,7 @@ class PeopleController < ApplicationController
   def welcome
     @item=Item.new(:title => 'Type in item.', :description => 'Description (optional)')
     @item.build_category
+
     @search=Item.search(params[:search])
     @items=@search.all
     @countries = Item.all.collect{|p| p.country}.uniq
