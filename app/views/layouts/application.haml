@@ -15,12 +15,11 @@
           #logo= link_to image_tag('logo.png'),'/'
           =render :partial => 'shared/avatar_header' if logged_in?
           =render :partial => 'shared/login_box' unless logged_in?
-
+          =render :partial => 'layouts/navigation'
+          
       #content
-        #nav.rounded_corners
-          = render :partial => 'layouts/navigation' 
-        -# flash.each do |name, msg|
-          =# content_tag :div, msg, :id => "flash_#{name}"
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
         #content_wrapper
           .rounded_corners.float_left.content_menu
             .main.float_left

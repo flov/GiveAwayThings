@@ -14,4 +14,3 @@
 
   -content_for :sidebar do
     = render :partial => 'items/statistics', :locals => {:person => @person} if logged_in?
-    = render :partial => 'people/unknown_stats' unless logged_in?

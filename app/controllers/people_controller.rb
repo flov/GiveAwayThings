@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
     @countries = Item.all.collect{|p| p.country}.uniq
     @newsletter = Newsletter.new
     if logged_in?
-      @person = current_person
+      @person ||= current_person
       @items_given                   = @person.items.taken_by_does_not_equal(0)
       @items_taken                   = @person.items_taken
       @items_offered                 = @person.items.accepted_equals(0)

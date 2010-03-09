@@ -41,8 +41,7 @@ $(document).ready(function(){
       }
     })  
   })
-  
-  $("#flash_notice").fadeOut(4000);
+
   
   //Label of Searchfield
   $("input#search_title_like").focus(function(){

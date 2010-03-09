@@ -1,11 +1,44 @@
 =#"FAQ | "
 =#"Settings | Browse City | "
 =#" | About |  Press | Blog"
-- flash.each do |name, msg|
-  = content_tag :div, msg, :id => "flash_#{name}"
 
+=#link_to "Browse People", people_path                                         
+=#' | '
+=#link_to "About"
 
-=link_to "Your Profile | ", person_path(current_person.username) if logged_in?
-=link_to "Browse People", people_path                                         
-=' | '
-=link_to "About"
+%ul#menu
+  %li 
+    =link_to "Your Profile", person_path(current_person.username) if logged_in?
+    %ul
+      %li
+        %img.corner_inset_left{:src=>"/images/corner_inset_left.png"}/
+        =link_to "Settings", person_path(current_person.username) if logged_in?
+        %img.corner_inset_right{:src=>"/images/corner_inset_right.png"}/
+      %li.last
+        %img.corner_left{:src=>"/images/corner_left.png"}/
+        %img.middle{:src=>"/images/dot.gif"}/
+        %img.corner_right{:alt=>"", :src=>"/images/corner_right.png"}/
+
+  -#%li.searchContainer
+    %div
+      %input{:type=>"text", :id=>"searchField"}/
+      %img{:src=>"/images/magnifier.png", :alt=>"Search", :onclick=>"alert('You clicked on search button')"}/
+    %ul
+      %li
+        %img.corner_inset_left{:src=>"/images/corner_inset_left.png"}/
+        %input#cbxAll{:type=>"checkbox"}/
+        All
+        %img.corner_inset_right{:src=>"/images/corner_inset_right.png"}/
+      %li
+        %input#Articles{:type=>"checkbox" }
+        Articles
+      %li
+        %input#Tutorials{:type=>"checkbox" }/
+        Tutorials
+      %li
+        %input#Resources{:type=>"checkbox"}/
+        Resources
+      %li.last
+        %img.corner_left{:src=>"/images/corner_left.png"}/
+        %img.middle{:src=>"/images/dot.gif"}/
+        %img.corner_right{:alt=>"", :src=>"/images/corner_right.png"}/
