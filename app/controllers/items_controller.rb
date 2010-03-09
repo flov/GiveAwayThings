@@ -20,8 +20,9 @@ class ItemsController < ApplicationController
       flash[:notice] = "Thank you for giving things away!<br>'#{@item.title}' can now be found by others in #{current_person.address.city}."
       redirect_to welcome_path
     else
+      raise @item.errors.first
       if @item.errors.on(:title)
-        flash[:error] = "Please enter a title for the item"
+        flash[:error] = "Please enter a title for the item that you want to give away.s"
         render :new
       elsif @item.errors.on(:person)
         flash[:error] = "#{params["item"]["title"]} has not yet been saved, log in or sign up to save it."
@@ -36,9 +37,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @request = Request.new
-    @request.build_message(:title => "New Request for #{@item.title} from #{current_person.username}", 
-                           :author_id => current_person.id)
-
+    #:title => "New Request for #{@item.title} from #{current_person.username}"
+    
     @person = @item.person
     @username = @item.person.username
     @items_given = @person.items.taken_by_does_not_equal 0

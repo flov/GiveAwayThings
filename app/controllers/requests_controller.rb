@@ -11,14 +11,12 @@ class RequestsController < ApplicationController
   end
   
   def create
-    @request = Request.new(params[:request])
-    @request.person_id = current_person.id
-    
+    @request = Request.new(params[:request])    
     if @request.save
-      flash[:notice] = "<h2>Request has been sent.</h2>#{@request.item.person.username} will be notified"
+      flash[:notice] = t('requests.show.request_sent', :username => @request.item.person.username)
       redirect_to @request.item
     else
-      flash[:error] = "<h2>You already sent a request for this thing.</h2>If you want to remind the owner of your request, you should send him a simple message."
+      flash[:notice] = t('requests.show.request_already_sent')
       redirect_to @request.item
     end
   end

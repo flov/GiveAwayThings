@@ -1,7 +1,5 @@
 =hidden_field_tag 'request[item_id]', params[:id].to_i
-
-- f.fields_for :message do |message|
-  =message.hidden_field :title
-  =message.hidden_field :author_id
-  =message.text_area :text, :size => "40x2"
-  %br
+=hidden_field_tag 'request[owner_id]', item.person.id 
+=hidden_field_tag 'request[requester_id]', current_person.id 
+=f.text_area :text, :size => "40x2"
+%br

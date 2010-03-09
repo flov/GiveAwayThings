@@ -1,23 +1,24 @@
 - title " - #{@item.title}"
 %h1=@item.title
 %p
-  %strong Owner:
-  =h @item.person.username
+  %strong=t('.owner')
+  =link_to(h(@item.person.username), "/people/#{@item.person.username}")
 
 %p
-  %strong= "Description: #{h @item.description}" unless @item.description.empty?
+  %strong=t('.description')
+  %br/
+  =h @item.description unless @item.description.empty?
   
-= image_tag @item.photo.url unless @item.photo.url == "/photos/original/missing.png"
+= image_tag @item.photo.url unless @item.photo.url.include? "missing.png"
 
 %h2=t('.send_request', :username => @item.person.username)
 #send_request
   -form_for @request do |f|
-    =f.error_messages
-    =request_fields(f)
+    =request_fields(f, @item)
     =f.submit "send request"
 
 %p
-  = link_to "View All", items_path
+  = link_to t('.view_all'), items_path
   
 -content_for :sidebar do
   = render :partial => 'items/avatar', :locals => {:person => @person}
