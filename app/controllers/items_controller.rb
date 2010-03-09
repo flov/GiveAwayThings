@@ -17,15 +17,14 @@ class ItemsController < ApplicationController
     @item.person_id = current_person.id if logged_in?
     @item.address_id = current_person.address.id if logged_in?
     if @item.save
-      flash[:notice] = "Thank you for giving things away!<br>'#{@item.title}' can now be found by others in #{current_person.address.city}."
+      flash[:notice] = t('items.show.thank_you', :city => current_person.address.city)
       redirect_to welcome_path
     else
-      raise @item.errors.first
       if @item.errors.on(:title)
-        flash[:error] = "Please enter a title for the item that you want to give away.s"
+        flash[:error] = t('items.show.enter_title')
         render :new
       elsif @item.errors.on(:person)
-        flash[:error] = "#{params["item"]["title"]} has not yet been saved, log in or sign up to save it."
+        flash[:error] = t('items.show.not_yet_saved', :title => params["item"]["title"])
         @person = Person.new
         @person.build_address.build_city.build_country
         render 'people/new'
