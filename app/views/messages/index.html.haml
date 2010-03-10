@@ -1,18 +1,19 @@
 - title "Inbox from #{current_person.username}"
 
 %h2 Messages:
-%table.messages
-  %tr
-    %th{:colspan => 2} From
-    %th Subject
-    %th Sent
-    %th Replied?
-    %th 
-  - for message in @messages
+.messages
+  %table
     %tr
-      %td.avatar= link_to gravatar_for(message.author, :size=>24), person_path(message.author.username)
-      %td.from= link_to h(message.author.username), person_path(message.author.username)
-      %td.title= link_to h(message.title), message_path(message)
-      %td.sent.center= message.created_at.strftime("%d/%m/%Y<br/>%k:%M")
-      %td.replied=# message.replied_at.strftime("%d/%m/%Y %M:%H")
-      %td= link_to 'Delete', message, :confirm => 'Are you sure?', :method => :delete
+      %th{:colspan => 2} From
+      %th Subject
+      %th Sent
+      %th Replied?
+      %th
+    - for message in @messages
+      %tr
+        %td.first= link_to gravatar_for(message.author, :size=>28), person_path(message.author.username)
+        %td.from= link_to h(message.author.username), person_path(message.author.username)
+        %td.title= message_title(message)
+        %td.sent.center= message.created_at.strftime("%d/%m/%Y<br/>%k:%M") 
+        %td.replied=# message.replied_at.strftime("%d/%m/%Y %M:%H")
+        %td= link_to 'Delete', message, :confirm => 'Are you sure?', :method => :delete

@@ -27,7 +27,7 @@ class Person < ActiveRecord::Base
   end
   
   def unread_messages
-    self.messages.size
+    self.messages.read_equals(0).size
   end
   
   def name

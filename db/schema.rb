@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20100310191107) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
+    t.datetime "create_tableeated_at"
   end
 
   create_table "cities", :force => true do |t|
