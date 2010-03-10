@@ -1,6 +1,6 @@
 -title " - Searching #{params["search"]["title_like"]}"
 
-%h1="Results:"
+%h1 Results:
 
 %table#show_items.tablesorter.items_search
   %thead
@@ -14,9 +14,9 @@
   %tbody
     -@items.each do |item|
       %tr
-        %td=link_to(item.title, "/items/#{item.id}-#{item.title.underscore}")
+        %td=link_to(item.title, "/items/#{item.id}-#{item.title.underscore[0..30]}")
         %td=item.category.to_s
         %td=item.address.city.country.to_s
         %td=item.address.city.to_s
         %td=time_ago_in_words item.created_at
-        %td=link_to(item.person.username, "/people/#{item.person.username}")
+        %td=link_to(item.person.username, "/people/#{item.person.username}")  

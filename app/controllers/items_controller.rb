@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  
-  #before_filter :redirect_if_not_logged_in, :only => :show
+  # for truncate method in controller
+  include ActionView::Helpers::TextHelper
   
   def index
     params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @request = Request.new
-    #:title => "New Request for #{@item.title} from #{current_person.username}"
+    @request.build_message(:title => "[GAT Request] for #{truncate(@item.title)} from #{current_person.username.capitalize}")
     
     @person = @item.person
     @username = @item.person.username

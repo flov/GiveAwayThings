@@ -1,6 +1,5 @@
 class RequestsController < ApplicationController
   
-  before_filter :is_no_admin, :except => [:create]
   
   def index
     @requests = Request.find(:all)
@@ -16,7 +15,8 @@ class RequestsController < ApplicationController
       flash[:notice] = t('requests.show.request_sent', :username => @request.item.person.username)
       redirect_to @request.item
     else
-      flash[:notice] = t('requests.show.request_already_sent')
+      flash[:notice] = t('requests.show.request_already_sent', 
+                       :owner => @request.item.person.username)
       redirect_to @request.item
     end
   end
@@ -25,7 +25,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request.destroy
     flash[:notice] = "Successfully destroyed request."
-    redirect_to requests_url
+    redirect_to messages_url
   end
   
   private

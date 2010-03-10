@@ -16,7 +16,7 @@
   %h2 Took:
   = render :partial => 'show_items', :locals => {:items => @items_given}
 - unless @items_offered.empty?
-  = render :partial => 'people/you_offer', :locals => {:items => @items_offered}
+  = render :partial => 'people/offers', :locals => {:items => @items_offered}
 -content_for :sidebar do
   = render :partial => 'people/avatar_profile', :locals => {:person => @person}
   = render :partial => 'items/statistics', :locals => {:person => @person}

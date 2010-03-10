@@ -1,15 +1,37 @@
 - title "Inbox from #{current_person.username}"
 
+%h2 Messages:
+%table.messages
+  %tr
+    %th{:colspan => 2} From
+    %th For
+    %th Message
+    %th Sent
+    %th Replied?
+  - for request in @requests
+    %tr
+      %td= link_to gravatar_for(request.requester, :size=>24), person_path(request.requester.username)
+      %td.from= link_to h(request.requester.username), people_path(request.requester.username)
+      %td.for=  link_to h(request.item.title), items_path("#{request.item.person.id}-#{request.item.title[0-50]}")
+      %td.body= link_to "#{h(request.text[0..70])}...", message_path(request.id) 
+      %td.sent= request.created_at.strftime("%d/%m/%Y")
+      %td.replied
+      %td= link_to 'Destroy', request, :confirm => 'Are you sure?', :method => :delete
+
+
+
+%h2 Messages:
 %table
   %tr
-    %th Title
-    %th Text
-  - for messages in @messages
+    %th
+    %th From
+    %th Subject
+    %th Sent
+    %th Replied?
+  - for message in @messages
     %tr
-      %td= h messages.title
-      %td= h messages.text
-      %td= link_to 'Show', messages
-      %td= link_to 'Edit', edit_message_path(messages)
-      %td= link_to 'Destroy', messages, :confirm => 'Are you sure?', :method => :delete
-
-%p= link_to "New Message", new_message_path
+      %td= gravatar_for(current_person, :size=>18, :class => 'gravatar'), person_path(current_person.username)
+      %td= h message.author
+      %td= h message.title
+      %td= h message.created_at
+      %td= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete
