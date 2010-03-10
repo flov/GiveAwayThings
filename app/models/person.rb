@@ -22,6 +22,10 @@ class Person < ActiveRecord::Base
     self.address.city.country
   end
   
+  def city
+    self.address.city
+  end
+  
   def name
     "#{first_name} #{last_name}"
   end
