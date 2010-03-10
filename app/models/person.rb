@@ -10,7 +10,7 @@ class Person < ActiveRecord::Base
   has_many :items, :dependent => :destroy
   has_many :items_taken, :class_name => "Item", :foreign_key => "taken_by"
   has_many :requests, :dependent => :destroy
-  has_many :messages
+  has_many :messages, :foreign_key => "recipient_id"
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :items
   
@@ -24,6 +24,10 @@ class Person < ActiveRecord::Base
   
   def city
     self.address.city
+  end
+  
+  def unread_messages
+    self.messages.size
   end
   
   def name

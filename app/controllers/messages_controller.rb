@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.all
-    @requests = Request.all
+    @messages = Message.recipient_id_equals(current_person.id)
   end
   
   def show
@@ -20,10 +19,6 @@ class MessagesController < ApplicationController
     else
       render :action => 'new'
     end
-  end
-  
-  def edit
-    @message = Message.find(params[:id])
   end
   
   def update

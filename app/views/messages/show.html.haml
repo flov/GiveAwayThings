@@ -2,14 +2,11 @@
 
 %p
   %strong Title:
-  =h @messages.title
+  =h @message.title
 %p
-  %strong Text:
-  =h @messages.text
+  =highlight("Text: #{h @message.text}", "Text:") unless @message.text.empty?
 
 %p
-  = link_to "Edit", edit_messages_path(@messages)
-  |
-  = link_to "Destroy", @messages, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Delete", @message, :confirm => 'Are you sure?', :method => :delete
   |
   = link_to "View All", messages_path
