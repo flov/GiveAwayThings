@@ -1,4 +1,7 @@
 class MessagesController < ApplicationController
+  #for word_wrap in reply action
+  include ActionView::Helpers::TextHelper
+
   def index
     @messages = Message.recipient_id_equals(current_person.id)
   end
@@ -12,8 +15,9 @@ class MessagesController < ApplicationController
     @message = Message.new(:recipient_id => params[:person_id])
   end
   
-  def reply
+  def reply    
     @message = Message.find(params[:id])
+    @message.text=word_wrap(@message.text, 60).split("\n").map{|a| ">#{a}\n"}.join()
     @message.title= "Re: #{@message.title}"
     @message.recipient_id = @message.author_id
   end
@@ -27,7 +31,7 @@ class MessagesController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def destroy
     @message = Message.find(params[:id])
     @message.destroy
