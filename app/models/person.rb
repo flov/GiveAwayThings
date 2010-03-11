@@ -27,7 +27,11 @@ class Person < ActiveRecord::Base
   end
   
   def unread_messages
-    self.messages.read_equals(0).size
+    self.messages.read_equals(0)
+  end
+    
+  def unreplied_requests
+    Message.recipient_id_equals(self.id).request_id_not_null.reply_id_null
   end
   
   def name

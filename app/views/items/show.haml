@@ -1,5 +1,5 @@
 - title " - #{@item.title}"
-%h1=@item.title
+%h2=textilize(word_wrap(@item.title, 40))
 %p
   %strong=t('.owner')
   =link_to(h(@item.person.username), "/people/#{@item.person.username}")

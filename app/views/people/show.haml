@@ -17,8 +17,9 @@
   = render :partial => 'show_items', :locals => {:items => @items_given}
 - unless @items_offered.empty?
   = render :partial => 'people/offers', :locals => {:items => @items_offered}
--content_for :sidebar do
+-content_for :sidebar_in_box do
   = render :partial => 'people/avatar_profile', :locals => {:person => @person}
-  = link_to 'send a message', person_new_path(@person.username)
+  .send_message
+    = link_to "#{image_tag 'send_message.gif'} send a message", person_new_path(@person.username)
   = render :partial => 'items/statistics', :locals => {:person => @person}
   = render :partial => 'people/references'

@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @messages = Message.recipient_id_equals(current_person.id)
+    @messages = Message.recipient_id_equals(current_person.id).descend_by_created_at
   end
   
   def show

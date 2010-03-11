@@ -1,6 +1,13 @@
 - title "Inbox from #{current_person.username}"
 
 %h2 Messages:
+%p 
+  %strong You have
+  %br/
+  %strong
+    ="#{pluralize(current_person.unreplied_requests.size, 'unreplied Request')} and"
+    =pluralize(current_person.unread_messages.size, 'unread Message')
+  
 .messages
   %table
     %tr
