@@ -1,0 +1,5 @@
+- title "Reply to #{@message.author.username}"
+
+= render :partial => 'fields', :locals => {:message => @message}
+
+%p= link_to "Back to List", messages_path

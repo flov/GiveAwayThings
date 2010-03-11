@@ -1,5 +1,5 @@
 - title "New Messages"
 
-= render :partial => 'form'
+= render :partial => 'fields', :locals => { :message => Message.new}
 
 %p= link_to "Back to List", messages_path

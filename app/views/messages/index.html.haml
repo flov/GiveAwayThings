@@ -15,5 +15,5 @@
         %td.from= link_to h(message.author.username), person_path(message.author.username)
         %td.title= message_title(message)
         %td.sent.center= message.created_at.strftime("%d/%m/%Y<br/>%k:%M") 
-        %td.replied=# message.replied_at.strftime("%d/%m/%Y %M:%H")
+        %td.replied= reply_message(message)
         %td= link_to 'Delete', message, :confirm => 'Are you sure?', :method => :delete

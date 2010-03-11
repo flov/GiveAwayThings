@@ -9,26 +9,22 @@ class MessagesController < ApplicationController
   end
   
   def new
-    @message = Message.new
+    @message = Message.new(:recipient_id => params[:person_id])
+  end
+  
+  def reply
+    @message = Message.find(params[:id])
+    @message.title= "Re: #{@message.title}"
+    @message.recipient_id = @message.author_id
   end
   
   def create
     @message = Message.new(params[:message])
     if @message.save
-      flash[:notice] = "Successfully created message."
-      redirect_to @message
+      flash[:notice] = "Message has been sent."
+      redirect_to messages_path
     else
       render :action => 'new'
-    end
-  end
-  
-  def update
-    @message = Message.find(params[:id])
-    if @message.update_attributes(params[:message])
-      flash[:notice] = "Successfully updated message."
-      redirect_to @message
-    else
-      render :action => 'edit'
     end
   end
   
