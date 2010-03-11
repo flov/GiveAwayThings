@@ -7,7 +7,7 @@
 %p
   %strong=t('.description')
   %br/
-  =h @item.description unless @item.description.empty?
+  =textilize h(@item.description) unless @item.description.empty?
   
 = image_tag @item.photo.url unless @item.photo.url.include? "missing.png"
 

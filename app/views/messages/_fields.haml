@@ -3,8 +3,9 @@
 = error_messages_for :messages
 
 - form_for :message, :url => { :action => "create" } do |f|
-  =hidden_field_tag 'message[recipient_id]', message.recipient.id
+  =f.hidden_field :recipient_id
   =hidden_field_tag 'message[author_id]', current_person.id
+  =hidden_field_tag 'reply_id', message.id unless message.new_record?
   
   %p
     =f.label :title

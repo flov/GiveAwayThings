@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
                             :confirm_email => :get,
                             :unconfirmed_email => :get } do |people|
 
-    people.new 'new', :controller => 'messages', :action => 'new'                               
+    people.new 'new_message', :controller => 'messages', :action => 'new'                               
   end
   map.resources :sessions
   map.resources :requests

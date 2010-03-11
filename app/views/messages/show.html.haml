@@ -6,7 +6,7 @@
 %p
   -unless @message.text.empty?
     %strong Text:
-    =h word_wrap(@message.text, 40)
+    =textilize h(@message.text)
 
 %p
   = link_to "Delete", @message, :confirm => 'Are you sure?', :method => :delete

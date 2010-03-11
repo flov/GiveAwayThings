@@ -12,18 +12,24 @@ class MessagesController < ApplicationController
   end
   
   def new
-    @message = Message.new(:recipient_id => params[:person_id])
+    id = Person.find_by_username(params[:person_id]).id
+    @message = Message.new(:recipient_id => id, :author_id => current_person.id)
   end
   
-  def reply    
+  def reply
     @message = Message.find(params[:id])
-    @message.text=word_wrap(@message.text, 60).split("\n").map{|a| ">#{a}\n"}.join()
-    @message.title= "Re: #{@message.title}"
+    @author  = Person.find(@message.author_id)
+    @message.title = "Re: #{@message.title}"
+    @message.text = word_wrap(@message.text, 60).split("\n").map{|a| ">#{a}\n"}.join()
     @message.recipient_id = @message.author_id
+    @message.text = "\n\n\n#{@author.username.capitalize} wrote:\n" + @message.text
   end
   
   def create
     @message = Message.new(params[:message])
+    if params[:reply_id]  
+      @reply_message = Message.find(params[:reply_id]) 
+    end
     if @message.save
       flash[:notice] = "Message has been sent."
       redirect_to messages_path

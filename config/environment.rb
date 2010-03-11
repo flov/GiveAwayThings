@@ -13,7 +13,7 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )     wa
 
   
-
+  config.gem "RedCloth"
   config.gem "haml"
   config.gem "searchlogic"
   config.time_zone = 'UTC'

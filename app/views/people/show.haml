@@ -19,5 +19,6 @@
   = render :partial => 'people/offers', :locals => {:items => @items_offered}
 -content_for :sidebar do
   = render :partial => 'people/avatar_profile', :locals => {:person => @person}
+  = link_to 'send a message', person_new_path(@person.username)
   = render :partial => 'items/statistics', :locals => {:person => @person}
   = render :partial => 'people/references'

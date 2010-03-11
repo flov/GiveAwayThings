@@ -1,4 +1,4 @@
-- title "Reply to #{@message.author.username}"
+- title "Reply to #{@message.author.username.capitalize}"
 
 = render :partial => 'fields', :locals => {:message => @message}
 
