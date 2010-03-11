@@ -1,14 +1,21 @@
 table.tablesorter
+  :border-spacing 0
+  :border 1px solid 
+  :border-color = !header_bg_color
   font-family: arial
   background-color: #CDCDCD*
   font-size: 8pt
   text-align: left
 
   thead tr th, tfoot tr th
-    background-color: #F0F0F0
-    font-size: 13px
     padding: 2px 0 3px 5px
     color: = !header_color
+    :font-weight normal
+    :border 0
+    :background-color = !header_bg_color
+    :color = !yellow
+  tfoot tr th
+    :text-align center
 
   thead tr .header
     background-image: url(/images/bg.gif)
@@ -21,23 +28,20 @@ table.tablesorter
       :max-width 200px
       color: #3D3D3D
       padding: 2px
-      background-color: #FFF
+      background-color: #EEE996
       vertical-align: top
-
     tr.odd td
-      background-color: #FBFBFB
+      background-color: #E6CE7B
     tr.hover td
-      background-color: #fffdf6
+      background-color = !yellow
 
   thead tr
     .headerSortUp
       background-image: url(/images/asc.gif)
-
+      background-color: #111
     .headerSortDown
       background-image: url(/images/desc.gif)
-      background-color: #8dbdd8
-    .headerSortUp
-      background-color: #8dbdd8
+      background-color: #111
 
 tr.hover td
   background-color: #fffdf6

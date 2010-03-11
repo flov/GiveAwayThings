@@ -14,4 +14,5 @@ module MessagesHelper
       message.replied_at.strftime("%d/%m/%Y<br/>%k:%M")
     end
   end
+  
 end

@@ -5,8 +5,8 @@
   %strong You have
   %br/
   %strong
-    ="#{pluralize(current_person.unreplied_requests.size, 'unreplied Request')} and"
-    =pluralize(current_person.unread_messages.size, 'unread Message')
+    =pluralize(@unreplied_requests, 'unreplied Request') unless @unreplied_requests == 0
+    =pluralize(@unread_messages, 'unread Message') unless @unread_messages == 0
   
 .messages
   %table

@@ -4,6 +4,8 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.recipient_id_equals(current_person.id).descend_by_created_at
+    @unreplied_requests = current_person.unreplied_requests.size
+    @unread_messages = current_person.unread_messages.size
   end
   
   def show
