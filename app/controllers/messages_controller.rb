@@ -27,15 +27,18 @@ class MessagesController < ApplicationController
   
   def create
     @message = Message.new(params[:message])
-    if params[:reply_id]  
-      @reply_message = Message.find(params[:reply_id]) 
-    end
+
     if @message.save
+      if params[:reply_id]
+        @reply_message = Message.find(params[:reply_id])
+        @reply_message.update_attributes(:reply_id => @message.id, :replied_at => Time.now)
+      end
       flash[:notice] = "Message has been sent."
       redirect_to messages_path
     else
       render :action => 'new'
     end
+    
   end
 
   def destroy
