@@ -1,5 +1,10 @@
 - title "Reply to #{@message.author.username.capitalize}"
 
-= render :partial => 'fields', :locals => {:message => @message}
+%h2= "Reply to #{@message.author.username.capitalize}"
+
+= error_messages_for :messages
+
+- form_for :message, :url => { :action => "create" } do |f|
+  = render :partial => 'fields', :locals => {:message => @message, :f => f}
 
 %p= link_to "Back to List", messages_path

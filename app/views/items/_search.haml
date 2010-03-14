@@ -1,6 +1,7 @@
-- form_tag '/search', :method => 'get' do
+-# form_for :item, item, :url => { 'search', :method => 'get' do
+-# form_for :item, :url => search_path(Item.new) do |f|
   .search_form
-    = text_field_tag 'search[title_like]', 'Search item.', :size => 20
+    = text_field_tag 'q', 'Search city.', :size => 20
     #hidden_search_options.hide_me
       %ul.formList
         %li= select_countries(@countries)

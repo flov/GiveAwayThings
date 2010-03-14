@@ -9,7 +9,7 @@ class Person < ActiveRecord::Base
   belongs_to :address, :dependent => :destroy
   has_many :items, :dependent => :destroy
   has_many :items_taken, :class_name => "Item", :foreign_key => "taken_by"
-  has_many :requests, :dependent => :destroy
+  has_many :requests, :dependent => :destroy, :foreign_key => "owner_id"
   has_many :messages, :foreign_key => "recipient_id"
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :items
@@ -25,13 +25,9 @@ class Person < ActiveRecord::Base
   def city
     self.address.city
   end
-  
-  def unread_messages
-    self.messages.read_equals(0)
-  end
-    
+      
   def unreplied_requests
-    Message.recipient_id_equals(self.id).request_id_not_null.reply_id_null
+    self.messages.unreplied
   end
   
   def name

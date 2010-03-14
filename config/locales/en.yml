@@ -29,6 +29,7 @@ en:
       enter_title: Please enter a title for the item that you want to give away.
       not_yet_saved: "{{title}} has not yet been saved, log in or sign up to save it."
       thank_you: "Thank you for giving things away!<br>'{{item_title}}' can now be found by others in {{city}}."
+      gat_request: "[GAT Request] for {{title}}"
   
   requests:
     show:

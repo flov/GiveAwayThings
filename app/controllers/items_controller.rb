@@ -8,6 +8,12 @@ class ItemsController < ApplicationController
     @items = @search.all
   end
   
+  def search
+    params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
+    @search = Item.search(params[:search])
+    @items = @search.all
+  end
+  
   def new
     @item = Item.new
   end
@@ -36,13 +42,11 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @request = Request.new
-    @request.build_message(:title => "[GAT Request] for #{truncate(@item.title)} from #{current_person.username.capitalize}")
+    @request.build_message(:title => t('items.show.gat_request', :title => truncate(@item.title)))
     
     @person = @item.person
     @username = @item.person.username
-    @items_given = @person.items.taken_by_does_not_equal 0
-    @items_taken = @person.items_taken
-    @items_offered = @person.items.accepted_equals 0
+    given_taken_offering(@person)
     
   end
   

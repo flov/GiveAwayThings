@@ -1,12 +1,10 @@
-%h2 New Message
-
-= error_messages_for :messages
-
-- form_for :message, :url => { :action => "create" } do |f|
+.new_message
   =f.hidden_field :recipient_id
   =hidden_field_tag 'message[author_id]', current_person.id
   =hidden_field_tag 'reply_id', message.id unless message.new_record?
-  
+  =hidden_field_tag 'request_id', message.request.id unless message.request.nil?
+  =hidden_field_tag 'message[accepted_item_id]', message.request.item.id if @accepted_item
+
   %p
     =f.label :title
     %br

@@ -1,0 +1,10 @@
+- title "- Accept Request for giving #{@request.item.title} to #{@request.requester}"
+
+%h2 Accept Request
+
+= error_messages_for :messages
+
+- form_for :message, @message, :url => messages_path do |f|
+  = render :partial => 'messages/fields', :locals => {:message => @message, :f => f}
+
+%p= link_to "Back to List", messages_path

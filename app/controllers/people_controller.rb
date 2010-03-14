@@ -3,32 +3,26 @@ class PeopleController < ApplicationController
   before_filter :find_person, :only => [ :show, :confirm_email ]
   before_filter :login_required, :confirmed_user?, :only => [ :show ]
 
+
   def welcome
-    @item=Item.new(:title => 'Type in item.', :description => 'Description (optional)')
+    @item = Item.new(:title => 'Type in item.', :description => 'Description (optional)')
     @item.build_category
 
-    @search=Item.search(params[:search])
-    @items=@search.all
     @countries = Item.all.collect{|p| p.country}.uniq
     @newsletter = Newsletter.new
     if logged_in?
-      @person ||= current_person
-      @items_given                   = @person.items.taken_by_does_not_equal(0)
-      @items_taken                   = @person.items_taken
-      @items_offered                 = @person.items.accepted_equals(0)
+      @person         ||= current_person
+      given_taken_offering(@person)
     else
-      @items_offered = @items_taken = @items_given = 0
       @person ||= Person.new
     end
   end
   
   def show
-    @items_given                   = @person.items.taken_by_does_not_equal(0)
-    @items_taken                   = @person.items_taken
-    @requests_not_accepted         = @person.requests.item_accepted_equals(0)
-    @requests_accepted             = @person.requests.item_accepted_does_not_equal(0)
-    @items_offered                 = @person.items.accepted_equals(0)
-    @items_offered_and_accepted    = @person.items.accepted_does_not_equal(0)
+    given_taken_offering(@person)
+    @requests_not_accepted         = @person.requests.item_accepted_id_nil
+    @requests_accepted             = @person.requests.item_accepted_id_not_nil
+    @items_offered_and_accepted    = @person.items.accepted_id_not_nil
   end
 
   def new
@@ -73,12 +67,12 @@ class PeopleController < ApplicationController
   end
   
   private
-    def find_person
-      unless @person = Person.find_by_username(params[:id])
-        flash[:error] = "This person does not exist"
-        redirect_to '/'
-      end
+    
+  def find_person
+    unless @person = Person.find_by_username(params[:id])
+      flash[:error] = "This person does not exist"
+      redirect_to '/'
     end
-  
+  end
 end
 

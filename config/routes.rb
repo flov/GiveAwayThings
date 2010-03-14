@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login 'login',     :controller => 'people',     :action => 'new'
   map.welcome 'welcome', :controller => 'people',     :action => 'welcome'
   map.search 'search',   :controller => 'items',      :action => 'index'
-  map.search 'inbox',    :controller => 'messages',   :action => 'index'
+  map.connect 'inbox',   :controller => 'messages',   :action => 'index'
 
   map.resources :items
   map.resources :people, :has_many => [:items], :member => {
@@ -19,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
     people.new 'new_message', :controller => 'messages', :action => 'new'                               
   end
   map.resources :sessions
-  map.resources :requests
+  map.resources :requests, :member => { :accept => :get, :reset_accept => :post }
   map.resources :categories, :sections
   
   map.root               :controller => "people", :action => "welcome"

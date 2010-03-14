@@ -6,7 +6,8 @@
 %p
   -unless @message.text.empty?
     %strong Text:
-    =textilize h(@message.text)
+    %br/
+    =textilize_without_paragraph h(@message.text)
 
 %p
   = link_to "Delete", @message, :confirm => 'Are you sure?', :method => :delete

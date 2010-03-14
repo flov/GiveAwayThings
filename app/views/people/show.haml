@@ -15,11 +15,10 @@
 -unless @items_taken.empty?
   %h2 Took:
   = render :partial => 'show_items', :locals => {:items => @items_given}
-- unless @items_offered.empty?
-  = render :partial => 'people/offers', :locals => {:items => @items_offered}
+- unless @items_offering.empty?
+  = render :partial => 'people/offers', :locals => {:items => @items_offering}
 -content_for :sidebar_in_box do
   = render :partial => 'people/avatar_profile', :locals => {:person => @person}
-  .send_message
-    = link_to "#{image_tag 'send_message.gif'} send a message", person_new_path(@person.username)
+  = render :partial => 'people/send_message', :locals => {:person => @person}
   = render :partial => 'items/statistics', :locals => {:person => @person}
   = render :partial => 'people/references'

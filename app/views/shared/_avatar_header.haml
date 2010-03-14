@@ -1,5 +1,5 @@
 #nav_user
-  %a.messages{:href=>"/inbox"}="#{current_person.unread_messages.size} new"
-  %a.requests{:href=>"/inbox"}="#{current_person.unreplied_requests.size}R" unless current_person.unreplied_requests.size == 0
+  %a.messages{:href=>"/inbox"}="#{current_person.messages.unread.count} new"
+  %a.requests{:href=>"/inbox"}="#{current_person.requests.item_accepted_id_nil.count}R" unless current_person.requests.item_accepted_id_nil.count == 0
   = link_to 'logout', logout_path, :id => "nav_user_logout"
   = link_to gravatar_for(current_person, :size=>36, :class => 'gravatar'),person_path(current_person.username)

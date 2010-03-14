@@ -4,8 +4,8 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.recipient_id_equals(current_person.id).descend_by_created_at
-    @unreplied_requests = current_person.unreplied_requests.size
-    @unread_messages = current_person.unread_messages.size
+    @unread_messages = current_person.messages.unread.count
+    @undecided_requests = current_person.requests.item_accepted_id_nil.count
   end
   
   def show
@@ -29,13 +29,20 @@ class MessagesController < ApplicationController
   
   def create
     @message = Message.new(params[:message])
-
+    
     if @message.save
+      flash[:notice] = "Message has been sent to #{@message.recipient.username}."
       if params[:reply_id]
         @reply_message = Message.find(params[:reply_id])
         @reply_message.update_attributes(:reply_id => @message.id, :replied_at => Time.now)
+        flash[:notice] = "Message <b>#{@reply_message.title}</b> has been answered."
+        if params[:request_id]
+          @request = Request.find(params[:request_id])
+          @request.item.update_attribute(:accepted_id, @request.requester.id)
+          flash[:notice] = "You accepted the Request from #{@request.owner.username} for #{@request.item.title}."
+        end
       end
-      flash[:notice] = "Message has been sent."
+
       redirect_to messages_path
     else
       render :action => 'new'

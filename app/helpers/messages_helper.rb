@@ -14,5 +14,16 @@ module MessagesHelper
       message.replied_at.strftime("%d/%m/%Y<br/>%k:%M")
     end
   end
-  
+
+  def accept_request_link(message)
+    if not message.request.nil? 
+      if message.request.item.accepted_id.nil?
+        link_to 'Accept', accept_request_path(message.request) 
+      else
+        "<i>Accepted</i>"
+      end
+    elsif not message.accepted_item.nil?
+      link_to 'Picked up?<br/>leave a reference', ""
+    end
+  end
 end
