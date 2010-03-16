@@ -8,9 +8,9 @@
   
   %h3= t('.be_generous')
   = render :partial => 'items/item', :locals => {:item => @item}
-  %h2 OR
-  %h3 be thankful and pick a thing up
-  = render :partial => 'items/search'
+  / %h2 OR
+  / %h3 be thankful and pick a thing up
+  / = render :partial => 'items/search'
 
   -content_for :sidebar do
     = render :partial => 'items/statistics', :locals => {:person => Person.new}
