@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   include ActionView::Helpers::TextHelper
   
   def index
+    params[:search] ||= ""
     params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
     @search = Item.search(params[:search])
     @items = @search.all
