@@ -10,6 +10,7 @@ class Person < ActiveRecord::Base
   has_many :items, :dependent => :destroy
   has_many :items_taken, :class_name => "Item", :foreign_key => "taken_by"
   has_many :requests, :dependent => :destroy, :foreign_key => "owner_id"
+  has_many :requested_items, :class_name => 'Request', :foreign_key => "requester_id"
   has_many :messages, :foreign_key => "recipient_id"
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :items
@@ -18,6 +19,26 @@ class Person < ActiveRecord::Base
   attr_accessor :password
   before_save :prepare_password
 
+  def offered_items
+    self.items.requests_accepted_equals false
+  end
+  
+  def given_items
+    self.items.taken_by_gt(0)
+  end
+  
+  def taken_items
+    self.requested_items.item_taken_by_gt(0)
+  end
+  
+  def accepted_requests
+    self.requested_items.accepted_equals(true)
+  end
+
+  def unaccepted_requests
+    self.requests.accepted_equals(false)
+  end
+  
   def country
     self.address.city.country
   end
@@ -30,8 +51,8 @@ class Person < ActiveRecord::Base
     self.messages.unreplied
   end
   
-  def name
-    "#{first_name} #{last_name}"
+  def unread_messages
+    self.messages.unread
   end
 
   # login can be either username or email address
@@ -47,6 +68,10 @@ class Person < ActiveRecord::Base
   end
   
   def to_s
+    self.username
+  end
+
+  def to_param
     self.username
   end
   
@@ -66,7 +91,5 @@ class Person < ActiveRecord::Base
   def encrypt_password(pass)
     Digest::SHA1.hexdigest([pass, password_salt].join)
   end
-  
-
 
 end

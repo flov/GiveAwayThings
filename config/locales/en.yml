@@ -8,6 +8,9 @@ en:
       invalid: "<p>Invalid or expired access link. Login with your email and password.</p><p>If you don't remember your login data, follow the Forgot your Password link.</p>"
     new:
       confirm_password: Confirm it
+    create:
+      signed_up: <h2>Confirm your email!</h2>Thank you for signing up.<br/>We sent you an activation mail so please check your emails.
+      validation: '<h2>Validation Error</h2>Please fill in the neccessary fields.'
     
   emailer:
     confirm:
@@ -35,3 +38,4 @@ en:
     show:
       request_already_sent: <h2>Already requested!</h2>Please send {{owner}} a message to remind him of your request.
       request_sent: <h2>Request sent.</h2><p>{{username}} has been notified that you want to have his item.<br/>Please be patient and wait for his reply </p>
+      accept: "\n\n\n{{user}} wrote:\n"

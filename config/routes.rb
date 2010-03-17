@@ -19,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
     people.new 'new_message', :controller => 'messages', :action => 'new'                               
   end
   map.resources :sessions
-  map.resources :requests, :member => { :accept => :get, :reset_accept => :post }
+  map.resources :requests, :member => { :decline => :get, :accept => :get, :reset_accept => :post }
   map.resources :categories, :sections
   
   map.root               :controller => "people", :action => "welcome"

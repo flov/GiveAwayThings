@@ -16,14 +16,14 @@ module MessagesHelper
   end
 
   def accept_request_link(message)
-    if not message.request.nil? 
-      if message.request.item.accepted_id.nil?
+    if not message.request.nil? # if the message comes from a request
+      if message.request.accepted == false # if the request the message points to is not yet accepted
         link_to 'Accept', accept_request_path(message.request) 
       else
         "<i>Accepted</i>"
       end
-    elsif not message.accepted_item.nil?
-      link_to 'Picked up?<br/>leave a reference', ""
+    elsif not message.request.accepted_equals true # if the message points to an accepted request
+      link_to 'Picked up?<br/>leave a reference', ""  
     end
   end
   

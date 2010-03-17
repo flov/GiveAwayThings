@@ -2,6 +2,7 @@ Capfile
 config/deploy.rb
 photos/
 .empty
+rerun.txt
 .DS_Store
 .idea
 assets/*

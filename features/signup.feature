@@ -7,9 +7,18 @@ Feature: Signing Up
         | Email      | florian.vallen@gmail.com |
         | Password   | makeabarrier             |
         | Confirm it | makeabarrier             |
-        | Country    | makeabarrier             |
-        | City       | Duisburg                 |
         | Street     | Darwinstr 50             |
-
+        | City       | Duisburg                 |
+    And I select "Germany" from "Country"
     And I press "Sign up"
-    Then I should see "Thank you for signing up"
+    Then I should see "Confirm your email!"
+    And "florian.vallen@gmail.com" should receive an email
+    
+    When I open the email
+    Then I should see "Hey, Flov!" in the email body
+
+    When I follow "Log into GiveAwayThings now!" in the email
+    Then I should see "Welcome"
+    
+
+

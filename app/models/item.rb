@@ -16,6 +16,10 @@ class Item < ActiveRecord::Base
   # named_scope :offered, :conditions => { :taken_by => }
   named_scope :unread,  :conditions => { :read => 0, :request_id => nil }
   
+  def not_accepted
+    self.requests
+  end
+  
   def country
     self.address.city.country
   end

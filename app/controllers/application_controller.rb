@@ -15,10 +15,5 @@ class ApplicationController < ActionController::Base
       redirect_to unconfirmed_email_person_path(current_person.username)
     end
   end
-  
-  def given_taken_offering(person)
-    @items_given       = person.items.taken_by_does_not_equal(0)
-    @items_taken       = person.items_taken
-    @items_offering    = person.items.accepted_id_nil
-  end
+
 end
