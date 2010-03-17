@@ -22,9 +22,20 @@
       %p.details Type your password again
     %td= f.password_field :password_confirmation, :id => 'person_confirm_it'
   - f.fields_for :address do |address_form|
-    = render :partial => 'people/city_form', :locals => {:address_form => address_form}
+    -address_form.fields_for :city do |city_form|
+      %tr
+        %th
+          =address_form.label :city_attributes_country_id, 'Country'
+          %p.details Where do you come from?
+        %td=city_form.collection_select :country_id, Country.all, :id, :name, :include_blank => 'Please choose...'
+      %tr
+        %th
+          =address_form.label :city_attributes_name, 'City'
+          %p.details This is important for sharing
+        %td=city_form.text_field :name
+        
     %tr
       %th
-        Street
+        =f.label :address_attributes_street, 'Street'
         %p.details Will not be displayed publicly
       %td= address_form.text_field :street

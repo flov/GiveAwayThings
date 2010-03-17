@@ -7,9 +7,8 @@ Feature: Signing Up
         | Email      | florian.vallen@gmail.com |
         | Password   | makeabarrier             |
         | Confirm it | makeabarrier             |
-        | Country    | makeabarrier             |
-        | City       | Duisburg                 |
         | Street     | Darwinstr 50             |
-
+        | City       | Duisburg                 |
+    And I select "Germany" from "Country"
     And I press "Sign up"
     Then I should see "Thank you for signing up"
