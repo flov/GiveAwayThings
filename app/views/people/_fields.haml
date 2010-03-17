@@ -20,7 +20,7 @@
     %th
       =f.label :confirm_it
       %p.details Type your password again
-    %td= f.password_field :password_confirmation
+    %td= f.password_field :password_confirmation, :id => 'person_confirm_it'
   - f.fields_for :address do |address_form|
     = render :partial => 'people/city_form', :locals => {:address_form => address_form}
     %tr

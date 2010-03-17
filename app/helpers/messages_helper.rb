@@ -26,4 +26,11 @@ module MessagesHelper
       link_to 'Picked up?<br/>leave a reference', ""
     end
   end
+  
+  def subject(message)
+    unless message.request.nil?
+      link_to '<div class=request_flag></div>', item_path(message.request.item)
+    end
+    message_title(message)
+  end
 end

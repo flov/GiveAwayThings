@@ -5,26 +5,23 @@
   %strong You have
   %br/
   %strong
+    =pluralize(@unread_messages, 'unread Message')
     =pluralize(@undecided_requests, 'undecided Request') unless @undecided_requests == 0
-    =pluralize(@unread_messages, 'unread Message') unless @unread_messages == 0
   
 .messages
   %table
     %tr
       %th{:colspan => 2} From
       %th.subject Subject
-      %th Sent
-      %th Replied?
-      %th 
-      %th
+      %th.sent Sent
+      %th.replied Replied?
+      %th.accept
+      %th.delete
     - for message in @messages
       %tr
         %td.first= link_to gravatar_for(message.author, :size=>28), person_path(message.author.username)
         %td.from= link_to h(message.author.username), person_path(message.author.username)
-        %td.subject
-          -unless message.request.nil?
-            =link_to '<div class=request_flag></div>', item_path(message.request.item)
-          = message_title(message)
+        %td.subject= subject(message)
         %td.sent.center= message.created_at.strftime("%d/%m/%Y<br/>%k:%M") 
         %td.replied.center= reply_message(message)
         %td.accept.center
