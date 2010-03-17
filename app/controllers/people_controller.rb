@@ -33,10 +33,10 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(params[:person])
     if @person.save
-      flash[:notice]      = 'Thank you for signing up! Please check your emails,'
+      flash[:notice]      = t('people.create.signed_up')
       redirect_to root_url
     else
-      flash[:error] = 'Please fill in the neccessary fields.'
+      flash[:error] = t('people.create.validation')
       render :new
       flash.discard
     end

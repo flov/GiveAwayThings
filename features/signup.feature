@@ -11,4 +11,6 @@ Feature: Signing Up
         | City       | Duisburg                 |
     And I select "Germany" from "Country"
     And I press "Sign up"
-    Then I should see "Thank you for signing up"
+    Then I should see "Confirm your email!"
+    And "florian.vallen@gmail.com" should receive an email
+    

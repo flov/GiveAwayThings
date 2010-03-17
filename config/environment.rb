@@ -18,5 +18,7 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 
   config.i18n.default_locale = :en
-    
+
+  config.action_mailer.default_url_options = { :host => APP_CONFIG['outgoing']['from'] }
+  
 end
