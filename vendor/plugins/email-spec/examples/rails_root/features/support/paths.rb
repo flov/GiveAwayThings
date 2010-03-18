@@ -7,19 +7,21 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    
+
     when /the home\s?page/
       '/'
-    when /the signup page/
-      signup_path
-    when /the login page/
-      login_path
-    
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
+
+    when /request a newsletter/
+      request_newsletter_url('Name' => 'Joe Someone', 'Email' => 'example@example.com')
+
+    when /request attachments be sent to me/
+      request_attachments_url('Name' => 'Joe Someone', 'Email' => 'example@example.com')
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
