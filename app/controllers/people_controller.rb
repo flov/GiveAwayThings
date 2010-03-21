@@ -11,18 +11,14 @@ class PeopleController < ApplicationController
     @countries = Item.all.collect{|p| p.country}.uniq
     @newsletter = Newsletter.new
     if logged_in?
-      @person         ||= current_person
-      given_taken_offering(@person)
+      @person ||= current_person
     else
       @person ||= Person.new
     end
   end
   
   def show
-    given_taken_offering(@person)
-    @requests_not_accepted         = @person.requests.item_accepted_id_nil
-    @requests_accepted             = @person.requests.item_accepted_id_not_nil
-    @items_offered_and_accepted    = @person.items.accepted_id_not_nil
+
   end
 
   def new

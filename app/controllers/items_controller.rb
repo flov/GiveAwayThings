@@ -47,8 +47,6 @@ class ItemsController < ApplicationController
     
     @person = @item.person
     @username = @item.person.username
-    given_taken_offering(@person)
-    
   end
   
   private

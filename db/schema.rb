@@ -9,6 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20100317211653) do
 
   create_table "addresses", :force => true do |t|
@@ -39,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20100317211653) do
     t.text     "description"
     t.string   "picture_url"
     t.integer  "taken_by"
-    t.integer  "accepted_id"
+    t.boolean  "accepted"
     t.integer  "person_id"
     t.integer  "address_id"
     t.integer  "category_id"
@@ -75,24 +76,23 @@ ActiveRecord::Schema.define(:version => 20100317211653) do
   end
 
   create_table "requests", :force => true do |t|
-    t.datetime "created_at"
     t.integer  "owner_id"
     t.integer  "requester_id"
     t.integer  "item_id"
+    t.boolean  "accepted", :default => false
     t.datetime "created_at"
   end
-
+  
   create_table "messages", :force => true do |t|
+    t.datetime "created_at"
     t.string   "title"
     t.text     "text"
     t.boolean  "read",        :default => 0
     t.integer  "recipient_id"
     t.integer  "author_id"
     t.integer  "request_id"
-    t.datetime "created_at"
     t.datetime "replied_at"
     t.integer  "reply_id"
-    t.integer  "accepted_item_id"
   end
 
   create_table "states", :force => true do |t|

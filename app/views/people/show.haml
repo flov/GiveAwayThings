@@ -9,14 +9,14 @@
     %br/
     =link_to "lat: 51.21 lng: 6.76", "http://maps.google.com/maps?q=51.21+6.76"
 
--unless @items_given.empty?
+-unless current_person.given_items.empty?
   %h2 Gave:
-  = render :partial => 'show_items', :locals => {:items => @items_given}
--unless @items_taken.empty?
+  = render :partial => 'show_items', :locals => {:items => current_person.given_items}
+-unless current_person.taken_items.empty?
   %h2 Took:
-  = render :partial => 'show_items', :locals => {:items => @items_given}
-- unless @items_offering.empty?
-  = render :partial => 'people/offers', :locals => {:items => @items_offering}
+  = render :partial => 'show_items', :locals => {:items => current_person.taken_items}
+- unless current_person.offered_items.empty?
+  = render :partial => 'people/offers', :locals => {:items => current_person.offered_items}
 -content_for :sidebar_in_box do
   = render :partial => 'people/avatar_profile', :locals => {:person => @person}
   = render :partial => 'people/send_message', :locals => {:person => @person}

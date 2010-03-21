@@ -38,3 +38,4 @@ en:
     show:
       request_already_sent: <h2>Already requested!</h2>Please send {{owner}} a message to remind him of your request.
       request_sent: <h2>Request sent.</h2><p>{{username}} has been notified that you want to have his item.<br/>Please be patient and wait for his reply </p>
+      accept: "\n\n\n{{user}} wrote:\n"
