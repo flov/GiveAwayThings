@@ -6,7 +6,6 @@ Feature: Logging In
       And I fill in "Password" with "makeabarrier"
       And I press "Login"
 
-    
   Scenario: Flov successfully logs in with a confirmed email
     When I have confirmed my email
     And I go to the home page    

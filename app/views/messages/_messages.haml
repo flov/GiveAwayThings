@@ -1,0 +1,20 @@
+%h2 Messages:  
+.messages
+  %table
+    %tr
+      %th.from{:colspan => 2} From
+      %th.subject Subject
+      %th.sent Sent
+      %th.replied Replied?
+      %th.accept
+      %th.delete
+    - for message in messages
+      %tr
+        %td.first= link_to gravatar_for(message.author, :size=>28), person_path(message.author.username)
+        %td.from= link_to h(message.author.username), person_path(message.author.username)
+        %td.subject= subject(message)
+        %td.sent.center= message.created_at.strftime("%d/%m/%Y<br/>%k:%M") 
+        %td.replied.center= reply_message(message)
+        %td.accept.center
+          = accept_request_link(message)
+        %td.delete= link_to 'Delete', message, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,15 @@
+%h2= "#{t('requests.index.ready_to_take')}:"
+.messages
+  %table
+    %tr
+      %th{:colspan => 2} From
+      %th.for Item
+      %th.sent Sent
+      %th.reset Can't pick it up? Changed your mind?<br/>Then let him know by resetting the request.
+    - for accepted_request in accepted_requests
+      %tr
+        %td.first= link_to gravatar_for(accepted_request.owner, :size=>28), person_path(accepted_request.owner.to_param)
+        %td.from= link_to h(accepted_request.owner.username), person_path(accepted_request.owner.to_param)
+        %td.for= link_to accepted_request.item.title, item_path(accepted_request.item.to_param)
+        %td.sent.center=accepted_request.updated_at.strftime("%d/%m/%Y<br/>%k:%M") 
+        %td.reset.center= link_to "reset", accept_request_path(accepted_request) 

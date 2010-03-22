@@ -6,9 +6,10 @@ class MessagesController < ApplicationController
     @messages = Message.recipient_id_equals(current_person.id).descend_by_created_at
     @unread_messages = current_person.unread_messages
     @undecided_requests = current_person.unaccepted_requests
-    
+    @accepted_requests  = current_person.accepted_requests
+    @requests_you_accepted  = current_person.requests_you_accepted
   end
-  
+
   def show
     @message = Message.find(params[:id])
     @message.update_attributes(:read => 1) if @message.unread?
@@ -39,7 +40,7 @@ class MessagesController < ApplicationController
         flash[:notice] = "Message <b>#{@reply_message.title}</b> has been answered."
         if params[:request_id]
           @request = Request.find(params[:request_id])
-          @request.item.update_attribute(:accepted, true)
+          @request.update_attribute(:accepted, true)
           flash[:notice] = "You accepted the Request from #{@request.owner.username} for #{@request.item.title}."
         end
       end

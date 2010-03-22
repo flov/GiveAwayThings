@@ -22,8 +22,6 @@ module MessagesHelper
       else
         "<i>Accepted</i>"
       end
-    elsif not message.request.accepted_equals true # if the message points to an accepted request
-      link_to 'Picked up?<br/>leave a reference', ""  
     end
   end
   
