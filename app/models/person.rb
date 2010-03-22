@@ -34,6 +34,10 @@ class Person < ActiveRecord::Base
   def accepted_requests
     self.requested_items.accepted_equals(true)
   end
+  
+  def requests_you_accepted
+    self.requests.accepted_equals(true)
+  end
 
   def unaccepted_requests
     self.requests.accepted_equals(false)
