@@ -10,7 +10,7 @@
   =pluralize(@accepted_requests.count, 'accepted Request') unless @undecided_requests == 0 
 
 -unless @requests_you_accepted.empty?
-  = render :partial => 'requests/accepted' , :locals => {:accepted_requests => @accepted_requests}
+  = render :partial => 'requests/accepted_by_you', :locals => {:accepted_requests => @requests_you_accepted}
 -unless @accepted_requests.empty?
   = render :partial => 'requests/accepted' , :locals => {:accepted_requests => @accepted_requests}
 -unless @undecided_requests.empty?

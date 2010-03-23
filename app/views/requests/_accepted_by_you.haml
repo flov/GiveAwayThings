@@ -1,0 +1,15 @@
+%h2= "#{t('requests.index.ready_to_giveaway')}:"
+.messages
+  %table
+    %tr
+      %th{:colspan => 2}= t('messages.index.for')
+      %th.item= t('messages.index.item')
+      %th.taken= t('requests.index.mark_as_givenaway')
+      %th.accepted= t('requests.index.changed_mind')
+    - for accepted_request in accepted_requests
+      %tr
+        %td.first= link_to gravatar_for(accepted_request.requester, :size=>28), person_path(accepted_request.requester.to_param)
+        %td.requester= link_to h(accepted_request.requester.username), person_path(accepted_request.requester.to_param)
+        %td.item= item_with_date(accepted_request)
+        %td.picked_up.center= link_to 'already picked up?', item_path(accepted_request.item.to_param) 
+        %td.reset.center= link_to t("requests.index.not_available_anymore"), accept_request_path(accepted_request)

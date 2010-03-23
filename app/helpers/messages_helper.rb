@@ -25,6 +25,14 @@ module MessagesHelper
     end
   end
   
+  def item_with_date(request)
+    "<span class='date'>" + 
+      request.updated_at.strftime("%d/%m/%Y %k:%M") +
+    "</span>" +
+    link_to(request.item.title, item_path(request.item.to_param))
+
+  end
+  
   def subject(message)
     unless message.request.nil?
       link_to '<div class=request_flag></div>', item_path(message.request.item)

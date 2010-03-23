@@ -2,6 +2,7 @@
   table
     :width 700px
     :border-spacing 0
+    :margin-bottom 40px
     th
       :font-weight normal
       :border 0
@@ -10,15 +11,23 @@
       :text-align center
       :background-color = !header_bg_color
       :color = !yellow
+    th.accepted
+      :width 150px
     td
-      :padding 0 10px
+      :padding 0 10px      
     td.first
       :padding 0
       :width 28px
+    td.last
+      :text-align right
     td.from
       :width 60px
     td.subject, th.subject
       :width 270px
+  span.date
+    :padding-right 5px
+    :font-style italic
+
 
 .request_flag
   :background url("/images/red_flag.png") no-repeat right center
