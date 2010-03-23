@@ -8,7 +8,7 @@ class Message < ActiveRecord::Base
 
   validates_presence_of :author_id, :recipient_id, :title
 
-  named_scope :unread, :conditions => { :read => 0, :request_id => nil }
+  named_scope :unread, :conditions => { :read => 0 }
   named_scope :unreplied, :conditions => [ "request_id > 0", { :reply_id => nil }]  
   
   def unread?

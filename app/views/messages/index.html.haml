@@ -3,7 +3,7 @@
 %strong You have
 %br/
 %strong
-  =pluralize(@unread_messages.count, 'unread Message')
+  =pluralize(@unread_messages.count, 'new/unread Message')
   %br/
   =pluralize(@undecided_requests.count, 'undecided Request') unless @undecided_requests == 0 
   %br/
