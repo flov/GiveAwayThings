@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   
-  before_filter :find_person, :only => [ :show, :confirm_email ]
+  before_filter :find_person, :only => [ :show, :confirm_email, :unconfirmed_email ]
   before_filter :login_required, :confirmed_user?, :only => [ :show ]
 
 
@@ -59,7 +59,10 @@ class PeopleController < ApplicationController
   end
   
   def unconfirmed_email
-    
+    if params[:resend] == @person.password_hash
+      @person.send_activation_email
+      flash[:notice] = t('people.activation.resent')
+    end
   end
   
   private
