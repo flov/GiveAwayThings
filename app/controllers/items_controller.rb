@@ -48,6 +48,10 @@ class ItemsController < ApplicationController
     @person = @item.person
     @username = @item.person.username
   end
+
+  def take
+    
+  end
   
   private
   def redirect_if_not_logged_in(flash_msg)

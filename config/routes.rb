@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.search 'search',   :controller => 'items',      :action => 'index'
   map.inbox 'inbox',   :controller => 'messages',   :action => 'index'
 
-  map.resources :items
+  map.resources :items, :member => { :taken => :get }
   map.resources :people, :has_many => [:items], :member => {
                             :confirm_email => :get,
                             :settings => :get,

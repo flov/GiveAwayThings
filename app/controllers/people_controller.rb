@@ -70,6 +70,7 @@ class PeopleController < ApplicationController
   def settings
     
   end
+    
   
   private
     
