@@ -2,7 +2,7 @@
 
 .profile_header.center
   %h1==#{@person.to_s.capitalize}
-  %p
+  %p.localization
     =link_to @person.address.city.country.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s}"
     %br/
     =link_to @person.address.city.to_s, "http://maps.google.com/maps?q=#{@person.address.city.country.to_s} #{@person.address.city.to_s}"
@@ -17,6 +17,15 @@
   = render :partial => 'show_items', :locals => {:items => current_person.taken_items}
 - unless current_person.offered_items.empty?
   = render :partial => 'people/offers', :locals => {:items => current_person.offered_items}
+  
+-unless @requests_you_accepted.empty?
+  = render :partial => 'requests/accepted_by_you', :locals => {:accepted_requests => @requests_you_accepted}
+-unless @accepted_requests.empty?
+  = render :partial => 'requests/accepted' , :locals => {:accepted_requests => @accepted_requests}
+-unless @undecided_requests.empty?
+  = render :partial => 'requests/undecided' , :locals => {:undecided_requests => @undecided_requests}  
+  
+  
 -content_for :sidebar_in_box do
   = render :partial => 'people/avatar_profile', :locals => {:person => @person}
   = render :partial => 'people/send_message', :locals => {:person => @person}

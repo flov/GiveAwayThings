@@ -23,7 +23,7 @@ img.gravatar
   .header_content
     :width 940px
     :height 100px
-    :margin 0 auto 20px
+    :margin 0 auto
 
 #nav_user, #nav_login_signup
   a
@@ -71,13 +71,14 @@ img.gravatar
 #logo
   :position relative
   :float right
-  :top 5px
+  :top 15px
+  :right 100px
 
 #content
   :width 100%
   :background-color = !bg_color
   :width 100%
-  :padding-bottom 55px
+  :padding 24px 0 65px
   #nav
     :color = !header_color
     :margin 10px auto 
@@ -117,6 +118,8 @@ img.gravatar
     :font-weight bold
     :color #46a038
     :font-size 17px
+    &:hover
+      :color green
 .stat_image
   :background-image url(/images/stats.png)
   :background-repeat no-repeat

@@ -32,14 +32,5 @@ Rails::Initializer.run do |config|
    :authentication        => :plain
   }
   
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address        => 'smtp.gmail.com',
-    :port           => 587,
-    :domain         => 'www.giveawaythings.org',
-    :authentication => :plain,
-    :user_name      => 'no-reply@giveawaythings.org',
-    :password       => 'smtp55!@'
-  }
   
 end

@@ -18,7 +18,9 @@ class PeopleController < ApplicationController
   end
   
   def show
-
+    @undecided_requests = current_person.unaccepted_requests
+    @accepted_requests  = current_person.accepted_requests
+    @requests_you_accepted  = current_person.requests_you_accepted
   end
 
   def new
@@ -63,6 +65,10 @@ class PeopleController < ApplicationController
       @person.send_activation_email
       flash[:notice] = t('people.activation.resent')
     end
+  end
+
+  def settings
+    
   end
   
   private
