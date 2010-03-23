@@ -43,10 +43,5 @@ class RequestsController < ApplicationController
     flash[:notice] = "Successfully destroyed request."
     redirect_to messages_url
   end
-  
-  private
-  def is_no_admin
-    redirect_to root_path unless logged_in? and current_person.is_admin?
-  end
 
 end
