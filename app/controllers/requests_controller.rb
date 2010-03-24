@@ -52,8 +52,7 @@ class RequestsController < ApplicationController
       flash[:notice] = t('requests.create_reference.created', :username => @reference.to.username.capitalize)
       redirect_to person_path(@reference.to)
     else
-      flash[:error] = t('defaults.something_went_wrong', 
-                       :owner => @request.item.person.username)
+      flash[:error] = @reference.errors.on(:to_id)
       redirect_to taken_request_path(Request.find(params[:id]))
     end
   end

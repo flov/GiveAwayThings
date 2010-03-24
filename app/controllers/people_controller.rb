@@ -18,9 +18,10 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @undecided_requests = current_person.unaccepted_requests
-    @accepted_requests  = current_person.accepted_requests
-    @requests_you_accepted  = current_person.requests_you_accepted
+    @undecided_requests = @person.unaccepted_requests
+    @accepted_requests  = @person.accepted_requests
+    @requests_you_accepted  = @person.requests_you_accepted
+    @references = @person.references
   end
 
   def new
@@ -70,7 +71,6 @@ class PeopleController < ApplicationController
   def settings
     
   end
-    
   
   private
     
