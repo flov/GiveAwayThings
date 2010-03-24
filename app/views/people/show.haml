@@ -18,13 +18,7 @@
 - unless current_person.offered_items.empty?
   = render :partial => 'people/offers', :locals => {:items => current_person.offered_items}
   
--unless @requests_you_accepted.empty?
-  = render :partial => 'requests/accepted_by_you', :locals => {:accepted_requests => @requests_you_accepted}
--unless @accepted_requests.empty?
-  = render :partial => 'requests/accepted' , :locals => {:accepted_requests => @accepted_requests}
--unless @undecided_requests.empty?
-  = render :partial => 'requests/undecided' , :locals => {:undecided_requests => @undecided_requests}  
-  
+
   
 -content_for :sidebar_in_box do
   = render :partial => 'people/avatar_profile', :locals => {:person => @person}

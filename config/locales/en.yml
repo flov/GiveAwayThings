@@ -1,4 +1,6 @@
 en:
+  defaults:
+    something_went_wrong: something went wrong
   people:
     welcome:
       be_generous: "be generous and give a thing away"
@@ -44,6 +46,13 @@ en:
       for: Requester
   
   requests:
+    taken:
+      text1: This will get your statistics up.
+      text2: After you marked the item as taken you will have *+1* point in your statistics.
+      text3: You do *not* have to leave a reference, to mark the item as given away.
+      leave_reference: "Leave a reference for {{username}}"
+    create_reference: 
+      created: <h2>Reference created.</h2>Thank you very much for writing a reference to {{username}}. 
     index:
       mark_as_givenaway: mark as given away
       mark_as_taken: mark as taken

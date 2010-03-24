@@ -11,5 +11,5 @@
         %td.first= link_to gravatar_for(accepted_request.owner, :size=>28), person_path(accepted_request.owner.to_param)
         %td.for= link_to h(accepted_request.owner.username), person_path(accepted_request.owner.to_param)
         %td.item= item_with_date(accepted_request)
-        %td.sent.center= "take"
+        %td.sent.center= link_to "taken", taken_request_path(accepted_request)
         %td.reset.center= link_to "reset", accept_request_path(accepted_request) 

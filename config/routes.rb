@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
 
-  map.resources :newsletters
+  map.resources :newsletters, :references
   map.resources :messages, :except => :new, :member => { :reply => :get, :newer => :get} 
   
   map.signup 'signup',   :controller => 'people',     :action => 'new'
@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.search 'search',   :controller => 'items',      :action => 'index'
   map.inbox 'inbox',   :controller => 'messages',   :action => 'index'
 
-  map.resources :items, :member => { :taken => :get }
+  map.resources :items
   map.resources :people, :has_many => [:items], :member => {
                             :confirm_email => :get,
                             :settings => :get,
@@ -19,7 +19,12 @@ ActionController::Routing::Routes.draw do |map|
     people.new 'new_message', :controller => 'messages', :action => 'new'                               
   end
   map.resources :sessions
-  map.resources :requests, :member => { :decline => :get, :accept => :get, :reset_accept => :post }
+  map.resources :requests, :member => { :decline => :get, 
+                                        :accept => :get, 
+                                        :reset_accept => :post,
+                                        :taken => :get, 
+                                        :given => :get,
+                                        :create_reference => :post }
   map.resources :categories, :sections
   
   map.root               :controller => "people", :action => "welcome"

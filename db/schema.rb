@@ -9,8 +9,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100317211653) do
-
+ActiveRecord::Schema.define(:version => 20100324002718) do
+  
   create_table "addresses", :force => true do |t|
     t.string  "street"
     t.string  "state"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20100317211653) do
     t.integer  "requester_id"
     t.integer  "item_id"
     t.boolean  "accepted", :default => false
+    t.boolean  "taken",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -93,6 +94,16 @@ ActiveRecord::Schema.define(:version => 20100317211653) do
     t.integer  "request_id"
     t.datetime "replied_at"
     t.integer  "reply_id"
+  end
+  
+  create_table "references", :force => true do |t|
+    t.integer  "rating_id"
+    t.text     "text"
+    t.integer  "item_id"
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "states", :force => true do |t|
