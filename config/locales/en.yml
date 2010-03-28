@@ -47,7 +47,8 @@ en:
   
   requests:
     taken:
-      text1: This will get your statistics up.
+      mark_as_taken: Mark item as taken
+      text1: This step gets your stats up and helps people to trust you by leaving a reference.
       text2: After you marked the item as taken you will have *+1* point in your statistics.
       text3: You do *not* have to leave a reference, to mark the item as given away.
       leave_reference: "Leave a reference for {{username}}"
@@ -59,7 +60,7 @@ en:
       mark_as_taken: mark as taken
       changed_mind: Changed your mind?
       ready_to_take: Items which are ready to be picked up
-      ready_to_giveaway: Requests that you accepted
+      ready_to_giveaway: Accepted requests
       not_available_anymore: not any longer available
     show:
       request_already_sent: <h2>Already requested!</h2>Please send {{owner}} a message to remind him of your request.

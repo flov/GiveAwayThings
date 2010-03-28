@@ -1,30 +1,32 @@
-%h1 Mark item as taken
-.float_left
-  %p
-    =textilize_without_paragraph(t('.text1'))
+.width450
+  %h1= t('.mark_as_taken')
+  .float_left
+    %p
+      =textilize_without_paragraph(t('.text1'))
+      %br/
+      =textilize_without_paragraph(t('.text2'))
+      %br/
+      =textilize_without_paragraph(t('.text3'))
+      / .statistic_pointer
+
+  .clear
+
+
+  - form_for :request, :url => { :action => "create_reference" } do |f|
+    %h2= t('.leave_reference', :username => @request.requester.username.capitalize)
+    Overall experience 
+    =select :reference, 'rating_id', @reference.possible_ratings, { :include_blank => true }
     %br/
-    =textilize_without_paragraph(t('.text2'))
+    Reference:
     %br/
-    =textilize_without_paragraph(t('.text3'))
-.statistic_pointer
-.clear
+    =text_area_tag 'reference[text]', nil, :rows => 4
+    =hidden_field_tag 'reference[from_id]', current_person.id
+    =hidden_field_tag 'reference[to_id]', @request.requester.id
+    =hidden_field_tag 'reference[item_id]', @request.item.id
 
+    %br/
+    =submit_tag "mark #{@request.item.title} as given away"
 
-- form_for :request, :url => { :action => "create_reference" } do |f|
-  %h2= t('.leave_reference', :username => @request.requester.username.capitalize)
-  Overall experience 
-  =select :reference, 'rating_id', @reference.possible_ratings, { :include_blank => true }
-  %br/
-  Reference:
-  %br/
-  =text_area_tag 'reference[text]', nil, :rows => 4
-  =hidden_field_tag 'reference[from_id]', current_person.id
-  =hidden_field_tag 'reference[to_id]', @request.requester.id
-  =hidden_field_tag 'reference[item_id]', @request.item.id
-
-  %br/
-  =submit_tag "mark #{@request.item.title} as given away"
-
-- content_for :sidebar_in_box do
-  = render :partial => 'items/statistics', :locals => {:person => current_person}
-  .height100
+  - content_for :sidebar_in_box do
+    = render :partial => 'items/statistics', :locals => {:person => current_person}
+    .height100

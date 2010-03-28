@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   #for word_wrap in accept action
   include ActionView::Helpers::TextHelper
   
-  before_filter :find_request, :only => [:show, :accept, :taken, :given]
+  before_filter :find_request, :only => [:show, :accept, :taken, :given, :create_reference]
   
   def index
     @requests = Request.find(:all)
@@ -48,6 +48,8 @@ class RequestsController < ApplicationController
   
   def create_reference
     @reference = Reference.new(params[:reference])    
+    @request.item.update_attribute(:taken_by, @reference.from
+    )
     if @reference.save
       flash[:notice] = t('requests.create_reference.created', :username => @reference.to.username.capitalize)
       redirect_to person_path(@reference.to)

@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
     
     @person = @item.person
     @username = @item.person.username
+    @references = @person.references
   end
   
   private

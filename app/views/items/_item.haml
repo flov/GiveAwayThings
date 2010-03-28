@@ -4,10 +4,12 @@
   #slidedown_fields.hide_me
     = f.text_area :description, :rows => 1, :cols=>40
     %br
+    / .center
+    /   = collection_select :item, :category_id, Category.all, :id, :name, {:include_blank => "Category"}
+    /   = link_to 'add category', ''
     .center
-      =collection_select :item, :category_id, Category.all, :id, :name, {:include_blank => "Category"}
-      =link_to 'add category', ''
-    =f.file_field :photo
+      Picture: 
+      =f.file_field :photo
   .center= image_submit_tag "giveawaybutton.png", :class => 'image_submit'
   
 -#.in_field_label

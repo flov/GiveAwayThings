@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.signup 'signup',   :controller => 'people',     :action => 'new'
   map.logout 'logout',   :controller => 'sessions',   :action => 'destroy'
-  map.login 'login',     :controller => 'people',     :action => 'new'
+  map.login 'login',     :controller => 'sessions',     :action => 'new'
   map.welcome 'welcome', :controller => 'people',     :action => 'welcome'
   map.search 'search',   :controller => 'items',      :action => 'index'
   map.inbox 'inbox',   :controller => 'messages',   :action => 'index'

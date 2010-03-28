@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
-    @message.update_attributes(:read => 1) if @message.unread?
+    @message.update_attribute(:read, 1) if @message.unread?
   end
   
   def new

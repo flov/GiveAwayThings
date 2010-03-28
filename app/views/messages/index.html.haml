@@ -17,3 +17,6 @@
   = render :partial => 'requests/undecided' , :locals => {:undecided_requests => @undecided_requests}
 -unless @messages.empty?
   = render :partial => 'messages/messages', :locals => {:messages => @messages}
+  
+- content_for :sidebar_in_box do
+  fpawe
