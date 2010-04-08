@@ -1,5 +1,6 @@
 Capfile
 config/deploy.rb
+config/deploy/
 photos/
 .empty
 rerun.txt
