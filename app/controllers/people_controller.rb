@@ -55,10 +55,12 @@ class PeopleController < ApplicationController
         session[:person_id] = @person.id
         flash[:notice] = "<h2>Your account has been activated!</h2>You are now loged in.<br/>Welcome to GiveAwayThings :)"
       end
+      redirect_to '/'
     else
       flash[:error] = t('people.activation.invalid')
+      redirect_to unconfirmed_email_person_path(@person)
     end
-    redirect_to '/'
+
   end
   
   def unconfirmed_email

@@ -7,7 +7,7 @@ en:
     activation:
       already_done: "You had already confirmed your email! You can now use GiveAwayThings."
       activated: "Your account has been activated! Welcome to GiveAwayThings :)"
-      invalid: "<p>Invalid or expired access link. Login with your email and password.</p><p>If you don't remember your login data, follow the Forgot your Password link.</p>"
+      invalid: "<h2>Invalid or expired access link.</h2>"
       resent: "We've re-sent the activation email. Take a look at your inbox!"
     new:
       confirm_password: Confirm it

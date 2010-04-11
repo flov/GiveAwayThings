@@ -32,7 +32,7 @@ class Person
   end
 
   def is_login_token_valid?(token)
-    (token == self.login_token) and (self.login_token_expires_at > Time.now)
+    (token == self.login_token[0..3]) and (self.login_token_expires_at > Time.now)
   end
   
 end

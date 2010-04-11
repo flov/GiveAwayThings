@@ -7,7 +7,7 @@ include ActionView::Helpers::TextHelper
     defaults
     recipients    person.email
     subject       'Get started with GiveAwayThings!'
-    body          :person => person, :login_link => confirm_email_person_url(person.username, :token => person.login_token)
+    body          :person => person, :login_link => confirm_email_person_url(person.username, :token => person.login_token[0..3])
   end
   
   private
