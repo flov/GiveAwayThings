@@ -1,20 +1,20 @@
 - title "Inbox from #{current_person.username}"
 
-%strong You have
-%br/
-%strong
-  =pluralize(@unread_messages.count, 'new/unread Message')
-  %br/
-  =pluralize(@undecided_requests.count, 'undecided Request') unless @undecided_requests == 0 
-  %br/
-  =pluralize(@accepted_requests.count, 'accepted Request') unless @undecided_requests == 0 
-
--unless @requests_you_accepted.empty?
-  = render :partial => 'requests/accepted_by_you', :locals => {:accepted_requests => @requests_you_accepted}
--unless @accepted_requests.empty?
-  = render :partial => 'requests/accepted' , :locals => {:accepted_requests => @accepted_requests}
--unless @undecided_requests.empty?
-  = render :partial => 'requests/undecided' , :locals => {:undecided_requests => @undecided_requests}
+/ %strong You have
+/ %br/
+/ %strong
+/   =pluralize(@unread_messages.count, 'new/unread Message')
+/   %br/
+/   =pluralize(@undecided_requests.count, 'undecided Request') unless @undecided_requests == 0 
+/   %br/
+/   =pluralize(@accepted_requests.count, 'accepted Request') unless @undecided_requests == 0 
+/ 
+/ -unless @requests_you_accepted.empty?
+/   = render :partial => 'requests/accepted_by_you', :locals => {:accepted_requests => @requests_you_accepted}
+/ -unless @accepted_requests.empty?
+/   = render :partial => 'requests/accepted' , :locals => {:accepted_requests => @accepted_requests}
+/ -unless @undecided_requests.empty?
+/   = render :partial => 'requests/undecided' , :locals => {:undecided_requests => @undecided_requests}
 -unless @messages.empty?
   = render :partial => 'messages/messages', :locals => {:messages => @messages}
   
