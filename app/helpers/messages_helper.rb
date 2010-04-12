@@ -33,6 +33,10 @@ module MessagesHelper
 
   end
   
+  def time_output(message)
+    message.created_at.strftime("%d.%b") 
+  end
+  
   def subject(message)
     unless message.request.nil?
       link_to '<div class=request_flag></div>', item_path(message.request.item)

@@ -6,18 +6,20 @@ ActionController::Routing::Routes.draw do |map|
   
   map.signup 'signup',   :controller => 'people',     :action => 'new'
   map.logout 'logout',   :controller => 'sessions',   :action => 'destroy'
-  map.login 'login',     :controller => 'sessions',     :action => 'new'
+  map.login 'login',     :controller => 'sessions',   :action => 'new'
   map.welcome 'welcome', :controller => 'people',     :action => 'welcome'
   map.search 'search',   :controller => 'items',      :action => 'index'
-  map.inbox 'inbox',   :controller => 'messages',   :action => 'index'
+  map.inbox 'inbox',     :controller => 'messages',   :action => 'index'
 
   map.resources :items
   map.resources :people, :has_many => [:items], :member => {
                             :confirm_email => :get,
                             :settings => :get,
-                            :unconfirmed_email => :get } do |people|
+                            :unconfirmed_email => :get,
+                            :requests => :get } do |people|
     people.new 'new_message', :controller => 'messages', :action => 'new'                               
   end
+  
   map.resources :sessions
   map.resources :requests, :member => { :decline => :get, 
                                         :accept => :get, 
