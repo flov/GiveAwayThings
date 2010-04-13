@@ -29,7 +29,7 @@ class Person < ActiveRecord::Base
   end
   
   def taken_items
-    self.requested_items.item_taken_by_gt(0)
+    Item.taken_by_equals(self)
   end
   
   def accepted_requests

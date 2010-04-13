@@ -48,7 +48,10 @@ class RequestsController < ApplicationController
   
   def create_reference
     @reference = Reference.new(params[:reference])    
-    @request.item.update_attribute(:taken_by, @reference.from )
+    if @request.item.update_attribute(:taken_by, @reference.from )
+      @request.destroy
+    end
+    
     if @reference.save
       flash[:notice] = t('requests.create_reference.created', :username => @reference.to.username.capitalize)
       redirect_to person_path(@reference.to)
