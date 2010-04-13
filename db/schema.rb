@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100324002718) do
+ActiveRecord::Schema.define(:version => 20100413134346) do
   
   create_table "addresses", :force => true do |t|
     t.string  "street"
@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(:version => 20100324002718) do
     t.integer  "requester_id"
     t.integer  "item_id"
     t.boolean  "accepted", :default => false
-    t.boolean  "taken",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20100324002718) do
     t.datetime "created_at"
     t.string   "title"
     t.text     "text"
-    t.boolean  "read",        :default => 0
+    t.boolean  "read",        :default => false
     t.integer  "recipient_id"
     t.integer  "author_id"
     t.integer  "request_id"
