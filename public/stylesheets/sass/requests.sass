@@ -12,3 +12,33 @@ textarea#reference_text
 
 .height100
   :height 100px
+  
+.undecided_requests
+  :color = !blue
+  a
+    :color = !blue  
+    &:hover
+      :color = !green 
+  
+.requests_accepted_by_x
+  :color = !purple
+  a
+    :color = !purple
+    &:hover
+      :color = !green
+      
+.requests_accepted_by_you
+  :color = !orange
+  a
+    :color = !orange
+    &:hover
+      :color = !green
+  
+    
+.requests
+  table
+    .name a
+      :border 1px dashed Thistle
+      :padding 5px
+    .for a
+      :border-bottom 1px dashed Thistle

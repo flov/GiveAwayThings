@@ -17,8 +17,10 @@ class PeopleController < ApplicationController
     end
   end
   
-  def reqeusts
-    
+  def requests
+    @undecided_requests        = current_person.unaccepted_requests
+    @requests_accepted_by_x    = current_person.accepted_requests
+    @requests_accepted_by_you  = current_person.requests_you_accepted
   end
   
   def show

@@ -1,0 +1,62 @@
+-title '- Your Requests'
+
+%h2 Requests:
+
+.requests
+  .undecided_requests
+    %table
+      - for undecided_request in @undecided_requests
+        %tr
+          %td.gravatar= link_to gravatar_for(undecided_request.requester, :size=>28), person_path(undecided_request.requester)
+          %td 
+            .name= link_to h(undecided_request.requester.username), person_path(undecided_request.requester)
+          %td wants to have
+          %td.for= link_to undecided_request.item.title, item_path(undecided_request.item.to_param)
+          %td from
+          %td 
+            .name= link_to 'you', person_path(current_person)
+          %td= accept_decline(undecided_request)
+        
+  .requests_accepted_by_x
+    %table
+      - for accepted_request in @requests_accepted_by_x
+        %tr
+          %td.gravatar= link_to gravatar_for(accepted_request.owner, :size=>28), person_path(accepted_request.owner)
+          %td
+            .name= link_to h(accepted_request.owner.username), person_path(accepted_request.owner)
+          %td wants to give
+          %td.for.center= print_item(accepted_request)
+          %td to
+          %td 
+            .name= link_to 'you', person_path(current_person)
+          %td.center
+            = link_to "Mark as taken", taken_request_path(accepted_request)
+            |
+            = link_to "Reset", ""
+
+  .requests_accepted_by_you
+    %table
+      - for accepted_request in @requests_accepted_by_you
+        %tr
+          %td 
+            .name= link_to 'you', person_path(current_person)
+          %td want to give
+          %td.for.center= print_item(accepted_request)
+          %td to
+          %td.gravatar= link_to gravatar_for(accepted_request.requester, :size=>28), person_path(accepted_request.requester)
+          %td
+            .name= link_to h(accepted_request.requester.username), person_path(accepted_request.requester)
+          %td.center
+            = link_to "Mark as given", given_request_path(accepted_request)
+            |
+            = link_to "Reset", ""
+
+
+
+
+/ -unless @requests_you_accepted.empty?
+/   = render :partial => 'requests/accepted_by_you', :locals => {:accepted_requests => @requests_you_accepted}
+/ -unless @accepted_requests.empty?
+/   = render :partial => 'requests/accepted' , :locals => {:accepted_requests => @accepted_requests}
+/ -unless @undecided_requests.empty?
+/   = render :partial => 'requests/undecided' , :locals => {:undecided_requests => @undecided_requests}

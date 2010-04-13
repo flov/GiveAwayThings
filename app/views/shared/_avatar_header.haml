@@ -3,7 +3,7 @@
   - unless current_person.unaccepted_requests.count == 0
     = link_to("#{current_person.unaccepted_requests.count}R", requests_person_path(current_person), :class => 'requests')
   - unless current_person.accepted_requests.count == 0
-    =link_to(current_person.accepted_requests.count, inbox_path, :class => 'accepted')
+    =link_to(current_person.accepted_requests.count, requests_person_path(current_person), :class => 'accepted')
   
   
   = link_to 'logout', logout_path, :id => "nav_user_logout"

@@ -25,6 +25,10 @@ module MessagesHelper
     end
   end
   
+  def print_item(request)
+    link_to(request.item.title, item_path(request.item.to_param))
+  end
+  
   def item_with_date(request)
     "<span class='date'>" + 
       request.updated_at.strftime("%d/%m/%Y %k:%M") +
