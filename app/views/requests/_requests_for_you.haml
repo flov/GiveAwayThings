@@ -1,0 +1,13 @@
+.cyan
+  %table
+    - for undecided_request in undecided_requests
+      %tr
+        %td.gravatar= link_to gravatar_for(undecided_request.requester, :size=>28), person_path(undecided_request.requester)
+        %td 
+          .name= link_to h(undecided_request.requester.username.capitalize), person_path(undecided_request.requester)
+        %td wants to have
+        %td.title= link_to truncate(undecided_request.item.title, 50), item_path(undecided_request.item.to_param)
+        %td from
+        %td 
+          .name= link_to 'you', person_path(current_person)
+        %td.mark= accept_decline(undecided_request)

@@ -1,0 +1,4 @@
+= render :partial => 'people/avatar_profile', :locals => {:person => person}
+= render :partial => 'people/send_message', :locals => {:person => person}
+= render :partial => 'items/statistics', :locals => {:person => person}
+= render :partial => 'people/references', :locals => {:references => references } unless @references.empty?

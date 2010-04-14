@@ -1,0 +1,13 @@
+.green
+  %table
+    - for request in requests
+      %tr
+        %td 
+          .name= link_to 'you', person_path(current_person)
+        %td requested
+        %td.title= link_to truncate(request.item.title, 50), item_path(request.item.to_param)
+        %td from
+        %td.gravatar= link_to gravatar_for(request.owner, :size=>28), person_path(request.owner)
+        %td 
+          .name= link_to h(request.owner.username.capitalize), person_path(request.owner)
+        %td.mark= link_to link_to "Take Back Request", ""

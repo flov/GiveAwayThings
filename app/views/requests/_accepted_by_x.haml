@@ -1,0 +1,16 @@
+.red
+  %table
+    - for accepted_request in requests_accepted_by_x
+      %tr
+        %td.gravatar= link_to gravatar_for(accepted_request.owner, :size=>28), person_path(accepted_request.owner)
+        %td
+          .name= link_to h(accepted_request.owner.username).capitalize, person_path(accepted_request.owner)
+        %td wants to give
+        %td.title= print_item(accepted_request)
+        %td to
+        %td 
+          .name= link_to 'You', person_path(current_person)
+        %td.mark
+          = link_to "Mark As Taken", taken_request_path(accepted_request)
+          |
+          = link_to "Reset", ""
