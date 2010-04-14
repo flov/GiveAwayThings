@@ -31,8 +31,8 @@ class MessagesController < ApplicationController
   
   def create
     @message = Message.new(params[:message])
-    
-    if @message.save
+    Message.transaction do
+      @message.save
       flash[:notice] = "Message has been sent to #{@message.recipient.username}."
       if params[:reply_id]
         @reply_message = Message.find(params[:reply_id])
@@ -41,13 +41,11 @@ class MessagesController < ApplicationController
         if params[:request_id]
           @request = Request.find(params[:request_id])
           @request.update_attribute(:accepted, true)
+          @request.item.update_attribute(:accepted, true)
           flash[:notice] = "You accepted the Request from #{@request.owner.username} for #{@request.item.title}."
         end
-      end
-
+      end      
       redirect_to messages_path
-    else
-      render :action => 'new'
     end
     
   end

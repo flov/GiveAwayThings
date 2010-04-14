@@ -1,22 +1,18 @@
-- title " - #{@person.to_s.capitalize}"
+- title "&rarr; #{h(@person.username.capitalize)}"
 
 .profile_header.center
   %h1==#{@person.to_s.capitalize}
 
 = render :partial => 'localization', :locals => {:person => @person}
 
--unless current_person.given_items.empty?
+-unless @given_items.empty?
   %h2 Gave:
-  = render :partial => 'show_items', :locals => {:items => current_person.given_items}
--unless current_person.taken_items.empty?
+  = render :partial => 'show_items', :locals => {:items => @given_items}
+-unless @taken_items.empty?
   %h2 Took:
-  = render :partial => 'show_items', :locals => {:items => current_person.taken_items}
-- unless current_person.offered_items.empty?
-  = render :partial => 'people/offers', :locals => {:items => current_person.offered_items}
-  
+  = render :partial => 'show_items', :locals => {:items => @taken_items}
+- unless @offered_items.empty?
+  = render :partial => 'people/offers', :locals => {:items => @offered_items}
   
 -content_for :sidebar_in_box do
-  = render :partial => 'people/avatar_profile', :locals => {:person => @person}
-  = render :partial => 'people/send_message', :locals => {:person => @person}
-  = render :partial => 'items/statistics', :locals => {:person => @person}
-  = render :partial => 'people/references', :locals => {:references => @references } unless @references.empty?
+  = render :partial => 'default_sidebar_in_box', :locals => {:person => @person, :references => @references}

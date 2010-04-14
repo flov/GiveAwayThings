@@ -13,21 +13,42 @@ textarea#reference_text
 .height100
   :height 100px
   
-.undecided_requests
+.green
+  :color = !dark_green
+  a
+    :color = !dark_green  
+    &:hover
+      :color = !green 
+
+.red
+  :color = !red
+  a
+    :color = !red  
+    &:hover
+      :color = !green 
+  
+.cyan
+  :color = !cyan
+  a
+    :color = !cyan
+    &:hover
+      :color = !green 
+  
+.blue
   :color = !blue
   a
     :color = !blue  
     &:hover
       :color = !green 
   
-.requests_accepted_by_x
+.purple
   :color = !purple
   a
     :color = !purple
     &:hover
       :color = !green
       
-.requests_accepted_by_you
+.orange
   :color = !orange
   a
     :color = !orange
@@ -36,9 +57,18 @@ textarea#reference_text
   
     
 .requests
+  :max-width 600px
+  :text-align center
   table
+    .mark
+      :padding-left 10px
+      :font-variant small-caps
     .name a
+      :text-transform capitalize
       :border 1px dashed Thistle
       :padding 5px
-    .for a
-      :border-bottom 1px dashed Thistle
+      :font-variant small-caps
+    .title 
+      :max-width 260px
+      a
+        :border-bottom 1px dashed Thistle

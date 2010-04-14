@@ -3,7 +3,7 @@
   - for reference in references
     .reference
       = link_to gravatar_for(reference.from, :size => 30, :class => 'picture'),person_path(reference.from) 
-      %h4="From: #{link_to reference.from, reference.from}"
+      %h4="From: #{link_to reference.from.to_s.capitalize, reference.from}"
       %h4="For: #{link_to truncate(reference.item.title), item_path(reference.item)}"
       %h5="#{reference.from.city}, #{reference.from.country}"
       %h5=reference.created_at.strftime('%B %e, %Y') # i.e. October 24, 2009

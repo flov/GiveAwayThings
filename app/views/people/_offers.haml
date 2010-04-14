@@ -4,7 +4,7 @@
   %tbody
     -items.each do |item|
       %tr
-        %td.title=link_to(item.title, "/items/#{item.to_param}}")
+        %td.title=link_to(item.title, "/items/#{item.to_param}")
         %td since
         %td=time_ago_in_words(item.created_at)
     / -@items_offered_and_accepted.each do |item|

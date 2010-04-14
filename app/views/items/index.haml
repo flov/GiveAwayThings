@@ -1,4 +1,4 @@
--title " - Searching #{params["search"]["title_like"]}"
+-title " &rarr; Searching #{params["search"]["title_like"]}"
 
 %h1 Results:
 
@@ -6,7 +6,6 @@
   %thead
     %tr
       %th.title Title
-      %th Category
       %th Country
       %th City
       %th Since
@@ -14,8 +13,7 @@
   %tbody
     -@items.each do |item|
       %tr
-        %td=link_to(item.title, "/items/#{item.id}-#{item.title.underscore[0..30]}")
-        %td=item.category.to_s
+        %td=link_to(h(item.title), "/items/#{item.id}-#{item.title.underscore[0..30]}")
         %td=item.address.city.country.to_s
         %td=item.address.city.to_s
         %td=time_ago_in_words item.created_at

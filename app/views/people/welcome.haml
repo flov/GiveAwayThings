@@ -3,8 +3,8 @@
 .welcome_content.center
   =# render :partial => 'not_ready'
   %h1 
-    Welcome
-    =current_person.username.capitalize if logged_in?
+    ="Welcome"
+    = current_person if logged_in?
   
   %h3= t('.be_generous')
   = render :partial => 'items/item', :locals => {:item => @item}
@@ -13,4 +13,4 @@
   / = render :partial => 'items/search'
 
   -content_for :sidebar do
-    = render :partial => 'items/statistics', :locals => {:person => Person.new}
+    = render :partial => 'items/statistics', :locals => {:person => @person}

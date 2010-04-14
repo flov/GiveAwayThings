@@ -26,7 +26,7 @@ module MessagesHelper
   end
   
   def print_item(request)
-    link_to(request.item.title, item_path(request.item.to_param))
+    link_to(truncate(request.item.title, 48), item_path(request.item.to_param))
   end
   
   def item_with_date(request)

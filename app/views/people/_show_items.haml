@@ -1,8 +1,14 @@
-%table.show_items#show_items
-  / %tbody
-  /   -@items.each do |item|
-  /     %tr
-  /       %td.first item.title
-  /       %td.second to
-  /       %td.third=link_to item.person.username, person_path(item.person.username)
-  /       %td.fourth=gravatar_for(item.person, :size=>36),person_path(item.person.username), :class => 'gravatar'
+.requests
+  .blue
+    %table
+      -items.each do |item|
+        %tr
+          %td.title= link_to item.title, item_path(item)
+          %td to
+          %td
+            .name= link_to item.taken_by, person_path(item.taken_by)
+          %td= link_to gravatar_for(item.taken_by, :size=>28), person_path(item.taken_by)
+          %td since
+          %td=time_ago_in_words(item.created_at)
+          
+          

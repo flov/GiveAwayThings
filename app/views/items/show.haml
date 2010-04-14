@@ -1,8 +1,5 @@
-- title " - #{@item.title}"
+- title " &rarr; #{@item.title}"
 %h2=textilize_without_paragraph(word_wrap(@item.title, 60))
-%p
-  %strong=t('.owner')
-  =link_to(h(@item.person.username), "/people/#{@item.person.username}")
 
 %p
   %strong=t('.description')
@@ -21,8 +18,6 @@
   = link_to t('.view_all'), items_path
   
 - content_for :sidebar_in_box do
-  = render :partial => 'items/avatar', :locals => {:person => @person}
-  = render :partial => 'people/send_message', :locals => {:person => @person}
-  = render :partial => 'items/statistics', :locals => {:person => @item.person}
-  = render :partial => 'people/references', :locals => {:person => @person} unless @references.empty?
+  = render :partial => 'people/default_sidebar_in_box', :locals => {:person => @person, :references => @references}
+  
   

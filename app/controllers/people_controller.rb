@@ -5,9 +5,11 @@ class PeopleController < ApplicationController
 
 
   def welcome
+    logged_in? ? @person=current_person : @person=Person.new
     @item = Item.new(:title => 'Type in item.', :description => 'Description (optional)')
     @item.build_category
 
+    
     @countries = Item.all.collect{|p| p.country}.uniq
     @newsletter = Newsletter.new
     if logged_in?
@@ -21,9 +23,15 @@ class PeopleController < ApplicationController
     @undecided_requests        = current_person.unaccepted_requests
     @requests_accepted_by_x    = current_person.accepted_requests
     @requests_accepted_by_you  = current_person.requests_you_accepted
+    @requests_by_you           = current_person.requests.accepted_equals false
   end
   
   def show
+    
+    @given_items   = current_person.given_items
+    @taken_items   = current_person.taken_items
+    @offered_items = current_person.offered_items
+    
     @undecided_requests = @person.unaccepted_requests
     @accepted_requests  = @person.accepted_requests
     @requests_you_accepted  = @person.requests_you_accepted

@@ -1,5 +1,5 @@
-#you_took
-  %h2="You Took:"
+%h2="You Took:"
+.blue
   -items.each do |item|
     ="#{item.title} from #{item.person.username}"
     =#link_to_gravatar(item.person)

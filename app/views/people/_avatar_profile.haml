@@ -1,3 +1,4 @@
-= link_to gravatar_for(person, :size => 100, :class => 'avatar_profile'),person_path(person.username) 
-.own_gravatar
-  =link_to 'Upload Your <br> Own Gravatar', 'http://www.gravatar.com'
+= link_to gravatar_for(person, :size => 100, :class => 'gravatar'),person_path(person.username)
+-if person == current_person
+  .own_gravatar
+    =link_to 'Upload Your <br> Own Avatar <br/>At Gravatar', 'http://www.gravatar.com'

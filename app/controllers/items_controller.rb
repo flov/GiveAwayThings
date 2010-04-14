@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   def index
     params[:search] ||= ""
     params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
+    params["search"][""]
     @search = Item.search(params[:search])
     @items = @search.all
   end

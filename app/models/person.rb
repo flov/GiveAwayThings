@@ -21,7 +21,7 @@ class Person < ActiveRecord::Base
   before_save :prepare_password
 
   def offered_items
-    self.items.requests_accepted_equals false
+    self.items.accepted_equals nil
   end
   
   def given_items

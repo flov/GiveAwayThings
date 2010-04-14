@@ -48,12 +48,11 @@ class RequestsController < ApplicationController
   
   def create_reference
     @reference = Reference.new(params[:reference])    
-    if @request.item.update_attribute(:taken_by, @reference.from )
-      @request.destroy
-    end
+    @request.item.update_attribute(:taken_by, @reference.from )
     
     if @reference.save
       flash[:notice] = t('requests.create_reference.created', :username => @reference.to.username.capitalize)
+      @request.destroy
       redirect_to person_path(@reference.to)
     else
       flash[:error] = @reference.errors.on(:to_id)
@@ -70,6 +69,10 @@ class RequestsController < ApplicationController
   
   private
   def find_request
+    unless Request.exists?(params[:id])
+      flash[:error] = 'This Request does not exist. Maybe it has already been deleted.'
+      redirect_to '/' 
+    end
     @request = Request.find(params[:id])
   end
 
