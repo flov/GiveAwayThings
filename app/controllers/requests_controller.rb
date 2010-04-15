@@ -48,7 +48,7 @@ class RequestsController < ApplicationController
   
   def create_reference
     @reference = Reference.new(params[:reference])    
-    @request.item.update_attribute(:taken_by, @reference.from )
+    @request.item.update_attribute(:taken_by, params[:taken_by])
     
     if @reference.save
       flash[:notice] = t('requests.create_reference.created', :username => @reference.to.username.capitalize)

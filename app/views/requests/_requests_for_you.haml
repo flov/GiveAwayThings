@@ -6,7 +6,7 @@
         %td 
           .name= link_to h(undecided_request.requester.username.capitalize), person_path(undecided_request.requester)
         %td wants to have
-        %td.title= link_to truncate(undecided_request.item.title, 50), item_path(undecided_request.item.to_param)
+        %td.title.center= link_to truncate(undecided_request.item.title, 50), item_path(undecided_request.item.to_param)
         %td from
         %td 
           .name= link_to 'you', person_path(current_person)

@@ -20,10 +20,10 @@
     Reference:
     %br/
     =text_area_tag 'reference[text]', nil, :rows => 4
+    =hidden_field_tag 'reference[taken_by]', current_person.id
     =hidden_field_tag 'reference[from_id]', current_person.id
     =hidden_field_tag 'reference[to_id]', @request.requester.id
     =hidden_field_tag 'reference[item_id]', @request.item.id
-
     %br/
     =submit_tag "mark #{@request.item.title} as given away"
 

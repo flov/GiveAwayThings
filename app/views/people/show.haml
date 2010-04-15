@@ -1,18 +1,21 @@
-- title "&rarr; #{h(@person.username.capitalize)}"
+- if logged_in?
+  - if current_person == @person
+    - title " &rarr; Your Profile"
+  - else 
+    - title "&rarr; #{h(@person.username.capitalize)}"
+- else
+  - title "&rarr; #{h(@person.username.capitalize)}"
+
 
 .profile_header.center
   %h1==#{@person.to_s.capitalize}
 
 = render :partial => 'localization', :locals => {:person => @person}
 
--unless @given_items.empty?
-  %h2 Gave:
-  = render :partial => 'show_items', :locals => {:items => @given_items}
--unless @taken_items.empty?
-  %h2 Took:
-  = render :partial => 'show_items', :locals => {:items => @taken_items}
-- unless @offered_items.empty?
-  = render :partial => 'people/offers', :locals => {:items => @offered_items}
+
+= render :partial => 'you_gave',  :locals => {:items => @given_items, :person => @person} unless @given_items.empty?
+= render :partial => 'you_took',  :locals => {:items => @taken_items, :person => @person} unless @taken_items.empty?
+= render :partial => 'you_offer', :locals => {:items => @offered_items, :person => @person} unless @offered_items.empty?
   
 -content_for :sidebar_in_box do
   = render :partial => 'default_sidebar_in_box', :locals => {:person => @person, :references => @references}

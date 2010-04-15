@@ -1,17 +1,8 @@
--title '- Your Requests'
+-title ' &rarr; Your Requests'
 
 %h2 Requests:
-
 .requests
   =render :partial => 'requests/requests_for_you', :locals => {:undecided_requests => @undecided_requests}
   =render :partial => 'requests/accepted_by_x', :locals => {:requests_accepted_by_x => @requests_accepted_by_x}
   =render :partial => 'requests/accepted_by_you', :locals => {:requests_accepted_by_you => @requests_accepted_by_you}
   =render :partial => 'requests/requests_by_you', :locals => {:requests => @requests_by_you}
-  
-
-/ -unless @requests_you_accepted.empty?
-/   = render :partial => 'requests/accepted_by_you', :locals => {:accepted_requests => @requests_you_accepted}
-/ -unless @accepted_requests.empty?
-/   = render :partial => 'requests/accepted' , :locals => {:accepted_requests => @accepted_requests}
-/ -unless @undecided_requests.empty?
-/   = render :partial => 'requests/undecided' , :locals => {:undecided_requests => @undecided_requests}

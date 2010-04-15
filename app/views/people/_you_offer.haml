@@ -1,0 +1,15 @@
+%h2
+  -if current_person.username == params[:id]
+    You Offer 
+  -else
+    ="#{current.person.username.capitalize} offers"
+
+
+.requests
+  .cyan
+    %table
+      -items.each do |item|
+        %tr
+          %td.title= link_to item.title, item_path(item)
+          %td="since #{time_ago_in_words(item.created_at)}"
+

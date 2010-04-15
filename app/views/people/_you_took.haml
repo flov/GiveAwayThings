@@ -1,5 +1,13 @@
-%h2="You Took:"
-.blue
-  -items.each do |item|
-    ="#{item.title} from #{item.person.username}"
-    =#link_to_gravatar(item.person)
+%h2= "#{you_or_person(person.username.capitalize)} Took"
+.requests
+  .cyan
+    %table
+      -items.each do |item|
+        %tr
+          %td.title= link_to item.title, item_path(item)
+          %td from &rarr;
+          %td
+            .name= link_to item.person, person_path(item.person)
+          %td= link_to gravatar_for(item.person, :size=>28), person_path(item.person)
+          %td since
+          %td=time_ago_in_words(item.created_at)
