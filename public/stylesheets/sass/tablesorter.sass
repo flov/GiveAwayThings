@@ -1,20 +1,24 @@
 table.tablesorter
-  a
-    :color #783201
-  a:hover
-    :color = !header_color
-
   :border-spacing 0
   :border 1px solid 
   :border-color = !header_bg_color
   font-family: arial
-  background-color: #CDCDCD*
+  background-color: #CDCDCD
   font-size: 8pt
   text-align: left
+  .pagination
+    :color gray
+    a
+      :color gray
+      &:hover
+        color: !green
+    .current
+      :color white
+
 
   thead tr th, tfoot tr th
     padding: 2px 0 3px 5px
-    color: = !header_color
+    color: !header_color
     :font-weight normal
     :border 0
     :background-color = !header_bg_color
@@ -29,6 +33,10 @@ table.tablesorter
     cursor: pointer
 
   tbody
+    a
+      :color #783201
+      &:hover
+        :color = !header_color
     td
       color: #3D3D3D
       padding: 2px

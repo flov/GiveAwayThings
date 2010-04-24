@@ -15,6 +15,7 @@ Rails::Initializer.run do |config|
   config.gem "RedCloth"
   config.gem "haml"
   config.gem "searchlogic"
+  config.gem "will_paginate", :version => '~> 2.3.12'
   config.time_zone = 'UTC'
 
   config.i18n.default_locale = :en

@@ -3,11 +3,11 @@ class ItemsController < ApplicationController
   include ActionView::Helpers::TextHelper
   
   def index
-    params[:search] ||= ""
-    params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
-    params["search"][""]
-    @search = Item.search(params[:search])
-    @items = @search.all
+    # params[:search] ||= ""
+    # params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
+    # params["search"][""]
+    # @search = Item.search(params[:search])
+    @items = Item.paginate :page => params[:page], :order => 'created_at DESC'
   end
   
   def search

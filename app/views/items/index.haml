@@ -1,4 +1,4 @@
--title " &rarr; Searching #{params["search"]["title_like"]}"
+-title " &rarr; Browse items"
 
 %h1 Results:
 
@@ -20,4 +20,4 @@
         %td=link_to(item.person.username, "/people/#{item.person.username}")  
   %tfoot
     %tr
-      %th{:colspan=>6} 1, 2, 3, ..., 10
+      %th{:colspan=>6}= will_paginate @items
