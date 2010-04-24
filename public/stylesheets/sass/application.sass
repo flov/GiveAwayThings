@@ -14,6 +14,13 @@
 !red               = #F10026
 !cyan              = #04859D
 
+// Cross Browser Transparency (Yuck!)
+=opacity(!opacity)
+  :opacity= !opacity
+  :-moz-opacity= !opacity
+  :-khtml-opacity= !opacity
+  :-ms-filter= "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + round(!opacity*100) + ")"
+  :filter= "alpha(opacity=" + round(!opacity*100) + ")"
 
 @import fonts.sass
 @import forms.sass

@@ -14,9 +14,6 @@
     =request_fields(f, @item)
     =f.submit "send request"
 
-%p
-  = link_to t('.view_all'), items_path
-  
 - content_for :sidebar_in_box do
   = render :partial => 'people/default_sidebar_in_box', :locals => {:person => @person, :references => @references}
   
