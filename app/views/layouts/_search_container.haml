@@ -1,0 +1,21 @@
+-# SEARCH:
+%li.searchContainer
+  -form_tag(items_path, :method => 'get', :name => 'form') do
+    %div
+      = text_field_tag :q, params[:q], :id => "searchField"
+      %img{:src=>"/images/magnifier.png", :alt=>"Search", :onclick=>'javascript:document.form.submit();'}/
+    %ul
+      %li
+        Search by
+        %br/
+        %img.corner_inset_left{:src=>"/images/corner_inset_left.png"}/  
+        = radio_button_tag("search_by", "city", true)
+        City
+        %img.corner_inset_right{:src=>"/images/corner_inset_right.png"}/
+        %br/
+        = radio_button_tag("search_by", "title")
+        Title
+      %li.last
+        %img.corner_left{:src=>"/images/corner_left.png"}/
+        %img.middle{:src=>"/images/dot.gif"}/
+        %img.corner_right{:alt=>"", :src=>"/images/corner_right.png"}/
