@@ -39,7 +39,11 @@ class RequestsController < ApplicationController
   end
   
   def taken
-    @reference = Reference.new
+    if not @request.owners_reference(current_person).nil?
+      @reference = @request.owners_reference(current_person)
+    else
+      @reference = Reference.new
+    end
   end
   
   def given
@@ -49,12 +53,15 @@ class RequestsController < ApplicationController
   def create_reference
     @reference = Reference.new(params[:reference])    
     @request.item.update_attribute(:taken_by, params[:taken_by])
-    
-    if @reference.save
+    if Reference.exists? params["reference"]["id"]
+      Reference.find(params[:reference][:id]).update_attributes(params[:reference])
+      redirect_to person_path(@reference.to)
+    elsif @reference.save
       flash[:notice] = t('requests.create_reference.created', :username => @reference.to.username.capitalize)
       @request.destroy
       redirect_to person_path(@reference.to)
     else
+      raise 'error'
       flash[:error] = @reference.errors.on(:to_id)
       redirect_to taken_request_path(Request.find(params[:id]))
     end

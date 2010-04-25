@@ -7,7 +7,7 @@
           %td.title= link_to item.title, item_path(item)
           %td to &rarr;
           %td
-            .name= link_to item.person, person_path(item.person)
-          %td= link_to gravatar_for(item.person, :size=>28), person_path(item.person)
+            .name= link_to item.taken_by, person_path(item.taken_by)
+          %td= link_to gravatar_for(item.taken_by, :size=>28), person_path(item.taken_by)
           %td since
           %td=time_ago_in_words(item.created_at)

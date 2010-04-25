@@ -7,22 +7,22 @@
       =textilize_without_paragraph(t('.text2'))
       %br/
       =textilize_without_paragraph(t('.text3'))
-      / .statistic_pointer
 
   .clear
 
-
-  - form_for :request, :url => { :action => "create_reference" } do |f|
+  - form_for :reference, :url => { :action => "create_reference" } do |f|
     %h2= t('.leave_reference', :username => @request.requester.username.capitalize)
     Overall experience (optional) 
-    =select :reference, 'rating_id', @reference.possible_ratings, { :include_blank => true }
+    =#select :reference, 'rating_id', possible_ratings, { :include_blank => true }
+    =select_rating
     %br/
-    Reference (optional):
+    = @reference.new_record? ? "Reference (optional): " : "You can update your reference here (optional)"
     %br/
-    =text_area_tag 'reference[text]', nil, :rows => 4
+    =text_area_tag 'reference[text]', @reference.text, :rows => 4
     =hidden_field_tag 'reference[from_id]', current_person.id
     =hidden_field_tag 'reference[to_id]', @request.owner.id
     =hidden_field_tag 'reference[item_id]', @request.item.id
+    =hidden_field_tag 'reference[id]', @reference.id
 
     %br/
     =submit_tag "Mark #{truncate(@request.item.title,20)} as given away"

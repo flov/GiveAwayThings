@@ -1,6 +1,6 @@
 .statistics
   -if person.new_record? # not logged in
-    .stat_image Your Statistics
+    -#.stat_image Your Statistics
     %h2 You Gave
     =link_to '0 Things', signup_path
     %h2 You Took
@@ -9,7 +9,7 @@
     =link_to '0 Things', signup_path
     
   -elsif person == current_person # your own records
-    .stat_image Your Statistics
+    -#.stat_image Your Statistics
     %h2 You Gave
     =link_to pluralize(person.given_items.size,'Thing'), person_path(person.username)
     %h2 You Took
@@ -18,7 +18,7 @@
     =link_to pluralize(person.offered_items.size,'Thing'), person_path(person.username)
 
   -else # Logged in, but not your own records:
-    .stat_image="#{person.username.capitalize}'s Statistics"
+    -#.stat_image="#{person.username.capitalize}'s Statistics"
     %h2="#{person.username.capitalize} Gave"
     =link_to pluralize(person.given_items.size,'Thing'), person_path(person.username)
     %h2="#{person.username.capitalize} Took"

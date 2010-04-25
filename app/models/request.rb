@@ -8,5 +8,7 @@ class Request < ActiveRecord::Base
   validates_presence_of :requester_id, :item_id
   validates_uniqueness_of :requester_id, :scope => :item_id, :on => :create, :message => "must be unique"
   
-
+  def owners_reference(person)
+    self.owner.references.from_id_equals(person).first
+  end
 end

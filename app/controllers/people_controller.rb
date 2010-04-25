@@ -28,9 +28,9 @@ class PeopleController < ApplicationController
   
   def show
     
-    @given_items   = current_person.given_items
-    @taken_items   = current_person.taken_items
-    @offered_items = current_person.offered_items
+    @given_items   = @person.given_items
+    @taken_items   = @person.taken_items
+    @offered_items = @person.offered_items
     
     @undecided_requests = @person.unaccepted_requests
     @accepted_requests  = @person.accepted_requests

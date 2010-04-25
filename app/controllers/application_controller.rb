@@ -8,7 +8,13 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-
+  
+  def possible_ratings
+    ratings = {}
+    %w{negative neutral positive}.each_with_index {|rating, index| ratings[rating] = index }
+    ratings
+  end
+  
   def confirmed_user?
     if current_person and not current_person.is_active?
       flash[:error] = "You need to activate your account first"

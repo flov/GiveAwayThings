@@ -15,7 +15,7 @@
   - form_for :request, :url => { :action => "create_reference" } do |f|
     %h2= t('.leave_reference', :username => @request.requester.username.capitalize)
     Overall experience 
-    =select :reference, 'rating_id', @reference.possible_ratings, { :include_blank => true }
+    =select :reference, 'rating_id', possible_ratings, { :include_blank => true }
     %br/
     Reference:
     %br/
