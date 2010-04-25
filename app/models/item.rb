@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
 
   cattr_reader :per_page
-  @@per_page = 10
+  @@per_page = 1
   
   belongs_to :person
   belongs_to :taken_by, :class_name => "Person", :foreign_key => "taken_by"
@@ -17,6 +17,18 @@ class Item < ActiveRecord::Base
   
   def not_accepted
     self.requests
+  end
+
+  def self.search_by_city(search, page)
+    Item.address_city_name_like(search).paginate(:page => page)
+  end
+  
+  def self.search_by_title(search, page)
+    Item.title_like(search).paginate(:page => page)
+  end
+  
+  def city
+    self.address.city.name
   end
   
   def country

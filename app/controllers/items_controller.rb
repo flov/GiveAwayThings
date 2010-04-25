@@ -7,7 +7,15 @@ class ItemsController < ApplicationController
     # params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
     # params["search"][""]
     # @search = Item.search(params[:search])
-    @items = Item.paginate :page => params[:page], :order => 'created_at DESC'
+    if params[:q].empty?
+      @items = Item.paginate :page => params[:page], :order => 'created_at DESC'
+    elsif params[:search_by] == 'city' 
+      @items = Item.search_by_city(params[:q], params[:page])
+    elsif params[:search_by] == 'title'
+      @items = Item.search_by_title(params[:q], params[:page])
+    else
+      @items = Item.paginate :page => params[:page], :order => 'created_at DESC'
+    end
   end
   
   def search

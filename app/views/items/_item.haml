@@ -2,13 +2,11 @@
   = text_field_tag 'item[title]', 'Type in item.'
   %br
   #slidedown_fields.hide_me
-    = f.text_area :description, :rows => 1, :cols=>40
+    = f.text_area :description, :cols=>40
     %br
-    / .center
-    /   = collection_select :item, :category_id, Category.all, :id, :name, {:include_blank => "Category"}
-    /   = link_to 'add category', ''
-    .center
+    .uploadpicture
       Picture: 
+      %br/
       =f.file_field :photo
   .center= image_submit_tag "giveawaybutton.png", :class => 'image_submit'
   

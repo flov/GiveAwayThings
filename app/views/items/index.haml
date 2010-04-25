@@ -13,7 +13,10 @@
   %tbody
     -@items.each do |item|
       %tr
-        %td=link_to(h(item.title), "/items/#{item.id}-#{item.title.underscore[0..30]}")
+        %td
+          =link_to(h(item.title), "/items/#{item.id}-#{item.title.underscore[0..30]}")
+          %br/
+          =h(truncate(item.description))
         %td=item.address.city.country.to_s
         %td=item.address.city.to_s
         %td=time_ago_in_words item.created_at
