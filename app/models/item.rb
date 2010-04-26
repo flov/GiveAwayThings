@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
 
   cattr_reader :per_page
-  @@per_page = 1
+  @@per_page = 5
   
   belongs_to :person
   belongs_to :taken_by, :class_name => "Person", :foreign_key => "taken_by"

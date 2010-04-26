@@ -22,12 +22,12 @@ class PeopleController < ApplicationController
   def requests
     @undecided_requests        = current_person.unaccepted_requests
     @requests_accepted_by_x    = current_person.accepted_requests
-    @requests_accepted_by_you  = current_person.requests_you_accepted
+    @requests_you_accepted     = current_person.requests_you_accepted
     @requests_by_you           = current_person.requests.accepted_equals false
   end
   
   def edit_reference
-    
+    @reference
   end
   
   def show

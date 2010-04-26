@@ -1,6 +1,6 @@
 .orange
   %table
-    - for accepted_request in requests_accepted_by_you
+    - for accepted_request in requests_you_accepted
       %tr
         %td 
           .name= link_to 'You', person_path(current_person)
