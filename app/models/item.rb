@@ -39,9 +39,12 @@ class Item < ActiveRecord::Base
     "#{id}-#{title.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
   end
 
-  def after_initialize
+  def before_save
     if self.title == 'Type in item.' or self.title == "Come on. Think of something to give away..."
       self.title = ""
+    end
+    if self.description == 'Description (optional)'
+      self.description = ""
     end
   end
 end

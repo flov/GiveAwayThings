@@ -26,6 +26,10 @@ class PeopleController < ApplicationController
     @requests_by_you           = current_person.requests.accepted_equals false
   end
   
+  def edit_reference
+    
+  end
+  
   def show
     
     @given_items   = @person.given_items
