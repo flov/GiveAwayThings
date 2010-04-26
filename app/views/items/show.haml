@@ -1,20 +1,21 @@
 - title " &rarr; #{@item.title}"
+
 %h2=textilize_without_paragraph(word_wrap(@item.title, 60))
-
-%p
-  %strong=t('.description')
-  %br/
-  =textilize_without_paragraph h(@item.description) unless @item.description.empty?
+.width450
+  %p
+    %strong=t('.description')
+    %br/
+    =textilize_without_paragraph h(@item.description) unless @item.description.empty?
   
-= image_tag @item.photo.url unless @item.photo.url.include? "missing.png"
+  = image_tag @item.photo.url unless @item.photo.url.include? "missing.png"
 
-%h2=t('.send_request', :username => @item.person.username)
-#send_request
-  -form_for @request do |f|
-    =request_fields(f, @item)
-    =f.submit "send request"
+  %h2=t('.send_request', :username => @item.person.username)
+  #send_request
+    -form_for @request do |f|
+      =request_fields(f, @item)
+      =f.submit "send request"
 
-- content_for :sidebar_in_box do
-  = render :partial => 'people/default_sidebar_in_box', :locals => {:person => @person, :references => @references}
+  - content_for :sidebar_in_box do
+    = render :partial => 'people/default_sidebar_in_box', :locals => {:person => @person, :references => @references}
   
   

@@ -19,8 +19,9 @@
           %img.corner_left{:src=>"/images/corner_left.png"}/
           %img.middle{:src=>"/images/dot.gif"}/
           %img.corner_right{:alt=>"", :src=>"/images/corner_right.png"}/
-  %li
-    =link_to 'Your Requests', requests_person_path(current_person) if logged_in?
+  -if logged_in? and not current_person.requests.empty?
+    %li
+      =link_to 'Your Requests', requests_person_path(current_person) if logged_in?
   %li
     =link_to 'Browse Items', items_path
 
