@@ -1,6 +1,6 @@
 .cyan
   %table
-    - for undecided_request in undecided_requests
+    - for undecided_request in requests_from_x
       %tr
         %td.gravatar= link_to gravatar_for(undecided_request.requester, :size=>28), person_path(undecided_request.requester)
         %td 

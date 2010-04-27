@@ -40,8 +40,12 @@ class Person < ActiveRecord::Base
     self.requests.accepted_equals(true)
   end
 
-  def unaccepted_requests
+  def requests_from_x
     self.requests.accepted_equals(false)
+  end
+  
+  def requests_from_you
+    self.requested_items.accepted_equals(false)
   end
   
   def country

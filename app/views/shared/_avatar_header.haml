@@ -1,7 +1,7 @@
 #nav_user
   = link_to("#{current_person.unread_messages.count} new", inbox_path, :class => 'messages_flag')
-  - unless current_person.unaccepted_requests.count == 0
-    = link_to("#{current_person.unaccepted_requests.count}R", requests_person_path(current_person), :class => 'requests_flag')
+  - unless current_person.requests_from_x.count == 0
+    = link_to("#{current_person.requests_from_x.count}R", requests_person_path(current_person), :class => 'requests_flag')
   - unless current_person.requests_x_accepted.count == 0
     =link_to(current_person.requests_x_accepted.count, requests_person_path(current_person), :class => 'accepted_flag')
   
