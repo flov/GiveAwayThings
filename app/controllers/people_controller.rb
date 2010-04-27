@@ -9,7 +9,6 @@ class PeopleController < ApplicationController
     @item = Item.new(:title => 'Type in item.', :description => 'Description (optional)')
     @item.build_category
 
-    
     @countries = Item.all.collect{|p| p.country}.uniq
     @newsletter = Newsletter.new
     if logged_in?
@@ -20,7 +19,6 @@ class PeopleController < ApplicationController
   end
   
   def requests
-    redirect_to person_path(current_person) if current_person.requests.empty? && current_person.requested_items.empty?
     @requests_from_x           = current_person.requests_from_x
     @requests_by_you           = current_person.requests_from_you
     @requests_accepted_by_x    = current_person.requests_x_accepted
@@ -36,7 +34,6 @@ class PeopleController < ApplicationController
   end
   
   def show
-    
     @given_items   = @person.given_items
     @taken_items   = @person.taken_items
     @offered_items = @person.offered_items

@@ -54,6 +54,7 @@ en:
       leave_reference: "Leave a reference for {{username}}"
     create_reference: 
       created: <h2>Reference created.</h2>Thank you very much for writing a reference to {{username}}. 
+      updated: <h2>Reference updated.</h2>
       already_exists: "<h2>Reference already exists!</h2>Sorry, you can't create another one."
     index:
       mark_as_givenaway: mark as given away

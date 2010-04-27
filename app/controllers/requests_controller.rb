@@ -44,16 +44,18 @@ class RequestsController < ApplicationController
   
   def create_reference
     @reference = Reference.new(params[:reference])    
-    @request.item.update_attribute(:taken_by, params[:taken_by])
     if Reference.exists? params["reference"]["id"]
+      flash[:notice] = t('requests.create_reference.updated')
       Reference.find(params[:reference][:id]).update_attributes(params[:reference])
+      @request.item.update_attribute(:taken_by, Person.find(params[:taken_by]))
+      @request.update_attribute(:archived, true)
       redirect_to person_path(@reference.to)
     elsif @reference.save
       flash[:notice] = t('requests.create_reference.created', :username => @reference.to.username.capitalize)
-      @request.destroy
+      @request.update_attribute(:archived, true)
+      @request.item.update_attribute(:taken_by, params[:taken_by])
       redirect_to person_path(@reference.to)
     else
-      raise 'error'
       flash[:error] = @reference.errors.on(:to_id)
       redirect_to taken_request_path(Request.find(params[:id]))
     end

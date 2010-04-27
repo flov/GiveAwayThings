@@ -21,6 +21,10 @@ class Person < ActiveRecord::Base
   attr_accessor :password
   before_save :prepare_password
 
+  def unarchived_requests
+    self.requests.archived_equals(false)
+  end
+
   def offered_items
     self.items.accepted_equals nil
   end
