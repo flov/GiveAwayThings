@@ -3,15 +3,7 @@ class RequestsController < ApplicationController
   include ActionView::Helpers::TextHelper
   
   before_filter :find_request, :only => [:show, :accept, :taken, :given, :create_reference]
-  
-  def index
-    @requests = Request.find(:all)
-  end
-  
-  def show
-
-  end
-  
+    
   def accept
     @request.accepted = true
     @message = @request.message # for form field

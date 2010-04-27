@@ -32,7 +32,7 @@ class Person < ActiveRecord::Base
     Item.taken_by_equals(self)
   end
   
-  def accepted_requests
+  def requests_x_accepted
     self.requested_items.accepted_equals(true)
   end
   

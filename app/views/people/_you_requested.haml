@@ -1,6 +1,6 @@
 #you_requested
   %h2= "#{you_or_person} Requested"
-  =#person.accepted_requests.each do |request|
+  =#person.requests_x_accepted.each do |request|
     =#"#{request.item.title} from #{request.item.person.username} Status: accepted, please pick it up"
-  =#person.not_accepted_requests.each do |request|
+  =#person.not_requests_x_accepted.each do |request|
     =#"#{request.item.title} from #{request.item.person.username} Status: pending, waiting for decision from owner."

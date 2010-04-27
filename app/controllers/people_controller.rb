@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
   
   def requests
     @undecided_requests        = current_person.unaccepted_requests
-    @requests_accepted_by_x    = current_person.accepted_requests
+    @requests_accepted_by_x    = current_person.requests_x_accepted
     @requests_you_accepted     = current_person.requests_you_accepted
     @requests_by_you           = current_person.requests.accepted_equals false
   end
@@ -37,7 +37,7 @@ class PeopleController < ApplicationController
     @offered_items = @person.offered_items
     
     @undecided_requests = @person.unaccepted_requests
-    @accepted_requests  = @person.accepted_requests
+    @requests_x_accepted  = @person.requests_x_accepted
     @requests_you_accepted  = @person.requests_you_accepted
     @references = @person.references
   end

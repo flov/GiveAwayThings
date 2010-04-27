@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @messages = Message.recipient_id_equals(current_person.id).descend_by_created_at
     @unread_messages = current_person.unread_messages
     @undecided_requests = current_person.unaccepted_requests
-    @accepted_requests  = current_person.accepted_requests
+    @requests_x_accepted  = current_person.requests_x_accepted
     @requests_you_accepted  = current_person.requests_you_accepted
   end
 
