@@ -4,7 +4,8 @@ class Person < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :items_attributes, :address_attributes
 
   concerned_with  :validation,
-                  :activation
+                  :activation,
+                  :requests
 
   belongs_to :address, :dependent => :destroy
   has_many :items, :dependent => :destroy
@@ -31,23 +32,7 @@ class Person < ActiveRecord::Base
   def taken_items
     Item.taken_by_equals(self)
   end
-  
-  def requests_x_accepted
-    self.requested_items.accepted_equals(true)
-  end
-  
-  def requests_you_accepted
-    self.requests.accepted_equals(true)
-  end
-
-  def requests_from_x
-    self.requests.accepted_equals(false)
-  end
-  
-  def requests_from_you
-    self.requested_items.accepted_equals(false)
-  end
-  
+    
   def country
     self.address.city.country
   end

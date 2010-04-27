@@ -1,8 +1,5 @@
-- if logged_in?
-  - if current_person == @person
-    - title " &rarr; Your Profile"
-  - else 
-    - title "&rarr; #{h(@person.username.capitalize)}"
+- if logged_in? and current_person == @person
+  - title " &rarr; Your Profile"
 - else
   - title "&rarr; #{h(@person.username.capitalize)}"
 

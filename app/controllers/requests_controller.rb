@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
     @request.accepted = true
     @message = @request.message # for form field
     @message ||= Message.new 
-    @message.title = t('requests.show.deny', :user => @request.owner.username)
+    @message.title = t('requests.show.accept2', :user => @request.owner.username, :item => @request.item.title[0..30])
     @message.text = word_wrap(@message.text, 60).split("\n").map{|a| ">#{a}\n"}.join() unless @message.new_record?
     @message.recipient_id = @message.author_id
     @message.text = t('requests.show.accept', :user => @request.requester.username.capitalize) + @message.text unless @message.new_record?

@@ -20,7 +20,8 @@ class PeopleController < ApplicationController
   end
   
   def requests
-    @requests_from_x        = current_person.requests_from_x
+    redirect_to person_path(current_person) if current_person.requests.empty? && current_person.requested_items.empty?
+    @requests_from_x           = current_person.requests_from_x
     @requests_by_you           = current_person.requests_from_you
     @requests_accepted_by_x    = current_person.requests_x_accepted
     @requests_you_accepted     = current_person.requests_you_accepted
@@ -28,6 +29,10 @@ class PeopleController < ApplicationController
   
   def edit_reference
     @reference
+  end
+  
+  def edit
+    
   end
   
   def show
