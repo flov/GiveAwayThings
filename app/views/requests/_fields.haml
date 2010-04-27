@@ -2,7 +2,8 @@
 =hidden_field_tag 'request[owner_id]', item.person.id 
 =hidden_field_tag 'request[requester_id]', current_person.id 
 -f.fields_for :message do |ff|
-  .request_text=ff.text_area :text, :size => "40x2"
+  / .request_text=ff.text_area :text, :size => "40x2"
+  .request_text=text_area_tag 'request[message_attributes][text]', "Hi #{item.person.username.capitalize},\n", :size => "40x4"
   =hidden_field_tag 'request[message_attributes][author_id]', current_person.id 
   =hidden_field_tag 'request[message_attributes][recipient_id]', item.person.id
   =ff.hidden_field :title

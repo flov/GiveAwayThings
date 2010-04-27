@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @request = Request.new
-    @request.build_message(:title => t('items.show.gat_request', :title => truncate(@item.title)))
+    @request.build_message(:title => t('items.show.gat_request', :username => current_person.username, :title => truncate(@item.title)))
     
     @person = @item.person
     @username = @item.person.username

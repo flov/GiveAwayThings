@@ -1,0 +1,5 @@
+%h2=t('items.show.send_request', :username => item.person.username.capitalize)
+#send_request
+  -form_for request do |f|
+    = render :partial => 'requests/fields', :locals => {:f => f, :item => @item}
+    = f.submit "send request"

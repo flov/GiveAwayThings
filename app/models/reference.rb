@@ -5,6 +5,8 @@ class Reference < ActiveRecord::Base
   validates_presence_of :from, :to, :item, :rating_id
   validates_uniqueness_of :to_id, :scope => :from_id, :on => :create, :message => I18n.t('requests.create_reference.already_exists')
 
+
+
   # def possible_ratings
   #   ratings = {}
   #   %w{negative neutral positive}.each_with_index {|rating, index| ratings[rating] = index }

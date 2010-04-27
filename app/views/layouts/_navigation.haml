@@ -2,7 +2,7 @@
 =#"Settings | Browse City | "
 =#" | About |  Press | Blog"
 
-=#link_to "Browse People", people_path                                         
+=#link_to "Browse People", people_path
 =#' | '
 =#link_to "About"
 
@@ -19,7 +19,7 @@
           %img.corner_left{:src=>"/images/corner_left.png"}/
           %img.middle{:src=>"/images/dot.gif"}/
           %img.corner_right{:alt=>"", :src=>"/images/corner_right.png"}/
-  -if logged_in? and (not current_person.unarchived_requests.empty? or not current_person.unarchived_requests.empty?)
+  -if logged_in? and (not current_person.requests.unarchived.empty? or not current_person.requested_items.unarchived.empty?)
     %li
       =link_to 'Your Requests', requests_person_path(current_person)
   %li
