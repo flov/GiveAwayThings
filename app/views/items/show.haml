@@ -3,7 +3,7 @@
 %h2=textilize_without_paragraph(word_wrap(@item.title, 60))
 .width450
   %p
-    %strong=t('.description')
+    %strong=t('.description') unless @item.description.empty?
     %br/
     =textilize_without_paragraph h(@item.description) unless @item.description.empty?
   

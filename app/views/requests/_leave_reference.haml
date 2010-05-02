@@ -9,6 +9,6 @@
   =hidden_field_tag 'reference[to_id]', to.id
   =hidden_field_tag 'reference[item_id]', item.id if defined?(item)
   =hidden_field_tag 'reference[id]', reference.id
-  =hidden_field_tag 'taken_by', taken_by.id if defined?(taken_by)
+  =hidden_field_tag 'taken_by', taken_by if defined?(taken_by)
   %br/
   =defined?(taken_by) ? submit_tag("Mark as given away") : submit_tag("Leave reference")
