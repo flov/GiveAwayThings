@@ -14,5 +14,12 @@ class Request < ActiveRecord::Base
   def owners_reference(person)
     self.owner.references.from_id_equals(person).first
   end
-
+  
+  def mark_item_as_taken(taken_by)
+    self.item.update_attribute(:taken_by, Person.find(taken_by)) unless taken_by.empty?
+  end
+  
+  def archive_request
+    self.update_attribute(:archived, true)
+  end
 end

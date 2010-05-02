@@ -14,4 +14,15 @@ module PeopleHelper
         :person => person }
   end
     
+  def print_given_items(given_items)
+    result=[]
+    given_items.each{|item| result << link_to(truncate(item.title), item_path(item))}
+    result.join(', ')
+  end
+
+  def print_items(given_items)
+    result=[]
+    given_items.each{|item| result << link_to(truncate(item.title), item_path(item))}
+    result.join(', ')
+  end
 end

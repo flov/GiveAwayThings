@@ -24,7 +24,7 @@
     =hidden_field_tag 'reference[id]', @reference.id
     =hidden_field_tag 'taken_by', current_person.id
     %br/
-    =submit_tag "Mark #{truncate(@request.item.title,20)} as given away"
+    =submit_tag "Mark #{truncate(@request.item.title, :length => 20)} as given away"
 
   - content_for :sidebar_in_box do
     = render :partial => 'items/statistics', :locals => {:person => current_person}

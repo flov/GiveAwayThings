@@ -1,0 +1,9 @@
+-unless reference.taken_items.empty?
+  %h4 
+    Took:
+    =print_items(reference.taken_items)
+    
+-unless reference.given_items.empty?
+  %h4
+    Gave:
+    =print_items(reference.given_items)
