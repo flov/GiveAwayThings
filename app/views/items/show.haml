@@ -1,12 +1,13 @@
 - title " &rarr; #{@item.title}"
 
-%h2=textilize_without_paragraph(word_wrap(@item.title, 60))
+%h2
+  =textilize_without_paragraph(word_wrap(@item.title, 60))
+  =link_to '(edit)', edit_item_path(@item) if @item.person == current_person if logged_in?
 .width450
   %p
     %strong=t('.description') unless @item.description.empty?
     %br/
     =textilize_without_paragraph h(@item.description) unless @item.description.empty?
-  
   = image_tag @item.photo.url unless @item.photo.url.include? "missing.png"
   = render :partial => 'send_request', :locals => {:request => @request, :item => @item} unless @item.person == current_person
 
