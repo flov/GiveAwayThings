@@ -1,0 +1,14 @@
+- form_for :reference, :url => { :action => "create_reference", :controller => 'requests'} do |f|
+  Overall experience (optional) 
+  =select_rating
+  %br/
+  = @reference.new_record? ? "Reference: " : "You can update your reference here"
+  %br/
+  =text_area_tag 'reference[text]', reference.text, :rows => 4
+  =hidden_field_tag 'reference[from_id]', current_person.id
+  =hidden_field_tag 'reference[to_id]', to.id
+  =hidden_field_tag 'reference[item_id]', item.id if defined?(item)
+  =hidden_field_tag 'reference[id]', reference.id
+  =hidden_field_tag 'taken_by', taken_by.id if defined?(taken_by)
+  %br/
+  =defined?(taken_by) ? submit_tag("Mark as given away") : submit_tag("Leave reference")

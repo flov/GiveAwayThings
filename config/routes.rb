@@ -14,7 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :items
   map.resources :people, :has_many => [:items], :member => {
                             :confirm_email => :get,
-                            :edit_reference => :get,
+                            :leave_reference => :get,
+                            :create_reference => :post,
                             :settings => :get,
                             :unconfirmed_email => :get,
                             :requests => :get } do |people|

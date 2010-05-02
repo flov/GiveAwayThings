@@ -20,4 +20,4 @@
 
       = textilize_without_paragraph(reference.text)
       %br/
-      Edit
+      = link_to 'Edit', leave_reference_person_path(reference.to) if reference.from == current_person if logged_in?

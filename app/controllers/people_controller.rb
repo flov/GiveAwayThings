@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   
-  before_filter :find_person, :only => [ :show, :confirm_email, :unconfirmed_email ]
+  before_filter :find_person, :only => [ :show, :confirm_email, :unconfirmed_email, :leave_reference ]
   before_filter :login_required, :confirmed_user?, :only => [ :show ]
 
 
@@ -16,6 +16,15 @@ class PeopleController < ApplicationController
     else
       @person ||= Person.new
     end
+  end
+
+  def leave_reference
+    @reference = Reference.find_by_to_id(@person.id)
+    @reference ||= Reference.new
+  end
+  
+  def create_reference
+    @reference = Reference.new(params[:reference])  
   end
   
   def requests
