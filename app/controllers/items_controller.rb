@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   # for truncate method in controller
   include ActionView::Helpers::TextHelper
-  before_filter :find_item, :only => [:show, :edit]
-  before_filter :redirect_if_not_logged_in, :only => :edit
-  before_filter :redirect_if_not_owner_of_item, :only => :edit
+  before_filter :find_item, :only => [:show, :edit, :update, :destroy]
+  before_filter :redirect_if_not_logged_in, :only => [:edit, :update, :destroy]
+  before_filter :redirect_if_not_owner_of_item, :only => [:edit, :update, :destroy]
 
   def index
     # params[:search] ||= ""
@@ -67,13 +67,19 @@ class ItemsController < ApplicationController
   end
   
   def update
-    @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
       flash[:notice] = t('people.update.updated')
       redirect_to @item
     else
       render :action => 'edit'
     end
+  end
+  
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:notice] = "Successfully destroyed #{@item.title}."
+    redirect_to person_path(current_person)
   end
   
   private

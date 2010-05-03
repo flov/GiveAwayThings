@@ -1,0 +1,15 @@
+- title " &rarr Edit #{@item.title[0..20]}"
+
+= error_messages_for :newsletter
+
+- form_for @item do |f|
+  %p
+    =f.label :title
+    %br
+    = f.text_field :title
+  %p
+    =f.label :description
+    %br
+    = f.text_area :description
+  %p
+    = f.submit "Submit"
