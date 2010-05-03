@@ -8,7 +8,7 @@
     %strong=t('.description') unless @item.description.empty?
     %br/
     =textilize_without_paragraph h(@item.description) unless @item.description.empty?
-  = image_tag @item.photo.url unless @item.photo.url.include? "missing.png"
+  = image_tag @item.photo.url(:medium) unless @item.photo.url.include? "missing.png"
   = render :partial => 'send_request', :locals => {:request => @request, :item => @item} unless @item.person == current_person
 
   - content_for :sidebar_in_box do

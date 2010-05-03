@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
   belongs_to :address
   belongs_to :category
   has_many :requests
-  has_attached_file :photo
+  has_attached_file :photo, :styles => {:medium => "300x300>", :thumb => "100x100>"}
 
   accepts_nested_attributes_for :category
   concerned_with :validation
