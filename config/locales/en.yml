@@ -1,7 +1,11 @@
 en:
   defaults:
+    not_logged_in: You are not logged in.
     something_went_wrong: something went wrong
+    no_permission: 'Ooops, you do not have a permission to do that'
   people:
+    update:
+      updated: Successfully updated item.
     welcome:
       be_generous: "be generous and give a thing away"
     activation:

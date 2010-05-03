@@ -1,4 +1,4 @@
 .send_message
   = link_to "#{image_tag 'send_message.gif'} #{t('.send_message')}", person_new_path(person)
 .send_request
-  =link_to t('.leave_reference'), leave_reference_person_path(person)
+  =link_to "#{image_tag 'black_flag.png'} #{t('.leave_reference')}", leave_reference_person_path(person)

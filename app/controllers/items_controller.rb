@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
   # for truncate method in controller
   include ActionView::Helpers::TextHelper
-  
+  before_filter :find_item, :only => [:show, :edit]
+  before_filter :redirect_if_not_logged_in, :only => :edit
+  before_filter :redirect_if_not_owner_of_item, :only => :edit
+
   def index
     # params[:search] ||= ""
     # params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
@@ -59,10 +62,35 @@ class ItemsController < ApplicationController
     @references = @person.references
   end
   
+  def edit
+
+  end
+  
+  def update
+    @item = Item.find(params[:id])
+    if @item.update_attributes(params[:item])
+      flash[:notice] = t('people.update.updated')
+      redirect_to @item
+    else
+      render :action => 'edit'
+    end
+  end
+  
   private
-  def redirect_if_not_logged_in(flash_msg)
+  def find_item
+    @item = Item.find(params[:id])
+  end
+  
+  def redirect_if_not_logged_in
     unless logged_in?
-      flash[:error] = flash_msg
+      flash[:error] = t('defaults.not_logged_in')
+      redirect_to signup_path 
+    end
+  end
+  
+  def redirect_if_not_owner_of_item
+    if @item.person != current_person
+      flash[:error] = t('defaults.no_permission')
       redirect_to signup_path 
     end
   end

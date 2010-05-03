@@ -1,6 +1,6 @@
 %h2
   -if current_person.username == params[:id]
-    You Offer 
+    ="You Offer"
   -else
     ="#{person.username.capitalize} offers"
 
@@ -10,6 +10,9 @@
     %table
       -items.each do |item|
         %tr
-          %td.title= link_to item.title, item_path(item)
+          %td.title
+            = link_to item.title, item_path(item)
+          %td
+            = link_to '(edit)', edit_item_path(item)
           %td="since #{time_ago_in_words(item.created_at)}"
 
