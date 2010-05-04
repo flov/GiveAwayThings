@@ -23,7 +23,10 @@ en:
       send_message: send a message
     leave_reference:
       leave_a_reference: Leave a reference
-    
+
+  layouts:
+    navigation:
+      giveaway: Give Something Away
   emailer:
     confirm:
       hey: "Hey, {{user_name}}!"
