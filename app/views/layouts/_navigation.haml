@@ -22,10 +22,10 @@
   -if logged_in? 
     -if current_person.has_opened_requests?
       %li
-        =link_to 'Your Requests', requests_person_path(current_person)
+        =link_to t('.your_requests'), requests_person_path(current_person)
     %li
       =link_to t('.giveaway'), root_path
   %li
-    =link_to 'Browse Items', items_path
+    =link_to t('.browse_items'), items_path
 
   =render :partial => 'layouts/search_container'

@@ -27,6 +27,9 @@ en:
   layouts:
     navigation:
       giveaway: Give Something Away
+      browse_items: 'Browse Items'
+      your_requests: 'Your Requests'
+      
   emailer:
     confirm:
       hey: "Hey, {{user_name}}!"
