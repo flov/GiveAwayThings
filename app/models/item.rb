@@ -15,6 +15,14 @@ class Item < ActiveRecord::Base
 
   named_scope :unread,  :conditions => { :read => 0, :request_id => nil }
   
+  def accepted_to
+    self.requests.accepted_equals(true).first.requester
+  end
+  
+  def taken?
+    !self.taken_by.nil?
+  end
+  
   def not_accepted
     self.requests
   end

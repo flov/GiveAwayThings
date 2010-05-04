@@ -1,5 +1,7 @@
 - title " &rarr; #{@item.title}"
 
+= item_taken_or_accepted(@item)
+
 %h2
   =textilize_without_paragraph(word_wrap(@item.title, 60))
   =link_to '(edit)', edit_item_path(@item) if @item.person == current_person if logged_in?
@@ -8,8 +10,9 @@
     %strong=t('.description') unless @item.description.empty?
     %br/
     =textilize_without_paragraph h(@item.description) unless @item.description.empty?
-  = link_to(image_tag(@item.photo.url(:medium)), @item.photo.url) unless @item.photo.url.include? "missing.png"
-  = render :partial => 'send_request', :locals => {:request => @request, :item => @item} unless @item.person == current_person
+  = image_of_item(@item)
+  = send_request(@request, @item)
+
 
   - content_for :sidebar_in_box do
     = render :partial => 'people/default_sidebar_in_box', :locals => {:person => @person, :references => @references}
