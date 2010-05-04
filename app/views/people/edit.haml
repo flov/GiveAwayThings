@@ -1,1 +1,15 @@
-Edit Profile!
+- title " &rarr Edit Your Profile"
+
+= error_messages_for :person
+
+- form_for @person do |f|
+  %p
+    =f.label :username
+    %br
+    = f.text_field :username
+  %p
+    =f.label :email
+    %br
+    = f.text_area :email
+  %p
+    = f.submit "Submit"

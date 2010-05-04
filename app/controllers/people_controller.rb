@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   
-  before_filter :find_person, :only => [ :show, :confirm_email, :unconfirmed_email, :leave_reference ]
+  before_filter :find_person, :only => [ :show, :edit, :confirm_email, :unconfirmed_email, :leave_reference ]
   before_filter :login_required, :confirmed_user?, :only => [ :show ]
 
 

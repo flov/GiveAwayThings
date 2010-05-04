@@ -87,17 +87,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
   
-  def redirect_if_not_logged_in
-    unless logged_in?
-      flash[:error] = t('defaults.not_logged_in')
-      redirect_to signup_path 
-    end
-  end
-  
   def redirect_if_not_owner_of_item
     if @item.person != current_person
       flash[:error] = t('defaults.no_permission')
-      redirect_to signup_path 
+      redirect_to item_path(@item)
     end
   end
 end

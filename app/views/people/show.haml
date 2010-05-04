@@ -3,9 +3,11 @@
 - else
   - title "&rarr; #{h(@person.username.capitalize)}"
 
-
 .profile_header.center
-  %h1==#{@person.to_s.capitalize}
+  %h1
+    ==#{@person.to_s.capitalize}
+    = link_to '(edit)', edit_person_path(current_person) if logged_in? and current_person == @person
+      
 
 = render :partial => 'localization', :locals => {:person => @person}
 = render :partial => 'you_gave',  :locals => {:items => @given_items, :person => @person} unless @given_items.empty?
