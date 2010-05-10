@@ -1,11 +1,19 @@
 class Person < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
 
-  attr_accessible :username, :email, :password, :password_confirmation, :items_attributes, :address_attributes
+  attr_accessible :username, 
+                  :email, 
+                  :password, 
+                  :password_confirmation, 
+                  :items_attributes, 
+                  :address_attributes, 
+                  :biography,
+                  :full_name
 
   concerned_with  :validation,
                   :activation,
-                  :requests
+                  :requests,
+                  :attributes
 
   belongs_to :address, :dependent => :destroy
   has_many :items, :dependent => :destroy
@@ -21,36 +29,18 @@ class Person < ActiveRecord::Base
   attr_accessor :password
   before_save :prepare_password
 
-  def has_opened_requests?
-    not self.requests.unarchived.empty? or not self.requested_items.unarchived.empty?
+  def full_name=(name)
+    split = name.split(' ')
+    self.first_name = split.first
+    self.last_name  = split.last
+  end
+  
+  def full_name
+    [first_name, last_name].join(' ')
   end
 
-  def offered_items
-    self.items.accepted_equals nil
-  end
-  
-  def given_items
-    self.items.taken_by_gt(0)
-  end
-  
-  def taken_items
-    Item.taken_by_equals(self)
-  end
-    
-  def country
-    self.address.city.country
-  end
-  
-  def city
-    self.address.city
-  end
-      
-  def unreplied_requests
-    self.messages.unreplied
-  end
-  
-  def unread_messages
-    self.messages.unread
+  def has_opened_requests?
+    not self.requests.unarchived.empty? or not self.requested_items.unarchived.empty?
   end
 
   # login can be either username or email address
@@ -89,5 +79,4 @@ class Person < ActiveRecord::Base
   def encrypt_password(pass)
     Digest::SHA1.hexdigest([pass, password_salt].join)
   end
-
 end

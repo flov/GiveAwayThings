@@ -1,0 +1,6 @@
+%h2= "#{you_or_person(@person)} Gave"
+= render :partial => 'people/you_gave',  :locals => {:items => @given_items, :person => @person} unless @given_items.empty?
+%h2= "#{you_or_person(@person)} Took"
+= render :partial => 'you_took',  :locals => {:items => @taken_items, :person => @person} unless @taken_items.empty?
+%h2= you_or_person_offer(@person)
+= render :partial => 'you_offer', :locals => {:items => @offered_items, :person => @person} unless @offered_items.empty?

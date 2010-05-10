@@ -1,10 +1,10 @@
 - title "Sign up"
-
 %h2 Sign Up
-%p== Already have an account? Then log in on the right side.
+%p Already have an account? Then log in on the right side.
 
+= error_messages_for :person
 - form_for @person do |f|
-  = person_fields(f, @person)
+  = person_fields(f, @person, {:password => true})
 
   -if @item
     =hidden_field_tag 'person[item_attributes][title]',       @item.title 

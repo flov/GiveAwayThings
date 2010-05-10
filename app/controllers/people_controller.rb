@@ -75,7 +75,6 @@ class PeopleController < ApplicationController
       flash[:notice]      = t('people.create.signed_up')
       redirect_to root_url
     else
-      flash[:error] = t('people.create.validation')
       render :new
       flash.discard
     end

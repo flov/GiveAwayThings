@@ -5,17 +5,7 @@
 = error_messages_for :person
 
 - form_for @person do |f|
-  %p
-    =f.label :username
-    %br
-    = f.text_field :username
-  %p
-    =f.label :email
-    %br
-    = f.text_field :email
-  %p
-    =f.label :biography, t('.about_you')
-    %br
-    = f.text_area :biography, :size => "40x4"
+  = person_fields(f, @person, nil)
+
   %p
     = f.submit "Submit"

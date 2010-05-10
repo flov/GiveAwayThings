@@ -1,7 +1,4 @@
-- if logged_in? and current_person == @person
-  - title " &rarr; Your Profile"
-- else
-  - title "&rarr; #{h(@person.username.capitalize)}"
+-show_profile_title
 
 .profile_header.center
   %h1
@@ -9,13 +6,8 @@
     = link_to '(edit)', edit_person_path(current_person) if logged_in? and current_person == @person
 
 = render :partial => 'localization', :locals => {:person => @person}
-
-%h2= "#{you_or_person(@person)} Gave"
-= render :partial => 'people/you_gave',  :locals => {:items => @given_items, :person => @person} unless @given_items.empty?
-%h2= "#{you_or_person(@person)} Took"
-= render :partial => 'you_took',  :locals => {:items => @taken_items, :person => @person} unless @taken_items.empty?
-%h2= you_or_person_offer(@person)
-= render :partial => 'you_offer', :locals => {:items => @offered_items, :person => @person} unless @offered_items.empty?
+= render :partial => 'about_you'
+= render :partial => 'you_gave_took_offer'
   
--content_for :sidebar_in_box do
+- content_for :sidebar_in_box do
   = render :partial => 'default_sidebar_in_box', :locals => {:person => @person, :references => @references}

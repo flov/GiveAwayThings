@@ -1,0 +1,6 @@
+- if @person.biography and not @person.biography.empty?
+  %h2="About #{you_or_person(@person)}"
+  .cyan
+    =textilize(@person.biography)
+- elsif logged_in? and @person == current_person
+  %h2="About you #{link_to "(edit)", edit_person_path(current_person)}"

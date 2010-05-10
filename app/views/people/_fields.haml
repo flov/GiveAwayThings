@@ -11,16 +11,18 @@
       %p.details We won't share, sell, or spam
     %td
       = f.text_field :email
-  %tr
-    %th
-      =f.label :password
-      %p.details At least 5 characters
-    %td= f.password_field :password
-  %tr
-    %th
-      =f.label :confirm_it
-      %p.details Type your password again
-    %td= f.password_field :password_confirmation, :id => 'person_confirm_it'
+  - if options[:password]
+    %tr
+      %th
+        =f.label :password
+        %p.details At least 5 characters
+      %td= f.password_field :password
+    %tr
+      %th
+        =f.label :confirm_it
+        %p.details Type your password again
+      %td= f.password_field :password_confirmation, :id => 'person_confirm_it'
+      
   - f.fields_for :address do |address_form|
     -address_form.fields_for :city do |city_form|
       %tr
@@ -39,3 +41,10 @@
         =f.label :address_attributes_street, 'Street'
         %p.details Will not be displayed publicly
       %td= address_form.text_field :street
+      
+  %tr
+    %th
+      =f.label :biography, 'About You'
+      %p.details Can be filled out later
+    %td
+      = f.text_area :biography, :size => '25x1'
