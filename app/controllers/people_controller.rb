@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   
   before_filter :find_person, :only => [ :show, :edit, :confirm_email, :unconfirmed_email, :leave_reference ]
-  before_filter :login_required, :confirmed_user?, :only => [ :show ]
+#  before_filter :login_required, :confirmed_user?, :only => [ :show ]
 
 
   def welcome
@@ -42,6 +42,16 @@ class PeopleController < ApplicationController
     
   end
   
+  def update
+    @person = Person.find_by_username(params[:id])
+    if @person.update_attributes(params[:person])
+      flash[:notice] = t('people.update.updated')
+      redirect_to @person
+    else
+      render :action => 'edit'
+    end
+  end
+
   def show
     @given_items   = @person.given_items
     @taken_items   = @person.taken_items

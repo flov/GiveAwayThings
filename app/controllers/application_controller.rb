@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_if_not_logged_in
     unless logged_in?
-      flash[:error] = t('defaults.not_logged_in')
+      flash[:error] = t('flash.not_logged_in')
       redirect_to signup_path 
     end
   end

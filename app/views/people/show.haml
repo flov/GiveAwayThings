@@ -7,11 +7,11 @@
   %h1
     = @person.to_s.capitalize
     = link_to '(edit)', edit_person_path(current_person) if logged_in? and current_person == @person
-      
 
 = render :partial => 'localization', :locals => {:person => @person}
+
 %h2= "#{you_or_person(@person)} Gave"
-= render :partial => 'you_gave',  :locals => {:items => @given_items, :person => @person} unless @given_items.empty?
+= render :partial => 'people/you_gave',  :locals => {:items => @given_items, :person => @person} unless @given_items.empty?
 %h2= "#{you_or_person(@person)} Took"
 = render :partial => 'you_took',  :locals => {:items => @taken_items, :person => @person} unless @taken_items.empty?
 %h2= you_or_person_offer(@person)

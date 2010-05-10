@@ -1,11 +1,15 @@
 en:
-  defaults:
-    not_logged_in: You are not logged in.
-    something_went_wrong: something went wrong
+  flash:
     no_permission: 'Ooops, you do not have a permission to do that'
+    something_went_wrong: something went wrong
+    not_logged_in: You are not logged in.
+
   people:
+    edit:
+      about_you: All about you
+      username: username
     update:
-      updated: Successfully updated item.
+      updated: Your profile was updated.
     welcome:
       be_generous: "be generous and give a thing away"
     activation:
@@ -42,6 +46,8 @@ en:
       do_not_answer: "Do not answer to this email."
   
   items:
+    update:
+      updated: Successfully updated item.
     show:
       send_request: "Send {{username}} a request to take this item."
       description: 'Description:'

@@ -1,12 +1,12 @@
-- if item.taken?
+.center
   %h1 This item has been taken by:
   .requests
     .cyan
-      %table
+      %table.margin0auto
         %tr
           %td
             .name= link_to item.taken_by, person_path(item.taken_by)
           %td= link_to gravatar_for(item.taken_by, :size=>28), person_path(item.taken_by)
           %td since
           %td=time_ago_in_words(item.created_at)
-  %p and is not available anymore.
+  and is <b>not</b> available anymore.

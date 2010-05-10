@@ -54,9 +54,10 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @request = Request.new
-    @request.build_message(:title => t('items.show.gat_request', :username => current_person.username, :title => truncate(@item.title)))
-    
+    if logged_in?
+      @request = Request.new
+      @request.build_message(:title => t('items.show.gat_request', :username => current_person.username, :title => truncate(@item.title)))
+    end
     @person = @item.person
     @username = @item.person.username
     @references = @person.references
@@ -68,7 +69,7 @@ class ItemsController < ApplicationController
   
   def update
     if @item.update_attributes(params[:item])
-      flash[:notice] = t('people.update.updated')
+      flash[:notice] = t('items.update.updated')
       redirect_to @item
     else
       render :action => 'edit'
@@ -89,7 +90,7 @@ class ItemsController < ApplicationController
   
   def redirect_if_not_owner_of_item
     if @item.person != current_person
-      flash[:error] = t('defaults.no_permission')
+      flash[:error] = t('flash.no_permission')
       redirect_to item_path(@item)
     end
   end
