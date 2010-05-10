@@ -2,7 +2,7 @@ en:
   flash:
     no_permission: 'Ooops, you do not have a permission to do that'
     something_went_wrong: something went wrong
-    not_logged_in: You are not logged in.
+    not_logged_in: 'You are not logged in. Please log in, or sign up'
 
   people:
     edit:

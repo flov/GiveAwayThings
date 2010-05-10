@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_filter :login_required
+  
   #for word_wrap in reply action
   include ActionView::Helpers::TextHelper
 

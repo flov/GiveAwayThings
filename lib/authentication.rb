@@ -30,9 +30,9 @@ module Authentication
   
   def login_required
     unless logged_in?
-      flash[:error] = "You must first log in or sign up before accessing this page."
+      flash[:error] = t('flash.not_logged_in')
       store_target_location
-      redirect_to login_url
+      redirect_to signup_url
     end
   end
   
