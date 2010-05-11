@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
                                         :create_reference => :post }
   map.resources :categories, :sections
   
-  map.root               :controller => "people", :action => "welcome"
+  map.root               :controller => "people", :action => "intro"
 
 
 end

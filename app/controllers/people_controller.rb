@@ -3,6 +3,9 @@ class PeopleController < ApplicationController
   before_filter :find_person, :only => [ :show, :edit, :confirm_email, :unconfirmed_email, :leave_reference ]
 #  before_filter :login_required, :confirmed_user?, :only => [ :show ]
 
+  def intro
+    @newsletter = Newsletter.new
+  end
 
   def welcome
     logged_in? ? @person=current_person : @person=Person.new

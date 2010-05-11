@@ -1,0 +1,43 @@
+.intro
+  =# render :partial => 'not_ready'
+  %h1 
+    GiveAwayThings
+    %span.subtitle generating sustainability
+
+    
+  .clear
+    .thirds
+      %h4 For free? Why?
+      %p 
+        Because our homes are full with stuff that we dont need anymore.<br/>
+        Just think about it for 10 seconds!<br/>
+        Unused cabels and electronics gathering dust.<br/>
+        Clothes which are never worn.<br/>
+        Read books which haven't been touched since years.<br/>
+        I am sure that anyone has a long list of those things.
+    .thirds
+      %h4 Sustainability
+      %p
+        Reduce waste.<br/>
+        Save resources.<br/>
+        And ease the burden of our landfills.<br/>
+        Be a human and help your surroundings by shaping sustainbility.
+      %h4 Try it!
+      %p
+        ="#{link_to 'Take a look', items_path} at what others are offering at the moment"
+        
+    .thirds
+      %h4 It feels relieving
+      %p 
+        Having less stuff means you have more space.<br/>
+        It really is that simple.<br/>
+      %h4 Get notified when we launch!
+      = render :partial => 'newsletters/form'
+    
+  .clear
+    
+  -content_for :sidebar do
+    = render :partial => 'items/statistics', :locals => {:person => Person.new}
+
+
+
