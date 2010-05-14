@@ -11,7 +11,11 @@ class Item < ActiveRecord::Base
   has_attached_file :photo, :styles => {:medium => "300x300>"}
 
   accepts_nested_attributes_for :category
-  concerned_with :validation
+#  concerned_with :validation
+
+  validates_presence_of :title
+  validates_presence_of :person
+  validates_presence_of :address
 
   named_scope :unread,  :conditions => { :read => 0, :request_id => nil }
   
@@ -47,7 +51,7 @@ class Item < ActiveRecord::Base
     "#{id}-#{title.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
   end
 
-  def before_save
+  def before_validation
     if self.title == 'Type in item.' or self.title == "Come on. Think of something to give away..."
       self.title = ""
     end

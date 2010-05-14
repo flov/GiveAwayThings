@@ -1,9 +1,9 @@
 -# SEARCH:
 %li.searchContainer
-  -form_tag(items_path, :method => 'get', :name => 'form') do
+  -form_tag(items_path, :method => 'get', :name => 'form', :id => 'navSearch') do
     %div
       = text_field_tag :q, params[:q], :id => "searchField"
-      %img{:src=>"/images/magnifier.png", :alt=>"Search", :onclick=>'javascript:document.form.submit();'}/
+      %img{:src=>"/images/magnifier.png", :alt=>"Search", :onclick=>"$('#navSearch').submit();"}/
     %ul
       %li
         Search by

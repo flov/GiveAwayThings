@@ -6,10 +6,6 @@ class ItemsController < ApplicationController
   before_filter :redirect_if_not_owner_of_item, :only => [:edit, :update, :destroy]
 
   def index
-    # params[:search] ||= ""
-    # params["search"]["title_like"] = "" if params["search"]["title_like"] == "Search item."
-    # params["search"][""]
-    # @search = Item.search(params[:search])
     if params[:q].nil?
       @items = Item.taken_by_nil.paginate :page => params[:page], :order => 'created_at DESC'
     elsif params[:search_by] == 'city' 

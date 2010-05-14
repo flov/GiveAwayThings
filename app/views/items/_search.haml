@@ -1,9 +1,12 @@
 -# form_for :item, item, :url => { 'search', :method => 'get' do
--# form_for :item, :url => search_path(Item.new) do |f|
+-form_tag(items_path, :method => 'get', :name => 'form', :id => 'search_item') do
   .search_form
-    = text_field_tag 'q', 'Search city.', :size => 20
-    #hidden_search_options.hide_me
-      %ul.formList
-        %li= select_countries(@countries)
-        / %li= select_categories
-  = image_submit_tag "searchbutton.png", :class => 'image_submit'
+    = text_field_tag :q, params[:q], :id => "searchField"
+    = hidden_field_tag('search_by', 'city')
+    %br/
+    %img{:src=>"/images/searchbutton.png", :alt=>"Search", :class => 'image_submit', :onclick=>"$('#search_item').submit(); this.disabled = 1;"}/
+  
+
+/  .submit= image_submit_tag "searchbutton.png"
+  
+  

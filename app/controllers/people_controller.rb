@@ -5,14 +5,14 @@ class PeopleController < ApplicationController
 
   def intro
     @newsletter = Newsletter.new
+    @item = Item.new(:title => 'Type in item.', :description => 'Description (optional)')
   end
 
   def welcome
     logged_in? ? @person=current_person : @person=Person.new
     @item = Item.new(:title => 'Type in item.', :description => 'Description (optional)')
-    @item.build_category
 
-    @countries = Item.all.collect{|p| p.country}.uniq
+    #@countries = Item.all.collect{|p| p.country}.uniq
     @newsletter = Newsletter.new
     if logged_in?
       @person ||= current_person

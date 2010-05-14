@@ -7,7 +7,7 @@
     = current_person if logged_in?
   
   %h3= t('.be_generous')
-  = render :partial => 'items/item', :locals => {:item => @item}
+  = render :partial => 'items/give_away', :locals => {:item => @item}
   / %h2 OR
   / %h3 be thankful and pick a thing up
   / = render :partial => 'items/search'
