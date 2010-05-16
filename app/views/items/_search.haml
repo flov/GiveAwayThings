@@ -4,5 +4,5 @@
     = text_field_tag :q, params[:q], :id => "searchField"
     = hidden_field_tag('search_by', 'city')
     %br/
-    %img{:src=>"/images/searchbutton.png", :alt=>"Search", :class => 'image_submit', :onclick=>"$('#search_item').submit(); this.disabled = 1;"}/
+    %img.image_submit{:src=>"/images/searchbutton.png", :alt=>"Search", :onclick=>"$('#search_item').submit(); this.disabled = 1;"}/
   
