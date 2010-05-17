@@ -1,7 +1,7 @@
 -# form_for :item, item, :url => { 'search', :method => 'get' do
 -form_tag(items_path, :method => 'get', :name => 'form', :id => 'search_item') do
   .search_form
-    = text_field_tag :q, params[:q], :id => "searchField"
+    = text_field_tag :q, 'Type in city.', :id => "search_title_like"
     = hidden_field_tag('search_by', 'city')
     %br/
     %img.image_submit{:src=>"/images/searchbutton.png", :alt=>"Search", :onclick=>"$('#search_item').submit(); this.disabled = 1;"}/

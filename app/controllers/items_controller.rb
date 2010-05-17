@@ -6,14 +6,14 @@ class ItemsController < ApplicationController
   before_filter :redirect_if_not_owner_of_item, :only => [:edit, :update, :destroy]
 
   def index
-    if params[:q].nil?
-      @items = Item.taken_by_nil.paginate :page => params[:page], :order => 'created_at DESC'
+    if params[:q].nil? || params[:q] == 'Type in city.'
+      @items = Item.not_accepted_not_taken.paginate :page => params[:page], :order => 'created_at DESC'
     elsif params[:search_by] == 'city' 
-      @items = Item.taken_by_nil.search_by_city(params[:q], params[:page])
+      @items = Item.not_accepted_not_taken.search_by_city(params[:q], params[:page])
     elsif params[:search_by] == 'title'
-      @items = Item.taken_by_nil.search_by_title(params[:q], params[:page])
+      @items = Item.not_accepted_not_taken.search_by_title(params[:q], params[:page])
     else
-      @items = Item.taken_by_nil.paginate :page => params[:page], :order => 'created_at DESC'
+      @items = Item.not_accepted_not_taken.paginate :page => params[:page], :order => 'created_at DESC'
     end
   end
   

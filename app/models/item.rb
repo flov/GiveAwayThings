@@ -18,6 +18,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :address
 
   named_scope :unread,  :conditions => { :read => 0, :request_id => nil }
+  named_scope :not_accepted_not_taken, :conditions => { :taken_by => nil, :accepted => nil }
   
   def accepted_to
     self.requests.accepted_equals(true).first.requester

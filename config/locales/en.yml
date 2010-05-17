@@ -46,6 +46,9 @@ en:
       do_not_answer: "Do not answer to this email."
   
   items:
+    accepted:
+      accepted: This item has been accepted.
+      no_more: No more requests will be accepted. Sorry.
     update:
       updated: Successfully updated item.
     show:

@@ -1,4 +1,4 @@
-- title "Inbox from #{current_person.username}"
+- title "Inbox of #{current_person.username}"
 
 -unless @messages.empty?
   = render :partial => 'messages/messages', :locals => {:messages => @messages}

@@ -10,12 +10,12 @@ $(document).ready(function(){
 		$(this).addClass("hover");
 	},function(){
 		$(this).removeClass("hover");
-	});
+	})
 
 	//Tipsy
 	$(function() {
-  	$('a[rel=tipsy]').tipsy({fade: true, gravity: 'e'});
-  });
+  	$('a[rel=tipsy]').tipsy({fade: true, gravity: 'e'})
+  })
 	
 	//Drop Down in Welcome Menu
 	//Label of item
@@ -29,6 +29,7 @@ $(document).ready(function(){
 	    if(this.value=='')$(this).val(title_text2)
 	  })
   })
+
   //Label of Description
   $("textarea#item_description").focus(function(){
     $("#hidden_search_options").slideDown()
@@ -42,12 +43,17 @@ $(document).ready(function(){
     })  
   })
 
-  
   //Label of Searchfield
+  var search_text = "Type in city."
   $("input#search_title_like").focus(function(){
-    $("#hidden_search_options").slideDown()
-    
-    var search_text = "Search item."
     if(this.value == search_text)$(this).val("")
   })	
-});
+  
+  //Submit search field with empty query string if input == search_text
+  $('#search_item').submit(function() {
+    if($("input#search_title_like").val()==search_text){
+      $("input#search_title_like").val('')
+    }
+  });
+
+})

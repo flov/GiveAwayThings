@@ -1,3 +1,3 @@
 - if item.accepted?
-  %h1 This item has been accepted.
-  %p No more requests will be accepted. Sorry.
+  %h1= t('.accepted')
+  %p= "<b>#{t('.no_more')}</b>"
