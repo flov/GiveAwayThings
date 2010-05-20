@@ -1,8 +1,8 @@
 class Person
 
-  validates_associated      :address, :items  
+  #validates_associated      :address, :items  
    
-  validates_presence_of     :address
+  #validates_presence_of     :address
   
   validates_presence_of     :username
   validates_uniqueness_of   :username, :email, :allow_blank => true
