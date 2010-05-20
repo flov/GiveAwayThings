@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
+  # Facebooker:
+  before_filter :set_facebook_session
+  helper_method :facebook_session
   
   def confirmed_user?
     if current_person and not current_person.is_active?
