@@ -8,12 +8,14 @@ class Person < ActiveRecord::Base
                   :items_attributes, 
                   :address_attributes, 
                   :biography,
-                  :full_name
+                  :full_name,
+                  :name
 
   concerned_with  :validation,
                   :activation,
                   :requests,
-                  :attributes
+                  :attributes,
+                  :facebook_connect
 
   belongs_to :address, :dependent => :destroy
   has_many :items, :dependent => :destroy

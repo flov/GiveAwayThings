@@ -21,9 +21,20 @@ module Authentication
   end
   
   def current_person
-    @current_person ||= Person.find(session[:person_id]) if session[:person_id]
+    @current_person ||= (login_from_session || login_from_fb)
   end
   
+  def login_from_session
+    Person.find(session[:person_id]) if session[:person_id]
+  end
+
+  #find the user in the database, first by the facebook user id and if that fails through the email hash
+  def login_from_fb
+    if facebook_session
+      self.current_person = Person.find_by_fb_user(facebook_session.user)
+    end
+  end
+
   def logged_in?
     current_person
   end
@@ -40,6 +51,7 @@ module Authentication
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+  
   
   private
   
