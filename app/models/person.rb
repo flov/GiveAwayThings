@@ -67,7 +67,8 @@ class Person < ActiveRecord::Base
   
   def after_create
     send_activation_email unless self.confirmed_user
-  end
+    register_user_to_fb
+  end 
   
   private
   

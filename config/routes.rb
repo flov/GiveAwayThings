@@ -12,7 +12,9 @@ ActionController::Routing::Routes.draw do |map|
   map.inbox 'inbox',     :controller => 'messages',   :action => 'index'
 
   map.resources :items
-  map.resources :people, :has_many => [:items], :member => {
+  map.resources :people, :has_many => [:items],
+                         :collection => {:link_user_accounts => :get},
+                         :member => {
                             :confirm_email => :get,
                             :leave_reference => :get,
                             :create_reference => :post,

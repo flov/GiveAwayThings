@@ -4,6 +4,7 @@ class PeopleController < ApplicationController
 #  before_filter :login_required, :confirmed_user?, :only => [ :show ]
 
   def intro
+
     @newsletter = Newsletter.new
     @item = Item.new(:title => 'Type in item.', :description => 'Description (optional)')
   end
@@ -114,6 +115,17 @@ class PeopleController < ApplicationController
 
   def settings
     
+  end
+
+  def link_user_accounts
+    if self.current_person.nil?
+      #register with fb
+      Person.create_from_fb_connect(facebook_session.user)
+    else
+      #connect accounts
+      self.current_person.link_fb_connect(facebook_session.user.id) unless self.current_person.fb_user_id == facebook_session.user.id
+    end
+    redirect_to '/'
   end
   
   private
