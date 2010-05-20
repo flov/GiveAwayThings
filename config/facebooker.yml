@@ -14,7 +14,7 @@ development:
   canvas_page_name: gat
   callback_url: http://test.giveawaythings.org/
   pretty_errors: true
-  set_asset_host_to_callback_url: true
+  set_asset_host_to_callback_url: false
   tunnel:
     public_host_username: 
     public_host: 
