@@ -31,7 +31,7 @@ module Authentication
   #find the user in the database, first by the facebook user id and if that fails through the email hash
   def login_from_fb
     if facebook_session
-      self.current_person = Person.find_by_fb_user(facebook_session.user)
+      @current_person ||= Person.find_by_fb_user(facebook_session.user)
     end
   end
 
@@ -51,8 +51,7 @@ module Authentication
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
-  
-  
+
   private
   
   def store_target_location

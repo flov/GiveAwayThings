@@ -15,6 +15,7 @@
     %h2= "You are logged in as #{current_person.name}"
     -if current_person.facebook_user?
       ="<fb:profile-pic uid='#{current_person.fb_user_id}' facebook-logo='true' size='thumb'></fb:profile-pic>"
+      = fb_logout_link('logout',logout_path)
       :plain
         <p><a href="#" onclick='FB.Connect.logoutAndRedirect("/logout")'>Logout</a></p>
     -else 
@@ -29,6 +30,3 @@
     
   -content_for :sidebar do
     = render :partial => 'items/statistics', :locals => {:person => Person.new}
-
-
-

@@ -51,6 +51,14 @@ module Facebooker
         return session_set
       end
       
+      def facebook_session_expired
+        clear_fb_cookies!
+        clear_facebook_session_information
+        reset_session # remove your cookies!
+        flash[:error] = "Your facebook session has expired."
+        redirect_to signup_path
+      end
+
       
       def facebook_params
         @facebook_params ||= verified_facebook_params

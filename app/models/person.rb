@@ -70,6 +70,7 @@ class Person < ActiveRecord::Base
     register_user_to_fb
   end 
   
+  
   private
   
   def prepare_password

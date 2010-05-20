@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   
   # Facebooker:
   before_filter :set_facebook_session
+#  before_filter :facebook_session_expired
   helper_method :facebook_session
   
   def confirmed_user?
