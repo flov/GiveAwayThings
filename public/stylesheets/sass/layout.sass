@@ -32,7 +32,21 @@ img.gravatar
     :height 100px
     :margin 0 auto
 
-#nav_user, #nav_login_signup
+#nav_login_signup
+  :top 43px
+  :left 100px
+  a
+    :color #C3C3C3
+    &:hover
+      color = !green
+    
+  :font-family Verdana,arial,helvetica,sans-serif
+  :position relative
+  :top 15px
+  :left 80px
+  :height 42px
+
+#nav_user
   a
     :color #C3C3C3
     &:hover
@@ -71,9 +85,6 @@ img.gravatar
     top: 20px
     &:hover
       color = !green
-  #nav_login_signup
-    :top 43px
-    :left 100px
 
 #logo
   :position relative
