@@ -7,6 +7,22 @@
   
   
   = link_to 'logout', logout_path, :id => "nav_user_logout"
-  = link_to gravatar_for(current_person, :size=>36, :class => 'gravatar'),person_path(current_person.username)
+  -if current_person.facebook_user?
+    ="<fb:profile-pic uid='#{current_person.fb_user_id}' facebook-logo='true' size='thumb'></fb:profile-pic>"
+  -else
+    = link_to gravatar_for(current_person, :size=>36, :class => 'gravatar'),person_path(current_person.username)
+
+-#  
+  - if logged_in?
+    %h2= "You are logged in as #{current_person.name}"
+      = fb_logout_link('logout',logout_path)
+      :plain
+        <p><a href="#" onclick='FB.Connect.logoutAndRedirect("/logout")'>Logout</a></p>
+    -else 
+      %p why don't you connect with your facebook account
+      = fb_login_button('window.location = "/people/link_user_accounts";')
+      = "<p>#{link_to 'Logout', logout_path}</p>"
+  - else 
+    %h2 You are not logged in!
+    %p="#{link_to 'Signup', signup_path} or #{link_to 'Login', login_path}"
   
-    
