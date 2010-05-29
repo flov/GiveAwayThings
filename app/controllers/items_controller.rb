@@ -50,8 +50,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @request = Request.new
     if logged_in?
-      @request = Request.new
       @request.build_message(:title => t('items.show.gat_request', :username => current_person.username, :title => truncate(@item.title)))
     end
     @person = @item.person

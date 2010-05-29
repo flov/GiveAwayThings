@@ -3,8 +3,10 @@
 = item_taken_or_accepted(@item)
 
 %h2
-  =textilize_without_paragraph(word_wrap(@item.title, 60))
-  =link_to '(edit)', edit_item_path(@item) if @item.person == current_person if logged_in?
+  = textilize_without_paragraph(word_wrap(@item.title, 60))
+  %span.subtitle= "by #{@item.person}"
+  = edit_link_if_logged_in(@item)
+
 .width450
   %p
     %strong=t('.description') unless @item.description.empty?
@@ -13,8 +15,5 @@
   = image_of_item(@item)
   = send_request(@request, @item)
 
-
   - content_for :sidebar_in_box do
     = render :partial => 'people/default_sidebar_in_box', :locals => {:person => @person, :references => @references}
-  
-  

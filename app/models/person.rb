@@ -26,7 +26,9 @@ class Person < ActiveRecord::Base
   has_many :references, :foreign_key => "to_id"
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :items
-  
+
+  after_create :send_activation_email  
+  after_create :register_user_to_fb unless RAILS_ENV='development'
 
   attr_accessor :password
   before_save :prepare_password
@@ -64,13 +66,7 @@ class Person < ActiveRecord::Base
   def to_param
     self.username
   end
-  
-  def after_create
-    send_activation_email unless self.confirmed_user
-    register_user_to_fb
-  end 
-  
-  
+    
   private
   
   def prepare_password

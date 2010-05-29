@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   
   before_filter :find_person, :only => [ :show, :edit, :confirm_email, :unconfirmed_email, :leave_reference ]
-#  before_filter :login_required, :confirmed_user?, :only => [ :show ]
+  before_filter :login_required, :confirmed_user?, :only => [ :requests ]
 
   def intro
 
@@ -60,12 +60,15 @@ class PeopleController < ApplicationController
     @given_items   = @person.given_items
     @taken_items   = @person.taken_items
     @offered_items = @person.offered_items
-    
-    @requests_from_x        = @person.requests_from_x
-    @requests_x_accepted    = @person.requests_x_accepted
-    @requests_you_accepted  = @person.requests_you_accepted
-    
+
     @references = @person.references
+
+    if logged_in? && current_person == @person
+      @requests_from_x           = @person.requests_from_x
+      @requests_by_you           = @person.requests_from_you
+      @requests_accepted_by_x    = @person.requests_x_accepted
+      @requests_you_accepted     = @person.requests_you_accepted
+    end
   end
 
   def new

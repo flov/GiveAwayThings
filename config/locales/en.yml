@@ -52,7 +52,7 @@ en:
     update:
       updated: Successfully updated item.
     show:
-      send_request: "Send {{username}} a request to take this item."
+      send_request: "Send a request to take this."
       description: 'Description:'
       owner: 'Owner:'
       view_all: View All
@@ -88,6 +88,6 @@ en:
       not_available_anymore: not any longer available
     show:
       request_already_sent: <h2>Already requested!</h2>Please send {{owner}} a message to remind him of your request.
-      request_sent: <h2>Request sent.</h2><p>{{username}} has been notified that you want to have his item.<br/>Please be patient and wait for his reply </p>
+      request_sent: <h2>Request sent.</h2><p>{{username}} has been notified that you want to have his item.</p>
       accept: "\n\n\n{{user}} wrote:\n"
       accept2: "[GAT Accept] Hey {{user}}! You can have '{{item}}'. Time to pick it up!"
