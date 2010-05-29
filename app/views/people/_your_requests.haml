@@ -1,6 +1,7 @@
-%h2 Requests:
-.requests
-  =render :partial => 'requests/requests_for_you', :locals => {:requests_from_x => @requests_from_x}
-  =render :partial => 'requests/accepted_by_x', :locals => {:requests_accepted_by_x => @requests_accepted_by_x}
-  =render :partial => 'requests/accepted_by_you', :locals => {:requests_you_accepted => @requests_you_accepted}
-  =render :partial => 'requests/requests_by_you', :locals => {:requests => @requests_by_you}
+- if logged_in? && current_person == @person
+  %h2="Requests:" if current_person.requests.size > 0
+  .requests
+    =render :partial => 'requests/requests_for_you', :locals => {:requests_from_x => @requests_from_x}
+    =render :partial => 'requests/accepted_by_x', :locals => {:requests_accepted_by_x => @requests_accepted_by_x}
+    =render :partial => 'requests/accepted_by_you', :locals => {:requests_you_accepted => @requests_you_accepted}
+    =render :partial => 'requests/requests_by_you', :locals => {:requests => @requests_by_you}
