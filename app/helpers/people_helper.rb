@@ -15,13 +15,13 @@ module PeopleHelper
         :person => person,
         :options => options }
   end
-    
+
   def print_given_items(given_items)
     result=[]
     given_items.each{|item| result << link_to(truncate(item.title), item_path(item))}
     result.join(', ')
   end
-  
+
   def show_profile_title
     if logged_in? and current_person == @person
       title " &rarr; Your Profile"
