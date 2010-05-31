@@ -21,6 +21,22 @@ module PeopleHelper
     given_items.each{|item| result << link_to(truncate(item.title), item_path(item))}
     result.join(', ')
   end
+  
+  def requests(person)
+    if person.requests_from_x.count != 0
+      link_to("#{person.requests_from_x.count}R", requests_person_path(person), :class => 'requests_flag')
+    end
+  end
+  
+  def accepted_requests(person)
+    unless person.requests_x_accepted.count == 0
+      link_to(person.requests_x_accepted.count, requests_person_path(person), :class => 'accepted_flag')
+    end
+  end
+
+  def unread_messages(person)
+    link_to("#{person.unread_messages.count} new", inbox_path, :class => 'messages_flag')
+  end
 
   def show_profile_title
     if logged_in? and current_person == @person

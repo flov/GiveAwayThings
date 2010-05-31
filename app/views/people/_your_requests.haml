@@ -1,5 +1,7 @@
 
-%h2="Requests:" 
+- unless @requests_from_x.zip(@requests_accepted_by_x, @requests_you_accepted, @requests_by_you).empty?
+  %h2 Requests
+  
 .requests
   =render :partial => 'requests/requests_for_you', :locals => {:requests_from_x => @requests_from_x}
   =render :partial => 'requests/accepted_by_x', :locals => {:requests_accepted_by_x => @requests_accepted_by_x}

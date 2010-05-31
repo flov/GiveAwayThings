@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20100530154959) do
   create_table "people", :force => true do |t|
     t.string   "username",       :limit => 40
     t.string   "email",          :limit => 100
-    t.string   "name"
     t.text     "biography"
     t.integer  "address_id"
     t.integer  "fb_user_id"

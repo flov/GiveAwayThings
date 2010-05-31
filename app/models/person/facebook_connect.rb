@@ -9,8 +9,8 @@ class Person
   #We don't get the email from Facebook and because a facebooker can only login through Connect we just generate a unique login name for them.
   #If you were using username to display to people you might want to get them to select one after registering through Facebook Connect
   def self.create_from_fb_connect(fb_user)
-    new_facebooker = Person.new(:name => fb_user.name, 
-                                :username => "facebooker_#{fb_user.uid}", 
+    username = fb_user.name.split(' ').join("_")
+    new_facebooker = Person.new(:username => username, 
                                 :password => fb_user.uid,
                                 :email => "#{fb_user.uid}@example.de",
                                 :address_attributes => {

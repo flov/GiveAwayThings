@@ -11,12 +11,6 @@
   :-webkit-border-radius 13px
   :background-color #fff
   :border 2px solid #b2b5a6
-
-  
-img.gravatar
-  :border 2px solid #5a595a
-  -webkit-border-radius: 2px
-  -moz-border-radius: 2px  
   
 .pagination
   .current
@@ -47,6 +41,12 @@ img.gravatar
   :height 42px
 
 #nav_user
+  img
+    :border 2px solid #5a595a
+    -webkit-border-radius: 2px
+    -moz-border-radius: 2px  
+    :max-width 38px
+
   a
     :color #C3C3C3
     &:hover
@@ -77,7 +77,7 @@ img.gravatar
     :background url("/images/red_flag.png") no-repeat right center
     :width 39px
   
-  #nav_user_logout
+  .logout a
     color: #EFB108
     left: 56px
     position: absolute

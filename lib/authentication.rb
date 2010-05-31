@@ -1,15 +1,3 @@
-# This module is included in your application controller which makes
-# several methods available to all controllers and views. Here's a
-# common example you might add to your application layout file.
-# 
-#   <% if logged_in? %>
-#     Welcome <%=h current_person.username %>! Not you?
-#     <%= link_to "Log out", logout_path %>
-#   <% else %>
-#     <%= link_to "Sign up", signup_path %> or
-#     <%= link_to "log in", login_path %>.
-#   <% end %>
-# 
 # You can also restrict unregistered users from accessing a controller using
 # a before filter. For example.
 # 
@@ -28,11 +16,9 @@ module Authentication
     Person.find(session[:person_id]) if session[:person_id]
   end
 
-  #find the user in the database, first by the facebook user id and if that fails through the email hash
+  # find the user in the database, first by the facebook user id and if that fails through the email hash
   def login_from_fb
-    if facebook_session
-      @current_person ||= Person.find_by_fb_user(facebook_session.user)
-    end
+    Person.find_by_fb_user(facebook_session.user) if facebook_session
   end
 
   def logged_in?
