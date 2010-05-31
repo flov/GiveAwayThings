@@ -10,6 +10,8 @@ ActionController::Routing::Routes.draw do |map|
   map.welcome 'welcome', :controller => 'people',     :action => 'welcome'
   map.search 'search',   :controller => 'items',      :action => 'index'
   map.inbox 'inbox',     :controller => 'messages',   :action => 'index'
+  map.why 'why',         :controller => 'pages',      :action => 'why'
+
 
   map.resources :items
   map.resources :people, :has_many => [:items],
