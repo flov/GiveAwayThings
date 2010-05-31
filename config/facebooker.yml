@@ -11,7 +11,7 @@
 development:
   api_key: 27a1cca87836066bad870ddbb504a5b4
   secret_key: 0a34936f4b974be41be1c49763e1ad51 
-  canvas_page_name: gat
+  canvas_page_name: giveawaythings
   callback_url: http://www.giveawaythings.org/
   pretty_errors: true
   set_asset_host_to_callback_url: false
