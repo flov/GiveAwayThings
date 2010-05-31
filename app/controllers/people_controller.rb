@@ -128,8 +128,8 @@ class PeopleController < ApplicationController
     else
       #connect accounts
       current_person.link_fb_connect(facebook_session.user.id) unless self.current_person.fb_user_id == facebook_session.user.id
+      redirect_to '/'
     end
-    redirect_to '/'
   end
   
   private
