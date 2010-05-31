@@ -12,7 +12,14 @@ class Person
     new_facebooker = Person.new(:name => fb_user.name, 
                                 :username => "facebooker_#{fb_user.uid}", 
                                 :password => fb_user.uid,
-                                :email => "#{fb_user.uid}@example.de")
+                                :email => "#{fb_user.uid}@example.de",
+                                :address_attributes => {
+                                  :street => 'unknown',
+                                  :city_attributes => {
+                                    :name => 'unknown',
+                                    :country_id => 94
+                                  }
+                                })
     new_facebooker.fb_user_id = fb_user.uid.to_i
     #We need to save without validations
     new_facebooker.save(false)
