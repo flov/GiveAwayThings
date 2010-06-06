@@ -1,3 +1,4 @@
 %h1 Browse People
 -@people.each do |person|
+  = fb_profile_pic(current_person.fb_user_id, :size => :square)
   = link_to gravatar_for(person, :size=>36),person_path(person.username),:class => 'avatar'
