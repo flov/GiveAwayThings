@@ -35,7 +35,8 @@ ActionController::Routing::Routes.draw do |map|
                                         :create_reference => :post }
   map.resources :categories, :sections
   
-  map.root               :controller => "people", :action => "intro"
-
+  map.root                    :controller => "people", :action => "intro"
+  map.connect ':id',          :controller => 'people', :action => 'show', :conditions => { :method => :get }
+# map.connect ':id/:action',  :controller => 'people', :action => 'show', :conditions => { :method => :get }
 
 end
