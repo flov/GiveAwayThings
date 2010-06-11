@@ -36,6 +36,10 @@ en:
       why: 'Why'
       
   emailer:
+    request:
+      you_have_a_new_request: "{{user}} want's to have {{item}} from you."
+      accept_or_decline: "you can {{accept}} or {{decline}} the request."
+      
     confirm:
       hey: "Hey, {{user_name}}!"
       follow_the_link: "In order to <b>complete your signup</b> for GiveAwayThings, we need you to log in by clicking here:"

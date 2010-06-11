@@ -10,6 +10,8 @@ class Request < ActiveRecord::Base
   
   named_scope :archived,    :conditions => { :archived => true  }
   named_scope :unarchived,  :conditions => { :archived => false }
+
+  after_create :send_request_email
   
   def owners_reference(person)
     self.owner.references.from_id_equals(person).first
@@ -21,5 +23,9 @@ class Request < ActiveRecord::Base
   
   def archive_request
     self.update_attribute(:archived, true)
+  end
+  
+  def send_request_email
+    Emailer.deliver_request_email(self)
   end
 end

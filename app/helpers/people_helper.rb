@@ -28,6 +28,12 @@ module PeopleHelper
     end
   end
   
+  def your_requests
+    if logged_in? && current_person == @person && !@requests_from_x.zip(@requests_accepted_by_x, @requests_you_accepted, @requests_by_you).empty?
+      render :partial => 'people/your_requests'
+    end
+  end
+  
   def accepted_requests(person)
     unless person.requests_x_accepted.count == 0
       link_to(person.requests_x_accepted.count, requests_person_path(person), :class => 'accepted_flag')
