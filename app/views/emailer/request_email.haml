@@ -1,0 +1,15 @@
+.email{ :style => email_global }
+  %p{ :style => email_text(:small) }
+    = t('emailer.common.do_not_answer')
+
+  %p= t('emailer.confirm.hey', :user_name => @request.owner.username.capitalize)
+
+  .box{ :style => email_box }  
+    %p= t('emailer.request.you_have_a_new_request', :user => link_to(@request.requester.username, person_path(@request.requester)), :item => @request.item.title)
+    
+  %p{ :style => email_text(:small) }
+    = t('emailer.request.accept_or_decline', :accept => link_to('accept', accept_request_path(@request)), :decline => link_to('decline', decline_request_path(request)))
+
+  .footer{ :style => email_text(:small) }
+    %p= t('emailer.confirm.report_abuse', :email => @request.owner.email)
+    %p= t('emailer.confirm.problems', :support => APP_CONFIG['support'])

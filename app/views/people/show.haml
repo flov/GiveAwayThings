@@ -7,8 +7,7 @@
 
 = render :partial => 'localization', :locals => {:person => @person}
 = render :partial => 'about_you'
-- if logged_in? && current_person == @person
-  = render :partial => 'people/your_requests'
+= your_requests
 = render :partial => 'you_gave_took_offer'
       
 - content_for :sidebar_in_box do
