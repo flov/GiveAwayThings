@@ -1,9 +1,7 @@
 - if person.biography and not person.biography.empty?
   .left
     %h2
-      ="About #{you_or_person(@person)}"
+      ="About"
       - if logged_in? and person == current_person
-        = link_to "(edit)", edit_person_path(current_person)
-    
-.reference
-  =textilize(person.biography)
+        %span.subtitle= link_to "(edit)", edit_person_path(current_person)    
+    .right_box=textilize(person.biography)
