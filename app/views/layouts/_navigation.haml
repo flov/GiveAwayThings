@@ -1,20 +1,19 @@
 %ul#menu
   %li 
-    =link_to "Your Profile", person_path(current_person.username) if logged_in?
-    -# settings Tag:
-      %ul
-        %li
-          %img.corner_inset_left{:src=>"/images/corner_inset_left.png"}/
-          =link_to "Settings", settings_person_path(current_person.username) if logged_in?
-          %img.corner_inset_right{:src=>"/images/corner_inset_right.png"}/
-        %li.last  
-          %img.corner_left{:src=>"/images/corner_left.png"}/
-          %img.middle{:src=>"/images/dot.gif"}/
-          %img.corner_right{:alt=>"", :src=>"/images/corner_right.png"}/
-  -if logged_in?
-    -if current_person.has_opened_requests?
+    =link_to "Profile", person_path(current_person.username) if logged_in?
+    %ul
       %li
-        =link_to t('.your_requests'), requests_person_path(current_person)
+        =image_tag "corner_inset_left.png", :class => "corner_inset_left"
+        -if current_person.has_opened_requests?
+          =link_to t('.your_profile'), person_path(current_person.username)
+        =image_tag 'corner_inset_right.png', :class => "corner_inset_right"
+      %li
+        -if current_person.has_opened_requests?
+          =link_to t('.your_requests'), requests_person_path(current_person)
+      %li.last  
+        =image_tag 'corner_left.png',  :class => "corner_left"
+        =image_tag 'dot.gif',          :class => "middle"
+        =image_tag 'corner_right.png', :class => "corner_right"
     %li
       =link_to t('.giveaway'), root_path
   %li

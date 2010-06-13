@@ -29,7 +29,8 @@ module PeopleHelper
   end
   
   def your_requests
-    if logged_in? && current_person == @person && !@requests_from_x.zip(@requests_accepted_by_x, @requests_you_accepted, @requests_by_you).empty?
+    if logged_in? && current_person == @person && current_person.has_opened_requests?
+      #!@requests_from_x.zip(@requests_accepted_by_x, @requests_you_accepted, @requests_by_you).empty?
       render :partial => 'people/your_requests'
     end
   end
