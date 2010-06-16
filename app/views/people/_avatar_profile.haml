@@ -1,7 +1,7 @@
 - if person.facebook_user?
   = fb_profile_pic(person.fb_user_id, :size => :normal, :facebook_logo => true)
 - else
-  = link_to gravatar_for(person, :size => 100, :class => 'gravatar'),person_path(person.username)
+  = link_to gravatar_for(person, :size => 140, :class => 'gravatar'),person_path(person.username)
   - if logged_in? && person == current_person
     .own_gravatar
       =link_to 'Upload Your <br> Own Avatar <br/>At Gravatar.com', 'http://www.gravatar.com'

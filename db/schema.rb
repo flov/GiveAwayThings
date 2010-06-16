@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100616114906) do
+ActiveRecord::Schema.define(:version => 20100616184821) do
   
   create_table "addresses", :force => true do |t|
     t.string  "street"
@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(:version => 20100616114906) do
     t.string   "username",       :limit => 40
     t.string   "email",          :limit => 100
     t.text     "biography"
+    t.text     "first_name"
+    t.text     "last_name"
     t.integer  "address_id"
-    t.integer  "fb_user_id"
-    t.string   "email_hash"
     t.string   "password_hash"
     t.string   "password_salt"
     t.datetime "created_at"

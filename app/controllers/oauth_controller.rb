@@ -12,6 +12,7 @@ class OauthController < ApplicationController
 
   # Returns the user from the OAuth provider
   def callback
+    
     @provider = params[:provider]
     begin
       @access_token = client.web_server.get_access_token(params[:code], :redirect_uri => oauth_callback_url)
@@ -27,26 +28,23 @@ class OauthController < ApplicationController
           current_person.link_to_app(@provider, @profile)
           flash[:success] = t(:'oauth.account_linked')
         end
-        return redirect_to(account_linked_accounts_path)
+        redirect_to(person_path(current_person))
       else
         if oauth_login
+          # logged in with facebook account
           flash[:success] = t(:'oauth.logged_in')
-          return redirect_to projects_path
-        elsif User.find_by_email(@profile[:email])
-          # TODO: locate existing user by email and ask to log in to link him
-          flash[:notice] = "The user #{@profile[:email]} has already a Teambox account.<br/>Log in and link it from your Settings panel."
+          redirect_to person_path(current_person)
+        elsif Person.find_by_email(@profile[:email])
+          # no Facebook account created yet
+          # TODO: locate existing user by email link him
+          flash[:notice] = "You already have a GiveAwayThings account.<br/>Please log in with your email address (#{@profile[:email]})."
         else
-          if signups_enabled?
-            profile_for_session = @profile
-            profile_for_session.delete(:original)
-            session[:profile] = profile_for_session
-            app_link = AppLink.create!(:provider => @provider, :app_user_id => @profile[:id])
-            session[:app_link] = app_link.id
-            return redirect_to signup_path
-          else
-            flash[:error] = t(:'users.new.no_public_signup')
-            return redirect_to login_path
-          end
+          # profile_for_session = @profile
+          # profile_for_session.delete(:custom_attributes)
+          # session[:profile] = profile_for_session
+          
+          # create Person:
+          oauth_signup
         end
       end
       redirect_to root_path
@@ -61,26 +59,30 @@ class OauthController < ApplicationController
     # confirmation and that links to the OAuth account. This could be kept on session
     # TODO: Add 'source' field to users to track where they signed up from
     def oauth_signup
-      new_user = User.create! do |u|
+
+      new_user = Person.create! do |u|
+        u.app_links.build do |a|
+          a.provider = @provider
+          a.app_user_id = @profile[:id]
+          a.custom_attributes = @profile[:custom_attributes]
+        end
+        u.build_address(:street => 'unknown')
+        
         u.first_name  = @profile[:first_name]
         u.last_name   = @profile[:last_name]
-        u.login       = @profile[:login] || (@profile[:first_name] + "_" + ActiveSupport::SecureRandom.hex(2))
+        u.username    = @profile[:username] || (@profile[:first_name] + "_" + ActiveSupport::SecureRandom.random_number(1000).to_s)
         u.email       = @profile[:email]
         u.password    = u.password_confirmation = ActiveSupport::SecureRandom.hex(20)
       end
-
+      
       new_user.activate!
-      new_user.card = Card.create
-      new_user.link_to_app(@provider, @profile)
-
-      @current_person = new_user
-      new_user
+      session[:person_id] = new_user.id
     end
 
     # Logs in with the chosen provider, if the AppLink exists
     def oauth_login
-      user = AppLink.find_by_provider_and_app_user_id(@provider, @profile[:id]).try(:user)
-      !!@current_person = user
+      person = AppLink.find_by_provider_and_app_user_id(@provider, @profile[:id]).try(:person)
+      session[:person_id] = person.id unless person.nil?
     end
 
     # Prepares a OAuth client
@@ -97,28 +99,29 @@ class OauthController < ApplicationController
 
     # Loads user's OAuth profile in @profile
     def load_profile(access_token)
-      @profile = {}
-
       user = JSON.parse(access_token.get(@config['user_path']))
-
+      # user = {"name"=>"Florian Vallen", "timezone"=>2, "id"=>"1011496368", "last_name"=>"Vallen", "updated_time"=>"2010-06-02T09:00:13+0000", "verified"=>true, "link"=>"http://www.facebook.com/fvallen", "email"=>"florian.vallen@gmail.com", "first_name"=>"Florian"}
+      @profile = {}
       case @provider
       when "github"
         user = user['user']
         @profile[:id]         = user['id']
         @profile[:email]      = user['email']
-        @profile[:login]      = user['login']
+        @profile[:username]   = user['login']
         @profile[:first_name] = user['name'].split.first
         @profile[:last_name]  = user['name'].split.second
         @profile[:company]    = user['company']
         @profile[:location]   = user['location']
-        @profile[:original]   = user
+        @profile[:custom_attributes] = user
       when "facebook"
-        @profile[:id]         = user['id']
-        @profile[:email]      = user['email']
-        @profile[:first_name] = user['first_name']
-        @profile[:last_name]  = user['last_name']
-        @profile[:location]   = user['location']['name'] if user['location']
-        @profile[:original]   = user
+        @profile[:id]                = user['id']
+        @profile[:facebook_link]     = user['link']
+        @profile[:email]             = user['email']
+        @profile[:first_name]        = user['first_name']
+        @profile[:last_name]         = user['last_name']
+        @profile[:confirmed_user]    = user['verified']
+        @profile[:username]          = user['link'].split('/').last # "link"=>"http://www.facebook.com/fvallen"
+        @profile[:custom_attributes] = user
       else
         raise "Unsupported provider: '#{@provider}'"
       end

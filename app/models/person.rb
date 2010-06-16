@@ -15,7 +15,7 @@ class Person < ActiveRecord::Base
                   :activation,
                   :requests,
                   :attributes,
-                  :facebook_connect
+                  :oauth
 
   belongs_to :address, :dependent => :destroy
   has_many :items, :dependent => :destroy

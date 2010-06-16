@@ -1,5 +1,6 @@
 Capfile
 config/deploy.rb
+ic.rb
 config/deploy/
 photos/
 .empty
