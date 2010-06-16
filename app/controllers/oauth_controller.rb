@@ -73,14 +73,14 @@ class OauthController < ApplicationController
       new_user.card = Card.create
       new_user.link_to_app(@provider, @profile)
 
-      self.current_person = new_user
+      @current_person = new_user
       new_user
     end
 
     # Logs in with the chosen provider, if the AppLink exists
     def oauth_login
       user = AppLink.find_by_provider_and_app_user_id(@provider, @profile[:id]).try(:user)
-      !!self.current_person = user
+      !!@current_person = user
     end
 
     # Prepares a OAuth client
