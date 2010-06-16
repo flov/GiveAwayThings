@@ -15,6 +15,8 @@ Rails::Initializer.run do |config|
   config.gem "RedCloth"
   config.gem "haml"
   config.gem "searchlogic"
+  config.gem "json"
+  config.gem "oauth2"
   config.gem "will_paginate", :version => '~> 2.3.12'
   config.time_zone = 'UTC'
 

@@ -7,7 +7,7 @@
 # You can override them individually under development, test or production.
 defaults: &DEFAULTS
   support: support@giveawathings.org
-  
+
   # The domain from where your app is served from. 
   app_domain: www.giveawaythings.org
 
@@ -36,6 +36,28 @@ defaults: &DEFAULTS
     password: 
   
   time_zone: UTC
+  
+  
+  oauth_providers:
+    # This example is configured for http://localhost:3000. Uncomment it to test it.
+    # Register for your own domain at http://github.com/account/applications
+    github:
+      name: Github
+      site: https://github.com
+      client_id: abfe8d0a74b0344b111b
+      secret_key: aad82e098d2015254fc9b34550d6f93c37c17952
+      authorize_path: /oauth/authorize
+      access_token_path: /oauth/access_token
+      user_path: /api/v2/json/user/show
+    facebook:
+      name: Facebook
+      site: https://graph.facebook.com
+      client_id: 27a1cca87836066bad870ddbb504a5b4
+      secret_key: 0a34936f4b974be41be1c49763e1ad51
+      authorize_path: /oauth/authorize
+      access_token_path: /oauth/access_token
+      user_path: /me
+  
 
 development:
   <<: *DEFAULTS

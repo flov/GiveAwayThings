@@ -12,6 +12,8 @@ ActionController::Routing::Routes.draw do |map|
   map.inbox 'inbox',     :controller => 'messages',   :action => 'index'
   map.why 'why',         :controller => 'pages',      :action => 'why'
 
+  map.oauth_request   '/oauth/:provider',          :controller => 'oauth', :action => 'start' 
+  map.oauth_callback  '/oauth/:provider/callback', :controller => 'oauth', :action => 'callback'
 
   map.resources :items
   map.resources :people, :has_many => [:items],

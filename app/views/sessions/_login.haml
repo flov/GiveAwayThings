@@ -14,5 +14,12 @@
     = submit_tag "Log in"
 
   %p= link_to "forgot your password?", ''
-  -#%p or login with Facebook connect
-  =# fb_login_button('window.location = "/people/link_user_accounts";')
+
+
+  - if APP_CONFIG['oauth_providers']
+    .oauth_logins
+      - if APP_CONFIG['oauth_providers']['github']
+        %p= link_to image_tag("login_with_github.png"), oauth_request_path('github')
+      - if APP_CONFIG['oauth_providers']['facebook']
+        %p= link_to image_tag("login_with_facebook.png"), oauth_request_path('facebook')
+  

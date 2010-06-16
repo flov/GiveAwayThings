@@ -24,11 +24,11 @@ class Person < ActiveRecord::Base
   has_many :requested_items, :class_name => 'Request', :foreign_key => "requester_id"
   has_many :messages, :foreign_key => "recipient_id"
   has_many :references, :foreign_key => "to_id"
+  has_many :app_links
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :items
 
   after_create :send_activation_email  
-  after_create :register_user_to_fb unless RAILS_ENV='development'
 
   attr_accessor :password
   before_save :prepare_password
@@ -42,7 +42,17 @@ class Person < ActiveRecord::Base
   def full_name
     [first_name, last_name].join(' ')
   end
-
+  
+  def link_to_app(provider, profile)
+    link = AppLink.new
+    link.user              = self
+    link.provider          = provider
+    link.app_user_id       = profile[:id]
+    link.custom_attributes = profile[:original]
+    link.save!
+  end
+  
+  
   def has_opened_requests?
     not self.requests.unarchived.empty? or not self.requested_items.unarchived.empty?
   end

@@ -119,18 +119,6 @@ class PeopleController < ApplicationController
   def settings
     
   end
-
-  def link_user_accounts
-    if current_person.nil?
-      #register with fb
-      person = Person.create_from_fb_connect(facebook_session.user)
-      redirect_to edit_person_path(person)
-    else
-      #connect accounts
-      current_person.link_fb_connect(facebook_session.user.id) unless self.current_person.fb_user_id == facebook_session.user.id
-      redirect_to '/'
-    end
-  end
   
   private
     

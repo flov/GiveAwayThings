@@ -20,9 +20,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    if current_person.facebook_user?
-      clear_facebook_session_information
-    end
+
     session[:person_id] = nil
     
     flash[:notice] = "You have been logged out."
