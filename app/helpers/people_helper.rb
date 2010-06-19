@@ -61,9 +61,9 @@ module PeopleHelper
   
   def facebook_picture(person, options={})
     if options[:size] == 'large'
-      "<img src='http://graph.facebook.com/#{person.username}/picture?type=large'/>"
+      "<img src='http://graph.facebook.com/#{person.facebook_uid}/picture?type=large'/>"
     else
-      "<img src='https://graph.facebook.com/#{person.username}/picture'/>"
+      "<img src='https://graph.facebook.com/#{person.facebook_uid}/picture'/>"
     end
   end
 end
