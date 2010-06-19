@@ -58,4 +58,13 @@ module PeopleHelper
     given_items.each{|item| result << link_to(truncate(item.title), item_path(item))}
     result.join(', ')
   end
+  
+  def facebook_picture(person, options={})
+    if options[:size] == 'large'
+      "<img src='http://graph.facebook.com/#{person.username}/picture?type=large'/>"
+    else
+      "<img src='https://graph.facebook.com/#{person.username}/picture'/>"
+    end
+  end
+  
 end

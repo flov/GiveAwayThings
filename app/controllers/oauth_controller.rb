@@ -38,6 +38,7 @@ class OauthController < ApplicationController
           # no Facebook account created yet
           # TODO: locate existing user by email link him
           flash[:notice] = "You already have a GiveAwayThings account.<br/>Please log in with your email address (#{@profile[:email]})."
+          redirect_to login_path
         else
           # profile_for_session = @profile
           # profile_for_session.delete(:custom_attributes)
@@ -45,8 +46,8 @@ class OauthController < ApplicationController
           
           # create Person:
           oauth_signup
+          redirect_to root_path
         end
-        redirect_to root_path
       end
     rescue OAuth2::HTTPError
       render :text => %(<p>OAuth Error ?code=#{params[:code]}:</p><p>#{$!}</p><p><a href="/auth/#{@provider}">Retry</a></p>)
