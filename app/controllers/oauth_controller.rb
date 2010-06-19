@@ -120,7 +120,11 @@ class OauthController < ApplicationController
         @profile[:first_name]        = user['first_name']
         @profile[:last_name]         = user['last_name']
         @profile[:confirmed_user]    = user['verified']
-        @profile[:username]          = user['link'].split('/').last # "link"=>"http://www.facebook.com/fvallen"
+        unless user['link'].include('?')
+          # "link"=>"http://www.facebook.com/fvallen" if username is set
+          # "link"=>"http://www.facebook.com/profile.php?id=100001281430052" if username is not set
+          @profile[:username]        = user['link'].split('/').last   
+        end
         @profile[:custom_attributes] = user
       else
         raise "Unsupported provider: '#{@provider}'"
