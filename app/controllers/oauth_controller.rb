@@ -120,7 +120,7 @@ class OauthController < ApplicationController
         @profile[:first_name]        = user['first_name']
         @profile[:last_name]         = user['last_name']
         @profile[:confirmed_user]    = user['verified']
-        unless user['link'].include('?')
+        unless user['link'].include?('?')
           # "link"=>"http://www.facebook.com/fvallen" if username is set
           # "link"=>"http://www.facebook.com/profile.php?id=100001281430052" if username is not set
           @profile[:username]        = user['link'].split('/').last   
