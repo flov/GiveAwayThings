@@ -10,8 +10,8 @@ class OauthController < ApplicationController
     redirect_to url
   end
 
-  # Returns the user from the OAuth provider
   def callback
+  # Returns the user from the OAuth provider
     
     @provider = params[:provider]
     begin
@@ -46,8 +46,8 @@ class OauthController < ApplicationController
           # create Person:
           oauth_signup
         end
+        redirect_to root_path
       end
-      redirect_to root_path
     rescue OAuth2::HTTPError
       render :text => %(<p>OAuth Error ?code=#{params[:code]}:</p><p>#{$!}</p><p><a href="/auth/#{@provider}">Retry</a></p>)
     end
