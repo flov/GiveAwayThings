@@ -5,18 +5,17 @@ class OauthController < ApplicationController
     @provider = params[:provider]
     url = client.web_server.authorize_url(
       :redirect_uri => oauth_callback_url,
-      :scope => 'email,offline_access')
+      :scope => 'email,offline_access,user_about_me,user_hometown,user_location')
 
     redirect_to url
   end
 
-  def callback
   # Returns the user from the OAuth provider
+  def callback
     
     @provider = params[:provider]
     begin
       @access_token = client.web_server.get_access_token(params[:code], :redirect_uri => oauth_callback_url)
-
       load_profile(@access_token)
 
       if logged_in?
@@ -26,29 +25,23 @@ class OauthController < ApplicationController
           flash[:error] = t(:'oauth.already_taken_by_other_account')
         else
           current_person.link_to_app(@provider, @profile)
-          flash[:success] = t(:'oauth.account_linked')
+          flash[:notice] = t(:'oauth.account_linked')
         end
         redirect_to(person_path(current_person))
       else
         if oauth_login
           # logged in with facebook account
-          flash[:success] = t(:'oauth.logged_in')
-          redirect_to person_path(current_person)
+          return redirect_to person_path(current_person)
         elsif Person.find_by_email(@profile[:email])
           # no Facebook account created yet
           # TODO: locate existing user by email link him
           flash[:notice] = "You already have a GiveAwayThings account.<br/>Please log in with your email address (#{@profile[:email]})."
-          redirect_to login_path
         else
-          # profile_for_session = @profile
-          # profile_for_session.delete(:custom_attributes)
-          # session[:profile] = profile_for_session
-          
           # create Person:
           oauth_signup
-          redirect_to root_path
         end
       end
+      redirect_to root_path
     rescue OAuth2::HTTPError
       render :text => %(<p>OAuth Error ?code=#{params[:code]}:</p><p>#{$!}</p><p><a href="/auth/#{@provider}">Retry</a></p>)
     end

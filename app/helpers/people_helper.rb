@@ -66,5 +66,4 @@ module PeopleHelper
       "<img src='https://graph.facebook.com/#{person.username}/picture'/>"
     end
   end
-  
 end

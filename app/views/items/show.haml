@@ -4,7 +4,7 @@
 
 %h2
   = textilize_without_paragraph(word_wrap(@item.title, 60))
-  %span.subtitle= "by #{link_to @item.person, person_path(@item.person)}"
+    %span.subtitle= "by #{link_to @item.person, person_path(@item.person)}"
   = edit_link_if_logged_in(@item)
 
 .width450

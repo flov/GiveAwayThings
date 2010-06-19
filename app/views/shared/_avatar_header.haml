@@ -4,6 +4,9 @@
   = accepted_requests(current_person)
   
   
-  = link_to gravatar_for(current_person, :size=>36, :class => 'gravatar'),person_path(current_person.username)
+  -if current_person.facebook_user?
+    = link_to facebook_picture(current_person)
+  -else
+    = link_to gravatar_for(current_person, :size=>36, :class => 'gravatar'),person_path(current_person.username)
   .logout= link_to 'logout', logout_path
 
