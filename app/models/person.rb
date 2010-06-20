@@ -52,6 +52,28 @@ class Person < ActiveRecord::Base
     link.save!
   end
   
+  def localize(ip)
+    l = Localize.country(ip)
+    # => ["3.48.243.15", "3.48.243.15", "US", "USA", "United States", "NA", "CT", "Fairfield", "06828", 41.1854, -73.2645, 501, 203]
+    if l
+      self.address.continent = l[5]
+      self.address.country = l[4]
+      self.address.city = l[7]
+      self.address.lat = l[9]
+      self.address.lng = l[10]
+    end
+    save
+  end
+    
+  def self.find_available_username(proposed_username = nil)
+    proposed_username ||= "user"
+    counter = 0
+    begin
+      counter += 1
+      username = "#{proposed_username}#{counter == 1 ? nil : counter}"
+    end while Person.find(:first, :conditions => ["username LIKE ?", username])
+    username
+  end
   
   def has_opened_requests?
     not self.requests.unarchived.empty? or not self.requested_items.unarchived.empty?

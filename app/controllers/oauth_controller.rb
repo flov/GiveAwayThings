@@ -97,16 +97,16 @@ class OauthController < ApplicationController
       # user = {"name"=>"Florian Vallen", "timezone"=>2, "id"=>"1011496368", "last_name"=>"Vallen", "updated_time"=>"2010-06-02T09:00:13+0000", "verified"=>true, "link"=>"http://www.facebook.com/fvallen", "email"=>"florian.vallen@gmail.com", "first_name"=>"Florian"}
       @profile = {}
       case @provider
-      when "github"
-        user = user['user']
-        @profile[:id]         = user['id']
-        @profile[:email]      = user['email']
-        @profile[:username]   = user['login']
-        @profile[:first_name] = user['name'].split.first
-        @profile[:last_name]  = user['name'].split.second
-        @profile[:company]    = user['company']
-        @profile[:location]   = user['location']
-        @profile[:custom_attributes] = user
+      # when "github"
+      #   user = user['user']
+      #   @profile[:id]         = user['id']
+      #   @profile[:email]      = user['email']
+      #   @profile[:username]   = user['login']
+      #   @profile[:first_name] = user['name'].split.first
+      #   @profile[:last_name]  = user['name'].split.second
+      #   @profile[:company]    = user['company']
+      #   @profile[:location]   = user['location']
+      #   @profile[:custom_attributes] = user
       when "facebook"
         @profile[:id]                = user['id']
         @profile[:facebook_link]     = user['link']
@@ -123,5 +123,6 @@ class OauthController < ApplicationController
       else
         raise "Unsupported provider: '#{@provider}'"
       end
+      @profile[:username] = Person.find_available_username(@profile[:username])
     end
 end

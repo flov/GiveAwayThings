@@ -6,11 +6,6 @@
 - form_for @person do |f|
   = person_fields(f, @person, {:password => true})
 
-  -if @item
-    =hidden_field_tag 'person[item_attributes][title]',       @item.title 
-    =hidden_field_tag 'person[item_attributes][description]', @item.description
-    =hidden_field_tag 'person[item_attributes][category_id]', @item.category_id
-    
   %p
     .center= f.submit "Sign up"
 

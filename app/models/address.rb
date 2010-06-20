@@ -1,18 +1,10 @@
 class Address < ActiveRecord::Base
 
-  attr_accessible :street, :city, :city_attributes, :state, :city_id
+  attr_accessible :street, :city, :country, :continent, :state, :lat, :lng, :street
 
   has_one :person
-  belongs_to :city
   has_many :items
   
-  accepts_nested_attributes_for :city
-  
-
-  validates_presence_of :street
-  def country
-    self.city.country
-  end
   
   def before_save
     self.street = self.street.capitalize

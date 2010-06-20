@@ -9,30 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100618154259) do
+ActiveRecord::Schema.define(:version => 20100620134959) do
   
   create_table "addresses", :force => true do |t|
+    t.string  "continent"
+    t.string  "country"
+    t.string  "city"
     t.string  "street"
     t.string  "state"
-    t.integer "city_id"
+    t.float   "lng"
+    t.float   "lat"
   end
-
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "create_tableeated_at"
-  end
-
-  create_table "cities", :force => true do |t|
-    t.string   "name"
-    t.integer  "country_id"
-    t.datetime "created_at"
-  end
-
-  add_index "cities", ["name", "country_id"], :name => "index_cities_on_name_and_country_id", :unique => true
-
-  create_table "countries", :force => true do |t|
-    t.string "name"
-  end
+  
+  add_index "addresses", ["country"], :name => "index_country"
+  add_index "addresses", ["city"],    :name => "index_city"
+  add_index "addresses", ["street"],  :name => "index_street"
 
   create_table "items", :force => true do |t|
     t.string   "title"

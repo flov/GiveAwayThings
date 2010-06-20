@@ -1,15 +1,14 @@
 %ul#menu
-  %li 
-    -if logged_in?
+  -if logged_in?
+    %li 
       =link_to "Profile", person_path(current_person.username) 
       %ul
         %li
           =image_tag "corner_inset_left.png", :class => "corner_inset_left"
-          -if current_person.has_opened_requests? 
-            =link_to t('.your_profile'), person_path(current_person.username)
+          =link_to t('.your_profile'), person_path(current_person.username)
           =image_tag 'corner_inset_right.png', :class => "corner_inset_right"
-        %li
-          -if current_person.has_opened_requests?
+        -if current_person.has_opened_requests?
+          %li
             =link_to t('.your_requests'), requests_person_path(current_person)
         %li.last  
           =image_tag 'corner_left.png',  :class => "corner_left"
