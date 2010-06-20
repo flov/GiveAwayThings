@@ -24,21 +24,25 @@
       %td= f.password_field :password_confirmation, :id => 'person_confirm_it'
       
   - f.fields_for :address do |address_form|
-    -address_form.fields_for :city do |city_form|
-      %tr
-        %th
-          =address_form.label :city_attributes_country_id, 'Country'
-          %p.details Where do you come from?
-        %td=city_form.collection_select :country_id, Country.all, :id, :name, :include_blank => 'Please choose...'
-      %tr
-        %th
-          =address_form.label :city_attributes_name, 'City'
-          %p.details This is important for sharing
-        %td=city_form.text_field :name
-        
     %tr
       %th
-        =f.label :address_attributes_street, 'Street'
+        =address_form.label :country, 'Country'
+        %p.details Where do you come from?
+      %td
+        =#address_form.collection_select :country_id, Country.all, :id, :name, :include_blank => 'Please choose...'
+        - if @country.empty?
+          =country_select("person[address_attributes]", "country") 
+        - else
+          =country_select("person[address_attributes]", "country", [@country]) 
+    %tr
+      %th
+        =address_form.label :city, 'City'
+        %p.details 
+      %td=address_form.text_field :city
+      
+    %tr
+      %th
+        =f.label :street, 'Street'
         %p.details Will not be displayed publicly
       %td= address_form.text_field :street
       
