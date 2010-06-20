@@ -4,6 +4,7 @@ irb.rb
 config/deploy/
 photos/
 .empty
+data/GeoLiteCity.dat
 rerun.txt
 .DS_Store
 .idea
