@@ -60,13 +60,15 @@ class OauthController < ApplicationController
           a.app_user_id = @profile[:id]
           a.custom_attributes = @profile[:custom_attributes]
         end
-        u.build_address(:street => 'unknown')
+        u.build_address(:street => '')
         
         u.first_name  = @profile[:first_name]
         u.last_name   = @profile[:last_name]
         u.username    = @profile[:username] || (@profile[:first_name] + "_" + ActiveSupport::SecureRandom.random_number(1000).to_s)
         u.email       = @profile[:email]
         u.password    = u.password_confirmation = ActiveSupport::SecureRandom.hex(20)
+        
+        u.localize(remote.ip)
       end
       
       new_user.activate!

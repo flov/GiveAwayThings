@@ -35,6 +35,5 @@ Rails::Initializer.run do |config|
     :user_name      => 'no-reply@giveawaythings.org',
     :password       => 'smtp55!@'
   }
-    
-  
+
 end
