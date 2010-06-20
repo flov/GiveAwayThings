@@ -7,6 +7,8 @@
           =image_tag "corner_inset_left.png", :class => "corner_inset_left"
           =link_to t('.your_profile'), person_path(current_person.username)
           =image_tag 'corner_inset_right.png', :class => "corner_inset_right"
+        %li
+          = link_to 'Edit Profile', edit_person_path(current_person)
         -if current_person.has_opened_requests?
           %li
             =link_to t('.your_requests'), requests_person_path(current_person)

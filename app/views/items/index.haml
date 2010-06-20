@@ -17,8 +17,8 @@
           =link_to(h(item.title), "/items/#{item.id}-#{item.title.underscore[0..30]}")
           %br/
           =textilize_without_paragraph(h(truncate(item.description, 400)))
-        %td=item.address.city.country.to_s
-        %td=item.address.city.to_s
+        %td=item.address.country
+        %td=item.address.city
         %td=time_ago_in_words item.created_at
         %td=link_to(item.person.username, "/people/#{item.person.username}")  
   %tfoot

@@ -9,7 +9,7 @@
   -@items.each do |item|
     %tr
       %td=item.title
-      %td=item.address.city.country
+      %td=item.address.country
       %td=item.address.city
       %td=item.person
       %td=time_ago_in_words item.created_at

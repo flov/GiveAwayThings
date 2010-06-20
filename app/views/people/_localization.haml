@@ -1,9 +1,9 @@
 %p.localization.center
   - unless person.address.city.nil?
-    = link_to person.address.city, "http://maps.google.com/maps?q=#{person.address.country} #{person.address.city.to_s}"
+    = link_to person.address.city, "http://maps.google.com/maps?q=#{person.address.country} #{person.address.city}"
     %br/  
   - unless person.address.country.nil?
-    = link_to person.address.country, "http://maps.google.com/maps?q=#{person.address.country.to_s}" 
+    = link_to person.address.country, "http://maps.google.com/maps?q=#{person.address.country}" 
   / %br/
   /   =link_to "lat: 51.21 lng: 6.76", "http://maps.google.com/maps?q=51.21+6.76"
   

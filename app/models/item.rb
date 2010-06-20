@@ -40,14 +40,6 @@ class Item < ActiveRecord::Base
     Item.title_like(search).paginate(:page => page)
   end
 
-  def city
-    self.address.city.name
-  end
-  
-  def country
-    self.address.city.country
-  end
-
   def to_param
     "#{id}-#{title.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
   end

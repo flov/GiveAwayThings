@@ -13,7 +13,7 @@ class Person
   end
     
   def country
-    self.address.city.country
+    self.address.country
   end
   
   def city
