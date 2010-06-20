@@ -33,7 +33,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.search_by_city(search, page)
-    Item.address_city_name_like(search).paginate(:page => page)
+    Item.address_city_like(search).paginate(:page => page)
   end
 
   def self.search_by_title(search, page)
