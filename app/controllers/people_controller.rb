@@ -127,8 +127,15 @@ class PeopleController < ApplicationController
     
   end
   
+  def destroy
+    find_person
+    @person.destroy
+    flash[:notice] = "Successfully destroyed #{@person.username}."
+    redirect_to logout_path
+  end
+  
   private
-    
+  
   def find_person
     unless @person = Person.find_by_username(params[:id])
       flash[:error] = "This person does not exist"
