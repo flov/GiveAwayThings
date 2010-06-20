@@ -29,11 +29,10 @@
         =address_form.label :country, 'Country'
         %p.details Where do you come from?
       %td
-        =#address_form.collection_select :country_id, Country.all, :id, :name, :include_blank => 'Please choose...'
-        - if @country.empty?
+        - if person.address.country.blank?
           =country_select("person[address_attributes]", "country") 
         - else
-          =country_select("person[address_attributes]", "country", [@country]) 
+          =country_select("person[address_attributes]", "country", [person.address.country]) 
     %tr
       %th
         =address_form.label :city, 'City'

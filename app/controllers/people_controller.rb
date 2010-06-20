@@ -74,12 +74,9 @@ class PeopleController < ApplicationController
   def new
     @person = Person.new
     @person.build_address
-    @country = ""
-    @city = ""
-    l = Localize.country(request.remote_ip)
+    l = Localize.country('78.48.43.15')
     if l
-      @city = l[7]
-      @country = l[4]
+      @person.address.country = l[4]
       @person.address.continent = l[5]
       @person.address.lat = l[9]
       @person.address.lng = l[10]
