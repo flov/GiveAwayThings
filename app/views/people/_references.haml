@@ -2,7 +2,7 @@
   %h2 References:
   - for reference in references
     .reference
-      = link_to gravatar_for(reference.from, :size => 30, :class => 'picture'),person_path(reference.from) 
+      .picture= link_to avatar_picture(reference.from, :size => 'small'),person_path(reference.from) 
       %h4="From: #{link_to reference.from.to_s.capitalize, reference.from}"
       = render :partial => 'people/reference_taken_items', :locals => {:reference => reference}
 

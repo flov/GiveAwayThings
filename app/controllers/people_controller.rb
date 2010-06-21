@@ -27,10 +27,6 @@ class PeopleController < ApplicationController
     @reference ||= Reference.new
   end
   
-  def create_reference
-    @reference = Reference.new(params[:reference])  
-  end
-  
   def requests
     @requests_from_x           = current_person.requests_from_x
     @requests_by_you           = current_person.requests_from_you

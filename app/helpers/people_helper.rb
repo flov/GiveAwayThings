@@ -59,6 +59,22 @@ module PeopleHelper
     result.join(', ')
   end
   
+  def avatar_picture(person, options={})
+    if person.facebook_user?
+      if options[:size] == 'large'
+        "<img src='http://graph.facebook.com/#{person.facebook_uid}/picture?type=large'/>"
+      else
+        "<img src='https://graph.facebook.com/#{person.facebook_uid}/picture'/>"
+      end
+    else
+      if options[:size] == 'large'
+        link_to gravatar_for(person, :size => 100, :class => 'gravatar'),person_path(person.username)
+      else
+        link_to gravatar_for(person, :size => 36, :class => 'gravatar'), person_path(person.username)
+      end
+    end
+  end
+  
   def facebook_picture(person, options={})
     if options[:size] == 'large'
       "<img src='http://graph.facebook.com/#{person.facebook_uid}/picture?type=large'/>"

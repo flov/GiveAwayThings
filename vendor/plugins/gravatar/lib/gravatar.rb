@@ -72,7 +72,7 @@ module GravatarHelper
       options[:default] = CGI::escape(options[:default]) unless options[:default].nil?
       returning gravatar_api_url(email_hash, options.delete(:ssl)) do |url|
         opts = []
-        opts << "d=monsterid"
+        opts << "d=identicon"
         [:rating, :size, :default].each do |opt|
           unless options[opt].nil?
             value = h(options[opt])

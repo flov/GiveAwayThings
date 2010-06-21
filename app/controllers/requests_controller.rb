@@ -57,8 +57,9 @@ class RequestsController < ApplicationController
       @request.mark_item_as_taken(params[:taken_by]) if params[:taken_by]
       redirect_to person_path(@reference.to)
     else
+      raise 'error'
       flash[:error] = @reference.errors.on(:to_id)
-      redirect_to taken_request_path(Request.find(params[:id]))
+      redirect_to person_path(Person.find_by_username(params[:id]))
     end
   end
   

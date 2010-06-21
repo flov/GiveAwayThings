@@ -8,11 +8,12 @@
         = link_to '(edit)', edit_person_path(current_person) 
         = link_to '(delete)', current_person.username, :confirm => 'Warning! This will delete your profile and everything assoiciated with it!', :method => :delete
 
+= error_messages_for :reference
+
 = render :partial => 'localization', :locals => {:person => @person}
-=# render :partial => 'about_you'
 = your_requests
 .center
-  = render :partial => 'items/give_away', :locals => {:item => Item.new}      
+  = render :partial => 'items/give_away', :locals => {:item => Item.new} if @person == current_person
 = render :partial => 'you_gave_took_offer'
 - content_for :sidebar_in_box do
   = render :partial => 'default_sidebar_in_box', :locals => {:person => @person, :references => @references}

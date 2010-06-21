@@ -1,6 +1,6 @@
 - form_for :reference, :url => { :action => "create_reference", :controller => 'requests'} do |f|
   Overall experience (optional) 
-  =select_rating
+  = select_rating
   %br/
   = @reference.new_record? ? "Reference: " : "You can update your reference here"
   %br/

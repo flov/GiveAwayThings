@@ -3,4 +3,4 @@
   - if person.facebook_user?
     = facebook_picture(person)
   - else
-    = link_to gravatar_for(person, :size=>36),person_path(person.username),:class => 'avatar'
+    = link_to gravatar_for(person, :size=>50),person_path(person.username),:class => 'avatar'
