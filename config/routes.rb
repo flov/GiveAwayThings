@@ -32,6 +32,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :requests, :member => { :decline => :get, 
                                         :accept => :get, 
                                         :reset_accept => :post,
+                                        :take_back => :delete,
                                         :taken => :get, 
                                         :given => :get,
                                         :create_reference => :post }

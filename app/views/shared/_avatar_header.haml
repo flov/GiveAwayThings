@@ -2,11 +2,5 @@
   = unread_messages(current_person)
   = requests(current_person)
   = accepted_requests(current_person)
-  
-  
-  -if current_person.facebook_user?
-    = link_to facebook_picture(current_person), person_path(current_person.username)
-  -else
-    = link_to gravatar_for(current_person, :size=>36, :class => 'gravatar'), person_path(current_person.username)
+  = avatar_picture(current_person, :size => 'small')
   .logout= link_to 'logout', logout_path
-

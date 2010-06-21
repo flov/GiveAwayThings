@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   #for word_wrap in accept action
   include ActionView::Helpers::TextHelper
   
-  before_filter :find_request, :only => [:show, :accept, :taken, :given]
+  before_filter :find_request, :only => [:show, :accept, :taken, :given, :take_back]
     
   def accept
     @request.accepted = true
@@ -62,15 +62,22 @@ class RequestsController < ApplicationController
       redirect_to person_path(Person.find_by_username(params[:id]))
     end
   end
-  
-  def destroy
-    @request = Request.find(params[:id])
+    
+  def take_back
+    redirect_if_not_authorized(@request.requester)
     @request.destroy
-    flash[:notice] = "Successfully destroyed request."
-    redirect_to messages_url
+    flash[:notice] = t('flash.taken_back')
+    redirect_to person_path(current_person)
+  end
+
+  private
+  def redirect_if_not_authorized(person)
+    if !logged_in? or person != current_person
+      flash[:error] = t('flash.no_permission')
+      redirect_to root_path
+    end
   end
   
-  private
   def find_request
     unless Request.exists?(params[:id])
       flash[:error] = 'This Request does not exist. Maybe it has already been deleted.'

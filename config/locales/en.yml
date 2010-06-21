@@ -3,6 +3,7 @@ en:
     no_permission: 'Ooops, you do not have a permission to do that'
     something_went_wrong: something went wrong
     not_logged_in: 'You are not logged in. Please log in, or sign up'
+    taken_back: 'You have taken back your request'
 
   people:
     edit:

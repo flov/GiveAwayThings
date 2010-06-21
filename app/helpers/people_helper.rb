@@ -63,12 +63,16 @@ module PeopleHelper
     if person.facebook_user?
       if options[:size] == 'large'
         "<img src='http://graph.facebook.com/#{person.facebook_uid}/picture?type=large'/>"
+      elsif options[:size] == 'tiny'
+        "<img src='http://graph.facebook.com/#{person.facebook_uid}/picture'/ width='28' height='28'>"
       else
         "<img src='https://graph.facebook.com/#{person.facebook_uid}/picture'/>"
-      end
-    else
+      end      
+    else      
       if options[:size] == 'large'
         link_to gravatar_for(person, :size => 100, :class => 'gravatar'),person_path(person.username)
+      elsif options[:size] == 'tiny'
+        link_to gravatar_for(person, :size => 28, :class => 'gravatar'),person_path(person.username)
       else
         link_to gravatar_for(person, :size => 36, :class => 'gravatar'), person_path(person.username)
       end

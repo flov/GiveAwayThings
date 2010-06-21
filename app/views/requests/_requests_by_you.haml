@@ -7,7 +7,7 @@
         %td requested
         %td.title= link_to truncate(request.item.title, 50), item_path(request.item.to_param)
         %td from
-        %td.gravatar= link_to gravatar_for(request.owner, :size=>28), person_path(request.owner)
+        %td.gravatar= link_to avatar_picture(request.owner, :size=>'tiny'), person_path(request.owner)
         %td 
           .name= link_to h(request.owner.username.capitalize), person_path(request.owner)
-        %td.mark= link_to link_to "Take Back Request", ""
+        %td.mark= link_to "Take Back Request", take_back_request_path(request), :confirm => 'Are you sure?', :method => :delete

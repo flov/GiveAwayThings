@@ -7,6 +7,7 @@
           %td.title
             = link_to item.title, item_path(item)
           %td="since #{time_ago_in_words(item.created_at)}"
-          %td
-            = link_to '(edit)', edit_item_path(item)
-            = link_to '(delete)', item, :confirm => 'Are you sure?', :method => :delete
+          - if logged_in? and item.person == current_person
+            %td
+              = link_to '(edit)', edit_item_path(item) 
+              = link_to '(delete)', item, :confirm => 'Are you sure?', :method => :delete
