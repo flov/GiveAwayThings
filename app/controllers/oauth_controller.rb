@@ -5,7 +5,7 @@ class OauthController < ApplicationController
     @provider = params[:provider]
     url = client.web_server.authorize_url(
       :redirect_uri => oauth_callback_url,
-      :scope => 'email,offline_access,user_about_me,user_hometown,user_location')
+      :scope => 'email,offline_access,user_about_me,user_location')
 
     redirect_to url
   end
@@ -123,6 +123,7 @@ class OauthController < ApplicationController
           # "link"=>"http://www.facebook.com/profile.php?id=100001281430052" if username is not set
           @profile[:username]        = user['link'].split('/').last   
         end
+        @profile[:username] ||= user['first_name']
         @profile[:custom_attributes] = user
       else
         raise "Unsupported provider: '#{@provider}'"

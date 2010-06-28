@@ -39,16 +39,16 @@ en:
       
   emailer:
     request:
-      you_have_a_new_request: "{{user}} want's to have {{item}} from you."
-      accept_or_decline: "you can {{accept}} or {{decline}} the request."
+      you_have_a_new_request: "%{user} want's to have %{item} from you."
+      accept_or_decline: "you can %{accept} or %{decline} the request."
       
     confirm:
-      hey: "Hey, {{user_name}}!"
+      hey: "Hey, %{user_name}!"
       follow_the_link: "In order to <b>complete your signup</b> for GiveAwayThings, we need you to log in by clicking here:"
       log_in: "Log into GiveAwayThings now!"
       plaintext_link: "If this doesn't work, copy and paste the following link in your browser's bar:"
-      report_abuse: "You receive this message because you signed up for a GiveAwayThings account with {{email}}"
-      problems: "If you have any problems, please contact us at {{support}}"
+      report_abuse: "You receive this message because you signed up for a GiveAwayThings account with %{email}"
+      problems: "If you have any problems, please contact us at %{support}"
     common:
       do_not_answer: "Do not answer to this email."
   
@@ -64,9 +64,9 @@ en:
       owner: 'Owner:'
       view_all: View All
       enter_title: Please enter a title for the item that you want to give away.
-      not_yet_saved: "{{title}} has not yet been saved, log in or sign up to save it."
-      thank_you: "Thank you for giving things away!<br>'{{item_title}}' can now be found by others in {{city}}."
-      gat_request: "[GAT Request] {{username}} would like to have {{title}}"
+      not_yet_saved: "%{title} has not yet been saved, log in or sign up to save it."
+      thank_you: "Thank you for giving things away!<br>'%{item_title}' can now be found by others in %{city}."
+      gat_request: "[GAT Request] %{username} would like to have %{title}"
   
   messages:
     index:
@@ -81,9 +81,9 @@ en:
       text1: This step gets your stats up and helps people to trust you by leaving a reference.
       text2: After you marked the item as taken you will have *+1* point in your statistics.
       text3: You do *not* have to leave a reference, to mark the item as given away.
-      leave_reference: "Leave a reference for {{username}}"
+      leave_reference: "Leave a reference for %{username}"
     create_reference: 
-      created: <h2>Reference created.</h2>Thank you very much for writing a reference to {{username}}. 
+      created: <h2>Reference created.</h2>Thank you very much for writing a reference to %{username}. 
       updated: <h2>Reference updated.</h2>
       already_exists: "<h2>Reference already exists!</h2>Sorry, you can't create another one."
     index:
@@ -94,7 +94,7 @@ en:
       ready_to_giveaway: Accepted requests
       not_available_anymore: not any longer available
     show:
-      request_already_sent: <h2>Already requested!</h2>Please send {{owner}} a message to remind him of your request.
-      request_sent: <h2>Request sent.</h2><p>{{username}} has been notified that you want to have his item.</p>
-      accept: "\n\n\n{{user}} wrote:\n"
-      accept2: "[GAT Accept] Hey {{user}}! You can have '{{item}}'. Time to pick it up!"
+      request_already_sent: <h2>Already requested!</h2>Please send %{owner} a message to remind him of your request.
+      request_sent: <h2>Request sent.</h2><p>%{username} has been notified that you want to have his item.</p>
+      accept: "\n\n\n%{user} wrote:\n"
+      accept2: "[GAT Accept] Hey %{user}! You can have '%{item}'. Time to pick it up!"

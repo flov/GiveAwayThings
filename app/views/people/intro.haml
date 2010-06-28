@@ -7,17 +7,16 @@
   .searchbox
     %h2 Find Something Near You
     = render :partial => "items/search"
-  .searchbox
-    %h2 Give Something Away
-    = render :partial => 'items/give_away', :locals => {:item => @item}
+  / .searchbox
+  /   %h2 Give Something Away
+  /   = render :partial => 'items/give_away', :locals => {:item => @item}
 
-  -#  
-    - if logged_in?
-      %h2= "You are logged in as #{current_person.name}"
-      = "<p>#{link_to 'Logout', logout_path}</p>"
-    - else 
-      %h2 You are not logged in!
-      %p="#{link_to 'Signup', signup_path} or #{link_to 'Login', login_path}"
+  / - if logged_in?
+  /   %h2= "You are logged in as #{current_person.name}"
+  /   = "<p>#{link_to 'Logout', logout_path}</p>"
+  / - else 
+  /   %h2 You are not logged in!
+  /   %p="#{link_to 'Signup', signup_path} or #{link_to 'Login', login_path}"
     
   -#content_for :sidebar do
     = render :partial => 'items/statistics', :locals => {:person => Person.new}

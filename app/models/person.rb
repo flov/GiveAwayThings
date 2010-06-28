@@ -23,7 +23,7 @@ class Person < ActiveRecord::Base
   has_many :requests, :dependent => :destroy, :foreign_key => "owner_id"
   has_many :requested_items, :class_name => 'Request', :foreign_key => "requester_id"
   has_many :messages, :foreign_key => "recipient_id"
-  has_many :references, :foreign_key => "to_id"
+  has_many :references, :foreign_key => "to_id", :dependent => :destroy
   has_many :app_links, :dependent => :destroy
   
   accepts_nested_attributes_for :address

@@ -4,8 +4,8 @@
   #slidedown_fields.hide_me
     = f.text_area :description, :cols=>40
     %br
-    Picture: 
+    = f.label :photo
     %br/
-    =f.file_field :photo
+    = f.file_field :photo
     %br/
   %img{:src=>"/images/giveawaybutton.png", :alt=>"Search", :class => 'image_submit', :onclick=>"$('#new_item').submit(); this.disabled = 1;"}/

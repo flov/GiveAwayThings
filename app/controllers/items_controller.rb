@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     @item.address_id = current_person.address.id if logged_in?
     if @item.save
       flash[:notice] = t('items.show.thank_you', :city => current_person.city, :item_title => @item.title)
-      redirect_to welcome_path
+      redirect_to person_path(current_person)
     else
       if @item.errors.on(:title)
         flash[:error] = t('items.show.enter_title')
