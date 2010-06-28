@@ -12,7 +12,7 @@
     %br/
     =textilize_without_paragraph h(@item.description) unless @item.description.empty?
   = image_of_item(@item)
-  = send_request(@request, @item) if logged_in?
+  = send_request(@request, @item)
 
   - content_for :sidebar_in_box do
     = render :partial => 'people/default_sidebar_in_box', :locals => {:person => @person, :references => @references}

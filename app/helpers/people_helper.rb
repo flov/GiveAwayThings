@@ -78,6 +78,10 @@ module PeopleHelper
       end
     end
   end
+
+  def facebook_connect
+    link_to image_tag("login_with_facebook.png"), oauth_request_path('facebook')
+  end
   
   def facebook_picture(person, options={})
     if options[:size] == 'large'

@@ -17,7 +17,7 @@
           =image_tag 'dot.gif',          :class => "middle"
           =image_tag 'corner_right.png', :class => "corner_right"
     %li
-      =link_to t('.giveaway'), root_path
+      =link_to t('.giveaway'), person_path(current_person)
   %li
     =link_to t('.browse_items'), items_path
   %li

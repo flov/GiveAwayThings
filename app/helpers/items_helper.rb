@@ -8,7 +8,9 @@ module ItemsHelper
   end
 
   def send_request(request, item)
-    if !logged_in? && !item.taken? && !item.accepted? && item.person != current_person
+    if !logged_in?
+      render :partial => 'login_for_request'
+    elsif !item.taken? && !item.accepted? && item.person != current_person
       render :partial => 'items/send_request', :locals => {:request => request, :item => item}
     end
   end
