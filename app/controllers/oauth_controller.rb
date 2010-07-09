@@ -39,6 +39,7 @@ class OauthController < ApplicationController
             u.custom_attributes = @profile[:custom_attributes]
           end
           person.save!
+          session[:person_id] = person.id
           redirect_to person_path(person)
         else
           # create Person:
