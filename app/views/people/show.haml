@@ -14,7 +14,7 @@
 .center
   = render :partial => 'items/give_away', :locals => {:item => Item.new} if @person == current_person
   %br/
-= your_requests
+= your_requests(@person)
 = render :partial => 'you_gave_took_offer'
 - content_for :sidebar_in_box do
   = render :partial => 'default_sidebar_in_box', :locals => {:person => @person, :references => @references}

@@ -32,11 +32,14 @@ class OauthController < ApplicationController
         if oauth_login
           # logged in with facebook account
           return redirect_to person_path(current_person)
-        elsif Person.find_by_email(@profile[:email])
-          # no Facebook account created yet
-          # TODO: locate existing user by email link him
-          flash[:notice] = "You already have a GiveAwayThings account.<br/>Please log in with your email address (#{@profile[:email]})."
-          redirect_to root_path
+        elsif person=Person.find_by_email(@profile[:email])
+          person.app_links.build do |u|
+            u.provider = @provider
+            u.app_user_id = @profile[:id]
+            u.custom_attributes = @profile[:custom_attributes]
+          end
+          person.save!
+          redirect_to person_path(person)
         else
           # create Person:
           oauth_signup
@@ -101,16 +104,6 @@ class OauthController < ApplicationController
       # user = {"name"=>"Florian Vallen", "timezone"=>2, "id"=>"1011496368", "last_name"=>"Vallen", "updated_time"=>"2010-06-02T09:00:13+0000", "verified"=>true, "link"=>"http://www.facebook.com/fvallen", "email"=>"florian.vallen@gmail.com", "first_name"=>"Florian"}
       @profile = {}
       case @provider
-      # when "github"
-      #   user = user['user']
-      #   @profile[:id]         = user['id']
-      #   @profile[:email]      = user['email']
-      #   @profile[:username]   = user['login']
-      #   @profile[:first_name] = user['name'].split.first
-      #   @profile[:last_name]  = user['name'].split.second
-      #   @profile[:company]    = user['company']
-      #   @profile[:location]   = user['location']
-      #   @profile[:custom_attributes] = user
       when "facebook"
         @profile[:id]                = user['id']
         @profile[:facebook_link]     = user['link']
