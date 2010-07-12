@@ -1,6 +1,6 @@
 %h1 Browse People
 -@people.each do |person|
   - if person.facebook_user?
-    = facebook_picture(person)
+    = link_to facebook_picture(person), person_path(person.username)
   - else
     = link_to gravatar_for(person, :size=>50),person_path(person.username),:class => 'avatar'
