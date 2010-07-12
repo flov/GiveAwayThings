@@ -4,10 +4,12 @@ class Address < ActiveRecord::Base
 
   has_one :person
   has_many :items
+  after_validation :fetch_coordinates
   
-  
-  def before_save
-    self.street = self.street.capitalize
+  geocoded_by :location
+    
+  def location
+    [city, street, country].compact.join(', ')
   end
 
   def city_attributes=(city_attributes)

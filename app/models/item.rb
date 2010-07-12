@@ -9,7 +9,7 @@ class Item < ActiveRecord::Base
   belongs_to :category
   has_many :requests
   has_attached_file :photo, :styles => {:medium => "300x300>"}
-
+  
   accepts_nested_attributes_for :category
 #  concerned_with :validation
 
@@ -19,7 +19,7 @@ class Item < ActiveRecord::Base
 
   named_scope :unread,  :conditions => { :read => 0, :request_id => nil }
   named_scope :not_accepted_not_taken, :conditions => { :taken_by => nil, :accepted => nil }
-  
+      
   def accepted_to
     self.requests.accepted_equals(true).first.requester
   end
