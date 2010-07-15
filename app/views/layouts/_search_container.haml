@@ -7,14 +7,22 @@
     %ul
       %li
         Search by
+        %img.corner_inset_right{:src=>"/images/corner_inset_right.png"}/
         %br/
+
         %img.corner_inset_left{:src=>"/images/corner_inset_left.png"}/  
         = radio_button_tag("search_by", "city", true)
         City
-        %img.corner_inset_right{:src=>"/images/corner_inset_right.png"}/
-        %br/
+        %br/  
+        
         = radio_button_tag("search_by", "title")
         Title
+        %br/
+        
+        Distance
+        = select_tag("near", "<option></option><option value='10'>10m</option><option value='20'>20m</option><option value='30'>30m</option>")          
+
+
       %li.last
         %img.corner_left{:src=>"/images/corner_left.png"}/
         %img.middle{:src=>"/images/dot.gif"}/

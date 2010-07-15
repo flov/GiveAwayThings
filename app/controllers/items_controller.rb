@@ -8,13 +8,14 @@ class ItemsController < ApplicationController
   def index
     if params[:q].nil? || params[:q] == 'Type in city.'
       @items = Item.not_accepted_not_taken.paginate :page => params[:page], :order => 'created_at DESC'
-    elsif params[:search_by] == 'city' 
+    elsif params[:search_by] == 'city'
       @items = Item.not_accepted_not_taken.search_by_city(params[:q], params[:page])
     elsif params[:search_by] == 'title'
       @items = Item.not_accepted_not_taken.search_by_title(params[:q], params[:page])
     else
       @items = Item.not_accepted_not_taken.paginate :page => params[:page], :order => 'created_at DESC'
     end
+    
   end
   
   def search

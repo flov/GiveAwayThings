@@ -1,6 +1,6 @@
 class Address < ActiveRecord::Base
 
-  attr_accessible :street, :city, :country, :continent, :state, :lat, :lng, :street
+  attr_accessible :street, :city, :country, :continent, :state, :latitude, :longitude
 
   has_one :person
   has_many :items

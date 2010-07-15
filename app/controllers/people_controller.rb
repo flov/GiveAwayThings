@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   before_filter :login_required, :confirmed_user?, :only => [ :requests ]
 
   def intro
-
+    a = current_person.address.nearbys if logged_in?
     @newsletter = Newsletter.new
     @item = Item.new(:title => 'Type in item.', :description => 'Description (optional)')
   end
@@ -74,8 +74,8 @@ class PeopleController < ApplicationController
     if l
       @person.address.country = l[4]
       @person.address.continent = l[5]
-      @person.address.lat = l[9]
-      @person.address.lng = l[10]
+      @person.address.latitude = l[9]
+      @person.address.longitude = l[10]
     end
   end
 

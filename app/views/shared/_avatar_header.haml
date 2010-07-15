@@ -2,5 +2,5 @@
   = unread_messages(current_person)
   = requests(current_person)
   = accepted_requests(current_person)
-  = avatar_picture(current_person, :size => 'small')
+  = link_to(avatar_picture(current_person, :size => 'small'), person_path(current_person))
   .logout= link_to 'logout', logout_path
