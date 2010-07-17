@@ -1,187 +1,187 @@
 .uploadpicture
-  :width 417px
-  :text-align left
+  width: 417px
+  text-align: left
 
 #container
-  :position relative
-  :width 100%
-  :min-height 100%
+  position: relative
+  width: 100%
+  min-height: 100%
+
 .rounded_corners
-  :-moz-border-radius 13px
-  :-webkit-border-radius 13px
-  :background-color #fff
-  :border 2px solid #b2b5a6
-  
+  -moz-border-radius: 13px
+  -webkit-border-radius: 13px
+  background-color: white
+  border: 2px solid #b2b5a6
+
 .pagination
   .current
-    :color white
-  
+    color: white
+
 #header
-  :background-repeat repeat-x
-  :background-position bottom
-  :background-color = !header_bg_color
-  :margin 0 auto
+  background-repeat: repeat-x
+  background-position: bottom
+  background-color: $header_bg_color
+  margin: 0 auto
   .header_content
-    :width 940px
-    :height 100px
-    :margin 0 auto
+    width: 940px
+    height: 100px
+    margin: 0 auto
 
 #nav_login_signup
-  :width 340px
-  :top 43px
-  :left 100px
+  width: 340px
+  top: 43px
+  left: 100px
   a
-    :color #C3C3C3
+    color: #c3c3c3
     &:hover
-      color = !green
-    
-  :font-family Verdana,arial,helvetica,sans-serif
-  :position relative
-  :top 15px
-  :left 80px
-  :height 42px
+      color: $green
+  font-family: Verdana, arial, helvetica, sans-serif
+  position: relative
+  top: 15px
+  left: 80px
+  height: 42px
 
 #nav_user
   img
-    :border 2px solid #5a595a
+    border: 2px solid #5a595a
     -webkit-border-radius: 2px
-    -moz-border-radius: 2px  
-    :max-width 38px
-
+    -moz-border-radius: 2px
+    max-width: 38px
   a
-    :color #C3C3C3
+    color: #c3c3c3
     &:hover
-      color = !green
-    
-  :font-family Verdana,arial,helvetica,sans-serif
-  :position relative
-  :top 15px
-  :left 80px
-  :height 42px
-  :width 340px
+      color: $green
+  font-family: Verdana, arial, helvetica, sans-serif
+  position: relative
+  top: 15px
+  left: 80px
+  height: 42px
+  width: 340px
   .accepted_flag
-    :position absolute
-    :left 180px
-    :top 3px
-    :background url("/images/accepted.png") no-repeat right center
-    :width 30px
-    :height 17px
+    position: absolute
+    left: 180px
+    top: 3px
+    background: url("/images/accepted.png") no-repeat right center
+    width: 30px
+    height: 17px
   .messages_flag
-    :position absolute
-    :left 56px
-    :top 3px
-    :background url("/images/bubble.png") no-repeat right center
-    :width 60px
+    position: absolute
+    left: 56px
+    top: 3px
+    background: url("/images/bubble.png") no-repeat right center
+    width: 60px
   .requests_flag
-    :position absolute
-    :left 127px
-    :top 3px
-    :background url("/images/red_flag.png") no-repeat right center
-    :width 39px
-  
+    position: absolute
+    left: 127px
+    top: 3px
+    background: url("/images/red_flag.png") no-repeat right center
+    width: 39px
   .logout a
-    color: #EFB108
+    color: #efb108
     left: 56px
     position: absolute
     top: 20px
     &:hover
-      color = !green
+      color: $green
 
 #logo
-  :position relative
-  :float right
-  :top 15px
-  :right 100px
+  position: relative
+  float: right
+  top: 15px
+  right: 100px
 
 #content
-  :width 100%
-  :background-color = !bg_color
-  :width 100%
-  :padding 24px 0 65px
+  width: 100%
+  background-color: $bg_color
+  width: 100%
+  padding: 24px 0 65px
   #nav
-    :color = !header_color
-    :margin 10px auto 
-    :text-align center
-    :width 570px
+    color: $header_color
+    margin: 10px auto
+    text-align: center
+    width: 570px
   #content_wrapper
-    :display table
-    :margin 0 auto
+    display: table
+    margin: 0 auto
     .content_menu
       .main
-        :padding 22px 
-        :min-width 400px
-        
+        padding: 22px
+        min-width: 400px
+
 .sidebar
-  :margin-left 12px
+  margin-left: 12px
+
 .sidebar_in_box
-  :border-left 1px dashed #b2b5a6
+  border-left: 1px dashed #b2b5a6
+
 .sidebar, .sidebar_in_box
-  :padding 10px
-  :text-align center
+  padding: 10px
+  text-align: center
   .text
-    :width 235px
-    :text-align left
+    width: 235px
+    text-align: left
     h3
-      :color = !header_color
-      :font-size 12px
+      color: $header_color
+      font-size: 12px
     p
-      :font-size 12px
-
-
+      font-size: 12px
 
 .statistics
   h2
-    :color = !header_color
-    :margin 4px 0 0
+    color: $header_color
+    margin: 4px 0 0
   a
-    :font-weight bold
-    :color #46a038
-    :font-size 17px
+    font-weight: bold
+    color: #46a038
+    font-size: 17px
     &:hover
-      :color green
-.stat_image
-  :background-image url(/images/stats.png)
-  :background-repeat no-repeat
-  :background-position left center
-  :height 26px
-  :padding 11px 0 0 31px 
-  :font-weight bold
-  :text-align left
-  :color black
-  :width 120px
-  :margin 0 auto
-  :font-size 14px
-  :font-variant small-caps
-.announcements
-  :font-weight bold
-  :background-image url(/images/announcement.png)
-  :background-repeat no-repeat
-  :background-position left center
-  :height 22px
-  :padding 8px 0 0 31px
-  :width 117px
-  :margin 0 auto
+      color: green
 
-.login  
+.stat_image
+  background-image: url(/images/stats.png)
+  background-repeat: no-repeat
+  background-position: left center
+  height: 26px
+  padding: 11px 0 0 31px
+  font-weight: bold
+  text-align: left
+  color: black
+  width: 120px
+  margin: 0 auto
+  font-size: 14px
+  font-variant: small-caps
+
+.announcements
+  font-weight: bold
+  background-image: url(/images/announcement.png)
+  background-repeat: no-repeat
+  background-position: left center
+  height: 22px
+  padding: 8px 0 0 31px
+  width: 117px
+  margin: 0 auto
+
+.login
   input, textarea
-    :height 15px
-    :font-size 12px
-    :padding 3px
-    :margin 2px 0
-    :width 146px
-.signup 
+    height: 15px
+    font-size: 12px
+    padding: 3px
+    margin: 2px 0
+    width: 146px
+
+.signup
   input
-    :height 40px
+    height: 40px
 
 #footer
-  :width 100%
-  :clear both
-  :background-color = !header_bg_color
-  :bottom 0
-  :position absolute
-  :color #5c5c5c
-  :text-align center
-  :padding-top 30px
+  width: 100%
+  clear: both
+  background-color: $header_bg_color
+  bottom: 0
+  position: absolute
+  color: #5c5c5c
+  text-align: center
+  padding-top: 30px
 
 .right_box
-  :width 250px
+  width: 250px
