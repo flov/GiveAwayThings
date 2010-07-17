@@ -1,35 +1,41 @@
+
 #menu
   margin: 0px
   padding: 0px
   list-style: none
-  color: white
+  color: #fff
   line-height: 28px
   display: inline-block
   float: left
   z-index: 1000
-  position: relative
-  top: 26px
-  left: 50px
+  :position relative
+  :top 26px
+  :left 50px
   a
-    color: #efb108
+    color: #EFB108
     text-decoration: none
+
   > li
     background: #313030 none repeat scroll 0 0
     cursor: pointer
     float: left
     position: relative
     padding: 0px 10px
+
     a:hover
-      color: $green
+      color = !green
+
   .logo
     background: transparent none repeat scroll 0% 0%
     padding: 0px
     background-color: Transparent
+
   ul
     padding: 0px
     margin: 0px
     display: block
     display: inline
+
   li
     ul
       display: none
@@ -40,50 +46,62 @@
       width: 150px
       line-height: 16px
       background-color: #313030
-      color: #0395cc
+      color: #0395CC
+
     &:hover ul
       display: block
+
     ul li
       display: block
       margin: 5px 20px
       padding: 5px 0px
       border-top: dotted 1px #606060
       list-style-type: none
+
       &:first-child
         border-top: none
+
       a
         display: block
-        color: #0395cc
+        color: #0395CC
+
         &:hover
-          color: #7fcdfe
+          color: #7FCDFE
+
   #main
     left: 0px
     top: -20px
     padding-top: 20px
     background-color: #313030
-    color: white
+    color: #fff
     z-index: 999
+
 
 .searchContainer
   div
-    background-color: white
+    background-color: #fff
     display: inline
     padding: 5px
     +rounded_corners(9px)
+
   input[type="text"]
     border: none
+
   img
     vertical-align: middle
+
 
 #menu
   .corner_inset_left
     position: absolute
     top: 0px
     left: -7px
+
   .corner_inset_right
     position: absolute
     top: 0px
     left: 150px
+
   .last
     background: transparent none repeat scroll 0% 0%
     margin: 0px
@@ -92,14 +110,17 @@
     position: relative
     border: none
     height: 0px
+
   .corner_left
     position: absolute
     left: 0px
     top: 0px
+
   .corner_right
     position: absolute
     left: 133px
     top: 0px
+
   .middle
     position: absolute
     left: 18px

@@ -1,31 +1,32 @@
-$bg_color: #302c29
-$header_bg_color: #313030
-$header_color: #d15c29
-$light_black: #313030
-$green: #b0d730
-$full_green: #46a038
-$blue: #007dbd
-$light_blue: #089eea
-$yellow: #efb108
-$dark_gray: #302c29
-$orange: #ff7c00
-$purple: #be459e
-$dark_green: #268e00
-$red: #f10026
-$cyan: #04859d
+!bg_color          = #302C29
+!header_bg_color   = #313030
+!header_color      = #D15C29
+!light_black       = #313030
+!green             = #B0D730
+!full_green        = #46a038
+!blue              = #007dbd
+!light_blue        = #089eea
+!yellow            = #EFB108
+!dark_gray         = #302C29
+!orange            = #FF7C00
+!purple            = #be459e
+!dark_green        = #268E00
+!red               = #F10026
+!cyan              = #04859D
 
 // Cross Browser Transparency (Yuck!)
-=opacity($opacity)
-  opacity: $opacity
-  -moz-opacity: $opacity
-  -khtml-opacity: $opacity
-  -ms-filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=") + round($opacity * 100) + unquote(")")
-  filter: unquote("alpha(opacity=") + round($opacity * 100) + unquote(")")
+=opacity(!opacity)
+  :opacity= !opacity
+  :-moz-opacity= !opacity
+  :-khtml-opacity= !opacity
+  :-ms-filter= "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + round(!opacity*100) + ")"
+  :filter= "alpha(opacity=" + round(!opacity*100) + ")"
 
-/* Do rounding (native in Safari, Firefox and Chrome)
-=rounded_corners($radius)
-  -webkit-border-radius: $radius
-  -moz-border-radius: $radius
+
+/* Do rounding (native in Safari, Firefox and Chrome) */
+=rounded_corners(!radius)
+  -webkit-border-radius: !radius
+  -moz-border-radius: !radius
 
 @import fonts.sass
 @import forms.sass
