@@ -7,9 +7,16 @@ class Address < ActiveRecord::Base
   after_validation :fetch_coordinates
   
   geocoded_by :location
+  
+  named_scope :items, :joins => :items
+  named_scope :unread, :conditions => { :read => 0, :request_id => nil }
     
   def location
     [city, street, country].compact.join(', ')
+  end
+
+  def coordinates
+    [latitude, longitude]
   end
 
   def city_attributes=(city_attributes)

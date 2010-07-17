@@ -92,6 +92,14 @@ class Person < ActiveRecord::Base
     self.password_hash == encrypt_password(pass)
   end
   
+  def latitude
+    self.address.latitude
+  end
+  
+  def longitude
+    self.address.longitude
+  end
+  
   def to_s
     self.username
   end

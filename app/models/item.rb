@@ -3,6 +3,9 @@ class Item < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 20
   
+  cattr_reader :latitude
+  cattr_reader :longitude
+  
   belongs_to :person
   belongs_to :taken_by, :class_name => "Person", :foreign_key => "taken_by"
   belongs_to :address
@@ -17,9 +20,13 @@ class Item < ActiveRecord::Base
   validates_presence_of :person
   validates_presence_of :address
 
-  named_scope :unread,  :conditions => { :read => 0, :request_id => nil }
   named_scope :not_accepted_not_taken, :conditions => { :taken_by => nil, :accepted => nil }
-      
+  named_scope :addresses, :include => :address, :conditions => 'addresses.id = items.address_id'
+  
+  concerned_with :find_nearby
+
+  geocoded_by :location
+
   def accepted_to
     self.requests.accepted_equals(true).first.requester
   end

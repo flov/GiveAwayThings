@@ -6,8 +6,17 @@ class ItemsController < ApplicationController
   before_filter :redirect_if_not_owner_of_item, :only => [:edit, :update, :destroy]
 
   def index
-    if params[:q].nil? || params[:q] == 'Type in city.'
-      @items = Item.not_accepted_not_taken.paginate :page => params[:page], :order => 'created_at DESC'
+    if params[:q].blank? || params[:q] == 'Type in city.'
+      if not params[:near].blank?
+        if logged_in?
+          @items = Item.first.find_nearby(current_person.latitude, current_person.longitude, params[:near]).paginate(:page => params[:page])
+        else
+          flash[:notice] = "Please log in. You can just search by distance if you are registered"
+          @items = Item.not_accepted_not_taken.paginate :page => params[:page], :order => 'created_at DESC'
+        end
+      else
+        @items = Item.not_accepted_not_taken.paginate :page => params[:page], :order => 'created_at DESC'
+      end
     elsif params[:search_by] == 'city'
       @items = Item.not_accepted_not_taken.search_by_city(params[:q], params[:page])
     elsif params[:search_by] == 'title'
