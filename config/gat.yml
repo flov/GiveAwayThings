@@ -8,6 +8,9 @@
 defaults: &DEFAULTS
   support: support@giveawathings.org
 
+  # localhost:3000
+  gmaps_key: ABQIAAAAGfRxw9a0TtglOmFFz2DztBTJQa0g3IQ9GZqIMmInSLzwtGDKaBTj0dfumRqbQiOKNLpWKDPpMo0wkw
+
   # The domain from where your app is served from. 
   app_domain: www.giveawaythings.org
 
@@ -19,24 +22,7 @@ defaults: &DEFAULTS
     user: no-reply@giveawaythings.org
     pass: smtp55!@
     auth: plain                  # choose: plain, login, cram_md5    
-    port: 587
-
-  # [NOT IMPLEMENTED]
-  # Set allow to true to allow the "reply to" feature for notifications.
-  # This will allow users to post answers and comments by email.
-  # When set to true, "reply above this line" notice will be displayed where relevant and accept emails.
-  # You will need to:
-  # * Setup catch-all address for email received for any username of the incoming mail server.
-  # * Run './script/inbox' periodically from cron to process incoming emails.
-  allow_incoming_email: false
-  incoming:
-    type: pop
-    server: 
-    username: 
-    password: 
-  
-  time_zone: UTC
-  
+    port: 587  
   
   oauth_providers:
     # This example is configured for http://localhost:3000. Uncomment it to test it.

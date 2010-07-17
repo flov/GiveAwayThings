@@ -66,7 +66,7 @@ class OauthController < ApplicationController
           a.app_user_id = @profile[:id]
           a.custom_attributes = @profile[:custom_attributes]
         end
-        u.build_address(:street => '')
+        u.build_address
         
         u.first_name  = @profile[:first_name]
         u.last_name   = @profile[:last_name]

@@ -9,6 +9,8 @@
       %th Country
       %th City
       %th Since
+      - unless params[:near].blank?
+        %th Distance
       %th By
   %tbody
     -@items.each do |item|
@@ -20,6 +22,8 @@
         %td=item.address.country
         %td=item.address.city
         %td=time_ago_in_words item.created_at
+        - unless params[:near].blank?
+          %td="≈ #{item.distance.to_i} miles" 
         %td=link_to(item.person.username, "/people/#{item.person.username}")  
   %tfoot
     %tr
