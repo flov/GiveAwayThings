@@ -16,6 +16,7 @@ Rails::Initializer.run do |config|
   config.gem "haml"
   config.gem "searchlogic"
   config.gem "json"
+  config.gem 'hoptoad_notifier'
   config.gem "oauth2"
   config.gem "geoip"
   config.gem "will_paginate", :version => '~> 2.3.12'
