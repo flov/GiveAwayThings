@@ -60,8 +60,8 @@ class Person < ActiveRecord::Base
       self.address.continent = l[5]
       self.address.country = l[4]
       self.address.city = l[7]
-      self.address.lat = l[9]
-      self.address.lng = l[10]
+      self.address.latitude = l[9]
+      self.address.longitude = l[10]
     end
     save
   end
