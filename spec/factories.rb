@@ -7,12 +7,12 @@ Factory.sequence :email do |n|
 end
 
 
-Factory.define :person do |person|
-  person.login { Factory.next(:login) }
-  person.email { Factory.next(:email) }
-  person.password 'dragons'
-  person.password_confirmation 'dragons'
-end
+# Factory.define :person do |person|
+#   person.login { Factory.next(:login) }
+#   person.email { Factory.next(:email) }
+#   person.password 'dragons'
+#   person.password_confirmation 'dragons'
+# end
 
 Factory.define :flov, :class => 'person' do |person|
   person.username 'username'
