@@ -5,7 +5,7 @@ class OauthController < ApplicationController
     @provider = params[:provider]
     url = client.web_server.authorize_url(
       :redirect_uri => oauth_callback_url,
-      :scope => 'email,offline_access,user_about_me,user_location')
+      :scope => 'email')
 
     redirect_to url
   end
