@@ -39,7 +39,11 @@ class RequestsController < ApplicationController
   end
   
   def given
-    
+    if not @request.requesters_reference(current_person).nil?
+      @reference = @request.requesters_reference(current_person)
+    else
+      @reference = Reference.new
+    end    
   end
   
   def create_reference

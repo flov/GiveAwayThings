@@ -86,6 +86,11 @@ en:
       created: <h2>Reference created.</h2>Thank you very much for writing a reference to %{username}. 
       updated: <h2>Reference updated.</h2>
       already_exists: "<h2>Reference already exists!</h2>Sorry, you can't create another one."
+    given:
+      mark_as_taken: Mark item as given
+      text1: This step gets your stats up and helps people to trust you by leaving a reference.
+      text2: After you marked the item as given you will have *+1* point in your statistics.
+      text3: You do *not* have to leave a reference, to mark the item as given away.
     index:
       mark_as_givenaway: mark as given away
       mark_as_taken: mark as taken

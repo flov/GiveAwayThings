@@ -2,7 +2,7 @@
   Overall experience (optional) 
   = select_rating
   %br/
-  = @reference.new_record? ? "Reference: " : "You can update your reference here"
+  = reference.new_record? ? "Reference: " : "You can update your reference here"
   %br/
   =text_area_tag 'reference[text]', reference.text, :rows => 4
   =hidden_field_tag 'reference[from_id]', current_person.id
