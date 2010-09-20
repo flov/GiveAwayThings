@@ -15,7 +15,7 @@ module RequestsHelper
     if logged_in? and current_person.username == params[:id]
       "You Offer" 
     else
-      "#{person.username.capitalize} offers"
+      "#{person.username.capitalize} Offers"
     end
   end
 end
